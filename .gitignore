@@ -1,0 +1,75 @@
+# Ambiente
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Node
+node_modules/
+**/node_modules/
+
+# Build
+dist/
+.next/
+coverage/
+expo-dist/
+
+# Expo
+.expo/
+.expo-shared/
+
+# Android
+android/app/build/
+
+# IOS
+ios/build/
+
+# Logs
+logs/
+*.log
+
+# Docker
+docker-data/
+volumes/
+
+# Backups
+backups/
+*.backup
+*.dump
+
+# Certificados
+*.pem
+*.key
+*.crt
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# NextJS
+.next/
+.next.anterior/
+
+# Releases
+releases/
+
+# Arquivos compactados
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# Storage
+storage/
+
+# Cache
+.cache/
+
+# Backups temporários
+*.backup_*
+*.bak_*
+*.before_*
+.git_backup_*
+.git_backup_*
+
+.git_backup_*

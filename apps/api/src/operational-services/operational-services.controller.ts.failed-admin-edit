@@ -1,0 +1,173 @@
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+  Query,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
+import { RequirePermissions } from '../auth/decorators/permissions.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PermissionsGuard } from '../auth/guards/permissions.guard';
+import { OperationalServicesService as S } from './operational-services.service';
+import {
+  ClientsQueryDto,
+  CreateClientDto,
+  UpdateClientDto,
+} from './dto/client.dto';
+import type { Request } from 'express';
+import {
+  CreateProgressDto,
+  CreateServiceDto,
+  ServicesQueryDto,
+  UpdateServiceDto,
+} from './dto/service.dto';
+type AuthRequest = Request & { user?: Record<string, unknown> };
+const actor = (req: AuthRequest) => {
+  const value = req.user?.email ?? req.user?.nome ?? req.user?.sub;
+
+  return typeof value === 'string' && value.trim() ? value.trim() : 'sistema';
+};
+
+const profiles = (req: AuthRequest): string[] =>
+  Array.isArray(req.user?.perfis)
+    ? req.user.perfis.map((item) => String(item))
+    : [];
+@Controller('operacional')
+@UseGuards(JwtAuthGuard, PermissionsGuard)
+export class OperationalServicesController {
+  constructor(private readonly s: S) {}
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('painel')
+  painel(@Query() q: ServicesQueryDto) {
+    return this.s.painel(q);
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('servicos/responsaveis-elegiveis')
+  responsaveisElegiveis() {
+    return this.s.responsaveisElegiveis();
+  }
+
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('servicos/propostas-aprovadas-sem-servico')
+  propostasAprovadasSemServico() {
+    return this.s.propostasAprovadasSemServico();
+  }
+
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('servicos')
+  servicos(@Query() q: ServicesQueryDto) {
+    return this.s.servicos(q);
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('servicos/proposta/:proposta')
+  proposta(@Param('proposta') p: string) {
+    return this.s.proposta(p);
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('servicos/:id/detalhes')
+  detalhes(@Param('id', ParseUUIDPipe) id: string) {
+    return this.s.detalhes(id);
+  }
+
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('servicos/:id')
+  servico(@Param('id', ParseUUIDPipe) id: string) {
+    return this.s.servico(id);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Post('servicos')
+  criar(@Body() b: CreateServiceDto, @Req() req: AuthRequest) {
+    return this.s.salvar(null, { ...b, usuario: actor(req) });
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Patch('servicos/:id')
+  atualizar(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() b: UpdateServiceDto,
+    @Req() req: AuthRequest,
+  ) {
+    return this.s.salvar(id, {
+      ...b,
+      usuario: actor(req),
+      perfis: profiles(req),
+    });
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Delete('servicos/:id')
+  excluir(@Param('id', ParseUUIDPipe) id: string) {
+    return this.s.excluirServico(id);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Post('servicos/:id/andamentos')
+  andamento(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() b: CreateProgressDto,
+    @Req() req: AuthRequest,
+  ) {
+    return this.s.andamento(id, { ...b, usuario: actor(req) });
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('clientes')
+  clientes(@Query() q: ClientsQueryDto) {
+    return this.s.clientes(q);
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('clientes/:id')
+  cliente(@Param('id', ParseUUIDPipe) id: string) {
+    return this.s.cliente(id);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Post('clientes')
+  criarCliente(@Body() b: CreateClientDto) {
+    return this.s.salvarCliente(null, b);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Patch('clientes/:id')
+  atualizarCliente(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() b: UpdateClientDto,
+  ) {
+    return this.s.salvarCliente(id, b);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Delete('clientes/:id')
+  excluirCliente(@Param('id', ParseUUIDPipe) id: string) {
+    return this.s.excluirCliente(id);
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('listas')
+  listas(@Query('tipo') tipo?: string) {
+    return this.s.listas(tipo);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Post('listas')
+  salvarLista(@Body() b: any) {
+    return this.s.salvarLista(b);
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Delete('listas/:id')
+  excluirLista(@Param('id') id: string) {
+    return this.s.excluirLista(BigInt(id));
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('notificacoes')
+  notificacoes() {
+    return this.s.notificacoes();
+  }
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  @Post('notificacoes')
+  salvarNotificacao(@Body() b: any) {
+    return this.s.salvarNotificacao(b);
+  }
+  @RequirePermissions('OPERACIONAL.OS.VISUALIZAR')
+  @Get('emails')
+  emails(@Query() q: any) {
+    return this.s.emails(q);
+  }
+}

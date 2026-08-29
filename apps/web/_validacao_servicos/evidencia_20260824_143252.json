@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "faltando": [],
+  "tipo_errado": [],
+  "negativos": [],
+  "coerencia": false,
+  "valores": {
+    "total": 494,
+    "ativos": 100,
+    "atrasados": 37,
+    "concluidos": 394,
+    "cancelados": 0,
+    "emDia": 23,
+    "emAndamento": 17,
+    "aguardandoCliente": 28,
+    "faltaMaterial": 1,
+    "planejamento": 54
+  }
+}

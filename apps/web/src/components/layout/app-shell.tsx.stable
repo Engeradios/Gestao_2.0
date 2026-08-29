@@ -1,0 +1,153 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  Bell, ChevronDown, CircleHelp, CloudSun, FileText, Gauge,
+  History, Landmark, LogOut, Menu, MessageSquarePlus,
+  PackageOpen, Route, Settings, ShieldCheck, User, Wrench, X,
+} from 'lucide-react';
+import { useState } from 'react';
+import { ThemeToggle } from './theme-toggle';
+
+interface AppShellProps {
+  children: React.ReactNode;
+  userName: string;
+  userEmail: string;
+}
+
+type NavItem = {
+  label: string;
+  href?: string;
+  icon: React.ComponentType<{ size?: number }>;
+  children?: { label: string; href: string }[];
+};
+
+const navigation: NavItem[] = [
+  { label: 'Visão Geral', href: '/dashboard', icon: Gauge },
+  { label: 'Operacional', icon: Wrench, children: [
+    { label: 'Serviços', href: '/operacional/servicos' },
+    { label: 'Ordens de Serviço', href: '/operacional/os' },
+    { label: 'Contratos', href: '/operacional/contratos' },
+  ]},
+  { label: 'Propostas', href: '/propostas', icon: FileText },
+  { label: 'Financeiro', icon: Landmark, children: [
+    { label: 'Visão Geral', href: '/financeiro' },
+    { label: 'Contas a Receber', href: '/financeiro/receber' },
+    { label: 'Contas a Pagar', href: '/financeiro/pagar' },
+    { label: 'Fluxo Financeiro', href: '/financeiro/fluxo' },
+    { label: 'DRE', href: '/financeiro/dre' },
+  ]},
+  { label: 'Grandes Projetos', href: '/grandes-projetos', icon: PackageOpen },
+  { label: 'Vistoria', href: '/vistoria', icon: ShieldCheck },
+  { label: 'Roteiro Técnico', href: '/roteiro-tecnico', icon: Route },
+  { label: 'Estoque e Logística', href: '/estoque', icon: PackageOpen },
+  { label: 'Ferramentas', icon: Settings, children: [
+    { label: 'Usuários', href: '/ferramentas/usuarios' },
+    { label: 'Perfis e Permissões', href: '/ferramentas/perfis' },
+    { label: 'Auditoria', href: '/ferramentas/auditoria' },
+    { label: 'Importações', href: '/ferramentas/importacoes' },
+    { label: 'Integrações', href: '/ferramentas/integracoes' },
+    { label: 'Parâmetros', href: '/ferramentas/parametros' },
+  ]},
+];
+
+const iconButton = 'grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800';
+const menuLink = 'flex items-center gap-3 rounded-xl px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-900';
+
+export function AppShell({ children, userName, userEmail }: AppShellProps) {
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [userMenu, setUserMenu] = useState(false);
+  const [expanded, setExpanded] = useState<string[]>(['Operacional', 'Financeiro']);
+
+  function toggleGroup(label: string) {
+    setExpanded((items) => items.includes(label)
+      ? items.filter((item) => item !== label)
+      : [...items, label]);
+  }
+
+  async function logout() {
+    await fetch('/api/auth/logout', { method: 'POST' });
+    window.location.href = '/login';
+  }
+
+  const sidebar = (
+    <aside className="flex h-full w-72 flex-col border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+      <div className="flex h-28 items-center justify-between border-b border-slate-200 px-5 dark:border-slate-800">
+        <Link href="/dashboard" onClick={() => setMobileMenu(false)}>
+          <Image src="/brand/logo_claro.png" alt="Engerádios" width={259} height={164} className="h-auto w-40 object-contain dark:hidden" priority />
+          <Image src="/brand/logo_escuro.png" alt="Engerádios" width={259} height={164} className="hidden h-auto w-40 object-contain dark:block" priority />
+        </Link>
+        <button type="button" onClick={() => setMobileMenu(false)} className="lg:hidden" aria-label="Fechar menu"><X size={22} /></button>
+      </div>
+
+      <nav className="flex-1 overflow-y-auto p-4">
+        <p className="mb-3 px-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Navegação</p>
+        <div className="space-y-1">
+          {navigation.map((item) => {
+            const Icon = item.icon;
+            const isExpanded = expanded.includes(item.label);
+            if (item.children) {
+              return (
+                <div key={item.label}>
+                  <button type="button" onClick={() => toggleGroup(item.label)} className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-900">
+                    <Icon size={19} /><span className="flex-1">{item.label}</span><ChevronDown size={16} className={isExpanded ? 'rotate-180' : ''} />
+                  </button>
+                  {isExpanded && (
+                    <div className="mb-2 ml-7 mt-1 space-y-1 border-l border-slate-200 pl-3 dark:border-slate-800">
+                      {item.children.map((child) => (
+                        <Link key={child.href} href={child.href} onClick={() => setMobileMenu(false)} className="block rounded-lg px-3 py-2 text-sm text-slate-500 hover:bg-red-50 hover:text-red-700 dark:text-slate-400 dark:hover:bg-red-950/40 dark:hover:text-red-300">{child.label}</Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return (
+              <Link key={item.label} href={item.href ?? '/dashboard'} onClick={() => setMobileMenu(false)} className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-red-50 hover:text-red-700 dark:text-slate-300 dark:hover:bg-red-950/40 dark:hover:text-red-300">
+                <Icon size={19} />{item.label}
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+      <div className="border-t border-slate-200 p-4 dark:border-slate-800"><div className="rounded-xl bg-slate-100 p-3 dark:bg-slate-900"><p className="text-xs font-semibold">Gestão Engerádios 2.0</p><p className="mt-1 text-xs text-slate-500">Ambiente de homologação</p></div></div>
+    </aside>
+  );
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+      <div className="fixed inset-y-0 left-0 z-40 hidden lg:block">{sidebar}</div>
+      {mobileMenu && <><button type="button" aria-label="Fechar menu" onClick={() => setMobileMenu(false)} className="fixed inset-0 z-40 bg-black/60 lg:hidden" /><div className="fixed inset-y-0 left-0 z-50 lg:hidden">{sidebar}</div></>}
+      <div className="lg:pl-72">
+        <header className="sticky top-0 z-30 flex h-20 items-center gap-3 border-b border-slate-200 bg-white/95 px-4 backdrop-blur md:px-6 dark:border-slate-800 dark:bg-slate-950/95">
+          <button type="button" onClick={() => setMobileMenu(true)} className={`${iconButton} lg:hidden`} aria-label="Abrir menu"><Menu size={21} /></button>
+          <div className="min-w-0 flex-1"><p className="truncate text-xs uppercase tracking-widest text-red-600">Gestão Engerádios 2.0</p><h1 className="truncate font-semibold">Painel Corporativo</h1></div>
+          <div className="hidden h-10 items-center gap-2 rounded-xl border border-slate-200 px-3 text-sm xl:flex dark:border-slate-700"><CloudSun size={18} className="text-red-600" /><span>Rio de Janeiro</span><span className="text-slate-400">Clima em breve</span></div>
+          <Link href="/ajuda" title="Ajuda" className={iconButton}><CircleHelp size={19} /></Link>
+          <Link href="/solicitacoes" title="Solicitações" className={iconButton}><MessageSquarePlus size={19} /></Link>
+          <button type="button" title="Notificações" className={`${iconButton} relative`}><Bell size={19} /><span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-600" /></button>
+          <ThemeToggle />
+          <div className="relative">
+            <button type="button" onClick={() => setUserMenu((value) => !value)} className="flex h-11 items-center gap-3 rounded-xl border border-slate-200 bg-white px-2 pr-3 dark:border-slate-700 dark:bg-slate-900">
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-red-600 font-bold text-white">{userName.charAt(0).toUpperCase()}</span>
+              <span className="hidden max-w-40 text-left md:block"><span className="block truncate text-sm font-semibold">{userName}</span><span className="block truncate text-xs text-slate-500">{userEmail}</span></span><ChevronDown size={16} />
+            </button>
+            {userMenu && (
+              <div className="absolute right-0 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-950">
+                <div className="border-b border-slate-200 p-4 dark:border-slate-800"><p className="font-semibold">{userName}</p><p className="truncate text-xs text-slate-500">{userEmail}</p></div>
+                <div className="p-2">
+                  <Link href="/minha-conta" className={menuLink}><User size={17} />Minha conta</Link>
+                  <Link href="/minha-conta/seguranca" className={menuLink}><ShieldCheck size={17} />Senha e segurança</Link>
+                  <Link href="/minha-conta/acessos" className={menuLink}><History size={17} />Histórico de acessos</Link>
+                  <button type="button" onClick={logout} className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40"><LogOut size={17} />Encerrar sessão</button>
+                </div>
+              </div>
+            )}
+          </div>
+        </header>
+        <main className="p-4 md:p-6 xl:p-8">{children}</main>
+      </div>
+    </div>
+  );
+}

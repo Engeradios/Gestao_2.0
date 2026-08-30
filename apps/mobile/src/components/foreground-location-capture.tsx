@@ -5,7 +5,9 @@ import * as Location from "expo-location";
 import * as Network from "expo-network";
 import { useEffect, useRef, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { sendTelemetry } from "../services/app-campo.service";
+import { startBackgroundLocation, stopBackgroundLocation } from "../services/background-location.service";
+import type { TelemetryPayload } from "../services/app-campo.service";
+import { submitTelemetryOfflineFirst, telemetryQueueCount } from "../services/telemetry-queue.service";
 
 type Props = {
   enabled: boolean;
@@ -20,6 +22,31 @@ type Position = {
   capturedAt: string;
   address: string;
 };
+
+const BRAZILIAN_UF: Record<string, string> = {
+  acre: "AC", alagoas: "AL", amapa: "AP", amazonas: "AM", bahia: "BA",
+  ceara: "CE", "distrito federal": "DF", "espirito santo": "ES",
+  goias: "GO", maranhao: "MA", "mato grosso": "MT",
+  "mato grosso do sul": "MS", "minas gerais": "MG", para: "PA",
+  paraiba: "PB", parana: "PR", pernambuco: "PE", piaui: "PI",
+  "rio de janeiro": "RJ", "rio grande do norte": "RN",
+  "rio grande do sul": "RS", rondonia: "RO", roraima: "RR",
+  "santa catarina": "SC", "sao paulo": "SP", sergipe: "SE",
+  tocantins: "TO",
+};
+
+function normalizeUf(region: string | null | undefined) {
+  if (!region) return undefined;
+  const compact = region.trim();
+  if (/^[A-Za-z]{2}$/.test(compact)) return compact.toUpperCase();
+  const key = compact.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  return BRAZILIAN_UF[key];
+}
+
+function clean(value: string | null | undefined, max: number) {
+  const result = value?.trim();
+  return result ? result.slice(0, max) : undefined;
+}
 
 export function ForegroundLocationCapture({
   enabled,
@@ -52,6 +79,7 @@ export function ForegroundLocationCapture({
       lastTimestamp.current = null;
 
       if (!enabled || !shiftId || !deviceId) {
+        await stopBackgroundLocation().catch(() => undefined);
         setStatus("Inativa");
         setError("");
         setPosition(null);
@@ -85,15 +113,30 @@ export function ForegroundLocationCapture({
         return;
       }
 
+      const background = await startBackgroundLocation().catch(() => ({
+        started: false as const,
+        reason: "UNAVAILABLE" as const,
+      }));
+
+      if (background.started) {
+        setStatus("Ativa em segundo plano");
+        setError("");
+        return;
+      }
+
       setStatus("Ativa durante o expediente");
-      setError("");
+      setError(
+        background.reason === "BACKGROUND_DENIED"
+          ? "Permita localização o tempo todo para manter o monitoramento em segundo plano."
+          : "Segundo plano indisponível; captura mantida enquanto o aplicativo estiver aberto.",
+      );
 
       const createdSubscription =
         await Location.watchPositionAsync(
           {
-            accuracy: Location.Accuracy.Balanced,
-            timeInterval: 30000,
-            distanceInterval: 25,
+            accuracy: Location.Accuracy.High,
+            timeInterval: 60000,
+            distanceInterval: 0,
           },
           async (location) => {
             if (
@@ -129,31 +172,6 @@ export function ForegroundLocationCapture({
               location.timestamp,
             ).toISOString();
 
-            void Promise.allSettled([
-              Location.reverseGeocodeAsync({
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-              }),
-              Battery.getPowerStateAsync(),
-              Network.getNetworkStateAsync(),
-            ]).then((results) => {
-              if (cancelled || currentGeneration !== generation.current) return;
-              const addresses = results[0].status === "fulfilled" ? results[0].value : [];
-              const power = results[1].status === "fulfilled" ? results[1].value : null;
-              const network = results[2].status === "fulfilled" ? results[2].value : null;
-              const first = addresses[0];
-              const address = first
-                ? [first.street, first.streetNumber, first.district, first.city, first.region]
-                    .filter(Boolean)
-                    .join(", ")
-                : "Endereço indisponível";
-              setPosition((current) => current ? { ...current, address } : current);
-              const battery = power && power.batteryLevel >= 0
-                ? `${Math.round(power.batteryLevel * 100)}%`
-                : "indisponível";
-              setTelemetryDetail(`Bateria ${battery} | Rede ${network?.type ?? "desconhecida"}`);
-            });
-
             setPosition({
               latitude: location.coords.latitude,
               longitude: location.coords.longitude,
@@ -172,12 +190,46 @@ export function ForegroundLocationCapture({
             let carregando: boolean | undefined;
             let tipoConexao: string | undefined;
             let online: boolean | undefined;
+            let enderecoLogradouro: string | undefined;
+            let enderecoNumero: string | undefined;
+            let enderecoBairro: string | undefined;
+            let enderecoCidade: string | undefined;
+            let enderecoUf: string | undefined;
+            let enderecoCompleto: string | undefined;
 
             try {
-              const [power, network] = await Promise.all([
+              const [addresses, power, network] = await Promise.all([
+                Location.reverseGeocodeAsync({
+                  latitude: location.coords.latitude,
+                  longitude: location.coords.longitude,
+                }).catch(() => []),
                 Battery.getPowerStateAsync(),
                 Network.getNetworkStateAsync(),
               ]);
+
+              const first = addresses[0];
+              enderecoLogradouro = clean(first?.street, 200);
+              enderecoNumero = clean(first?.streetNumber, 20);
+              enderecoBairro = clean(first?.district, 120);
+              enderecoCidade = clean(first?.city ?? first?.subregion, 120);
+              enderecoUf = normalizeUf(first?.region);
+              enderecoCompleto = clean(
+                [
+                  [enderecoLogradouro, enderecoNumero].filter(Boolean).join(", "),
+                  enderecoBairro,
+                  [enderecoCidade, enderecoUf].filter(Boolean).join(" - "),
+                ].filter(Boolean).join(" · "),
+                400,
+              );
+
+              setPosition((current) =>
+                current
+                  ? {
+                      ...current,
+                      address: enderecoCompleto ?? "Endereço indisponível",
+                    }
+                  : current,
+              );
 
               bateriaPercentual =
                 power.batteryLevel >= 0
@@ -208,9 +260,15 @@ export function ForegroundLocationCapture({
               carregando = undefined;
               tipoConexao = undefined;
               online = undefined;
+              enderecoLogradouro = undefined;
+              enderecoNumero = undefined;
+              enderecoBairro = undefined;
+              enderecoCidade = undefined;
+              enderecoUf = undefined;
+              enderecoCompleto = undefined;
             }
 
-            void sendTelemetry(shiftId, {
+            const telemetryPayload: TelemetryPayload = {
               /*
                * Identifica a captura física pelo dispositivo
                * e timestamp, sem depender do expediente.
@@ -235,13 +293,26 @@ export function ForegroundLocationCapture({
               tipoConexao,
               qualidadeSinal: undefined,
               online,
-            })
-              .then(() => {
+              enderecoLogradouro,
+              enderecoNumero,
+              enderecoBairro,
+              enderecoCidade,
+              enderecoUf,
+              enderecoCompleto,
+            };
+
+            void submitTelemetryOfflineFirst(shiftId, telemetryPayload)
+              .then(async (result) => {
+                const pending = result.pending ?? await telemetryQueueCount();
                 if (
                   !cancelled &&
                   currentGeneration === generation.current
                 ) {
-                  setStatus("Ativa e sincronizada");
+                  setStatus(
+                    pending === 0
+                      ? "Ativa e sincronizada"
+                      : `Ativa, ${pending} captura(s) pendente(s)`,
+                  );
                   setError("");
                 }
               })
@@ -353,8 +424,8 @@ export function ForegroundLocationCapture({
       ) : null}
 
       <Text style={styles.notice}>
-        A captura ocorre somente com expediente ativo e
-        enquanto o aplicativo permanece aberto.
+        A captura ocorre somente com expediente ativo. Com a permissão
+        adequada, permanece ativa quando o aplicativo é minimizado.
       </Text>
     </View>
   );

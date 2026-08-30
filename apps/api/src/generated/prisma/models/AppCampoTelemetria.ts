@@ -72,6 +72,12 @@ export type AppCampoTelemetriaMinAggregateOutputType = {
   capturadoEm: Date | null
   recebidoEm: Date | null
   anonimizadoEm: Date | null
+  enderecoLogradouro: string | null
+  enderecoNumero: string | null
+  enderecoBairro: string | null
+  enderecoCidade: string | null
+  enderecoUf: string | null
+  enderecoCompleto: string | null
 }
 
 export type AppCampoTelemetriaMaxAggregateOutputType = {
@@ -94,6 +100,12 @@ export type AppCampoTelemetriaMaxAggregateOutputType = {
   capturadoEm: Date | null
   recebidoEm: Date | null
   anonimizadoEm: Date | null
+  enderecoLogradouro: string | null
+  enderecoNumero: string | null
+  enderecoBairro: string | null
+  enderecoCidade: string | null
+  enderecoUf: string | null
+  enderecoCompleto: string | null
 }
 
 export type AppCampoTelemetriaCountAggregateOutputType = {
@@ -116,6 +128,12 @@ export type AppCampoTelemetriaCountAggregateOutputType = {
   capturadoEm: number
   recebidoEm: number
   anonimizadoEm: number
+  enderecoLogradouro: number
+  enderecoNumero: number
+  enderecoBairro: number
+  enderecoCidade: number
+  enderecoUf: number
+  enderecoCompleto: number
   _all: number
 }
 
@@ -166,6 +184,12 @@ export type AppCampoTelemetriaMinAggregateInputType = {
   capturadoEm?: true
   recebidoEm?: true
   anonimizadoEm?: true
+  enderecoLogradouro?: true
+  enderecoNumero?: true
+  enderecoBairro?: true
+  enderecoCidade?: true
+  enderecoUf?: true
+  enderecoCompleto?: true
 }
 
 export type AppCampoTelemetriaMaxAggregateInputType = {
@@ -188,6 +212,12 @@ export type AppCampoTelemetriaMaxAggregateInputType = {
   capturadoEm?: true
   recebidoEm?: true
   anonimizadoEm?: true
+  enderecoLogradouro?: true
+  enderecoNumero?: true
+  enderecoBairro?: true
+  enderecoCidade?: true
+  enderecoUf?: true
+  enderecoCompleto?: true
 }
 
 export type AppCampoTelemetriaCountAggregateInputType = {
@@ -210,6 +240,12 @@ export type AppCampoTelemetriaCountAggregateInputType = {
   capturadoEm?: true
   recebidoEm?: true
   anonimizadoEm?: true
+  enderecoLogradouro?: true
+  enderecoNumero?: true
+  enderecoBairro?: true
+  enderecoCidade?: true
+  enderecoUf?: true
+  enderecoCompleto?: true
   _all?: true
 }
 
@@ -319,6 +355,12 @@ export type AppCampoTelemetriaGroupByOutputType = {
   capturadoEm: Date
   recebidoEm: Date
   anonimizadoEm: Date | null
+  enderecoLogradouro: string | null
+  enderecoNumero: string | null
+  enderecoBairro: string | null
+  enderecoCidade: string | null
+  enderecoUf: string | null
+  enderecoCompleto: string | null
   _count: AppCampoTelemetriaCountAggregateOutputType | null
   _avg: AppCampoTelemetriaAvgAggregateOutputType | null
   _sum: AppCampoTelemetriaSumAggregateOutputType | null
@@ -364,6 +406,12 @@ export type AppCampoTelemetriaWhereInput = {
   capturadoEm?: Prisma.DateTimeFilter<"AppCampoTelemetria"> | Date | string
   recebidoEm?: Prisma.DateTimeFilter<"AppCampoTelemetria"> | Date | string
   anonimizadoEm?: Prisma.DateTimeNullableFilter<"AppCampoTelemetria"> | Date | string | null
+  enderecoLogradouro?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoNumero?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoBairro?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoCidade?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoUf?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoCompleto?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
   usuario?: Prisma.XOR<Prisma.UsuarioScalarRelationFilter, Prisma.UsuarioWhereInput>
   pessoa?: Prisma.XOR<Prisma.PessoaNullableScalarRelationFilter, Prisma.PessoaWhereInput> | null
   expediente?: Prisma.XOR<Prisma.AppCampoExpedienteScalarRelationFilter, Prisma.AppCampoExpedienteWhereInput>
@@ -390,6 +438,12 @@ export type AppCampoTelemetriaOrderByWithRelationInput = {
   capturadoEm?: Prisma.SortOrder
   recebidoEm?: Prisma.SortOrder
   anonimizadoEm?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoLogradouro?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoNumero?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoBairro?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoCidade?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoUf?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoCompleto?: Prisma.SortOrderInput | Prisma.SortOrder
   usuario?: Prisma.UsuarioOrderByWithRelationInput
   pessoa?: Prisma.PessoaOrderByWithRelationInput
   expediente?: Prisma.AppCampoExpedienteOrderByWithRelationInput
@@ -419,6 +473,12 @@ export type AppCampoTelemetriaWhereUniqueInput = Prisma.AtLeast<{
   capturadoEm?: Prisma.DateTimeFilter<"AppCampoTelemetria"> | Date | string
   recebidoEm?: Prisma.DateTimeFilter<"AppCampoTelemetria"> | Date | string
   anonimizadoEm?: Prisma.DateTimeNullableFilter<"AppCampoTelemetria"> | Date | string | null
+  enderecoLogradouro?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoNumero?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoBairro?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoCidade?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoUf?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoCompleto?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
   usuario?: Prisma.XOR<Prisma.UsuarioScalarRelationFilter, Prisma.UsuarioWhereInput>
   pessoa?: Prisma.XOR<Prisma.PessoaNullableScalarRelationFilter, Prisma.PessoaWhereInput> | null
   expediente?: Prisma.XOR<Prisma.AppCampoExpedienteScalarRelationFilter, Prisma.AppCampoExpedienteWhereInput>
@@ -445,6 +505,12 @@ export type AppCampoTelemetriaOrderByWithAggregationInput = {
   capturadoEm?: Prisma.SortOrder
   recebidoEm?: Prisma.SortOrder
   anonimizadoEm?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoLogradouro?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoNumero?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoBairro?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoCidade?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoUf?: Prisma.SortOrderInput | Prisma.SortOrder
+  enderecoCompleto?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.AppCampoTelemetriaCountOrderByAggregateInput
   _avg?: Prisma.AppCampoTelemetriaAvgOrderByAggregateInput
   _max?: Prisma.AppCampoTelemetriaMaxOrderByAggregateInput
@@ -475,6 +541,12 @@ export type AppCampoTelemetriaScalarWhereWithAggregatesInput = {
   capturadoEm?: Prisma.DateTimeWithAggregatesFilter<"AppCampoTelemetria"> | Date | string
   recebidoEm?: Prisma.DateTimeWithAggregatesFilter<"AppCampoTelemetria"> | Date | string
   anonimizadoEm?: Prisma.DateTimeNullableWithAggregatesFilter<"AppCampoTelemetria"> | Date | string | null
+  enderecoLogradouro?: Prisma.StringNullableWithAggregatesFilter<"AppCampoTelemetria"> | string | null
+  enderecoNumero?: Prisma.StringNullableWithAggregatesFilter<"AppCampoTelemetria"> | string | null
+  enderecoBairro?: Prisma.StringNullableWithAggregatesFilter<"AppCampoTelemetria"> | string | null
+  enderecoCidade?: Prisma.StringNullableWithAggregatesFilter<"AppCampoTelemetria"> | string | null
+  enderecoUf?: Prisma.StringNullableWithAggregatesFilter<"AppCampoTelemetria"> | string | null
+  enderecoCompleto?: Prisma.StringNullableWithAggregatesFilter<"AppCampoTelemetria"> | string | null
 }
 
 export type AppCampoTelemetriaCreateInput = {
@@ -493,6 +565,12 @@ export type AppCampoTelemetriaCreateInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
   usuario: Prisma.UsuarioCreateNestedOneWithoutAppCampoTelemetriasInput
   pessoa?: Prisma.PessoaCreateNestedOneWithoutAppCampoTelemetriasInput
   expediente: Prisma.AppCampoExpedienteCreateNestedOneWithoutTelemetriasInput
@@ -519,6 +597,12 @@ export type AppCampoTelemetriaUncheckedCreateInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaUpdateInput = {
@@ -537,6 +621,12 @@ export type AppCampoTelemetriaUpdateInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutAppCampoTelemetriasNestedInput
   pessoa?: Prisma.PessoaUpdateOneWithoutAppCampoTelemetriasNestedInput
   expediente?: Prisma.AppCampoExpedienteUpdateOneRequiredWithoutTelemetriasNestedInput
@@ -563,6 +653,12 @@ export type AppCampoTelemetriaUncheckedUpdateInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaCreateManyInput = {
@@ -585,6 +681,12 @@ export type AppCampoTelemetriaCreateManyInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaUpdateManyMutationInput = {
@@ -603,6 +705,12 @@ export type AppCampoTelemetriaUpdateManyMutationInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaUncheckedUpdateManyInput = {
@@ -625,6 +733,12 @@ export type AppCampoTelemetriaUncheckedUpdateManyInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaListRelationFilter = {
@@ -657,6 +771,12 @@ export type AppCampoTelemetriaCountOrderByAggregateInput = {
   capturadoEm?: Prisma.SortOrder
   recebidoEm?: Prisma.SortOrder
   anonimizadoEm?: Prisma.SortOrder
+  enderecoLogradouro?: Prisma.SortOrder
+  enderecoNumero?: Prisma.SortOrder
+  enderecoBairro?: Prisma.SortOrder
+  enderecoCidade?: Prisma.SortOrder
+  enderecoUf?: Prisma.SortOrder
+  enderecoCompleto?: Prisma.SortOrder
 }
 
 export type AppCampoTelemetriaAvgOrderByAggregateInput = {
@@ -692,6 +812,12 @@ export type AppCampoTelemetriaMaxOrderByAggregateInput = {
   capturadoEm?: Prisma.SortOrder
   recebidoEm?: Prisma.SortOrder
   anonimizadoEm?: Prisma.SortOrder
+  enderecoLogradouro?: Prisma.SortOrder
+  enderecoNumero?: Prisma.SortOrder
+  enderecoBairro?: Prisma.SortOrder
+  enderecoCidade?: Prisma.SortOrder
+  enderecoUf?: Prisma.SortOrder
+  enderecoCompleto?: Prisma.SortOrder
 }
 
 export type AppCampoTelemetriaMinOrderByAggregateInput = {
@@ -714,6 +840,12 @@ export type AppCampoTelemetriaMinOrderByAggregateInput = {
   capturadoEm?: Prisma.SortOrder
   recebidoEm?: Prisma.SortOrder
   anonimizadoEm?: Prisma.SortOrder
+  enderecoLogradouro?: Prisma.SortOrder
+  enderecoNumero?: Prisma.SortOrder
+  enderecoBairro?: Prisma.SortOrder
+  enderecoCidade?: Prisma.SortOrder
+  enderecoUf?: Prisma.SortOrder
+  enderecoCompleto?: Prisma.SortOrder
 }
 
 export type AppCampoTelemetriaSumOrderByAggregateInput = {
@@ -913,6 +1045,12 @@ export type AppCampoTelemetriaCreateWithoutUsuarioInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
   pessoa?: Prisma.PessoaCreateNestedOneWithoutAppCampoTelemetriasInput
   expediente: Prisma.AppCampoExpedienteCreateNestedOneWithoutTelemetriasInput
   dispositivo?: Prisma.AppCampoDispositivoCreateNestedOneWithoutTelemetriasInput
@@ -937,6 +1075,12 @@ export type AppCampoTelemetriaUncheckedCreateWithoutUsuarioInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaCreateOrConnectWithoutUsuarioInput = {
@@ -988,6 +1132,12 @@ export type AppCampoTelemetriaScalarWhereInput = {
   capturadoEm?: Prisma.DateTimeFilter<"AppCampoTelemetria"> | Date | string
   recebidoEm?: Prisma.DateTimeFilter<"AppCampoTelemetria"> | Date | string
   anonimizadoEm?: Prisma.DateTimeNullableFilter<"AppCampoTelemetria"> | Date | string | null
+  enderecoLogradouro?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoNumero?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoBairro?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoCidade?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoUf?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
+  enderecoCompleto?: Prisma.StringNullableFilter<"AppCampoTelemetria"> | string | null
 }
 
 export type AppCampoTelemetriaCreateWithoutDispositivoInput = {
@@ -1006,6 +1156,12 @@ export type AppCampoTelemetriaCreateWithoutDispositivoInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
   usuario: Prisma.UsuarioCreateNestedOneWithoutAppCampoTelemetriasInput
   pessoa?: Prisma.PessoaCreateNestedOneWithoutAppCampoTelemetriasInput
   expediente: Prisma.AppCampoExpedienteCreateNestedOneWithoutTelemetriasInput
@@ -1030,6 +1186,12 @@ export type AppCampoTelemetriaUncheckedCreateWithoutDispositivoInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaCreateOrConnectWithoutDispositivoInput = {
@@ -1074,6 +1236,12 @@ export type AppCampoTelemetriaCreateWithoutExpedienteInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
   usuario: Prisma.UsuarioCreateNestedOneWithoutAppCampoTelemetriasInput
   pessoa?: Prisma.PessoaCreateNestedOneWithoutAppCampoTelemetriasInput
   dispositivo?: Prisma.AppCampoDispositivoCreateNestedOneWithoutTelemetriasInput
@@ -1098,6 +1266,12 @@ export type AppCampoTelemetriaUncheckedCreateWithoutExpedienteInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaCreateOrConnectWithoutExpedienteInput = {
@@ -1142,6 +1316,12 @@ export type AppCampoTelemetriaCreateWithoutPessoaInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
   usuario: Prisma.UsuarioCreateNestedOneWithoutAppCampoTelemetriasInput
   expediente: Prisma.AppCampoExpedienteCreateNestedOneWithoutTelemetriasInput
   dispositivo?: Prisma.AppCampoDispositivoCreateNestedOneWithoutTelemetriasInput
@@ -1166,6 +1346,12 @@ export type AppCampoTelemetriaUncheckedCreateWithoutPessoaInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaCreateOrConnectWithoutPessoaInput = {
@@ -1213,6 +1399,12 @@ export type AppCampoTelemetriaCreateManyUsuarioInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaUpdateWithoutUsuarioInput = {
@@ -1231,6 +1423,12 @@ export type AppCampoTelemetriaUpdateWithoutUsuarioInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pessoa?: Prisma.PessoaUpdateOneWithoutAppCampoTelemetriasNestedInput
   expediente?: Prisma.AppCampoExpedienteUpdateOneRequiredWithoutTelemetriasNestedInput
   dispositivo?: Prisma.AppCampoDispositivoUpdateOneWithoutTelemetriasNestedInput
@@ -1255,6 +1453,12 @@ export type AppCampoTelemetriaUncheckedUpdateWithoutUsuarioInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaUncheckedUpdateManyWithoutUsuarioInput = {
@@ -1276,6 +1480,12 @@ export type AppCampoTelemetriaUncheckedUpdateManyWithoutUsuarioInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaCreateManyDispositivoInput = {
@@ -1297,6 +1507,12 @@ export type AppCampoTelemetriaCreateManyDispositivoInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaUpdateWithoutDispositivoInput = {
@@ -1315,6 +1531,12 @@ export type AppCampoTelemetriaUpdateWithoutDispositivoInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutAppCampoTelemetriasNestedInput
   pessoa?: Prisma.PessoaUpdateOneWithoutAppCampoTelemetriasNestedInput
   expediente?: Prisma.AppCampoExpedienteUpdateOneRequiredWithoutTelemetriasNestedInput
@@ -1339,6 +1561,12 @@ export type AppCampoTelemetriaUncheckedUpdateWithoutDispositivoInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaUncheckedUpdateManyWithoutDispositivoInput = {
@@ -1360,6 +1588,12 @@ export type AppCampoTelemetriaUncheckedUpdateManyWithoutDispositivoInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaCreateManyExpedienteInput = {
@@ -1381,6 +1615,12 @@ export type AppCampoTelemetriaCreateManyExpedienteInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaUpdateWithoutExpedienteInput = {
@@ -1399,6 +1639,12 @@ export type AppCampoTelemetriaUpdateWithoutExpedienteInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutAppCampoTelemetriasNestedInput
   pessoa?: Prisma.PessoaUpdateOneWithoutAppCampoTelemetriasNestedInput
   dispositivo?: Prisma.AppCampoDispositivoUpdateOneWithoutTelemetriasNestedInput
@@ -1423,6 +1669,12 @@ export type AppCampoTelemetriaUncheckedUpdateWithoutExpedienteInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaUncheckedUpdateManyWithoutExpedienteInput = {
@@ -1444,6 +1696,12 @@ export type AppCampoTelemetriaUncheckedUpdateManyWithoutExpedienteInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaCreateManyPessoaInput = {
@@ -1465,6 +1723,12 @@ export type AppCampoTelemetriaCreateManyPessoaInput = {
   capturadoEm: Date | string
   recebidoEm?: Date | string
   anonimizadoEm?: Date | string | null
+  enderecoLogradouro?: string | null
+  enderecoNumero?: string | null
+  enderecoBairro?: string | null
+  enderecoCidade?: string | null
+  enderecoUf?: string | null
+  enderecoCompleto?: string | null
 }
 
 export type AppCampoTelemetriaUpdateWithoutPessoaInput = {
@@ -1483,6 +1747,12 @@ export type AppCampoTelemetriaUpdateWithoutPessoaInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutAppCampoTelemetriasNestedInput
   expediente?: Prisma.AppCampoExpedienteUpdateOneRequiredWithoutTelemetriasNestedInput
   dispositivo?: Prisma.AppCampoDispositivoUpdateOneWithoutTelemetriasNestedInput
@@ -1507,6 +1777,12 @@ export type AppCampoTelemetriaUncheckedUpdateWithoutPessoaInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type AppCampoTelemetriaUncheckedUpdateManyWithoutPessoaInput = {
@@ -1528,6 +1804,12 @@ export type AppCampoTelemetriaUncheckedUpdateManyWithoutPessoaInput = {
   capturadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebidoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   anonimizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  enderecoLogradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoNumero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoBairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  enderecoCompleto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -1552,6 +1834,12 @@ export type AppCampoTelemetriaSelect<ExtArgs extends runtime.Types.Extensions.In
   capturadoEm?: boolean
   recebidoEm?: boolean
   anonimizadoEm?: boolean
+  enderecoLogradouro?: boolean
+  enderecoNumero?: boolean
+  enderecoBairro?: boolean
+  enderecoCidade?: boolean
+  enderecoUf?: boolean
+  enderecoCompleto?: boolean
   usuario?: boolean | Prisma.UsuarioDefaultArgs<ExtArgs>
   pessoa?: boolean | Prisma.AppCampoTelemetria$pessoaArgs<ExtArgs>
   expediente?: boolean | Prisma.AppCampoExpedienteDefaultArgs<ExtArgs>
@@ -1578,6 +1866,12 @@ export type AppCampoTelemetriaSelectCreateManyAndReturn<ExtArgs extends runtime.
   capturadoEm?: boolean
   recebidoEm?: boolean
   anonimizadoEm?: boolean
+  enderecoLogradouro?: boolean
+  enderecoNumero?: boolean
+  enderecoBairro?: boolean
+  enderecoCidade?: boolean
+  enderecoUf?: boolean
+  enderecoCompleto?: boolean
   usuario?: boolean | Prisma.UsuarioDefaultArgs<ExtArgs>
   pessoa?: boolean | Prisma.AppCampoTelemetria$pessoaArgs<ExtArgs>
   expediente?: boolean | Prisma.AppCampoExpedienteDefaultArgs<ExtArgs>
@@ -1604,6 +1898,12 @@ export type AppCampoTelemetriaSelectUpdateManyAndReturn<ExtArgs extends runtime.
   capturadoEm?: boolean
   recebidoEm?: boolean
   anonimizadoEm?: boolean
+  enderecoLogradouro?: boolean
+  enderecoNumero?: boolean
+  enderecoBairro?: boolean
+  enderecoCidade?: boolean
+  enderecoUf?: boolean
+  enderecoCompleto?: boolean
   usuario?: boolean | Prisma.UsuarioDefaultArgs<ExtArgs>
   pessoa?: boolean | Prisma.AppCampoTelemetria$pessoaArgs<ExtArgs>
   expediente?: boolean | Prisma.AppCampoExpedienteDefaultArgs<ExtArgs>
@@ -1630,9 +1930,15 @@ export type AppCampoTelemetriaSelectScalar = {
   capturadoEm?: boolean
   recebidoEm?: boolean
   anonimizadoEm?: boolean
+  enderecoLogradouro?: boolean
+  enderecoNumero?: boolean
+  enderecoBairro?: boolean
+  enderecoCidade?: boolean
+  enderecoUf?: boolean
+  enderecoCompleto?: boolean
 }
 
-export type AppCampoTelemetriaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "eventoId" | "usuarioId" | "pessoaId" | "expedienteId" | "dispositivoId" | "latitude" | "longitude" | "precisaoMetros" | "altitudeMetros" | "velocidadeMetrosSegundo" | "bateriaPercentual" | "carregando" | "tipoConexao" | "qualidadeSinal" | "online" | "capturadoEm" | "recebidoEm" | "anonimizadoEm", ExtArgs["result"]["appCampoTelemetria"]>
+export type AppCampoTelemetriaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "eventoId" | "usuarioId" | "pessoaId" | "expedienteId" | "dispositivoId" | "latitude" | "longitude" | "precisaoMetros" | "altitudeMetros" | "velocidadeMetrosSegundo" | "bateriaPercentual" | "carregando" | "tipoConexao" | "qualidadeSinal" | "online" | "capturadoEm" | "recebidoEm" | "anonimizadoEm" | "enderecoLogradouro" | "enderecoNumero" | "enderecoBairro" | "enderecoCidade" | "enderecoUf" | "enderecoCompleto", ExtArgs["result"]["appCampoTelemetria"]>
 export type AppCampoTelemetriaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   usuario?: boolean | Prisma.UsuarioDefaultArgs<ExtArgs>
   pessoa?: boolean | Prisma.AppCampoTelemetria$pessoaArgs<ExtArgs>
@@ -1680,6 +1986,12 @@ export type $AppCampoTelemetriaPayload<ExtArgs extends runtime.Types.Extensions.
     capturadoEm: Date
     recebidoEm: Date
     anonimizadoEm: Date | null
+    enderecoLogradouro: string | null
+    enderecoNumero: string | null
+    enderecoBairro: string | null
+    enderecoCidade: string | null
+    enderecoUf: string | null
+    enderecoCompleto: string | null
   }, ExtArgs["result"]["appCampoTelemetria"]>
   composites: {}
 }
@@ -2126,6 +2438,12 @@ export interface AppCampoTelemetriaFieldRefs {
   readonly capturadoEm: Prisma.FieldRef<"AppCampoTelemetria", 'DateTime'>
   readonly recebidoEm: Prisma.FieldRef<"AppCampoTelemetria", 'DateTime'>
   readonly anonimizadoEm: Prisma.FieldRef<"AppCampoTelemetria", 'DateTime'>
+  readonly enderecoLogradouro: Prisma.FieldRef<"AppCampoTelemetria", 'String'>
+  readonly enderecoNumero: Prisma.FieldRef<"AppCampoTelemetria", 'String'>
+  readonly enderecoBairro: Prisma.FieldRef<"AppCampoTelemetria", 'String'>
+  readonly enderecoCidade: Prisma.FieldRef<"AppCampoTelemetria", 'String'>
+  readonly enderecoUf: Prisma.FieldRef<"AppCampoTelemetria", 'String'>
+  readonly enderecoCompleto: Prisma.FieldRef<"AppCampoTelemetria", 'String'>
 }
     
 

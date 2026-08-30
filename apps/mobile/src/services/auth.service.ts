@@ -1,7 +1,7 @@
-import * as SecureStore from "expo-secure-store";
+import * as SecureStore from './secure-store';
 import { api } from "./api";
 
-export type AuthUser = { id?: string; sub?: string; nome?: string; name?: string; email?: string; role?: string; roles?: string[]; permissions?: string[] };
+export type AuthUser = { id?: string; sub?: string; nome?: string; name?: string; email?: string; role?: string; roles?: string[]; perfis?: string[]; permissions?: string[]; permissoes?: string[] };
 export type LoginResult = { token: string; refreshToken: string; user: AuthUser };
 
 export async function login(identificador: string, senha: string): Promise<LoginResult> {

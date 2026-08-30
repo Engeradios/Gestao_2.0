@@ -1,114 +1,12 @@
-// FASE4A_MOBILE_APP_SHELL
-// FASE4B_ACTIVE_NAV
-import { router, usePathname } from "expo-router";
-import type { ReactNode } from "react";
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from "react-native";
-import { useAuthStore } from "../stores/auth.store";
-import { useThemeStore } from "../stores/theme.store";
-
-type Props = {
-  children: ReactNode;
-  title: string;
-  subtitle?: string;
-};
-
-export function MobileAppShell({ children, title, subtitle }: Props) {
-  const pathname = usePathname();
-  const user = useAuthStore((state) => state.user);
-  const mode = useThemeStore((state) => state.mode);
-  const system = useColorScheme();
-  const dark = mode === "dark" || (mode === "system" && system === "dark");
-  const palette = dark ? colors.dark : colors.light;
-  const name = user?.nome ?? user?.name ?? user?.email ?? "Usuário";
-  const initial = name.trim().charAt(0).toUpperCase() || "U";
-
-  return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: palette.background }]}>
-      <View style={[styles.topbar, { backgroundColor: palette.surface, borderBottomColor: palette.border }]}>
-        <Image
-          source={dark
-            ? require("../../assets/brand/logo_escuro.png")
-            : require("../../assets/brand/logo_claro.png")}
-          resizeMode="contain"
-          style={styles.logo}
-        />
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Abrir meu perfil"
-          onPress={() => router.push("/meu-perfil")}
-          style={styles.userButton}
-        >
-          <View style={styles.avatar}><Text style={styles.avatarText}>{initial}</Text></View>
-          <View style={styles.userCopy}>
-            <Text numberOfLines={1} style={[styles.userName, { color: palette.text }]}>{name}</Text>
-            <Text style={[styles.userHint, { color: palette.muted }]}>Meu perfil</Text>
-          </View>
-        </Pressable>
-      </View>
-
-      <View style={[styles.heading, { backgroundColor: palette.hero }]}>
-        <Text style={styles.eyebrow}>GESTÃO ENGERÁDIOS 2.0</Text>
-        <Text style={styles.title}>{title}</Text>
-        {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
-      </View>
-
-      <View style={styles.body}>{children}</View>
-
-      <View style={[styles.bottom, { backgroundColor: palette.surface, borderTopColor: palette.border }]}>
-        <Nav active={pathname === "/dashboard"} label="Início" symbol="IN" onPress={() => router.replace("/dashboard")} palette={palette} />
-        <Nav active={pathname.startsWith("/os")} label="OS" symbol="OS" onPress={() => router.push("/os")} palette={palette} />
-        <Nav active={pathname.startsWith("/roteiro-entrega")} label="Entregas" symbol="RE" onPress={() => router.push("/roteiro-entrega")} palette={palette} />
-        <Nav active={pathname.startsWith("/meu-perfil")} label="Perfil" symbol="●" onPress={() => router.push("/meu-perfil")} palette={palette} />
-      </View>
-    </SafeAreaView>
-  );
-}
-
-function Nav({ active, label, symbol, onPress, palette }: {
-  active: boolean;
-  label: string;
-  symbol: string;
-  onPress: () => void;
-  palette: typeof colors.light;
-}) {
-  return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={[styles.navItem, active && { backgroundColor: palette.background }]}>
-      <Text style={[styles.navSymbol, { color: active ? palette.accent : palette.muted }]}>{symbol}</Text>
-      <Text style={[styles.navLabel, { color: active ? palette.accent : palette.muted }]}>{label}</Text>
-    </Pressable>
-  );
-}
-
-const colors = {
-  light: { background: "#F1F5F9", surface: "#FFFFFF", border: "#E2E8F0", text: "#111827", muted: "#64748B", accent: "#D90000", hero: "#111827" },
-  dark: { background: "#0F172A", surface: "#111827", border: "#334155", text: "#F8FAFC", muted: "#94A3B8", accent: "#F87171", hero: "#090F1C" },
-};
-
-const styles = StyleSheet.create({
-  safe: { flex: 1 },
-  topbar: { minHeight: 68, paddingHorizontal: 18, flexDirection: "row", alignItems: "center", justifyContent: "space-between", borderBottomWidth: 1 },
-  logo: { width: 142, height: 42 },
-  userButton: { flexDirection: "row", alignItems: "center", maxWidth: "52%" },
-  avatar: { width: 38, height: 38, borderRadius: 19, backgroundColor: "#D90000", alignItems: "center", justifyContent: "center" },
-  avatarText: { color: "#FFFFFF", fontWeight: "900" },
-  userCopy: { marginLeft: 9, flexShrink: 1 },
-  userName: { fontSize: 12, fontWeight: "900" },
-  userHint: { fontSize: 10, marginTop: 2 },
-  heading: { paddingHorizontal: 20, paddingTop: 22, paddingBottom: 24 },
-  eyebrow: { color: "#FCA5A5", fontSize: 10, fontWeight: "900", letterSpacing: 1.3 },
-  title: { color: "#FFFFFF", fontSize: 28, fontWeight: "900", marginTop: 6 },
-  subtitle: { color: "#CBD5E1", lineHeight: 19, marginTop: 7 },
-  body: { flex: 1 },
-  bottom: { minHeight: 66, flexDirection: "row", borderTopWidth: 1, paddingBottom: 4 },
-  navItem: { flex: 1, alignItems: "center", justifyContent: "center" },
-  navSymbol: { fontSize: 14, fontWeight: "900" },
-  navLabel: { fontSize: 10, fontWeight: "800", marginTop: 3 },
-});
+import { Image,Pressable,StyleSheet,Text,View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { router,usePathname } from 'expo-router';
+import { ReactNode } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { useAppTheme } from '../theme/use-app-theme';
+import { useAuthStore } from '../stores/auth.store';
+import { WeatherChip } from './weather-chip';
+import { NotificationButton } from './notification-button';
+export function MobileAppShell({title,subtitle,children}:{title:string;subtitle?:string;children:ReactNode}){const p=useAppTheme();const path=usePathname();const user=useAuthStore(s=>s.user) as {nome?:string;name?:string}|null;const initials=(user?.nome??user?.name??'U').split(' ').slice(0,2).map(x=>x[0]).join('').toUpperCase();return <SafeAreaView style={[s.safe,{backgroundColor:p.background}]} edges={['top','bottom','left','right']}><StatusBar style={p.isDark?'light':'dark'}/><View style={[s.top,{backgroundColor:p.surface,borderColor:p.border}]}><Image source={p.isDark?require('../../assets/brand/logo_escuro.png'):require('../../assets/brand/logo_claro.png')} style={s.logo} resizeMode="contain"/><View style={s.topActions}><WeatherChip/><NotificationButton/><Pressable accessibilityRole="button" accessibilityLabel="Abrir meu perfil" onPress={()=>router.push('/meu-perfil')} style={[s.avatar,{backgroundColor:p.primary}]}><Text style={s.avatarText}>{initials}</Text></Pressable></View></View><View style={[s.heading,{backgroundColor:p.surface}]}><Text style={[s.title,{color:p.text}]}>{title}</Text>{subtitle?<Text style={[s.subtitle,{color:p.textMuted}]}>{subtitle}</Text>:null}</View><View style={s.content}>{children}</View><View style={[s.nav,{backgroundColor:p.nav,borderColor:p.border}]}><Nav active={path==='/dashboard'} label="Início" symbol="⌂" onPress={()=>router.replace('/dashboard')}/><Nav active={path.startsWith('/atividades')||path.startsWith('/os')||path.startsWith('/roteiro-entrega')} label="Atividades" symbol="▣" onPress={()=>router.push('/atividades')}/><Nav main label="Ação" symbol="+" onPress={()=>router.push('/atividades')}/><Nav active={path.startsWith('/notificacoes')} label="Alertas" symbol="!" onPress={()=>router.push('/notificacoes')}/><Nav active={path.startsWith('/meu-perfil')} label="Perfil" symbol="●" onPress={()=>router.push('/meu-perfil')}/></View></SafeAreaView>}
+function Nav({label,symbol,onPress,active=false,main=false}:{label:string;symbol:string;onPress:()=>void;active?:boolean;main?:boolean}){return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{selected:active}} onPress={onPress} style={[s.navItem,main&&s.main]}><View style={[s.navIcon,main&&s.mainIcon,active&&s.active]}><Text style={[s.symbol,main&&s.mainText]}>{symbol}</Text></View><Text style={[s.navLabel,active&&s.navLabelActive]}>{label}</Text></Pressable>}
+const s=StyleSheet.create({safe:{flex:1},top:{height:64,paddingHorizontal:16,borderBottomWidth:1,flexDirection:'row',alignItems:'center',justifyContent:'space-between'},logo:{width:138,height:40},topActions:{flexDirection:'row',alignItems:'center',gap:8},weather:{height:34,borderRadius:10,paddingHorizontal:9,alignItems:'center',justifyContent:'center'},weatherText:{fontSize:9,fontWeight:'900'},iconButton:{width:34,height:34,borderRadius:10,alignItems:'center',justifyContent:'center'},iconText:{fontSize:15},avatar:{width:36,height:36,borderRadius:18,alignItems:'center',justifyContent:'center'},avatarText:{color:'#FFF',fontSize:11,fontWeight:'900'},heading:{paddingHorizontal:18,paddingTop:12,paddingBottom:10},title:{fontSize:22,fontWeight:'900'},subtitle:{fontSize:12,marginTop:2},content:{flex:1},nav:{minHeight:70,borderTopWidth:1,paddingHorizontal:6,paddingTop:7,paddingBottom:8,flexDirection:'row'},navItem:{flex:1,alignItems:'center',justifyContent:'center'},navIcon:{width:32,height:28,borderRadius:10,alignItems:'center',justifyContent:'center'},active:{backgroundColor:'#FFFFFF22'},symbol:{color:'#D7E1EA',fontSize:17,fontWeight:'900'},navLabel:{color:'#AEBCCA',fontSize:9,fontWeight:'700',marginTop:3},navLabelActive:{color:'#FFF'},main:{marginTop:-25},mainIcon:{width:52,height:52,borderRadius:26,backgroundColor:'#C42032',borderWidth:4,borderColor:'#10243E'},mainText:{color:'#FFF',fontSize:26}});

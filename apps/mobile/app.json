@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -30,7 +30,10 @@
         "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO",
         "android.permission.ACCESS_COARSE_LOCATION",
-        "android.permission.ACCESS_FINE_LOCATION"
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_LOCATION"
       ],
       "softwareKeyboardLayoutMode": "resize"
     },
@@ -55,7 +58,11 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Permitir que o Engerádios use a localização durante o atendimento."
+          "locationWhenInUsePermission": "Permitir que o Engerádios use a localização durante o expediente.",
+          "locationAlwaysAndWhenInUsePermission": "Permitir que o Engerádios use a localização durante o expediente, inclusive em segundo plano.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true,
+          "isIosBackgroundLocationEnabled": true
         }
       ],
       "expo-notifications",

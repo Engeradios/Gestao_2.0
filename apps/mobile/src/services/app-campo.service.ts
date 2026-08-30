@@ -1,8 +1,9 @@
 import * as Application from "expo-application";
 import * as Device from "expo-device";
-import * as SecureStore from "expo-secure-store";
+import * as SecureStore from './secure-store';
 import { Platform } from "react-native";
 import { api } from "./api";
+import { clearTelemetryContext, saveTelemetryContext } from "./telemetry-context.service";
 
 const INSTALLATION_KEY = "engeradios.appcampo.installation-id";
 
@@ -64,6 +65,13 @@ export async function acceptTerm(termId: string, deviceId: string) {
 }
 export async function currentShift() {
   const { data } = await api.get<WorkShift | null>("/app-campo/expedientes/atual");
+  if (data?.dispositivo?.id && (data.status === "ATIVO" || data.status === "PAUSADO")) {
+    await saveTelemetryContext(
+      data.id, data.dispositivo.id, data.status, data.iniciadoServidorEm,
+    );
+  } else if (!data) {
+    await clearTelemetryContext();
+  }
   return data;
 }
 export async function startShift(deviceId: string) {
@@ -71,6 +79,9 @@ export async function startShift(deviceId: string) {
   const { data } = await api.post<WorkShift>("/app-campo/expedientes/iniciar", {
     eventoInicioId: eventId("EXP-INICIO"), dispositivoId: deviceId, iniciadoDispositivoEm: now,
   });
+  await saveTelemetryContext(
+    data.id, deviceId, "ATIVO", data.iniciadoServidorEm,
+  );
   return data;
 }
 export async function pauseShift(shiftId: string) {
@@ -89,6 +100,7 @@ export async function finishShift(shiftId: string) {
   const { data } = await api.patch(`/app-campo/expedientes/${encodeURIComponent(shiftId)}/finalizar`, {
     eventoFimId: eventId("EXP-FIM"), finalizadoDispositivoEm: new Date().toISOString(),
   });
+  await clearTelemetryContext();
   return data;
 }
 
@@ -106,6 +118,12 @@ export type TelemetryPayload = {
   tipoConexao?: string;
   qualidadeSinal?: number;
   online?: boolean;
+  enderecoLogradouro?: string;
+  enderecoNumero?: string;
+  enderecoBairro?: string;
+  enderecoCidade?: string;
+  enderecoUf?: string;
+  enderecoCompleto?: string;
 };
 
 export async function sendTelemetry(

@@ -1,0 +1,6 @@
+import { useEffect,useState } from 'react';
+import { Pressable,StyleSheet,Text,View } from 'react-native';
+import { getWeather,WeatherSnapshot,weatherLabel } from '../services/weather.service';
+import { useAppTheme } from '../theme/use-app-theme';
+export function WeatherChip(){const p=useAppTheme();const [weather,setWeather]=useState<WeatherSnapshot|null>(null);const [busy,setBusy]=useState(false);async function load(){setBusy(true);try{setWeather(await getWeather())}finally{setBusy(false)}}useEffect(()=>{void load()},[]);const label=weather?`${weather.temperature}°`:(busy?'...':'Clima');return <Pressable accessibilityRole="button" accessibilityLabel={weather?`${weatherLabel(weather.code)}, ${weather.temperature} graus. Atualizar clima`:'Atualizar clima'} onPress={()=>void load()} style={[s.box,{backgroundColor:p.surfaceAlt}]}><Text style={[s.temp,{color:p.text}]}>{label}</Text>{weather?<View style={[s.dot,{backgroundColor:weather.source==='network'?p.success:p.warning}]}/>:null}</Pressable>}
+const s=StyleSheet.create({box:{height:36,minWidth:54,paddingHorizontal:10,borderRadius:12,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:5},temp:{fontSize:12,fontWeight:'900'},dot:{width:6,height:6,borderRadius:3}});

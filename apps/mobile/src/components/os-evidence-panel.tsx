@@ -1,7 +1,8 @@
 import * as ImagePicker from "expo-image-picker";
 import * as Location from "expo-location";
-import * as SecureStore from "expo-secure-store";
+import * as SecureStore from '../services/secure-store';
 import { useCallback, useEffect, useState } from "react";
+import { stageEvidence, synchronizeEvidenceOutbox } from "../services/evidence-outbox.service";
 import {
   ActivityIndicator,
   Alert,
@@ -11,6 +12,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { evidenceAudit } from "../services/evidence-flow-audit.service";
 
 type Pending = {
   uri: string;
@@ -91,8 +93,10 @@ export function OsEvidencePanel({ orderId }: { orderId: string }) {
           mediaTypes: ["images"],
           quality: 0.8,
         });
+    evidenceAudit('picker:result',{status:result.canceled?'CANCELED':'SELECTED'});
     if (result.canceled) return;
     const asset = result.assets[0];
+    evidenceAudit('picker:asset',{uri:asset?.uri,mimeType:asset?.mimeType??null});
     const gps = await location();
     setPending({
       uri: asset.uri,
@@ -105,34 +109,23 @@ export function OsEvidencePanel({ orderId }: { orderId: string }) {
     if (!pending) return;
     setBusy(true);
     try {
-      const form = new FormData();
-      form.append("arquivo", {
-        uri: pending.uri,
-        name: pending.name,
-        type: pending.mimeType,
-      } as unknown as Blob);
-      form.append("tipo", "FOTO");
-      form.append("capturadoEm", new Date().toISOString());
-      if (pending.latitude !== undefined)
-        form.append("latitude", String(pending.latitude));
-      if (pending.longitude !== undefined)
-        form.append("longitude", String(pending.longitude));
-      await authorized(
-        `/app-campo/os/${encodeURIComponent(orderId)}/evidencias`,
-        { method: "POST", body: form },
-      );
+      evidenceAudit('stage:call',{uri:pending.uri,mimeType:pending.mimeType});
+      await stageEvidence({ orderId, sourceUri: pending.uri, name: pending.name, mimeType: pending.mimeType, latitude: pending.latitude, longitude: pending.longitude });
       setPending(null);
-      await load();
-      Alert.alert("Evidências", "Arquivo enviado com sucesso.");
-    } catch (error) {
+      const result = await synchronizeEvidenceOutbox();
       Alert.alert(
-        "Falha no envio",
-        error instanceof Error ? error.message : "Erro inesperado",
+        "Evidências",
+        result.pending || result.review
+          ? "Evidência preservada no aparelho. O envio ocorrerá quando houver conexão."
+          : "Evidência enviada com sucesso.",
       );
-    } finally {
-      setBusy(false);
-    }
+      await load().catch(() => undefined);
+    } catch (error) {
+      evidenceAudit('stage:error',{uri:pending?.uri,error});
+      Alert.alert("Falha ao preservar evidência", error instanceof Error ? error.message : "Erro inesperado");
+    } finally { setBusy(false); }
   }
+
   async function remove(id: string) {
     setBusy(true);
     try {

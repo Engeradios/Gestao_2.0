@@ -15,6 +15,7 @@ import {
   DeliveryRoute,
   listarRoteiros,
 } from "../../services/delivery-route.service";
+import { PermissionGate } from '../../components/permission-gate';
 const statusColor: Record<string, string> = {
   RASCUNHO: "#92400E",
   EM_PLANEJAMENTO: "#1D4ED8",
@@ -25,7 +26,7 @@ const statusColor: Record<string, string> = {
   FINALIZADO_COM_PENDENCIAS: "#B45309",
   CANCELADO: "#991B1B",
 };
-export default function Screen() {
+function RbacContent() {
   const [items, setItems] = useState<DeliveryRoute[]>([]);
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(true);
@@ -39,7 +40,7 @@ export default function Screen() {
       setError(
         e?.response?.status === 403
           ? "Você não possui permissão para visualizar roteiros."
-          : "Não foi possível carregar os roteiros.",
+          : "Sem conexão. Os roteiros serão atualizados quando houver internet.",
       );
     } finally {
       setLoading(false);
@@ -201,3 +202,5 @@ const s = StyleSheet.create({
   retry: { color: "#D90000", fontWeight: "900", marginTop: 10 },
   empty: { textAlign: "center", color: "#64748B", marginTop: 30 },
 });
+
+export default function ScreenProtected(){return <PermissionGate permission="ESTOQUE_LOGISTICA.ROTEIRO_ENTREGA.VISUALIZAR"><RbacContent/></PermissionGate>}

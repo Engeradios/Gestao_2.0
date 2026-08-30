@@ -1,4 +1,4 @@
-import * as SecureStore from "expo-secure-store";
+import * as SecureStore from '../services/secure-store';
 import { create } from "zustand";
 export type ThemeMode = "light" | "dark" | "system";
 type State = {

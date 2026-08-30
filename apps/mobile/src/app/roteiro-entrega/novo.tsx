@@ -9,7 +9,8 @@ import {
   View,
 } from "react-native";
 import { criarRoteiro } from "../../services/delivery-route.service";
-export default function Screen() {
+import { PermissionGate } from '../../components/permission-gate';
+function RbacContent() {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [busy, setBusy] = useState(false);
   async function save() {
@@ -75,3 +76,5 @@ const s = StyleSheet.create({
   },
   buttonText: { color: "#FFF", fontWeight: "900" },
 });
+
+export default function ScreenProtected(){return <PermissionGate permission="ESTOQUE_LOGISTICA.ROTEIRO_ENTREGA.GERENCIAR"><RbacContent/></PermissionGate>}

@@ -1,0 +1,4 @@
+type Detail={uri?:string|null;exists?:boolean;size?:number|null;mimeType?:string|null;error?:unknown;status?:string;rows?:number};
+function scheme(uri?:string|null){if(!uri)return 'none';const match=uri.match(/^([a-z][a-z0-9+.-]*):/i);return match?.[1]?.toLowerCase()??'unknown'}
+function errorName(error:unknown){if(error instanceof Error)return `${error.name}:${error.message}`.slice(0,240).replace(/(file|content|ph):[^\s]+/gi,'$1:[REDACTED]');return 'unknown'}
+export function evidenceAudit(step:string,detail:Detail={}){const safe={step,uriScheme:scheme(detail.uri),exists:detail.exists??null,size:detail.size??null,mimeType:detail.mimeType?.slice(0,80)??null,status:detail.status??null,rows:detail.rows??null,error:detail.error?errorName(detail.error):null};console.info(`[EVIDENCE_FLOW] ${JSON.stringify(safe)}`)}

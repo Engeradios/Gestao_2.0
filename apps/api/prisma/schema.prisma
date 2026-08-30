@@ -1442,6 +1442,12 @@ model AppCampoTelemetria {
   pessoa                  Pessoa?              @relation(fields: [pessoaId], references: [id], onDelete: SetNull)
   expediente              AppCampoExpediente   @relation(fields: [expedienteId], references: [id], onDelete: Cascade)
   dispositivo             AppCampoDispositivo? @relation(fields: [dispositivoId], references: [id], onDelete: SetNull)
+  enderecoLogradouro String?  @map("endereco_logradouro") @db.VarChar(200)
+  enderecoNumero     String?  @map("endereco_numero")     @db.VarChar(20)
+  enderecoBairro     String?  @map("endereco_bairro")     @db.VarChar(120)
+  enderecoCidade     String?  @map("endereco_cidade")     @db.VarChar(120)
+  enderecoUf         String?  @map("endereco_uf")         @db.VarChar(2)
+  enderecoCompleto   String?  @map("endereco_completo")   @db.VarChar(400)
 
   @@index([usuarioId, capturadoEm])
   @@index([pessoaId, capturadoEm])

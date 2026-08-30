@@ -27,9 +27,11 @@ import { OperationalModule } from './operational/operational.module';
 import { DashboardTvModule } from './dashboard-tv/dashboard-tv.module';
 
 import { AppFieldEvidenceModule } from './app-field-evidence/app-field-evidence.module';
+import { GeolocationModule } from './geolocation/geolocation.module';
 
 @Module({
   imports: [
+    GeolocationModule,
     AppFieldCoreModule,
     UserSelfProfileModule,
 

@@ -4,8 +4,9 @@ import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, Vi
 import { MobileAppShell } from "../../components/mobile-app-shell";
 import { listarOs } from "../../services/os.service";
 import type { OsResumo } from "../../types/os";
+import { PermissionGate } from '../../components/permission-gate';
 
-export default function Os() {
+function RbacContent() {
   const [items, setItems] = useState<OsResumo[]>([]);
   const [busca, setBusca] = useState("");
   const [loading, setLoading] = useState(true);
@@ -68,3 +69,5 @@ const styles = StyleSheet.create({
   retry: { color: "#D90000", fontWeight: "900", marginTop: 10 },
   empty: { textAlign: "center", color: "#64748B", marginTop: 30 },
 });
+
+export default function OsProtected(){return <PermissionGate permission="OPERACIONAL.OS.VISUALIZAR"><RbacContent/></PermissionGate>}

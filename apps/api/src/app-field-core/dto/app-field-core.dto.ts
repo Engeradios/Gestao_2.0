@@ -108,4 +108,34 @@ export class TelemetryDto {
 
   @IsDateString()
   capturadoEm!: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(1, 200)
+  enderecoLogradouro?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(1, 20)
+  enderecoNumero?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(1, 120)
+  enderecoBairro?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(1, 120)
+  enderecoCidade?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(2, 2)
+  enderecoUf?: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(1, 400)
+  enderecoCompleto?: string;
 }

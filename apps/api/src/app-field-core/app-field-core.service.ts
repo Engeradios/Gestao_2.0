@@ -319,6 +319,12 @@ export class AppFieldCoreService {
         tipoConexao: dto.tipoConexao,
         qualidadeSinal: dto.qualidadeSinal,
         online: dto.online,
+        enderecoLogradouro: dto.enderecoLogradouro,
+        enderecoNumero: dto.enderecoNumero,
+        enderecoBairro: dto.enderecoBairro,
+        enderecoCidade: dto.enderecoCidade,
+        enderecoUf: dto.enderecoUf,
+        enderecoCompleto: dto.enderecoCompleto,
         capturadoEm: capturedAt,
       },
     });

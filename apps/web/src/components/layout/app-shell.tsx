@@ -95,6 +95,14 @@ const navigation: NavigationItem[] = [
     ],
   },
   {
+    label: "Geolocalização",
+    icon: ClipboardList,
+    children: [
+      { label: "Mapa", href: "/geolocalizacao/mapa" },
+      { label: "Relatório", href: "/geolocalizacao/relatorio" },
+    ],
+  },
+  {
     label: "Operacional",
     icon: Wrench,
     children: [

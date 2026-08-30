@@ -11,8 +11,9 @@ import {
 import { obterOs } from "../../services/os.service";
 import type { OsDetalhe } from "../../types/os";
 import { OsEvidencePanel } from "../../components/os-evidence-panel";
+import { PermissionGate } from '../../components/permission-gate';
 
-export default function Detalhe() {
+function RbacContent() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [item, setItem] = useState<OsDetalhe | null>(null);
   useEffect(() => {
@@ -65,3 +66,5 @@ const s = StyleSheet.create({
   },
   key: { fontWeight: "700", color: "#475569", marginBottom: 3 },
 });
+
+export default function DetalheProtected(){return <PermissionGate permission="OPERACIONAL.OS.VISUALIZAR"><RbacContent/></PermissionGate>}

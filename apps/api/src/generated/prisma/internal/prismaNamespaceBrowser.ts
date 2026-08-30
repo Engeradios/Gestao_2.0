@@ -1393,7 +1393,13 @@ export const AppCampoTelemetriaScalarFieldEnum = {
   online: 'online',
   capturadoEm: 'capturadoEm',
   recebidoEm: 'recebidoEm',
-  anonimizadoEm: 'anonimizadoEm'
+  anonimizadoEm: 'anonimizadoEm',
+  enderecoLogradouro: 'enderecoLogradouro',
+  enderecoNumero: 'enderecoNumero',
+  enderecoBairro: 'enderecoBairro',
+  enderecoCidade: 'enderecoCidade',
+  enderecoUf: 'enderecoUf',
+  enderecoCompleto: 'enderecoCompleto'
 } as const
 
 export type AppCampoTelemetriaScalarFieldEnum = (typeof AppCampoTelemetriaScalarFieldEnum)[keyof typeof AppCampoTelemetriaScalarFieldEnum]

@@ -15,7 +15,8 @@ import {
   despacharRoteiro,
   obterRoteiro,
 } from "../../services/delivery-route.service";
-export default function Screen() {
+import { PermissionGate } from '../../components/permission-gate';
+function RbacContent() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [r, setR] = useState<DeliveryRoute | null>(null);
   const [busy, setBusy] = useState(false);
@@ -157,3 +158,5 @@ const s = StyleSheet.create({
   back: { padding: 16, alignItems: "center" },
   backText: { color: "#64748B", fontWeight: "700" },
 });
+
+export default function ScreenProtected(){return <PermissionGate permission="ESTOQUE_LOGISTICA.ROTEIRO_ENTREGA.VISUALIZAR"><RbacContent/></PermissionGate>}

@@ -1,0 +1,13 @@
+import * as SQLite from 'expo-sqlite';
+import type { UserNotification } from './notifications.service';
+const DB='engeradios-mobile.db';let opening:Promise<SQLite.SQLiteDatabase>|null=null;
+async function database(){opening??=SQLite.openDatabaseAsync(DB);const db=await opening;await db.execAsync(`PRAGMA journal_mode=WAL;
+CREATE TABLE IF NOT EXISTS notification_cache(user_key TEXT NOT NULL,id TEXT NOT NULL,payload_json TEXT NOT NULL,updated_at TEXT NOT NULL,PRIMARY KEY(user_key,id));
+CREATE TABLE IF NOT EXISTS notification_read_outbox(id INTEGER PRIMARY KEY AUTOINCREMENT,user_key TEXT NOT NULL,notification_id TEXT,operation TEXT NOT NULL,created_at TEXT NOT NULL,UNIQUE(user_key,notification_id,operation));`);return db}
+export type NotificationSnapshot={items:UserNotification[];unread:number};
+export async function saveNotificationCache(userKey:string,data:NotificationSnapshot){const db=await database();await db.withTransactionAsync(async()=>{await db.runAsync('DELETE FROM notification_cache WHERE user_key=?',userKey);for(const item of data.items)await db.runAsync('INSERT INTO notification_cache(user_key,id,payload_json,updated_at) VALUES(?,?,?,?)',userKey,item.id,JSON.stringify(item),new Date().toISOString())})}
+export async function loadNotificationCache(userKey:string):Promise<NotificationSnapshot>{const db=await database();const rows=await db.getAllAsync<{payload_json:string}>('SELECT payload_json FROM notification_cache WHERE user_key=? ORDER BY updated_at DESC',userKey);const items=rows.flatMap(row=>{try{return [JSON.parse(row.payload_json) as UserNotification]}catch{return []}});return {items,unread:items.filter(x=>!x.lidaEm).length}}
+export async function queueRead(userKey:string,id:string|null){const db=await database();await db.runAsync('INSERT OR IGNORE INTO notification_read_outbox(user_key,notification_id,operation,created_at) VALUES(?,?,?,?)',userKey,id,id?'READ_ONE':'READ_ALL',new Date().toISOString())}
+export async function pendingReads(userKey:string){const db=await database();return db.getAllAsync<{id:number;notification_id:string|null;operation:string}>('SELECT id,notification_id,operation FROM notification_read_outbox WHERE user_key=? ORDER BY id',userKey)}
+export async function removePendingRead(id:number){const db=await database();await db.runAsync('DELETE FROM notification_read_outbox WHERE id=?',id)}
+export async function clearUserNotificationData(userKey:string){const db=await database();await db.withTransactionAsync(async()=>{await db.runAsync('DELETE FROM notification_cache WHERE user_key=?',userKey);await db.runAsync('DELETE FROM notification_read_outbox WHERE user_key=?',userKey)})}

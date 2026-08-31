@@ -1,0 +1,7 @@
+import * as FileSystem from 'expo-file-system/legacy';
+import * as SQLite from 'expo-sqlite';
+const DB='engeradios-mobile.db';
+async function database(){const db=await SQLite.openDatabaseAsync(DB);await db.execAsync('CREATE TABLE IF NOT EXISTS profile_photo_local(user_key TEXT PRIMARY KEY NOT NULL,file_uri TEXT NOT NULL,updated_at TEXT NOT NULL)');return db}
+function directory(){if(!FileSystem.documentDirectory)throw new Error('Diretório local indisponível');return `${FileSystem.documentDirectory}profile-photos/`}
+export async function saveLocalProfilePhoto(userKey:string,source:string){await FileSystem.makeDirectoryAsync(directory(),{intermediates:true});const target=`${directory()}${encodeURIComponent(userKey)}.jpg`;await FileSystem.copyAsync({from:source,to:target});const info=await FileSystem.getInfoAsync(target);if(!info.exists)throw new Error('Falha ao persistir foto');const db=await database();await db.runAsync('INSERT INTO profile_photo_local(user_key,file_uri,updated_at) VALUES(?,?,?) ON CONFLICT(user_key) DO UPDATE SET file_uri=excluded.file_uri,updated_at=excluded.updated_at',userKey,target,new Date().toISOString());return target}
+export async function getLocalProfilePhoto(userKey:string){const db=await database();const row=await db.getFirstAsync<{file_uri:string}>('SELECT file_uri FROM profile_photo_local WHERE user_key=?',userKey);if(!row)return null;const info=await FileSystem.getInfoAsync(row.file_uri);return info.exists?row.file_uri:null}

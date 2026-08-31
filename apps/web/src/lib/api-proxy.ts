@@ -11,7 +11,7 @@ export async function apiProxy(path: string, init?: RequestInit) {
     ...init,
     headers: {
       Authorization: `Bearer ${token}`,
-      ...(init?.body ? { "Content-Type": "application/json" } : {}),
+      ...(init?.body && !init?.headers ? { "Content-Type": "application/json" } : {}),
       ...init?.headers,
     },
     cache: "no-store",

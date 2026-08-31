@@ -16,7 +16,9 @@ async function forward(request: Request, context: Context, method: string) {
       : contentType.includes("application/json")
         ? JSON.stringify(await request.json())
         : await request.arrayBuffer();
-  return apiProxy(target(request, path), { method, body });
+    const headers: HeadersInit = {};
+  if (body !== undefined && contentType) headers["Content-Type"] = contentType;
+  return apiProxy(target(request, path), { method, body, headers });
 }
 export const GET = (r: Request, c: Context) => forward(r, c, "GET");
 export const POST = (r: Request, c: Context) => forward(r, c, "POST");

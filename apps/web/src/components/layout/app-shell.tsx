@@ -155,6 +155,7 @@ const navigation: NavigationItem[] = [
       { label: "Contas a Receber", href: "/financeiro/receber" },
       { label: "Contas a Pagar", href: "/financeiro/pagar" },
       { label: "Fluxo Financeiro", href: "/financeiro/fluxo" },
+      { label: "Filiais", href: "/financeiro/filiais" },
       { label: "DRE", href: "/financeiro/dre" },
       { label: "Plano de Contas", href: "/financeiro/plano-contas" },
       { label: "NF Recebidas", href: "/financeiro/notas-recebidas" },

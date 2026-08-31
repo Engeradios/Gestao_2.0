@@ -491,7 +491,21 @@ export const ModelName = {
   ComprasPedidoItem: 'ComprasPedidoItem',
   ComprasPedidoRateio: 'ComprasPedidoRateio',
   ComprasRecebimento: 'ComprasRecebimento',
-  ComprasRecebimentoItem: 'ComprasRecebimentoItem'
+  ComprasRecebimentoItem: 'ComprasRecebimentoItem',
+  fin_filiais: 'fin_filiais',
+  fin_filiais_historico: 'fin_filiais_historico',
+  OrcChecklistModelo: 'OrcChecklistModelo',
+  OrcChecklistGrupo: 'OrcChecklistGrupo',
+  OrcChecklistPergunta: 'OrcChecklistPergunta',
+  OrcChecklistOpcao: 'OrcChecklistOpcao',
+  OrcRegraCondicional: 'OrcRegraCondicional',
+  OrcMaterialBasico: 'OrcMaterialBasico',
+  OrcPerguntaMaterial: 'OrcPerguntaMaterial',
+  OrcOrcamento: 'OrcOrcamento',
+  OrcOrcamentoResposta: 'OrcOrcamentoResposta',
+  OrcOrcamentoItem: 'OrcOrcamentoItem',
+  OrcOrcamentoEvidencia: 'OrcOrcamentoEvidencia',
+  OrcOrcamentoHistorico: 'OrcOrcamentoHistorico'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -507,7 +521,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem"
+    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -7541,6 +7555,1042 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    fin_filiais: {
+      payload: Prisma.$fin_filiaisPayload<ExtArgs>
+      fields: Prisma.fin_filiaisFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_filiaisFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_filiaisFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_filiaisFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_filiaisFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>
+        }
+        findMany: {
+          args: Prisma.fin_filiaisFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>[]
+        }
+        create: {
+          args: Prisma.fin_filiaisCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>
+        }
+        createMany: {
+          args: Prisma.fin_filiaisCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_filiaisCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_filiaisDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>
+        }
+        update: {
+          args: Prisma.fin_filiaisUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_filiaisDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_filiaisUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_filiaisUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_filiaisUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiaisPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_filiaisAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_filiais>
+        }
+        groupBy: {
+          args: Prisma.fin_filiaisGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_filiaisGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_filiaisCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_filiaisCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_filiais_historico: {
+      payload: Prisma.$fin_filiais_historicoPayload<ExtArgs>
+      fields: Prisma.fin_filiais_historicoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_filiais_historicoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_filiais_historicoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_filiais_historicoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_filiais_historicoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>
+        }
+        findMany: {
+          args: Prisma.fin_filiais_historicoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>[]
+        }
+        create: {
+          args: Prisma.fin_filiais_historicoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>
+        }
+        createMany: {
+          args: Prisma.fin_filiais_historicoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_filiais_historicoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_filiais_historicoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>
+        }
+        update: {
+          args: Prisma.fin_filiais_historicoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_filiais_historicoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_filiais_historicoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_filiais_historicoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_filiais_historicoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_filiais_historicoPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_filiais_historicoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_filiais_historico>
+        }
+        groupBy: {
+          args: Prisma.fin_filiais_historicoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_filiais_historicoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_filiais_historicoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_filiais_historicoCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcChecklistModelo: {
+      payload: Prisma.$OrcChecklistModeloPayload<ExtArgs>
+      fields: Prisma.OrcChecklistModeloFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcChecklistModeloFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcChecklistModeloFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcChecklistModeloFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcChecklistModeloFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>
+        }
+        findMany: {
+          args: Prisma.OrcChecklistModeloFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>[]
+        }
+        create: {
+          args: Prisma.OrcChecklistModeloCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>
+        }
+        createMany: {
+          args: Prisma.OrcChecklistModeloCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcChecklistModeloCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcChecklistModeloDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>
+        }
+        update: {
+          args: Prisma.OrcChecklistModeloUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcChecklistModeloDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcChecklistModeloUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcChecklistModeloUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcChecklistModeloUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistModeloPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcChecklistModeloAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcChecklistModelo>
+        }
+        groupBy: {
+          args: Prisma.OrcChecklistModeloGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistModeloGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcChecklistModeloCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistModeloCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcChecklistGrupo: {
+      payload: Prisma.$OrcChecklistGrupoPayload<ExtArgs>
+      fields: Prisma.OrcChecklistGrupoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcChecklistGrupoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcChecklistGrupoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcChecklistGrupoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcChecklistGrupoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>
+        }
+        findMany: {
+          args: Prisma.OrcChecklistGrupoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>[]
+        }
+        create: {
+          args: Prisma.OrcChecklistGrupoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>
+        }
+        createMany: {
+          args: Prisma.OrcChecklistGrupoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcChecklistGrupoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcChecklistGrupoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>
+        }
+        update: {
+          args: Prisma.OrcChecklistGrupoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcChecklistGrupoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcChecklistGrupoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcChecklistGrupoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcChecklistGrupoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistGrupoPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcChecklistGrupoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcChecklistGrupo>
+        }
+        groupBy: {
+          args: Prisma.OrcChecklistGrupoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistGrupoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcChecklistGrupoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistGrupoCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcChecklistPergunta: {
+      payload: Prisma.$OrcChecklistPerguntaPayload<ExtArgs>
+      fields: Prisma.OrcChecklistPerguntaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcChecklistPerguntaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcChecklistPerguntaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcChecklistPerguntaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcChecklistPerguntaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>
+        }
+        findMany: {
+          args: Prisma.OrcChecklistPerguntaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>[]
+        }
+        create: {
+          args: Prisma.OrcChecklistPerguntaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>
+        }
+        createMany: {
+          args: Prisma.OrcChecklistPerguntaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcChecklistPerguntaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcChecklistPerguntaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>
+        }
+        update: {
+          args: Prisma.OrcChecklistPerguntaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcChecklistPerguntaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcChecklistPerguntaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcChecklistPerguntaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcChecklistPerguntaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistPerguntaPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcChecklistPerguntaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcChecklistPergunta>
+        }
+        groupBy: {
+          args: Prisma.OrcChecklistPerguntaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistPerguntaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcChecklistPerguntaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistPerguntaCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcChecklistOpcao: {
+      payload: Prisma.$OrcChecklistOpcaoPayload<ExtArgs>
+      fields: Prisma.OrcChecklistOpcaoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcChecklistOpcaoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcChecklistOpcaoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcChecklistOpcaoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcChecklistOpcaoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>
+        }
+        findMany: {
+          args: Prisma.OrcChecklistOpcaoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>[]
+        }
+        create: {
+          args: Prisma.OrcChecklistOpcaoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>
+        }
+        createMany: {
+          args: Prisma.OrcChecklistOpcaoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcChecklistOpcaoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcChecklistOpcaoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>
+        }
+        update: {
+          args: Prisma.OrcChecklistOpcaoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcChecklistOpcaoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcChecklistOpcaoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcChecklistOpcaoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcChecklistOpcaoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcChecklistOpcaoPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcChecklistOpcaoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcChecklistOpcao>
+        }
+        groupBy: {
+          args: Prisma.OrcChecklistOpcaoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistOpcaoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcChecklistOpcaoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcChecklistOpcaoCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcRegraCondicional: {
+      payload: Prisma.$OrcRegraCondicionalPayload<ExtArgs>
+      fields: Prisma.OrcRegraCondicionalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcRegraCondicionalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcRegraCondicionalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcRegraCondicionalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcRegraCondicionalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>
+        }
+        findMany: {
+          args: Prisma.OrcRegraCondicionalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>[]
+        }
+        create: {
+          args: Prisma.OrcRegraCondicionalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>
+        }
+        createMany: {
+          args: Prisma.OrcRegraCondicionalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcRegraCondicionalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcRegraCondicionalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>
+        }
+        update: {
+          args: Prisma.OrcRegraCondicionalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcRegraCondicionalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcRegraCondicionalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcRegraCondicionalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcRegraCondicionalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcRegraCondicionalPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcRegraCondicionalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcRegraCondicional>
+        }
+        groupBy: {
+          args: Prisma.OrcRegraCondicionalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcRegraCondicionalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcRegraCondicionalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcRegraCondicionalCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcMaterialBasico: {
+      payload: Prisma.$OrcMaterialBasicoPayload<ExtArgs>
+      fields: Prisma.OrcMaterialBasicoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcMaterialBasicoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcMaterialBasicoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcMaterialBasicoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcMaterialBasicoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>
+        }
+        findMany: {
+          args: Prisma.OrcMaterialBasicoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>[]
+        }
+        create: {
+          args: Prisma.OrcMaterialBasicoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>
+        }
+        createMany: {
+          args: Prisma.OrcMaterialBasicoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcMaterialBasicoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcMaterialBasicoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>
+        }
+        update: {
+          args: Prisma.OrcMaterialBasicoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcMaterialBasicoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcMaterialBasicoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcMaterialBasicoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcMaterialBasicoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcMaterialBasicoPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcMaterialBasicoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcMaterialBasico>
+        }
+        groupBy: {
+          args: Prisma.OrcMaterialBasicoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcMaterialBasicoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcMaterialBasicoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcMaterialBasicoCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcPerguntaMaterial: {
+      payload: Prisma.$OrcPerguntaMaterialPayload<ExtArgs>
+      fields: Prisma.OrcPerguntaMaterialFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcPerguntaMaterialFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcPerguntaMaterialFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcPerguntaMaterialFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcPerguntaMaterialFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>
+        }
+        findMany: {
+          args: Prisma.OrcPerguntaMaterialFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>[]
+        }
+        create: {
+          args: Prisma.OrcPerguntaMaterialCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>
+        }
+        createMany: {
+          args: Prisma.OrcPerguntaMaterialCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcPerguntaMaterialCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcPerguntaMaterialDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>
+        }
+        update: {
+          args: Prisma.OrcPerguntaMaterialUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcPerguntaMaterialDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcPerguntaMaterialUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcPerguntaMaterialUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcPerguntaMaterialUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcPerguntaMaterialPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcPerguntaMaterialAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcPerguntaMaterial>
+        }
+        groupBy: {
+          args: Prisma.OrcPerguntaMaterialGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcPerguntaMaterialGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcPerguntaMaterialCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcPerguntaMaterialCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcOrcamento: {
+      payload: Prisma.$OrcOrcamentoPayload<ExtArgs>
+      fields: Prisma.OrcOrcamentoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcOrcamentoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcOrcamentoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcOrcamentoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcOrcamentoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>
+        }
+        findMany: {
+          args: Prisma.OrcOrcamentoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>[]
+        }
+        create: {
+          args: Prisma.OrcOrcamentoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>
+        }
+        createMany: {
+          args: Prisma.OrcOrcamentoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcOrcamentoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcOrcamentoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>
+        }
+        update: {
+          args: Prisma.OrcOrcamentoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcOrcamentoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcOrcamentoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcOrcamentoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcOrcamentoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcOrcamentoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcOrcamento>
+        }
+        groupBy: {
+          args: Prisma.OrcOrcamentoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcOrcamentoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcOrcamentoResposta: {
+      payload: Prisma.$OrcOrcamentoRespostaPayload<ExtArgs>
+      fields: Prisma.OrcOrcamentoRespostaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcOrcamentoRespostaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcOrcamentoRespostaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcOrcamentoRespostaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcOrcamentoRespostaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>
+        }
+        findMany: {
+          args: Prisma.OrcOrcamentoRespostaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>[]
+        }
+        create: {
+          args: Prisma.OrcOrcamentoRespostaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>
+        }
+        createMany: {
+          args: Prisma.OrcOrcamentoRespostaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcOrcamentoRespostaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcOrcamentoRespostaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>
+        }
+        update: {
+          args: Prisma.OrcOrcamentoRespostaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcOrcamentoRespostaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcOrcamentoRespostaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcOrcamentoRespostaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcOrcamentoRespostaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoRespostaPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcOrcamentoRespostaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcOrcamentoResposta>
+        }
+        groupBy: {
+          args: Prisma.OrcOrcamentoRespostaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoRespostaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcOrcamentoRespostaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoRespostaCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcOrcamentoItem: {
+      payload: Prisma.$OrcOrcamentoItemPayload<ExtArgs>
+      fields: Prisma.OrcOrcamentoItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcOrcamentoItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcOrcamentoItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcOrcamentoItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcOrcamentoItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>
+        }
+        findMany: {
+          args: Prisma.OrcOrcamentoItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>[]
+        }
+        create: {
+          args: Prisma.OrcOrcamentoItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>
+        }
+        createMany: {
+          args: Prisma.OrcOrcamentoItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcOrcamentoItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcOrcamentoItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>
+        }
+        update: {
+          args: Prisma.OrcOrcamentoItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcOrcamentoItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcOrcamentoItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcOrcamentoItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcOrcamentoItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoItemPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcOrcamentoItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcOrcamentoItem>
+        }
+        groupBy: {
+          args: Prisma.OrcOrcamentoItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcOrcamentoItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcOrcamentoEvidencia: {
+      payload: Prisma.$OrcOrcamentoEvidenciaPayload<ExtArgs>
+      fields: Prisma.OrcOrcamentoEvidenciaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcOrcamentoEvidenciaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcOrcamentoEvidenciaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcOrcamentoEvidenciaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcOrcamentoEvidenciaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>
+        }
+        findMany: {
+          args: Prisma.OrcOrcamentoEvidenciaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>[]
+        }
+        create: {
+          args: Prisma.OrcOrcamentoEvidenciaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>
+        }
+        createMany: {
+          args: Prisma.OrcOrcamentoEvidenciaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcOrcamentoEvidenciaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcOrcamentoEvidenciaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>
+        }
+        update: {
+          args: Prisma.OrcOrcamentoEvidenciaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcOrcamentoEvidenciaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcOrcamentoEvidenciaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcOrcamentoEvidenciaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcOrcamentoEvidenciaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoEvidenciaPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcOrcamentoEvidenciaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcOrcamentoEvidencia>
+        }
+        groupBy: {
+          args: Prisma.OrcOrcamentoEvidenciaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoEvidenciaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcOrcamentoEvidenciaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoEvidenciaCountAggregateOutputType> | number
+        }
+      }
+    }
+    OrcOrcamentoHistorico: {
+      payload: Prisma.$OrcOrcamentoHistoricoPayload<ExtArgs>
+      fields: Prisma.OrcOrcamentoHistoricoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrcOrcamentoHistoricoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrcOrcamentoHistoricoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>
+        }
+        findFirst: {
+          args: Prisma.OrcOrcamentoHistoricoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrcOrcamentoHistoricoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>
+        }
+        findMany: {
+          args: Prisma.OrcOrcamentoHistoricoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>[]
+        }
+        create: {
+          args: Prisma.OrcOrcamentoHistoricoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>
+        }
+        createMany: {
+          args: Prisma.OrcOrcamentoHistoricoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrcOrcamentoHistoricoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>[]
+        }
+        delete: {
+          args: Prisma.OrcOrcamentoHistoricoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>
+        }
+        update: {
+          args: Prisma.OrcOrcamentoHistoricoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrcOrcamentoHistoricoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrcOrcamentoHistoricoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrcOrcamentoHistoricoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrcOrcamentoHistoricoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrcOrcamentoHistoricoPayload>
+        }
+        aggregate: {
+          args: Prisma.OrcOrcamentoHistoricoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrcOrcamentoHistorico>
+        }
+        groupBy: {
+          args: Prisma.OrcOrcamentoHistoricoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoHistoricoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrcOrcamentoHistoricoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrcOrcamentoHistoricoCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -8300,7 +9350,8 @@ export const Fin_contas_pagarScalarFieldEnum = {
   criado_em: 'criado_em',
   atualizado_em: 'atualizado_em',
   origem_nf_id: 'origem_nf_id',
-  origem_nf_parcela_legado_id: 'origem_nf_parcela_legado_id'
+  origem_nf_parcela_legado_id: 'origem_nf_parcela_legado_id',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_contas_pagarScalarFieldEnum = (typeof Fin_contas_pagarScalarFieldEnum)[keyof typeof Fin_contas_pagarScalarFieldEnum]
@@ -8349,7 +9400,8 @@ export const Fin_contas_receberScalarFieldEnum = {
   situacao: 'situacao',
   ultima_origem: 'ultima_origem',
   criado_em: 'criado_em',
-  atualizado_em: 'atualizado_em'
+  atualizado_em: 'atualizado_em',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_contas_receberScalarFieldEnum = (typeof Fin_contas_receberScalarFieldEnum)[keyof typeof Fin_contas_receberScalarFieldEnum]
@@ -8380,7 +9432,8 @@ export const Fin_fluxos_saldoScalarFieldEnum = {
   data_ref: 'data_ref',
   valor: 'valor',
   descricao: 'descricao',
-  criado_em: 'criado_em'
+  criado_em: 'criado_em',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_fluxos_saldoScalarFieldEnum = (typeof Fin_fluxos_saldoScalarFieldEnum)[keyof typeof Fin_fluxos_saldoScalarFieldEnum]
@@ -8444,7 +9497,12 @@ export const Fin_notas_recebidasScalarFieldEnum = {
   criado_em: 'criado_em',
   atualizado_em: 'atualizado_em',
   enviado_pagar: 'enviado_pagar',
-  enviado_pagar_em: 'enviado_pagar_em'
+  enviado_pagar_em: 'enviado_pagar_em',
+  xml_sha256: 'xml_sha256',
+  nsu: 'nsu',
+  schema_xml: 'schema_xml',
+  capturado_em: 'capturado_em',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_notas_recebidasScalarFieldEnum = (typeof Fin_notas_recebidasScalarFieldEnum)[keyof typeof Fin_notas_recebidasScalarFieldEnum]
@@ -9545,6 +10603,214 @@ export const ComprasRecebimentoItemScalarFieldEnum = {
 export type ComprasRecebimentoItemScalarFieldEnum = (typeof ComprasRecebimentoItemScalarFieldEnum)[keyof typeof ComprasRecebimentoItemScalarFieldEnum]
 
 
+export const Fin_filiaisScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome',
+  cnpj: 'cnpj',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em',
+  razao_social: 'razao_social',
+  nome_fantasia: 'nome_fantasia',
+  tipo_estabelecimento: 'tipo_estabelecimento',
+  inscricao_estadual: 'inscricao_estadual',
+  inscricao_municipal: 'inscricao_municipal',
+  cep: 'cep',
+  logradouro: 'logradouro',
+  numero: 'numero',
+  complemento: 'complemento',
+  bairro: 'bairro',
+  cidade: 'cidade',
+  uf: 'uf'
+} as const
+
+export type Fin_filiaisScalarFieldEnum = (typeof Fin_filiaisScalarFieldEnum)[keyof typeof Fin_filiaisScalarFieldEnum]
+
+
+export const Fin_filiais_historicoScalarFieldEnum = {
+  id: 'id',
+  filial_id: 'filial_id',
+  usuario_id: 'usuario_id',
+  acao: 'acao',
+  antes: 'antes',
+  depois: 'depois',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_filiais_historicoScalarFieldEnum = (typeof Fin_filiais_historicoScalarFieldEnum)[keyof typeof Fin_filiais_historicoScalarFieldEnum]
+
+
+export const OrcChecklistModeloScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  descricao: 'descricao',
+  ativo: 'ativo',
+  versao: 'versao',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcChecklistModeloScalarFieldEnum = (typeof OrcChecklistModeloScalarFieldEnum)[keyof typeof OrcChecklistModeloScalarFieldEnum]
+
+
+export const OrcChecklistGrupoScalarFieldEnum = {
+  id: 'id',
+  modeloId: 'modeloId',
+  nome: 'nome',
+  descricao: 'descricao',
+  ordem: 'ordem',
+  ativo: 'ativo'
+} as const
+
+export type OrcChecklistGrupoScalarFieldEnum = (typeof OrcChecklistGrupoScalarFieldEnum)[keyof typeof OrcChecklistGrupoScalarFieldEnum]
+
+
+export const OrcChecklistPerguntaScalarFieldEnum = {
+  id: 'id',
+  grupoId: 'grupoId',
+  codigo: 'codigo',
+  titulo: 'titulo',
+  ajuda: 'ajuda',
+  tipo: 'tipo',
+  obrigatoria: 'obrigatoria',
+  ordem: 'ordem',
+  ativo: 'ativo'
+} as const
+
+export type OrcChecklistPerguntaScalarFieldEnum = (typeof OrcChecklistPerguntaScalarFieldEnum)[keyof typeof OrcChecklistPerguntaScalarFieldEnum]
+
+
+export const OrcChecklistOpcaoScalarFieldEnum = {
+  id: 'id',
+  perguntaId: 'perguntaId',
+  valor: 'valor',
+  rotulo: 'rotulo',
+  ordem: 'ordem',
+  ativo: 'ativo'
+} as const
+
+export type OrcChecklistOpcaoScalarFieldEnum = (typeof OrcChecklistOpcaoScalarFieldEnum)[keyof typeof OrcChecklistOpcaoScalarFieldEnum]
+
+
+export const OrcRegraCondicionalScalarFieldEnum = {
+  id: 'id',
+  perguntaOrigemId: 'perguntaOrigemId',
+  perguntaDestinoCodigo: 'perguntaDestinoCodigo',
+  operador: 'operador',
+  valor: 'valor',
+  acao: 'acao',
+  ativa: 'ativa'
+} as const
+
+export type OrcRegraCondicionalScalarFieldEnum = (typeof OrcRegraCondicionalScalarFieldEnum)[keyof typeof OrcRegraCondicionalScalarFieldEnum]
+
+
+export const OrcMaterialBasicoScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome',
+  descricao: 'descricao',
+  fotoCaminho: 'fotoCaminho',
+  unidade: 'unidade',
+  tipo: 'tipo',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcMaterialBasicoScalarFieldEnum = (typeof OrcMaterialBasicoScalarFieldEnum)[keyof typeof OrcMaterialBasicoScalarFieldEnum]
+
+
+export const OrcPerguntaMaterialScalarFieldEnum = {
+  perguntaId: 'perguntaId',
+  materialId: 'materialId',
+  condicao: 'condicao',
+  quantidadeFormula: 'quantidadeFormula'
+} as const
+
+export type OrcPerguntaMaterialScalarFieldEnum = (typeof OrcPerguntaMaterialScalarFieldEnum)[keyof typeof OrcPerguntaMaterialScalarFieldEnum]
+
+
+export const OrcOrcamentoScalarFieldEnum = {
+  id: 'id',
+  numero: 'numero',
+  status: 'status',
+  titulo: 'titulo',
+  clienteId: 'clienteId',
+  tecnicoId: 'tecnicoId',
+  checklistModeloId: 'checklistModeloId',
+  propostaId: 'propostaId',
+  propostaNumero: 'propostaNumero',
+  motivoRecusa: 'motivoRecusa',
+  observacaoAnalise: 'observacaoAnalise',
+  enviadoEm: 'enviadoEm',
+  analisadoEm: 'analisadoEm',
+  analisadoPorId: 'analisadoPorId',
+  propostaVinculadaEm: 'propostaVinculadaEm',
+  propostaVinculadaPorId: 'propostaVinculadaPorId',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcOrcamentoScalarFieldEnum = (typeof OrcOrcamentoScalarFieldEnum)[keyof typeof OrcOrcamentoScalarFieldEnum]
+
+
+export const OrcOrcamentoRespostaScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  perguntaId: 'perguntaId',
+  valor: 'valor',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcOrcamentoRespostaScalarFieldEnum = (typeof OrcOrcamentoRespostaScalarFieldEnum)[keyof typeof OrcOrcamentoRespostaScalarFieldEnum]
+
+
+export const OrcOrcamentoItemScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  materialId: 'materialId',
+  tipo: 'tipo',
+  descricao: 'descricao',
+  unidade: 'unidade',
+  quantidade: 'quantidade',
+  origem: 'origem'
+} as const
+
+export type OrcOrcamentoItemScalarFieldEnum = (typeof OrcOrcamentoItemScalarFieldEnum)[keyof typeof OrcOrcamentoItemScalarFieldEnum]
+
+
+export const OrcOrcamentoEvidenciaScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  tipo: 'tipo',
+  caminho: 'caminho',
+  nomeOriginal: 'nomeOriginal',
+  mime: 'mime',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  criadoEm: 'criadoEm'
+} as const
+
+export type OrcOrcamentoEvidenciaScalarFieldEnum = (typeof OrcOrcamentoEvidenciaScalarFieldEnum)[keyof typeof OrcOrcamentoEvidenciaScalarFieldEnum]
+
+
+export const OrcOrcamentoHistoricoScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  usuarioId: 'usuarioId',
+  acao: 'acao',
+  statusAnterior: 'statusAnterior',
+  statusNovo: 'statusNovo',
+  observacao: 'observacao',
+  dados: 'dados',
+  criadoEm: 'criadoEm'
+} as const
+
+export type OrcOrcamentoHistoricoScalarFieldEnum = (typeof OrcOrcamentoHistoricoScalarFieldEnum)[keyof typeof OrcOrcamentoHistoricoScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -9729,6 +10995,48 @@ export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Bytes[]'
  */
 export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+/**
+ * Reference to a field of type 'OrcTipoPergunta'
+ */
+export type EnumOrcTipoPerguntaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrcTipoPergunta'>
+    
+
+
+/**
+ * Reference to a field of type 'OrcTipoPergunta[]'
+ */
+export type ListEnumOrcTipoPerguntaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrcTipoPergunta[]'>
+    
+
+
+/**
+ * Reference to a field of type 'OrcTipoItem'
+ */
+export type EnumOrcTipoItemFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrcTipoItem'>
+    
+
+
+/**
+ * Reference to a field of type 'OrcTipoItem[]'
+ */
+export type ListEnumOrcTipoItemFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrcTipoItem[]'>
+    
+
+
+/**
+ * Reference to a field of type 'OrcStatus'
+ */
+export type EnumOrcStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrcStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'OrcStatus[]'
+ */
+export type ListEnumOrcStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrcStatus[]'>
     
 
 
@@ -9991,6 +11299,20 @@ export type GlobalOmitConfig = {
   comprasPedidoRateio?: Prisma.ComprasPedidoRateioOmit
   comprasRecebimento?: Prisma.ComprasRecebimentoOmit
   comprasRecebimentoItem?: Prisma.ComprasRecebimentoItemOmit
+  fin_filiais?: Prisma.fin_filiaisOmit
+  fin_filiais_historico?: Prisma.fin_filiais_historicoOmit
+  orcChecklistModelo?: Prisma.OrcChecklistModeloOmit
+  orcChecklistGrupo?: Prisma.OrcChecklistGrupoOmit
+  orcChecklistPergunta?: Prisma.OrcChecklistPerguntaOmit
+  orcChecklistOpcao?: Prisma.OrcChecklistOpcaoOmit
+  orcRegraCondicional?: Prisma.OrcRegraCondicionalOmit
+  orcMaterialBasico?: Prisma.OrcMaterialBasicoOmit
+  orcPerguntaMaterial?: Prisma.OrcPerguntaMaterialOmit
+  orcOrcamento?: Prisma.OrcOrcamentoOmit
+  orcOrcamentoResposta?: Prisma.OrcOrcamentoRespostaOmit
+  orcOrcamentoItem?: Prisma.OrcOrcamentoItemOmit
+  orcOrcamentoEvidencia?: Prisma.OrcOrcamentoEvidenciaOmit
+  orcOrcamentoHistorico?: Prisma.OrcOrcamentoHistoricoOmit
 }
 
 /* Types for Logging */

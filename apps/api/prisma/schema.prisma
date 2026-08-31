@@ -52,6 +52,10 @@ model Usuario {
   appCampoEventosOffline    AppCampoEventoOffline[]
   appCampoAcessosRealizados AppCampoAcessoLocalizacao[]    @relation("AppCampoAcessoConsultor")
   appCampoAcessosComoAlvo   AppCampoAcessoLocalizacao[]    @relation("AppCampoAcessoAlvo")
+  orcamentosTecnico         OrcOrcamento[]                 @relation("OrcTecnico")
+  orcamentosAnalisados      OrcOrcamento[]                 @relation("OrcAnalista")
+  orcamentosVinculados      OrcOrcamento[]                 @relation("OrcVinculador")
+  orcamentosHistorico       OrcOrcamentoHistorico[]        @relation("OrcHistoricoUsuario")
 
   @@index([status])
   @@map("usuarios")
@@ -157,6 +161,7 @@ model ClienteOperacional {
   atualizadoEm          DateTime               @default(now()) @updatedAt @map("atualizado_em")
   ordens                OrdemServico[]
   contratoConsultaCnpjs ContratoConsultaCnpj[]
+  orcamentos            OrcOrcamento[]
 
   @@unique([origem, origemId])
   @@index([codigo])
@@ -628,6 +633,7 @@ model OpProposta {
   evolucoes               OpPropostaEvolucao[]
   servico                 OpServico?
   acompanhamentoLogistica OpPropostaLogistica?
+  orcamentoOrigem         OrcOrcamento?
 
   @@index([status])
   @@index([clienteCodigo])
@@ -877,6 +883,8 @@ model fin_contas_pagar {
   origem_nf_parcela_legado_id Int?
   fin_dre_contas              fin_dre_contas?      @relation(fields: [dre_conta_id], references: [id], onUpdate: NoAction)
   fin_notas_recebidas         fin_notas_recebidas? @relation(fields: [origem_nf_id], references: [id], onUpdate: NoAction)
+  filial_id                   BigInt?
+  fin_filiais                 fin_filiais?         @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   @@index([data_pagamento])
   @@index([dre_conta_id], map: "fin_contas_pagar_dre_conta_idx")
@@ -886,49 +894,51 @@ model fin_contas_pagar {
 }
 
 model fin_contas_receber {
-  id                BigInt    @id @default(autoincrement())
-  legado_id         Int?      @unique
-  chave_titulo      String    @unique @db.VarChar(180)
-  filial            String?   @db.VarChar(80)
-  pedido            String?   @db.VarChar(80)
-  os                String?   @db.VarChar(80)
-  contrato          String?   @db.VarChar(100)
-  nfse              String?   @db.VarChar(80)
-  documento         String?   @db.VarChar(100)
-  tipo_documento    String?   @db.VarChar(80)
-  cpf_cnpj          String?   @db.VarChar(30)
-  bloqueado         String?   @db.VarChar(40)
-  cliente_codigo    String?   @db.VarChar(80)
-  cliente           String?   @db.VarChar(255)
-  cidade            String?   @db.VarChar(160)
-  uf                String?   @db.Char(2)
-  cep               String?   @db.VarChar(20)
-  classificacao     String?   @db.VarChar(120)
-  grupo             String?   @db.VarChar(120)
-  representante     String?   @db.VarChar(180)
-  data_emissao      DateTime? @db.Date
-  data_vencto       DateTime? @db.Date
-  previsao_pgto     DateTime? @db.Date
-  data_cancelado    DateTime? @db.Date
-  data_recebimento  DateTime? @db.Date
+  id                BigInt       @id @default(autoincrement())
+  legado_id         Int?         @unique
+  chave_titulo      String       @unique @db.VarChar(180)
+  filial            String?      @db.VarChar(80)
+  pedido            String?      @db.VarChar(80)
+  os                String?      @db.VarChar(80)
+  contrato          String?      @db.VarChar(100)
+  nfse              String?      @db.VarChar(80)
+  documento         String?      @db.VarChar(100)
+  tipo_documento    String?      @db.VarChar(80)
+  cpf_cnpj          String?      @db.VarChar(30)
+  bloqueado         String?      @db.VarChar(40)
+  cliente_codigo    String?      @db.VarChar(80)
+  cliente           String?      @db.VarChar(255)
+  cidade            String?      @db.VarChar(160)
+  uf                String?      @db.Char(2)
+  cep               String?      @db.VarChar(20)
+  classificacao     String?      @db.VarChar(120)
+  grupo             String?      @db.VarChar(120)
+  representante     String?      @db.VarChar(180)
+  data_emissao      DateTime?    @db.Date
+  data_vencto       DateTime?    @db.Date
+  previsao_pgto     DateTime?    @db.Date
+  data_cancelado    DateTime?    @db.Date
+  data_recebimento  DateTime?    @db.Date
   dias              Int?
-  banco             String?   @db.VarChar(100)
-  num_titulo        String?   @db.VarChar(100)
-  bordero           String?   @db.VarChar(100)
-  total_retido      Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_vencido     Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_a_vencer    Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_emissao     Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_devido      Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_juros_multa Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_total       Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_recebido    Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_desconto    Decimal?  @default(0) @db.Decimal(18, 2)
-  valor_produtos    Decimal?  @default(0) @db.Decimal(18, 2)
-  situacao          String?   @db.VarChar(40)
-  ultima_origem     String?   @db.VarChar(120)
-  criado_em         DateTime  @default(now()) @db.Timestamp(6)
-  atualizado_em     DateTime  @default(now()) @db.Timestamp(6)
+  banco             String?      @db.VarChar(100)
+  num_titulo        String?      @db.VarChar(100)
+  bordero           String?      @db.VarChar(100)
+  total_retido      Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_vencido     Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_a_vencer    Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_emissao     Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_devido      Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_juros_multa Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_total       Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_recebido    Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_desconto    Decimal?     @default(0) @db.Decimal(18, 2)
+  valor_produtos    Decimal?     @default(0) @db.Decimal(18, 2)
+  situacao          String?      @db.VarChar(40)
+  ultima_origem     String?      @db.VarChar(120)
+  criado_em         DateTime     @default(now()) @db.Timestamp(6)
+  atualizado_em     DateTime     @default(now()) @db.Timestamp(6)
+  filial_id         BigInt?
+  fin_filiais       fin_filiais? @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   @@index([cliente], map: "fin_contas_receber_cliente_nome_idx")
   @@index([filial])
@@ -958,13 +968,15 @@ model fin_dre_contas {
 }
 
 model fin_fluxos_saldo {
-  id        BigInt   @id @default(autoincrement())
-  legado_id Int?     @unique
-  filial    String?  @db.VarChar(80)
-  data_ref  DateTime @db.Date
-  valor     Decimal  @default(0) @db.Decimal(18, 2)
-  descricao String?  @db.VarChar(255)
-  criado_em DateTime @default(now()) @db.Timestamp(6)
+  id          BigInt       @id @default(autoincrement())
+  legado_id   Int?         @unique
+  filial      String?      @db.VarChar(80)
+  data_ref    DateTime     @db.Date
+  valor       Decimal      @default(0) @db.Decimal(18, 2)
+  descricao   String?      @db.VarChar(255)
+  criado_em   DateTime     @default(now()) @db.Timestamp(6)
+  filial_id   BigInt?
+  fin_filiais fin_filiais? @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   @@index([data_ref], map: "fin_fluxos_saldo_data_idx")
   @@index([data_ref(sort: Desc)], map: "fin_fluxos_saldo_data_ref_desc_idx")
@@ -1031,10 +1043,17 @@ model fin_notas_recebidas {
   fin_contas_pagar             fin_contas_pagar[]
   fin_notas_recebidas_itens    fin_notas_recebidas_itens[]
   fin_notas_recebidas_parcelas fin_notas_recebidas_parcelas[]
+  xml_sha256                   String?                        @db.Char(64)
+  nsu                          String?                        @db.VarChar(20)
+  schema_xml                   String?                        @db.VarChar(120)
+  capturado_em                 DateTime?                      @db.Timestamp(6)
+  filial_id                    BigInt?
+  fin_filiais                  fin_filiais?                   @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   @@index([data_emissao], map: "fin_notas_recebidas_emissao_idx")
   @@index([emit_cnpj])
   @@index([situacao])
+  @@index([xml_sha256], map: "fin_notas_recebidas_xml_sha256_idx")
 }
 
 model fin_notas_recebidas_itens {
@@ -1442,12 +1461,12 @@ model AppCampoTelemetria {
   pessoa                  Pessoa?              @relation(fields: [pessoaId], references: [id], onDelete: SetNull)
   expediente              AppCampoExpediente   @relation(fields: [expedienteId], references: [id], onDelete: Cascade)
   dispositivo             AppCampoDispositivo? @relation(fields: [dispositivoId], references: [id], onDelete: SetNull)
-  enderecoLogradouro String?  @map("endereco_logradouro") @db.VarChar(200)
-  enderecoNumero     String?  @map("endereco_numero")     @db.VarChar(20)
-  enderecoBairro     String?  @map("endereco_bairro")     @db.VarChar(120)
-  enderecoCidade     String?  @map("endereco_cidade")     @db.VarChar(120)
-  enderecoUf         String?  @map("endereco_uf")         @db.VarChar(2)
-  enderecoCompleto   String?  @map("endereco_completo")   @db.VarChar(400)
+  enderecoLogradouro      String?              @map("endereco_logradouro") @db.VarChar(200)
+  enderecoNumero          String?              @map("endereco_numero") @db.VarChar(20)
+  enderecoBairro          String?              @map("endereco_bairro") @db.VarChar(120)
+  enderecoCidade          String?              @map("endereco_cidade") @db.VarChar(120)
+  enderecoUf              String?              @map("endereco_uf") @db.VarChar(2)
+  enderecoCompleto        String?              @map("endereco_completo") @db.VarChar(400)
 
   @@index([usuarioId, capturadoEm])
   @@index([pessoaId, capturadoEm])
@@ -2327,4 +2346,282 @@ model ComprasRecebimentoItem {
   @@unique([recebimentoId, pedidoItemId])
   @@index([pedidoItemId])
   @@map("compras_recebimento_itens")
+}
+
+model fin_filiais {
+  id                   BigInt                  @id @default(autoincrement())
+  codigo               String                  @unique @db.VarChar(40)
+  nome                 String                  @db.VarChar(120)
+  cnpj                 String?                 @unique @db.VarChar(14)
+  ativo                Boolean                 @default(true)
+  criado_em            DateTime                @default(now()) @db.Timestamp(6)
+  atualizado_em        DateTime                @default(now()) @db.Timestamp(6)
+  fin_contas_pagar     fin_contas_pagar[]
+  fin_contas_receber   fin_contas_receber[]
+  fin_fluxos_saldo     fin_fluxos_saldo[]
+  fin_notas_recebidas  fin_notas_recebidas[]
+  razao_social         String?                 @db.VarChar(180)
+  nome_fantasia        String?                 @db.VarChar(180)
+  tipo_estabelecimento String                  @default("FILIAL") @db.VarChar(10)
+  inscricao_estadual   String?                 @db.VarChar(30)
+  inscricao_municipal  String?                 @db.VarChar(30)
+  cep                  String?                 @db.VarChar(8)
+  logradouro           String?                 @db.VarChar(180)
+  numero               String?                 @db.VarChar(20)
+  complemento          String?                 @db.VarChar(100)
+  bairro               String?                 @db.VarChar(100)
+  cidade               String?                 @db.VarChar(100)
+  uf                   String?                 @db.VarChar(2)
+  historico            fin_filiais_historico[]
+
+  @@index([ativo])
+}
+
+model fin_filiais_historico {
+  id         BigInt      @id @default(autoincrement())
+  filial_id  BigInt
+  usuario_id String?     @db.Uuid
+  acao       String      @db.VarChar(30)
+  antes      Json?
+  depois     Json?
+  criado_em  DateTime    @default(now()) @db.Timestamp(6)
+  filial     fin_filiais @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([filial_id, criado_em(sort: Desc)])
+}
+
+enum OrcStatus {
+  RASCUNHO
+  EM_PREENCHIMENTO
+  ENVIADO_ANALISE
+  EM_ANALISE
+  DEVOLVIDO_CORRECAO
+  ACEITO
+  RECUSADO
+  AGUARDANDO_PROPOSTA
+  PROPOSTA_VINCULADA
+  CANCELADO
+}
+
+enum OrcTipoPergunta {
+  TEXTO
+  TEXTO_LONGO
+  NUMERO
+  DECIMAL
+  BOOLEANO
+  SELECAO_UNICA
+  SELECAO_MULTIPLA
+  FOTO
+  MEDIDA
+}
+
+enum OrcTipoItem {
+  EQUIPAMENTO
+  MATERIAL
+  INFRAESTRUTURA
+  SERVICO
+  OUTRO
+}
+
+model OrcChecklistModelo {
+  id           String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nome         String              @db.VarChar(160)
+  descricao    String?
+  ativo        Boolean             @default(true)
+  versao       Int                 @default(1)
+  criadoEm     DateTime            @default(now()) @map("criado_em")
+  atualizadoEm DateTime            @default(now()) @updatedAt @map("atualizado_em")
+  grupos       OrcChecklistGrupo[]
+  orcamentos   OrcOrcamento[]
+
+  @@index([ativo, nome])
+  @@map("orc_checklist_modelos")
+}
+
+model OrcChecklistGrupo {
+  id        String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  modeloId  String                 @map("modelo_id") @db.Uuid
+  nome      String                 @db.VarChar(160)
+  descricao String?
+  ordem     Int                    @default(0)
+  ativo     Boolean                @default(true)
+  modelo    OrcChecklistModelo     @relation(fields: [modeloId], references: [id], onDelete: Cascade)
+  perguntas OrcChecklistPergunta[]
+
+  @@index([modeloId, ordem])
+  @@map("orc_checklist_grupos")
+}
+
+model OrcChecklistPergunta {
+  id           String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  grupoId      String                 @map("grupo_id") @db.Uuid
+  codigo       String                 @unique @db.VarChar(100)
+  titulo       String                 @db.VarChar(300)
+  ajuda        String?
+  tipo         OrcTipoPergunta
+  obrigatoria  Boolean                @default(false)
+  ordem        Int                    @default(0)
+  ativo        Boolean                @default(true)
+  grupo        OrcChecklistGrupo      @relation(fields: [grupoId], references: [id], onDelete: Cascade)
+  opcoes       OrcChecklistOpcao[]
+  regrasOrigem OrcRegraCondicional[]  @relation("OrcRegraOrigem")
+  materiais    OrcPerguntaMaterial[]
+  respostas    OrcOrcamentoResposta[]
+
+  @@index([grupoId, ordem])
+  @@map("orc_checklist_perguntas")
+}
+
+model OrcChecklistOpcao {
+  id         String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  perguntaId String               @map("pergunta_id") @db.Uuid
+  valor      String               @db.VarChar(120)
+  rotulo     String               @db.VarChar(200)
+  ordem      Int                  @default(0)
+  ativo      Boolean              @default(true)
+  pergunta   OrcChecklistPergunta @relation(fields: [perguntaId], references: [id], onDelete: Cascade)
+
+  @@unique([perguntaId, valor])
+  @@map("orc_checklist_opcoes")
+}
+
+model OrcRegraCondicional {
+  id                    String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  perguntaOrigemId      String               @map("pergunta_origem_id") @db.Uuid
+  perguntaDestinoCodigo String               @map("pergunta_destino_codigo") @db.VarChar(100)
+  operador              String               @db.VarChar(30)
+  valor                 Json
+  acao                  String               @db.VarChar(30)
+  ativa                 Boolean              @default(true)
+  perguntaOrigem        OrcChecklistPergunta @relation("OrcRegraOrigem", fields: [perguntaOrigemId], references: [id], onDelete: Cascade)
+
+  @@index([perguntaOrigemId, ativa])
+  @@map("orc_regras_condicionais")
+}
+
+model OrcMaterialBasico {
+  id           String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  codigo       String                @unique @db.VarChar(60)
+  nome         String                @db.VarChar(200)
+  descricao    String?
+  fotoCaminho  String?               @map("foto_caminho") @db.VarChar(500)
+  unidade      String                @db.VarChar(20)
+  tipo         OrcTipoItem
+  ativo        Boolean               @default(true)
+  criadoEm     DateTime              @default(now()) @map("criado_em")
+  atualizadoEm DateTime              @default(now()) @updatedAt @map("atualizado_em")
+  perguntas    OrcPerguntaMaterial[]
+  itens        OrcOrcamentoItem[]
+
+  @@index([tipo, ativo])
+  @@map("orc_materiais_basicos")
+}
+
+model OrcPerguntaMaterial {
+  perguntaId        String               @map("pergunta_id") @db.Uuid
+  materialId        String               @map("material_id") @db.Uuid
+  condicao          Json?
+  quantidadeFormula String?              @map("quantidade_formula") @db.VarChar(300)
+  pergunta          OrcChecklistPergunta @relation(fields: [perguntaId], references: [id], onDelete: Cascade)
+  material          OrcMaterialBasico    @relation(fields: [materialId], references: [id], onDelete: Restrict)
+
+  @@id([perguntaId, materialId])
+  @@map("orc_pergunta_materiais")
+}
+
+model OrcOrcamento {
+  id                     String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  numero                 String                  @unique @db.VarChar(30)
+  status                 OrcStatus               @default(RASCUNHO)
+  titulo                 String?                 @db.VarChar(300)
+  clienteId              String                  @map("cliente_id") @db.Uuid
+  tecnicoId              String                  @map("tecnico_id") @db.Uuid
+  checklistModeloId      String?                 @map("checklist_modelo_id") @db.Uuid
+  propostaId             Int?                    @unique @map("proposta_id")
+  propostaNumero         String?                 @unique @map("proposta_numero") @db.VarChar(100)
+  motivoRecusa           String?                 @map("motivo_recusa")
+  observacaoAnalise      String?                 @map("observacao_analise")
+  enviadoEm              DateTime?               @map("enviado_em")
+  analisadoEm            DateTime?               @map("analisado_em")
+  analisadoPorId         String?                 @map("analisado_por_id") @db.Uuid
+  propostaVinculadaEm    DateTime?               @map("proposta_vinculada_em")
+  propostaVinculadaPorId String?                 @map("proposta_vinculada_por_id") @db.Uuid
+  criadoEm               DateTime                @default(now()) @map("criado_em")
+  atualizadoEm           DateTime                @default(now()) @updatedAt @map("atualizado_em")
+  cliente                ClienteOperacional      @relation(fields: [clienteId], references: [id], onDelete: Restrict)
+  tecnico                Usuario                 @relation("OrcTecnico", fields: [tecnicoId], references: [id], onDelete: Restrict)
+  analisadoPor           Usuario?                @relation("OrcAnalista", fields: [analisadoPorId], references: [id], onDelete: SetNull)
+  propostaVinculadaPor   Usuario?                @relation("OrcVinculador", fields: [propostaVinculadaPorId], references: [id], onDelete: SetNull)
+  checklistModelo        OrcChecklistModelo?     @relation(fields: [checklistModeloId], references: [id], onDelete: SetNull)
+  proposta               OpProposta?             @relation(fields: [propostaId], references: [id], onDelete: Restrict)
+  respostas              OrcOrcamentoResposta[]
+  itens                  OrcOrcamentoItem[]
+  evidencias             OrcOrcamentoEvidencia[]
+  historicos             OrcOrcamentoHistorico[]
+
+  @@index([status, criadoEm(sort: Desc)])
+  @@index([clienteId, criadoEm(sort: Desc)])
+  @@map("orc_orcamentos")
+}
+
+model OrcOrcamentoResposta {
+  id           String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orcamentoId  String               @map("orcamento_id") @db.Uuid
+  perguntaId   String               @map("pergunta_id") @db.Uuid
+  valor        Json
+  atualizadoEm DateTime             @default(now()) @updatedAt @map("atualizado_em")
+  orcamento    OrcOrcamento         @relation(fields: [orcamentoId], references: [id], onDelete: Cascade)
+  pergunta     OrcChecklistPergunta @relation(fields: [perguntaId], references: [id], onDelete: Restrict)
+
+  @@unique([orcamentoId, perguntaId])
+  @@map("orc_orcamento_respostas")
+}
+
+model OrcOrcamentoItem {
+  id          String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orcamentoId String             @map("orcamento_id") @db.Uuid
+  materialId  String?            @map("material_id") @db.Uuid
+  tipo        OrcTipoItem
+  descricao   String             @db.VarChar(300)
+  unidade     String             @db.VarChar(20)
+  quantidade  Decimal            @db.Decimal(12, 3)
+  origem      String             @default("MANUAL") @db.VarChar(30)
+  orcamento   OrcOrcamento       @relation(fields: [orcamentoId], references: [id], onDelete: Cascade)
+  material    OrcMaterialBasico? @relation(fields: [materialId], references: [id], onDelete: SetNull)
+
+  @@index([orcamentoId, tipo])
+  @@map("orc_orcamento_itens")
+}
+
+model OrcOrcamentoEvidencia {
+  id           String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orcamentoId  String       @map("orcamento_id") @db.Uuid
+  tipo         String       @db.VarChar(40)
+  caminho      String       @db.VarChar(500)
+  nomeOriginal String?      @map("nome_original") @db.VarChar(255)
+  mime         String?      @db.VarChar(100)
+  latitude     Decimal?     @db.Decimal(10, 7)
+  longitude    Decimal?     @db.Decimal(10, 7)
+  criadoEm     DateTime     @default(now()) @map("criado_em")
+  orcamento    OrcOrcamento @relation(fields: [orcamentoId], references: [id], onDelete: Cascade)
+
+  @@index([orcamentoId, criadoEm])
+  @@map("orc_orcamento_evidencias")
+}
+
+model OrcOrcamentoHistorico {
+  id             BigInt       @id @default(autoincrement())
+  orcamentoId    String       @map("orcamento_id") @db.Uuid
+  usuarioId      String?      @map("usuario_id") @db.Uuid
+  acao           String       @db.VarChar(60)
+  statusAnterior OrcStatus?   @map("status_anterior")
+  statusNovo     OrcStatus?   @map("status_novo")
+  observacao     String?
+  dados          Json?
+  criadoEm       DateTime     @default(now()) @map("criado_em")
+  orcamento      OrcOrcamento @relation(fields: [orcamentoId], references: [id], onDelete: Cascade)
+  usuario        Usuario?     @relation("OrcHistoricoUsuario", fields: [usuarioId], references: [id], onDelete: SetNull)
+
+  @@index([orcamentoId, criadoEm(sort: Desc)])
+  @@map("orc_orcamento_historicos")
 }

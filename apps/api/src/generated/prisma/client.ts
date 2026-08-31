@@ -515,3 +515,73 @@ export type ComprasRecebimento = Prisma.ComprasRecebimentoModel
  * 
  */
 export type ComprasRecebimentoItem = Prisma.ComprasRecebimentoItemModel
+/**
+ * Model fin_filiais
+ * 
+ */
+export type fin_filiais = Prisma.fin_filiaisModel
+/**
+ * Model fin_filiais_historico
+ * 
+ */
+export type fin_filiais_historico = Prisma.fin_filiais_historicoModel
+/**
+ * Model OrcChecklistModelo
+ * 
+ */
+export type OrcChecklistModelo = Prisma.OrcChecklistModeloModel
+/**
+ * Model OrcChecklistGrupo
+ * 
+ */
+export type OrcChecklistGrupo = Prisma.OrcChecklistGrupoModel
+/**
+ * Model OrcChecklistPergunta
+ * 
+ */
+export type OrcChecklistPergunta = Prisma.OrcChecklistPerguntaModel
+/**
+ * Model OrcChecklistOpcao
+ * 
+ */
+export type OrcChecklistOpcao = Prisma.OrcChecklistOpcaoModel
+/**
+ * Model OrcRegraCondicional
+ * 
+ */
+export type OrcRegraCondicional = Prisma.OrcRegraCondicionalModel
+/**
+ * Model OrcMaterialBasico
+ * 
+ */
+export type OrcMaterialBasico = Prisma.OrcMaterialBasicoModel
+/**
+ * Model OrcPerguntaMaterial
+ * 
+ */
+export type OrcPerguntaMaterial = Prisma.OrcPerguntaMaterialModel
+/**
+ * Model OrcOrcamento
+ * 
+ */
+export type OrcOrcamento = Prisma.OrcOrcamentoModel
+/**
+ * Model OrcOrcamentoResposta
+ * 
+ */
+export type OrcOrcamentoResposta = Prisma.OrcOrcamentoRespostaModel
+/**
+ * Model OrcOrcamentoItem
+ * 
+ */
+export type OrcOrcamentoItem = Prisma.OrcOrcamentoItemModel
+/**
+ * Model OrcOrcamentoEvidencia
+ * 
+ */
+export type OrcOrcamentoEvidencia = Prisma.OrcOrcamentoEvidenciaModel
+/**
+ * Model OrcOrcamentoHistorico
+ * 
+ */
+export type OrcOrcamentoHistorico = Prisma.OrcOrcamentoHistoricoModel

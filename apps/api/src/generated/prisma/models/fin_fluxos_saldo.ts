@@ -30,12 +30,14 @@ export type Fin_fluxos_saldoAvgAggregateOutputType = {
   id: number | null
   legado_id: number | null
   valor: runtime.Decimal | null
+  filial_id: number | null
 }
 
 export type Fin_fluxos_saldoSumAggregateOutputType = {
   id: bigint | null
   legado_id: number | null
   valor: runtime.Decimal | null
+  filial_id: bigint | null
 }
 
 export type Fin_fluxos_saldoMinAggregateOutputType = {
@@ -46,6 +48,7 @@ export type Fin_fluxos_saldoMinAggregateOutputType = {
   valor: runtime.Decimal | null
   descricao: string | null
   criado_em: Date | null
+  filial_id: bigint | null
 }
 
 export type Fin_fluxos_saldoMaxAggregateOutputType = {
@@ -56,6 +59,7 @@ export type Fin_fluxos_saldoMaxAggregateOutputType = {
   valor: runtime.Decimal | null
   descricao: string | null
   criado_em: Date | null
+  filial_id: bigint | null
 }
 
 export type Fin_fluxos_saldoCountAggregateOutputType = {
@@ -66,6 +70,7 @@ export type Fin_fluxos_saldoCountAggregateOutputType = {
   valor: number
   descricao: number
   criado_em: number
+  filial_id: number
   _all: number
 }
 
@@ -74,12 +79,14 @@ export type Fin_fluxos_saldoAvgAggregateInputType = {
   id?: true
   legado_id?: true
   valor?: true
+  filial_id?: true
 }
 
 export type Fin_fluxos_saldoSumAggregateInputType = {
   id?: true
   legado_id?: true
   valor?: true
+  filial_id?: true
 }
 
 export type Fin_fluxos_saldoMinAggregateInputType = {
@@ -90,6 +97,7 @@ export type Fin_fluxos_saldoMinAggregateInputType = {
   valor?: true
   descricao?: true
   criado_em?: true
+  filial_id?: true
 }
 
 export type Fin_fluxos_saldoMaxAggregateInputType = {
@@ -100,6 +108,7 @@ export type Fin_fluxos_saldoMaxAggregateInputType = {
   valor?: true
   descricao?: true
   criado_em?: true
+  filial_id?: true
 }
 
 export type Fin_fluxos_saldoCountAggregateInputType = {
@@ -110,6 +119,7 @@ export type Fin_fluxos_saldoCountAggregateInputType = {
   valor?: true
   descricao?: true
   criado_em?: true
+  filial_id?: true
   _all?: true
 }
 
@@ -207,6 +217,7 @@ export type Fin_fluxos_saldoGroupByOutputType = {
   valor: runtime.Decimal
   descricao: string | null
   criado_em: Date
+  filial_id: bigint | null
   _count: Fin_fluxos_saldoCountAggregateOutputType | null
   _avg: Fin_fluxos_saldoAvgAggregateOutputType | null
   _sum: Fin_fluxos_saldoSumAggregateOutputType | null
@@ -240,6 +251,8 @@ export type fin_fluxos_saldoWhereInput = {
   valor?: Prisma.DecimalFilter<"fin_fluxos_saldo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: Prisma.StringNullableFilter<"fin_fluxos_saldo"> | string | null
   criado_em?: Prisma.DateTimeFilter<"fin_fluxos_saldo"> | Date | string
+  filial_id?: Prisma.BigIntNullableFilter<"fin_fluxos_saldo"> | bigint | number | null
+  fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
 }
 
 export type fin_fluxos_saldoOrderByWithRelationInput = {
@@ -250,6 +263,8 @@ export type fin_fluxos_saldoOrderByWithRelationInput = {
   valor?: Prisma.SortOrder
   descricao?: Prisma.SortOrderInput | Prisma.SortOrder
   criado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  fin_filiais?: Prisma.fin_filiaisOrderByWithRelationInput
 }
 
 export type fin_fluxos_saldoWhereUniqueInput = Prisma.AtLeast<{
@@ -263,6 +278,8 @@ export type fin_fluxos_saldoWhereUniqueInput = Prisma.AtLeast<{
   valor?: Prisma.DecimalFilter<"fin_fluxos_saldo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: Prisma.StringNullableFilter<"fin_fluxos_saldo"> | string | null
   criado_em?: Prisma.DateTimeFilter<"fin_fluxos_saldo"> | Date | string
+  filial_id?: Prisma.BigIntNullableFilter<"fin_fluxos_saldo"> | bigint | number | null
+  fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
 }, "id" | "legado_id">
 
 export type fin_fluxos_saldoOrderByWithAggregationInput = {
@@ -273,6 +290,7 @@ export type fin_fluxos_saldoOrderByWithAggregationInput = {
   valor?: Prisma.SortOrder
   descricao?: Prisma.SortOrderInput | Prisma.SortOrder
   criado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.fin_fluxos_saldoCountOrderByAggregateInput
   _avg?: Prisma.fin_fluxos_saldoAvgOrderByAggregateInput
   _max?: Prisma.fin_fluxos_saldoMaxOrderByAggregateInput
@@ -291,6 +309,7 @@ export type fin_fluxos_saldoScalarWhereWithAggregatesInput = {
   valor?: Prisma.DecimalWithAggregatesFilter<"fin_fluxos_saldo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: Prisma.StringNullableWithAggregatesFilter<"fin_fluxos_saldo"> | string | null
   criado_em?: Prisma.DateTimeWithAggregatesFilter<"fin_fluxos_saldo"> | Date | string
+  filial_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_fluxos_saldo"> | bigint | number | null
 }
 
 export type fin_fluxos_saldoCreateInput = {
@@ -301,6 +320,7 @@ export type fin_fluxos_saldoCreateInput = {
   valor?: runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: string | null
   criado_em?: Date | string
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_fluxos_saldoInput
 }
 
 export type fin_fluxos_saldoUncheckedCreateInput = {
@@ -311,6 +331,7 @@ export type fin_fluxos_saldoUncheckedCreateInput = {
   valor?: runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: string | null
   criado_em?: Date | string
+  filial_id?: bigint | number | null
 }
 
 export type fin_fluxos_saldoUpdateInput = {
@@ -321,6 +342,7 @@ export type fin_fluxos_saldoUpdateInput = {
   valor?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_fluxos_saldoNestedInput
 }
 
 export type fin_fluxos_saldoUncheckedUpdateInput = {
@@ -331,6 +353,7 @@ export type fin_fluxos_saldoUncheckedUpdateInput = {
   valor?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_fluxos_saldoCreateManyInput = {
@@ -341,6 +364,7 @@ export type fin_fluxos_saldoCreateManyInput = {
   valor?: runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: string | null
   criado_em?: Date | string
+  filial_id?: bigint | number | null
 }
 
 export type fin_fluxos_saldoUpdateManyMutationInput = {
@@ -361,6 +385,7 @@ export type fin_fluxos_saldoUncheckedUpdateManyInput = {
   valor?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_fluxos_saldoCountOrderByAggregateInput = {
@@ -371,12 +396,14 @@ export type fin_fluxos_saldoCountOrderByAggregateInput = {
   valor?: Prisma.SortOrder
   descricao?: Prisma.SortOrder
   criado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_fluxos_saldoAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   legado_id?: Prisma.SortOrder
   valor?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_fluxos_saldoMaxOrderByAggregateInput = {
@@ -387,6 +414,7 @@ export type fin_fluxos_saldoMaxOrderByAggregateInput = {
   valor?: Prisma.SortOrder
   descricao?: Prisma.SortOrder
   criado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_fluxos_saldoMinOrderByAggregateInput = {
@@ -397,12 +425,166 @@ export type fin_fluxos_saldoMinOrderByAggregateInput = {
   valor?: Prisma.SortOrder
   descricao?: Prisma.SortOrder
   criado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_fluxos_saldoSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   legado_id?: Prisma.SortOrder
   valor?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
+}
+
+export type Fin_fluxos_saldoListRelationFilter = {
+  every?: Prisma.fin_fluxos_saldoWhereInput
+  some?: Prisma.fin_fluxos_saldoWhereInput
+  none?: Prisma.fin_fluxos_saldoWhereInput
+}
+
+export type fin_fluxos_saldoOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type fin_fluxos_saldoCreateNestedManyWithoutFin_filiaisInput = {
+  create?: Prisma.XOR<Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput[] | Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_fluxos_saldoCreateManyFin_filiaisInputEnvelope
+  connect?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+}
+
+export type fin_fluxos_saldoUncheckedCreateNestedManyWithoutFin_filiaisInput = {
+  create?: Prisma.XOR<Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput[] | Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_fluxos_saldoCreateManyFin_filiaisInputEnvelope
+  connect?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+}
+
+export type fin_fluxos_saldoUpdateManyWithoutFin_filiaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput[] | Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput[]
+  upsert?: Prisma.fin_fluxos_saldoUpsertWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoUpsertWithWhereUniqueWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_fluxos_saldoCreateManyFin_filiaisInputEnvelope
+  set?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  disconnect?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  delete?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  connect?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  update?: Prisma.fin_fluxos_saldoUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoUpdateWithWhereUniqueWithoutFin_filiaisInput[]
+  updateMany?: Prisma.fin_fluxos_saldoUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoUpdateManyWithWhereWithoutFin_filiaisInput[]
+  deleteMany?: Prisma.fin_fluxos_saldoScalarWhereInput | Prisma.fin_fluxos_saldoScalarWhereInput[]
+}
+
+export type fin_fluxos_saldoUncheckedUpdateManyWithoutFin_filiaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput[] | Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput[]
+  upsert?: Prisma.fin_fluxos_saldoUpsertWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoUpsertWithWhereUniqueWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_fluxos_saldoCreateManyFin_filiaisInputEnvelope
+  set?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  disconnect?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  delete?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  connect?: Prisma.fin_fluxos_saldoWhereUniqueInput | Prisma.fin_fluxos_saldoWhereUniqueInput[]
+  update?: Prisma.fin_fluxos_saldoUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoUpdateWithWhereUniqueWithoutFin_filiaisInput[]
+  updateMany?: Prisma.fin_fluxos_saldoUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_fluxos_saldoUpdateManyWithWhereWithoutFin_filiaisInput[]
+  deleteMany?: Prisma.fin_fluxos_saldoScalarWhereInput | Prisma.fin_fluxos_saldoScalarWhereInput[]
+}
+
+export type fin_fluxos_saldoCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  filial?: string | null
+  data_ref: Date | string
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: string | null
+  criado_em?: Date | string
+}
+
+export type fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  filial?: string | null
+  data_ref: Date | string
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: string | null
+  criado_em?: Date | string
+}
+
+export type fin_fluxos_saldoCreateOrConnectWithoutFin_filiaisInput = {
+  where: Prisma.fin_fluxos_saldoWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_fluxos_saldoCreateManyFin_filiaisInputEnvelope = {
+  data: Prisma.fin_fluxos_saldoCreateManyFin_filiaisInput | Prisma.fin_fluxos_saldoCreateManyFin_filiaisInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_fluxos_saldoUpsertWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_fluxos_saldoWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_fluxos_saldoUpdateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedUpdateWithoutFin_filiaisInput>
+  create: Prisma.XOR<Prisma.fin_fluxos_saldoCreateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_fluxos_saldoUpdateWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_fluxos_saldoWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_fluxos_saldoUpdateWithoutFin_filiaisInput, Prisma.fin_fluxos_saldoUncheckedUpdateWithoutFin_filiaisInput>
+}
+
+export type fin_fluxos_saldoUpdateManyWithWhereWithoutFin_filiaisInput = {
+  where: Prisma.fin_fluxos_saldoScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_fluxos_saldoUpdateManyMutationInput, Prisma.fin_fluxos_saldoUncheckedUpdateManyWithoutFin_filiaisInput>
+}
+
+export type fin_fluxos_saldoScalarWhereInput = {
+  AND?: Prisma.fin_fluxos_saldoScalarWhereInput | Prisma.fin_fluxos_saldoScalarWhereInput[]
+  OR?: Prisma.fin_fluxos_saldoScalarWhereInput[]
+  NOT?: Prisma.fin_fluxos_saldoScalarWhereInput | Prisma.fin_fluxos_saldoScalarWhereInput[]
+  id?: Prisma.BigIntFilter<"fin_fluxos_saldo"> | bigint | number
+  legado_id?: Prisma.IntNullableFilter<"fin_fluxos_saldo"> | number | null
+  filial?: Prisma.StringNullableFilter<"fin_fluxos_saldo"> | string | null
+  data_ref?: Prisma.DateTimeFilter<"fin_fluxos_saldo"> | Date | string
+  valor?: Prisma.DecimalFilter<"fin_fluxos_saldo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: Prisma.StringNullableFilter<"fin_fluxos_saldo"> | string | null
+  criado_em?: Prisma.DateTimeFilter<"fin_fluxos_saldo"> | Date | string
+  filial_id?: Prisma.BigIntNullableFilter<"fin_fluxos_saldo"> | bigint | number | null
+}
+
+export type fin_fluxos_saldoCreateManyFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  filial?: string | null
+  data_ref: Date | string
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: string | null
+  criado_em?: Date | string
+}
+
+export type fin_fluxos_saldoUpdateWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_ref?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  valor?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type fin_fluxos_saldoUncheckedUpdateWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_ref?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  valor?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type fin_fluxos_saldoUncheckedUpdateManyWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_ref?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  valor?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -415,6 +597,8 @@ export type fin_fluxos_saldoSelect<ExtArgs extends runtime.Types.Extensions.Inte
   valor?: boolean
   descricao?: boolean
   criado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_fluxos_saldo"]>
 
 export type fin_fluxos_saldoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -425,6 +609,8 @@ export type fin_fluxos_saldoSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   valor?: boolean
   descricao?: boolean
   criado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_fluxos_saldo"]>
 
 export type fin_fluxos_saldoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -435,6 +621,8 @@ export type fin_fluxos_saldoSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   valor?: boolean
   descricao?: boolean
   criado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_fluxos_saldo"]>
 
 export type fin_fluxos_saldoSelectScalar = {
@@ -445,13 +633,25 @@ export type fin_fluxos_saldoSelectScalar = {
   valor?: boolean
   descricao?: boolean
   criado_em?: boolean
+  filial_id?: boolean
 }
 
-export type fin_fluxos_saldoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "filial" | "data_ref" | "valor" | "descricao" | "criado_em", ExtArgs["result"]["fin_fluxos_saldo"]>
+export type fin_fluxos_saldoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "filial" | "data_ref" | "valor" | "descricao" | "criado_em" | "filial_id", ExtArgs["result"]["fin_fluxos_saldo"]>
+export type fin_fluxos_saldoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>
+}
+export type fin_fluxos_saldoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>
+}
+export type fin_fluxos_saldoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>
+}
 
 export type $fin_fluxos_saldoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "fin_fluxos_saldo"
-  objects: {}
+  objects: {
+    fin_filiais: Prisma.$fin_filiaisPayload<ExtArgs> | null
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
     legado_id: number | null
@@ -460,6 +660,7 @@ export type $fin_fluxos_saldoPayload<ExtArgs extends runtime.Types.Extensions.In
     valor: runtime.Decimal
     descricao: string | null
     criado_em: Date
+    filial_id: bigint | null
   }, ExtArgs["result"]["fin_fluxos_saldo"]>
   composites: {}
 }
@@ -854,6 +1055,7 @@ readonly fields: fin_fluxos_saldoFieldRefs;
  */
 export interface Prisma__fin_fluxos_saldoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  fin_filiais<T extends Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_fluxos_saldo$fin_filiaisArgs<ExtArgs>>): Prisma.Prisma__fin_filiaisClient<runtime.Types.Result.GetResult<Prisma.$fin_filiaisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -890,6 +1092,7 @@ export interface fin_fluxos_saldoFieldRefs {
   readonly valor: Prisma.FieldRef<"fin_fluxos_saldo", 'Decimal'>
   readonly descricao: Prisma.FieldRef<"fin_fluxos_saldo", 'String'>
   readonly criado_em: Prisma.FieldRef<"fin_fluxos_saldo", 'DateTime'>
+  readonly filial_id: Prisma.FieldRef<"fin_fluxos_saldo", 'BigInt'>
 }
     
 
@@ -906,6 +1109,10 @@ export type fin_fluxos_saldoFindUniqueArgs<ExtArgs extends runtime.Types.Extensi
    * Omit specific fields from the fin_fluxos_saldo
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
   /**
    * Filter, which fin_fluxos_saldo to fetch.
    */
@@ -925,6 +1132,10 @@ export type fin_fluxos_saldoFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
+  /**
    * Filter, which fin_fluxos_saldo to fetch.
    */
   where: Prisma.fin_fluxos_saldoWhereUniqueInput
@@ -942,6 +1153,10 @@ export type fin_fluxos_saldoFindFirstArgs<ExtArgs extends runtime.Types.Extensio
    * Omit specific fields from the fin_fluxos_saldo
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
   /**
    * Filter, which fin_fluxos_saldo to fetch.
    */
@@ -991,6 +1206,10 @@ export type fin_fluxos_saldoFindFirstOrThrowArgs<ExtArgs extends runtime.Types.E
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
+  /**
    * Filter, which fin_fluxos_saldo to fetch.
    */
   where?: Prisma.fin_fluxos_saldoWhereInput
@@ -1038,6 +1257,10 @@ export type fin_fluxos_saldoFindManyArgs<ExtArgs extends runtime.Types.Extension
    * Omit specific fields from the fin_fluxos_saldo
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
   /**
    * Filter, which fin_fluxos_saldos to fetch.
    */
@@ -1087,6 +1310,10 @@ export type fin_fluxos_saldoCreateArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
+  /**
    * The data needed to create a fin_fluxos_saldo.
    */
   data: Prisma.XOR<Prisma.fin_fluxos_saldoCreateInput, Prisma.fin_fluxos_saldoUncheckedCreateInput>
@@ -1120,6 +1347,10 @@ export type fin_fluxos_saldoCreateManyAndReturnArgs<ExtArgs extends runtime.Type
    */
   data: Prisma.fin_fluxos_saldoCreateManyInput | Prisma.fin_fluxos_saldoCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1134,6 +1365,10 @@ export type fin_fluxos_saldoUpdateArgs<ExtArgs extends runtime.Types.Extensions.
    * Omit specific fields from the fin_fluxos_saldo
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
   /**
    * The data needed to update a fin_fluxos_saldo.
    */
@@ -1186,6 +1421,10 @@ export type fin_fluxos_saldoUpdateManyAndReturnArgs<ExtArgs extends runtime.Type
    * Limit how many fin_fluxos_saldos to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1200,6 +1439,10 @@ export type fin_fluxos_saldoUpsertArgs<ExtArgs extends runtime.Types.Extensions.
    * Omit specific fields from the fin_fluxos_saldo
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
   /**
    * The filter to search for the fin_fluxos_saldo to update in case it exists.
    */
@@ -1227,6 +1470,10 @@ export type fin_fluxos_saldoDeleteArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
+  /**
    * Filter which fin_fluxos_saldo to delete.
    */
   where: Prisma.fin_fluxos_saldoWhereUniqueInput
@@ -1247,6 +1494,25 @@ export type fin_fluxos_saldoDeleteManyArgs<ExtArgs extends runtime.Types.Extensi
 }
 
 /**
+ * fin_fluxos_saldo.fin_filiais
+ */
+export type fin_fluxos_saldo$fin_filiaisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_filiais
+   */
+  select?: Prisma.fin_filiaisSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_filiais
+   */
+  omit?: Prisma.fin_filiaisOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_filiaisInclude<ExtArgs> | null
+  where?: Prisma.fin_filiaisWhereInput
+}
+
+/**
  * fin_fluxos_saldo without action
  */
 export type fin_fluxos_saldoDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1258,4 +1524,8 @@ export type fin_fluxos_saldoDefaultArgs<ExtArgs extends runtime.Types.Extensions
    * Omit specific fields from the fin_fluxos_saldo
    */
   omit?: Prisma.fin_fluxos_saldoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_fluxos_saldoInclude<ExtArgs> | null
 }

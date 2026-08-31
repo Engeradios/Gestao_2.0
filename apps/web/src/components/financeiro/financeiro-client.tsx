@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { NfeConsultaPrevia } from "@/components/financeiro/nfe-consulta-previa";
+
 type Mode =
   | "dashboard"
   | "receber"
@@ -225,6 +227,12 @@ export function FinanceiroClient({ mode }: { mode: Mode }) {
     }
   }, [c.endpoint, busca, situacao, filial, inicio, fim]);
   useEffect(() => {
+    const refresh = () => void load();
+    window.addEventListener("financeiro:notas-recebidas:refresh", refresh);
+    return () =>
+      window.removeEventListener("financeiro:notas-recebidas:refresh", refresh);
+  }, [load]);
+  useEffect(() => {
     const timer = window.setTimeout(() => {
       void load();
     }, 0);
@@ -270,6 +278,7 @@ export function FinanceiroClient({ mode }: { mode: Mode }) {
           ))}
         </nav>
       </header>
+      {mode === "notas-recebidas" && <NfeConsultaPrevia />}
       {mode !== "dashboard" && mode !== "dre" && mode !== "fluxo" && (
         <section className="grid gap-3 rounded-2xl border bg-white p-4 md:grid-cols-5 dark:bg-slate-950">
           <input

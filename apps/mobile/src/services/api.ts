@@ -78,22 +78,3 @@ export function apiErrorMessage(error: unknown, fallback: string) {
 
 export { axios };
 
-
-// OFFLINE_ERROR_NORMALIZER
-export function friendlyApiError(error: unknown): string {
-  const message = error instanceof Error ? error.message : String(error ?? '');
-  if (/network error|network request failed|failed to fetch|timeout|econn/i.test(message)) {
-    return 'Sem conexão. Os dados locais permanecem preservados.';
-  }
-  return message || 'Não foi possível concluir a operação.';
-}
-
-api.interceptors.response.use(
-  response => response,
-  error => {
-    if (error instanceof Error && /network error|network request failed|failed to fetch|timeout|econn/i.test(error.message)) {
-      error.message = 'Sem conexão. Os dados locais permanecem preservados.';
-    }
-    return Promise.reject(error);
-  },
-);

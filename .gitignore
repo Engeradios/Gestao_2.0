@@ -73,3 +73,6 @@ storage/
 .git_backup_*
 
 .git_backup_*
+
+# Backups locais de build Next.js
+apps/web/.next.backup.*/

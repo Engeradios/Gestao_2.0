@@ -1,0 +1,3 @@
+import { StyleSheet,Text,View } from 'react-native';import { useConnectivityStore } from '../stores/connectivity.store';import { useAppTheme } from '../theme/use-app-theme';
+export function OfflineBanner(){const p=useAppTheme();const online=useConnectivityStore(s=>s.online);const initialized=useConnectivityStore(s=>s.initialized);if(!initialized||online)return null;return <View accessibilityRole="alert" style={[s.box,{backgroundColor:`${p.warning}18`,borderColor:p.warning}]}><Text style={[s.text,{color:p.text}]}>Modo offline. Dados locais preservados; atualização automática ao reconectar.</Text></View>}
+const s=StyleSheet.create({box:{borderWidth:1,borderRadius:12,padding:11,marginBottom:12},text:{fontSize:12,lineHeight:18,fontWeight:'700'}});

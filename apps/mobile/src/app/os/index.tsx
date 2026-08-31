@@ -5,8 +5,10 @@ import { MobileAppShell } from "../../components/mobile-app-shell";
 import { listarOs } from "../../services/os.service";
 import type { OsResumo } from "../../types/os";
 import { PermissionGate } from '../../components/permission-gate';
+import { useConnectivityStore } from '../../stores/connectivity.store';
 
 function RbacContent() {
+  const online = useConnectivityStore((state) => state.online);
   const [items, setItems] = useState<OsResumo[]>([]);
   const [busca, setBusca] = useState("");
   const [loading, setLoading] = useState(true);
@@ -35,7 +37,7 @@ function RbacContent() {
           <Pressable style={styles.button} onPress={() => void load()}><Text style={styles.buttonText}>Buscar</Text></Pressable>
         </View>
         {loading ? <ActivityIndicator color="#D90000" style={styles.state} /> : null}
-        {error ? <View style={styles.error}><Text style={styles.errorText}>{error}</Text><Pressable onPress={() => void load()}><Text style={styles.retry}>Tentar novamente</Text></Pressable></View> : null}
+        {error ? <View style={styles.error}><Text style={styles.errorText}>{error}</Text>{online ? <Pressable onPress={() => void load()}><Text style={styles.retry}>Tentar novamente</Text></Pressable> : null}</View> : null}
         {!loading && !error && items.length === 0 ? <Text style={styles.empty}>Nenhuma ordem de serviço encontrada.</Text> : null}
         {!loading && !error ? (
           <FlatList data={items} contentContainerStyle={styles.list} keyExtractor={(item) => item.id} renderItem={({ item }) => (

@@ -355,6 +355,7 @@ export type ClienteOperacionalWhereInput = {
   contratosAdministrativos?: Prisma.ContratoAdministrativoListRelationFilter
   ordens?: Prisma.OrdemServicoListRelationFilter
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjListRelationFilter
+  orcamentos?: Prisma.OrcOrcamentoListRelationFilter
 }
 
 export type ClienteOperacionalOrderByWithRelationInput = {
@@ -383,6 +384,7 @@ export type ClienteOperacionalOrderByWithRelationInput = {
   contratosAdministrativos?: Prisma.ContratoAdministrativoOrderByRelationAggregateInput
   ordens?: Prisma.OrdemServicoOrderByRelationAggregateInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjOrderByRelationAggregateInput
+  orcamentos?: Prisma.OrcOrcamentoOrderByRelationAggregateInput
 }
 
 export type ClienteOperacionalWhereUniqueInput = Prisma.AtLeast<{
@@ -415,6 +417,7 @@ export type ClienteOperacionalWhereUniqueInput = Prisma.AtLeast<{
   contratosAdministrativos?: Prisma.ContratoAdministrativoListRelationFilter
   ordens?: Prisma.OrdemServicoListRelationFilter
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjListRelationFilter
+  orcamentos?: Prisma.OrcOrcamentoListRelationFilter
 }, "id" | "origem_origemId">
 
 export type ClienteOperacionalOrderByWithAggregationInput = {
@@ -501,6 +504,7 @@ export type ClienteOperacionalCreateInput = {
   contratosAdministrativos?: Prisma.ContratoAdministrativoCreateNestedManyWithoutClienteInput
   ordens?: Prisma.OrdemServicoCreateNestedManyWithoutClienteInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalUncheckedCreateInput = {
@@ -529,6 +533,7 @@ export type ClienteOperacionalUncheckedCreateInput = {
   contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutClienteInput
   ordens?: Prisma.OrdemServicoUncheckedCreateNestedManyWithoutClienteInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalUpdateInput = {
@@ -557,6 +562,7 @@ export type ClienteOperacionalUpdateInput = {
   contratosAdministrativos?: Prisma.ContratoAdministrativoUpdateManyWithoutClienteNestedInput
   ordens?: Prisma.OrdemServicoUpdateManyWithoutClienteNestedInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalUncheckedUpdateInput = {
@@ -585,6 +591,7 @@ export type ClienteOperacionalUncheckedUpdateInput = {
   contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutClienteNestedInput
   ordens?: Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalCreateManyInput = {
@@ -812,6 +819,20 @@ export type ClienteOperacionalUpdateOneRequiredWithoutContratoConsultaCnpjsNeste
   update?: Prisma.XOR<Prisma.XOR<Prisma.ClienteOperacionalUpdateToOneWithWhereWithoutContratoConsultaCnpjsInput, Prisma.ClienteOperacionalUpdateWithoutContratoConsultaCnpjsInput>, Prisma.ClienteOperacionalUncheckedUpdateWithoutContratoConsultaCnpjsInput>
 }
 
+export type ClienteOperacionalCreateNestedOneWithoutOrcamentosInput = {
+  create?: Prisma.XOR<Prisma.ClienteOperacionalCreateWithoutOrcamentosInput, Prisma.ClienteOperacionalUncheckedCreateWithoutOrcamentosInput>
+  connectOrCreate?: Prisma.ClienteOperacionalCreateOrConnectWithoutOrcamentosInput
+  connect?: Prisma.ClienteOperacionalWhereUniqueInput
+}
+
+export type ClienteOperacionalUpdateOneRequiredWithoutOrcamentosNestedInput = {
+  create?: Prisma.XOR<Prisma.ClienteOperacionalCreateWithoutOrcamentosInput, Prisma.ClienteOperacionalUncheckedCreateWithoutOrcamentosInput>
+  connectOrCreate?: Prisma.ClienteOperacionalCreateOrConnectWithoutOrcamentosInput
+  upsert?: Prisma.ClienteOperacionalUpsertWithoutOrcamentosInput
+  connect?: Prisma.ClienteOperacionalWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ClienteOperacionalUpdateToOneWithWhereWithoutOrcamentosInput, Prisma.ClienteOperacionalUpdateWithoutOrcamentosInput>, Prisma.ClienteOperacionalUncheckedUpdateWithoutOrcamentosInput>
+}
+
 export type ClienteOperacionalCreateWithoutOrdensInput = {
   id?: string
   origem: string
@@ -837,6 +858,7 @@ export type ClienteOperacionalCreateWithoutOrdensInput = {
   atualizadoEm?: Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoCreateNestedManyWithoutClienteInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalUncheckedCreateWithoutOrdensInput = {
@@ -864,6 +886,7 @@ export type ClienteOperacionalUncheckedCreateWithoutOrdensInput = {
   atualizadoEm?: Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutClienteInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalCreateOrConnectWithoutOrdensInput = {
@@ -907,6 +930,7 @@ export type ClienteOperacionalUpdateWithoutOrdensInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoUpdateManyWithoutClienteNestedInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalUncheckedUpdateWithoutOrdensInput = {
@@ -934,6 +958,7 @@ export type ClienteOperacionalUncheckedUpdateWithoutOrdensInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutClienteNestedInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalCreateWithoutContratosAdministrativosInput = {
@@ -961,6 +986,7 @@ export type ClienteOperacionalCreateWithoutContratosAdministrativosInput = {
   atualizadoEm?: Date | string
   ordens?: Prisma.OrdemServicoCreateNestedManyWithoutClienteInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalUncheckedCreateWithoutContratosAdministrativosInput = {
@@ -988,6 +1014,7 @@ export type ClienteOperacionalUncheckedCreateWithoutContratosAdministrativosInpu
   atualizadoEm?: Date | string
   ordens?: Prisma.OrdemServicoUncheckedCreateNestedManyWithoutClienteInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalCreateOrConnectWithoutContratosAdministrativosInput = {
@@ -1031,6 +1058,7 @@ export type ClienteOperacionalUpdateWithoutContratosAdministrativosInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordens?: Prisma.OrdemServicoUpdateManyWithoutClienteNestedInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalUncheckedUpdateWithoutContratosAdministrativosInput = {
@@ -1058,6 +1086,7 @@ export type ClienteOperacionalUncheckedUpdateWithoutContratosAdministrativosInpu
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordens?: Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput
   contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalCreateWithoutContratoConsultaCnpjsInput = {
@@ -1085,6 +1114,7 @@ export type ClienteOperacionalCreateWithoutContratoConsultaCnpjsInput = {
   atualizadoEm?: Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoCreateNestedManyWithoutClienteInput
   ordens?: Prisma.OrdemServicoCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalUncheckedCreateWithoutContratoConsultaCnpjsInput = {
@@ -1112,6 +1142,7 @@ export type ClienteOperacionalUncheckedCreateWithoutContratoConsultaCnpjsInput =
   atualizadoEm?: Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutClienteInput
   ordens?: Prisma.OrdemServicoUncheckedCreateNestedManyWithoutClienteInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteOperacionalCreateOrConnectWithoutContratoConsultaCnpjsInput = {
@@ -1155,6 +1186,7 @@ export type ClienteOperacionalUpdateWithoutContratoConsultaCnpjsInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoUpdateManyWithoutClienteNestedInput
   ordens?: Prisma.OrdemServicoUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteOperacionalUncheckedUpdateWithoutContratoConsultaCnpjsInput = {
@@ -1182,6 +1214,135 @@ export type ClienteOperacionalUncheckedUpdateWithoutContratoConsultaCnpjsInput =
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutClienteNestedInput
   ordens?: Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput
+  orcamentos?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutClienteNestedInput
+}
+
+export type ClienteOperacionalCreateWithoutOrcamentosInput = {
+  id?: string
+  origem: string
+  origemId: number
+  codigo?: string | null
+  razaoSocial: string
+  nomeFantasia?: string | null
+  cnpj?: string | null
+  endereco?: string | null
+  bairro?: string | null
+  municipio?: string | null
+  uf?: string | null
+  cep?: string | null
+  contatoNome?: string | null
+  contatoEmail?: string | null
+  contatoFone?: string | null
+  website?: string | null
+  ativo?: boolean
+  origemCriadoEm?: Date | string | null
+  origemAtualizadoEm?: Date | string | null
+  sincronizadoEm?: Date | string
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  contratosAdministrativos?: Prisma.ContratoAdministrativoCreateNestedManyWithoutClienteInput
+  ordens?: Prisma.OrdemServicoCreateNestedManyWithoutClienteInput
+  contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjCreateNestedManyWithoutClienteInput
+}
+
+export type ClienteOperacionalUncheckedCreateWithoutOrcamentosInput = {
+  id?: string
+  origem: string
+  origemId: number
+  codigo?: string | null
+  razaoSocial: string
+  nomeFantasia?: string | null
+  cnpj?: string | null
+  endereco?: string | null
+  bairro?: string | null
+  municipio?: string | null
+  uf?: string | null
+  cep?: string | null
+  contatoNome?: string | null
+  contatoEmail?: string | null
+  contatoFone?: string | null
+  website?: string | null
+  ativo?: boolean
+  origemCriadoEm?: Date | string | null
+  origemAtualizadoEm?: Date | string | null
+  sincronizadoEm?: Date | string
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutClienteInput
+  ordens?: Prisma.OrdemServicoUncheckedCreateNestedManyWithoutClienteInput
+  contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedCreateNestedManyWithoutClienteInput
+}
+
+export type ClienteOperacionalCreateOrConnectWithoutOrcamentosInput = {
+  where: Prisma.ClienteOperacionalWhereUniqueInput
+  create: Prisma.XOR<Prisma.ClienteOperacionalCreateWithoutOrcamentosInput, Prisma.ClienteOperacionalUncheckedCreateWithoutOrcamentosInput>
+}
+
+export type ClienteOperacionalUpsertWithoutOrcamentosInput = {
+  update: Prisma.XOR<Prisma.ClienteOperacionalUpdateWithoutOrcamentosInput, Prisma.ClienteOperacionalUncheckedUpdateWithoutOrcamentosInput>
+  create: Prisma.XOR<Prisma.ClienteOperacionalCreateWithoutOrcamentosInput, Prisma.ClienteOperacionalUncheckedCreateWithoutOrcamentosInput>
+  where?: Prisma.ClienteOperacionalWhereInput
+}
+
+export type ClienteOperacionalUpdateToOneWithWhereWithoutOrcamentosInput = {
+  where?: Prisma.ClienteOperacionalWhereInput
+  data: Prisma.XOR<Prisma.ClienteOperacionalUpdateWithoutOrcamentosInput, Prisma.ClienteOperacionalUncheckedUpdateWithoutOrcamentosInput>
+}
+
+export type ClienteOperacionalUpdateWithoutOrcamentosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  origem?: Prisma.StringFieldUpdateOperationsInput | string
+  origemId?: Prisma.IntFieldUpdateOperationsInput | number
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  razaoSocial?: Prisma.StringFieldUpdateOperationsInput | string
+  nomeFantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endereco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  municipio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoFone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  origemCriadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemAtualizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sincronizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contratosAdministrativos?: Prisma.ContratoAdministrativoUpdateManyWithoutClienteNestedInput
+  ordens?: Prisma.OrdemServicoUpdateManyWithoutClienteNestedInput
+  contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUpdateManyWithoutClienteNestedInput
+}
+
+export type ClienteOperacionalUncheckedUpdateWithoutOrcamentosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  origem?: Prisma.StringFieldUpdateOperationsInput | string
+  origemId?: Prisma.IntFieldUpdateOperationsInput | number
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  razaoSocial?: Prisma.StringFieldUpdateOperationsInput | string
+  nomeFantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endereco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  municipio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoFone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  origemCriadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemAtualizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sincronizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contratosAdministrativos?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutClienteNestedInput
+  ordens?: Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput
+  contratoConsultaCnpjs?: Prisma.ContratoConsultaCnpjUncheckedUpdateManyWithoutClienteNestedInput
 }
 
 
@@ -1193,12 +1354,14 @@ export type ClienteOperacionalCountOutputType = {
   contratosAdministrativos: number
   ordens: number
   contratoConsultaCnpjs: number
+  orcamentos: number
 }
 
 export type ClienteOperacionalCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   contratosAdministrativos?: boolean | ClienteOperacionalCountOutputTypeCountContratosAdministrativosArgs
   ordens?: boolean | ClienteOperacionalCountOutputTypeCountOrdensArgs
   contratoConsultaCnpjs?: boolean | ClienteOperacionalCountOutputTypeCountContratoConsultaCnpjsArgs
+  orcamentos?: boolean | ClienteOperacionalCountOutputTypeCountOrcamentosArgs
 }
 
 /**
@@ -1232,6 +1395,13 @@ export type ClienteOperacionalCountOutputTypeCountContratoConsultaCnpjsArgs<ExtA
   where?: Prisma.ContratoConsultaCnpjWhereInput
 }
 
+/**
+ * ClienteOperacionalCountOutputType without action
+ */
+export type ClienteOperacionalCountOutputTypeCountOrcamentosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrcOrcamentoWhereInput
+}
+
 
 export type ClienteOperacionalSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1259,6 +1429,7 @@ export type ClienteOperacionalSelect<ExtArgs extends runtime.Types.Extensions.In
   contratosAdministrativos?: boolean | Prisma.ClienteOperacional$contratosAdministrativosArgs<ExtArgs>
   ordens?: boolean | Prisma.ClienteOperacional$ordensArgs<ExtArgs>
   contratoConsultaCnpjs?: boolean | Prisma.ClienteOperacional$contratoConsultaCnpjsArgs<ExtArgs>
+  orcamentos?: boolean | Prisma.ClienteOperacional$orcamentosArgs<ExtArgs>
   _count?: boolean | Prisma.ClienteOperacionalCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["clienteOperacional"]>
 
@@ -1342,6 +1513,7 @@ export type ClienteOperacionalInclude<ExtArgs extends runtime.Types.Extensions.I
   contratosAdministrativos?: boolean | Prisma.ClienteOperacional$contratosAdministrativosArgs<ExtArgs>
   ordens?: boolean | Prisma.ClienteOperacional$ordensArgs<ExtArgs>
   contratoConsultaCnpjs?: boolean | Prisma.ClienteOperacional$contratoConsultaCnpjsArgs<ExtArgs>
+  orcamentos?: boolean | Prisma.ClienteOperacional$orcamentosArgs<ExtArgs>
   _count?: boolean | Prisma.ClienteOperacionalCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ClienteOperacionalIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1353,6 +1525,7 @@ export type $ClienteOperacionalPayload<ExtArgs extends runtime.Types.Extensions.
     contratosAdministrativos: Prisma.$ContratoAdministrativoPayload<ExtArgs>[]
     ordens: Prisma.$OrdemServicoPayload<ExtArgs>[]
     contratoConsultaCnpjs: Prisma.$ContratoConsultaCnpjPayload<ExtArgs>[]
+    orcamentos: Prisma.$OrcOrcamentoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1774,6 +1947,7 @@ export interface Prisma__ClienteOperacionalClient<T, Null = never, ExtArgs exten
   contratosAdministrativos<T extends Prisma.ClienteOperacional$contratosAdministrativosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteOperacional$contratosAdministrativosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContratoAdministrativoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   ordens<T extends Prisma.ClienteOperacional$ordensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteOperacional$ordensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contratoConsultaCnpjs<T extends Prisma.ClienteOperacional$contratoConsultaCnpjsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteOperacional$contratoConsultaCnpjsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContratoConsultaCnpjPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  orcamentos<T extends Prisma.ClienteOperacional$orcamentosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteOperacional$orcamentosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrcOrcamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2287,6 +2461,30 @@ export type ClienteOperacional$contratoConsultaCnpjsArgs<ExtArgs extends runtime
   take?: number
   skip?: number
   distinct?: Prisma.ContratoConsultaCnpjScalarFieldEnum | Prisma.ContratoConsultaCnpjScalarFieldEnum[]
+}
+
+/**
+ * ClienteOperacional.orcamentos
+ */
+export type ClienteOperacional$orcamentosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrcOrcamento
+   */
+  select?: Prisma.OrcOrcamentoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrcOrcamento
+   */
+  omit?: Prisma.OrcOrcamentoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrcOrcamentoInclude<ExtArgs> | null
+  where?: Prisma.OrcOrcamentoWhereInput
+  orderBy?: Prisma.OrcOrcamentoOrderByWithRelationInput | Prisma.OrcOrcamentoOrderByWithRelationInput[]
+  cursor?: Prisma.OrcOrcamentoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrcOrcamentoScalarFieldEnum | Prisma.OrcOrcamentoScalarFieldEnum[]
 }
 
 /**

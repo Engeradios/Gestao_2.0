@@ -278,16 +278,29 @@ export class GeolocationService {
   }
 
   async relatorio(params: {
-    consultorId: string; inicio?: string; fim?: string; usuarioId?: string;
-    busca?: string; status?: string; pagina: number; limite: number;
-    ip?: string | null; userAgent?: string | null;
+    consultorId: string;
+    inicio?: string;
+    fim?: string;
+    usuarioId?: string;
+    busca?: string;
+    status?: string;
+    pagina: number;
+    limite: number;
+    ip?: string | null;
+    userAgent?: string | null;
   }) {
     const pagina = Math.max(1, params.pagina);
     const limite = Math.min(100, Math.max(10, params.limite));
     const offset = (pagina - 1) * limite;
-    const inicio = params.inicio ? new Date(params.inicio) : new Date(Date.now() - 30 * 86400000);
+    const inicio = params.inicio
+      ? new Date(params.inicio)
+      : new Date(Date.now() - 30 * 86400000);
     const fim = params.fim ? new Date(params.fim) : new Date();
-    if (Number.isNaN(inicio.getTime()) || Number.isNaN(fim.getTime()) || inicio > fim) {
+    if (
+      Number.isNaN(inicio.getTime()) ||
+      Number.isNaN(fim.getTime()) ||
+      inicio > fim
+    ) {
       throw new NotFoundException('Período inválido');
     }
     const busca = (params.busca ?? '').trim();
@@ -312,15 +325,57 @@ export class GeolocationService {
         AND (${busca}='' OR u.nome ILIKE '%'||${busca}||'%' OR COALESCE(p.cargo,'') ILIKE '%'||${busca}||'%' OR COALESCE(u.unidade,'') ILIKE '%'||${busca}||'%')
       GROUP BY e.id,u.nome,u.unidade,p.cargo
       ORDER BY e.iniciado_dispositivo_em DESC LIMIT ${limite} OFFSET ${offset}`;
-    const totalRows = await this.prisma.$queryRaw<Array<{total: bigint}>>`
+    const totalRows = await this.prisma.$queryRaw<Array<{ total: bigint }>>`
       SELECT COUNT(*)::bigint total FROM app_campo_expedientes e JOIN usuarios u ON u.id=e.usuario_id LEFT JOIN pessoas p ON p.id=u.pessoa_id
       WHERE e.iniciado_dispositivo_em >= ${inicio} AND e.iniciado_dispositivo_em <= ${fim}
         AND (${usuarioId}::uuid IS NULL OR e.usuario_id=${usuarioId}::uuid) AND (${status}::text IS NULL OR e.status=${status})
         AND (${busca}='' OR u.nome ILIKE '%'||${busca}||'%' OR COALESCE(p.cargo,'') ILIKE '%'||${busca}||'%' OR COALESCE(u.unidade,'') ILIKE '%'||${busca}||'%')`;
-    const total=Number(totalRows[0]?.total ?? 0);
-    const itens=base.map(x=>({ expedienteId:String(x.expediente_id), usuarioId:String(x.usuario_id), nome:String(x.nome??''), unidade:x.unidade??null, cargo:x.cargo??null, status:String(x.status??''), origem:String(x.origem??''), iniciadoEm:x.iniciado_em, finalizadoEm:x.finalizado_em, duracaoMinutos:Number(x.duracao_minutos??0), capturas:Number(x.capturas??0), primeiraCaptura:x.primeira_captura, ultimaCaptura:x.ultima_captura, bateriaMinima:x.bateria_minima===null?null:Number(x.bateria_minima), ultimoEndereco:x.ultimo_endereco??null }));
-    await this.registrarAcesso({ consultorId: params.consultorId, alvoId: params.consultorId, tipoConsulta: 'RELATORIO', periodoInicio: inicio, periodoFim: fim, ip: params.ip, userAgent: params.userAgent });
-    return { itens, paginacao:{pagina,limite,total,totalPaginas:Math.max(1,Math.ceil(total/limite))}, indicadores:{jornadas:total, capturas:itens.reduce((a,x)=>a+x.capturas,0), emAberto:itens.filter(x=>x.status!=='FINALIZADO').length, duracaoMinutos:Math.round(itens.reduce((a,x)=>a+x.duracaoMinutos,0))}, periodo:{inicio,fim}, geradoEm:new Date() };
+    const total = Number(totalRows[0]?.total ?? 0);
+    const itens = base.map((x) => ({
+      expedienteId: String(x.expediente_id),
+      usuarioId: String(x.usuario_id),
+      nome: String(x.nome ?? ''),
+      unidade: x.unidade ?? null,
+      cargo: x.cargo ?? null,
+      status: String(x.status ?? ''),
+      origem: String(x.origem ?? ''),
+      iniciadoEm: x.iniciado_em,
+      finalizadoEm: x.finalizado_em,
+      duracaoMinutos: Number(x.duracao_minutos ?? 0),
+      capturas: Number(x.capturas ?? 0),
+      primeiraCaptura: x.primeira_captura,
+      ultimaCaptura: x.ultima_captura,
+      bateriaMinima:
+        x.bateria_minima === null ? null : Number(x.bateria_minima),
+      ultimoEndereco: x.ultimo_endereco ?? null,
+    }));
+    await this.registrarAcesso({
+      consultorId: params.consultorId,
+      alvoId: params.consultorId,
+      tipoConsulta: 'RELATORIO',
+      periodoInicio: inicio,
+      periodoFim: fim,
+      ip: params.ip,
+      userAgent: params.userAgent,
+    });
+    return {
+      itens,
+      paginacao: {
+        pagina,
+        limite,
+        total,
+        totalPaginas: Math.max(1, Math.ceil(total / limite)),
+      },
+      indicadores: {
+        jornadas: total,
+        capturas: itens.reduce((a, x) => a + x.capturas, 0),
+        emAberto: itens.filter((x) => x.status !== 'FINALIZADO').length,
+        duracaoMinutos: Math.round(
+          itens.reduce((a, x) => a + x.duracaoMinutos, 0),
+        ),
+      },
+      periodo: { inicio, fim },
+      geradoEm: new Date(),
+    };
   }
-
 }

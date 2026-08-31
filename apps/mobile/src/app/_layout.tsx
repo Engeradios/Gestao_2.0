@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { synchronizeTelemetryQueue } from '../services/telemetry-queue.service';
 import { useAuthStore } from '../stores/auth.store';
+import { useConnectivityStore } from '../stores/connectivity.store';
 
 export default function RootLayout() {
   const hydrated = useAuthStore((s) => s.hydrated);
@@ -12,7 +13,9 @@ export default function RootLayout() {
   useEffect(() => { void restore(); }, [restore]);
   useEffect(() => {
     void synchronizeTelemetryQueue();
+    void useConnectivityStore.getState().refresh();
     const subscription = Network.addNetworkStateListener((state) => {
+      useConnectivityStore.getState().setNetwork(state);
       if (state.isConnected && state.isInternetReachable !== false) {
         void synchronizeTelemetryQueue();
       }

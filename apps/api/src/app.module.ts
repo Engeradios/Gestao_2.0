@@ -29,8 +29,10 @@ import { DashboardTvModule } from './dashboard-tv/dashboard-tv.module';
 import { AppFieldEvidenceModule } from './app-field-evidence/app-field-evidence.module';
 import { GeolocationModule } from './geolocation/geolocation.module';
 
+import { OrcamentoModule } from './orcamento/orcamento.module';
 @Module({
   imports: [
+    OrcamentoModule,
     GeolocationModule,
     AppFieldCoreModule,
     UserSelfProfileModule,

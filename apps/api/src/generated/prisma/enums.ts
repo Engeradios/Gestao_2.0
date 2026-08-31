@@ -24,3 +24,45 @@ export const EfeitoPermissao = {
 } as const
 
 export type EfeitoPermissao = (typeof EfeitoPermissao)[keyof typeof EfeitoPermissao]
+
+
+export const OrcStatus = {
+  RASCUNHO: 'RASCUNHO',
+  EM_PREENCHIMENTO: 'EM_PREENCHIMENTO',
+  ENVIADO_ANALISE: 'ENVIADO_ANALISE',
+  EM_ANALISE: 'EM_ANALISE',
+  DEVOLVIDO_CORRECAO: 'DEVOLVIDO_CORRECAO',
+  ACEITO: 'ACEITO',
+  RECUSADO: 'RECUSADO',
+  AGUARDANDO_PROPOSTA: 'AGUARDANDO_PROPOSTA',
+  PROPOSTA_VINCULADA: 'PROPOSTA_VINCULADA',
+  CANCELADO: 'CANCELADO'
+} as const
+
+export type OrcStatus = (typeof OrcStatus)[keyof typeof OrcStatus]
+
+
+export const OrcTipoPergunta = {
+  TEXTO: 'TEXTO',
+  TEXTO_LONGO: 'TEXTO_LONGO',
+  NUMERO: 'NUMERO',
+  DECIMAL: 'DECIMAL',
+  BOOLEANO: 'BOOLEANO',
+  SELECAO_UNICA: 'SELECAO_UNICA',
+  SELECAO_MULTIPLA: 'SELECAO_MULTIPLA',
+  FOTO: 'FOTO',
+  MEDIDA: 'MEDIDA'
+} as const
+
+export type OrcTipoPergunta = (typeof OrcTipoPergunta)[keyof typeof OrcTipoPergunta]
+
+
+export const OrcTipoItem = {
+  EQUIPAMENTO: 'EQUIPAMENTO',
+  MATERIAL: 'MATERIAL',
+  INFRAESTRUTURA: 'INFRAESTRUTURA',
+  SERVICO: 'SERVICO',
+  OUTRO: 'OUTRO'
+} as const
+
+export type OrcTipoItem = (typeof OrcTipoItem)[keyof typeof OrcTipoItem]

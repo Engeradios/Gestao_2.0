@@ -40,6 +40,7 @@ export type Fin_contas_receberAvgAggregateOutputType = {
   valor_recebido: runtime.Decimal | null
   valor_desconto: runtime.Decimal | null
   valor_produtos: runtime.Decimal | null
+  filial_id: number | null
 }
 
 export type Fin_contas_receberSumAggregateOutputType = {
@@ -56,6 +57,7 @@ export type Fin_contas_receberSumAggregateOutputType = {
   valor_recebido: runtime.Decimal | null
   valor_desconto: runtime.Decimal | null
   valor_produtos: runtime.Decimal | null
+  filial_id: bigint | null
 }
 
 export type Fin_contas_receberMinAggregateOutputType = {
@@ -102,6 +104,7 @@ export type Fin_contas_receberMinAggregateOutputType = {
   ultima_origem: string | null
   criado_em: Date | null
   atualizado_em: Date | null
+  filial_id: bigint | null
 }
 
 export type Fin_contas_receberMaxAggregateOutputType = {
@@ -148,6 +151,7 @@ export type Fin_contas_receberMaxAggregateOutputType = {
   ultima_origem: string | null
   criado_em: Date | null
   atualizado_em: Date | null
+  filial_id: bigint | null
 }
 
 export type Fin_contas_receberCountAggregateOutputType = {
@@ -194,6 +198,7 @@ export type Fin_contas_receberCountAggregateOutputType = {
   ultima_origem: number
   criado_em: number
   atualizado_em: number
+  filial_id: number
   _all: number
 }
 
@@ -212,6 +217,7 @@ export type Fin_contas_receberAvgAggregateInputType = {
   valor_recebido?: true
   valor_desconto?: true
   valor_produtos?: true
+  filial_id?: true
 }
 
 export type Fin_contas_receberSumAggregateInputType = {
@@ -228,6 +234,7 @@ export type Fin_contas_receberSumAggregateInputType = {
   valor_recebido?: true
   valor_desconto?: true
   valor_produtos?: true
+  filial_id?: true
 }
 
 export type Fin_contas_receberMinAggregateInputType = {
@@ -274,6 +281,7 @@ export type Fin_contas_receberMinAggregateInputType = {
   ultima_origem?: true
   criado_em?: true
   atualizado_em?: true
+  filial_id?: true
 }
 
 export type Fin_contas_receberMaxAggregateInputType = {
@@ -320,6 +328,7 @@ export type Fin_contas_receberMaxAggregateInputType = {
   ultima_origem?: true
   criado_em?: true
   atualizado_em?: true
+  filial_id?: true
 }
 
 export type Fin_contas_receberCountAggregateInputType = {
@@ -366,6 +375,7 @@ export type Fin_contas_receberCountAggregateInputType = {
   ultima_origem?: true
   criado_em?: true
   atualizado_em?: true
+  filial_id?: true
   _all?: true
 }
 
@@ -499,6 +509,7 @@ export type Fin_contas_receberGroupByOutputType = {
   ultima_origem: string | null
   criado_em: Date
   atualizado_em: Date
+  filial_id: bigint | null
   _count: Fin_contas_receberCountAggregateOutputType | null
   _avg: Fin_contas_receberAvgAggregateOutputType | null
   _sum: Fin_contas_receberSumAggregateOutputType | null
@@ -568,6 +579,8 @@ export type fin_contas_receberWhereInput = {
   ultima_origem?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
   criado_em?: Prisma.DateTimeFilter<"fin_contas_receber"> | Date | string
   atualizado_em?: Prisma.DateTimeFilter<"fin_contas_receber"> | Date | string
+  filial_id?: Prisma.BigIntNullableFilter<"fin_contas_receber"> | bigint | number | null
+  fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
 }
 
 export type fin_contas_receberOrderByWithRelationInput = {
@@ -614,6 +627,8 @@ export type fin_contas_receberOrderByWithRelationInput = {
   ultima_origem?: Prisma.SortOrderInput | Prisma.SortOrder
   criado_em?: Prisma.SortOrder
   atualizado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  fin_filiais?: Prisma.fin_filiaisOrderByWithRelationInput
 }
 
 export type fin_contas_receberWhereUniqueInput = Prisma.AtLeast<{
@@ -663,6 +678,8 @@ export type fin_contas_receberWhereUniqueInput = Prisma.AtLeast<{
   ultima_origem?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
   criado_em?: Prisma.DateTimeFilter<"fin_contas_receber"> | Date | string
   atualizado_em?: Prisma.DateTimeFilter<"fin_contas_receber"> | Date | string
+  filial_id?: Prisma.BigIntNullableFilter<"fin_contas_receber"> | bigint | number | null
+  fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
 }, "id" | "legado_id" | "chave_titulo">
 
 export type fin_contas_receberOrderByWithAggregationInput = {
@@ -709,6 +726,7 @@ export type fin_contas_receberOrderByWithAggregationInput = {
   ultima_origem?: Prisma.SortOrderInput | Prisma.SortOrder
   criado_em?: Prisma.SortOrder
   atualizado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.fin_contas_receberCountOrderByAggregateInput
   _avg?: Prisma.fin_contas_receberAvgOrderByAggregateInput
   _max?: Prisma.fin_contas_receberMaxOrderByAggregateInput
@@ -763,6 +781,7 @@ export type fin_contas_receberScalarWhereWithAggregatesInput = {
   ultima_origem?: Prisma.StringNullableWithAggregatesFilter<"fin_contas_receber"> | string | null
   criado_em?: Prisma.DateTimeWithAggregatesFilter<"fin_contas_receber"> | Date | string
   atualizado_em?: Prisma.DateTimeWithAggregatesFilter<"fin_contas_receber"> | Date | string
+  filial_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_contas_receber"> | bigint | number | null
 }
 
 export type fin_contas_receberCreateInput = {
@@ -809,6 +828,7 @@ export type fin_contas_receberCreateInput = {
   ultima_origem?: string | null
   criado_em?: Date | string
   atualizado_em?: Date | string
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_contas_receberInput
 }
 
 export type fin_contas_receberUncheckedCreateInput = {
@@ -855,6 +875,7 @@ export type fin_contas_receberUncheckedCreateInput = {
   ultima_origem?: string | null
   criado_em?: Date | string
   atualizado_em?: Date | string
+  filial_id?: bigint | number | null
 }
 
 export type fin_contas_receberUpdateInput = {
@@ -901,6 +922,7 @@ export type fin_contas_receberUpdateInput = {
   ultima_origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_contas_receberNestedInput
 }
 
 export type fin_contas_receberUncheckedUpdateInput = {
@@ -947,6 +969,7 @@ export type fin_contas_receberUncheckedUpdateInput = {
   ultima_origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_receberCreateManyInput = {
@@ -993,6 +1016,7 @@ export type fin_contas_receberCreateManyInput = {
   ultima_origem?: string | null
   criado_em?: Date | string
   atualizado_em?: Date | string
+  filial_id?: bigint | number | null
 }
 
 export type fin_contas_receberUpdateManyMutationInput = {
@@ -1085,6 +1109,7 @@ export type fin_contas_receberUncheckedUpdateManyInput = {
   ultima_origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_receberCountOrderByAggregateInput = {
@@ -1131,6 +1156,7 @@ export type fin_contas_receberCountOrderByAggregateInput = {
   ultima_origem?: Prisma.SortOrder
   criado_em?: Prisma.SortOrder
   atualizado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_contas_receberAvgOrderByAggregateInput = {
@@ -1147,6 +1173,7 @@ export type fin_contas_receberAvgOrderByAggregateInput = {
   valor_recebido?: Prisma.SortOrder
   valor_desconto?: Prisma.SortOrder
   valor_produtos?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_contas_receberMaxOrderByAggregateInput = {
@@ -1193,6 +1220,7 @@ export type fin_contas_receberMaxOrderByAggregateInput = {
   ultima_origem?: Prisma.SortOrder
   criado_em?: Prisma.SortOrder
   atualizado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_contas_receberMinOrderByAggregateInput = {
@@ -1239,6 +1267,7 @@ export type fin_contas_receberMinOrderByAggregateInput = {
   ultima_origem?: Prisma.SortOrder
   criado_em?: Prisma.SortOrder
   atualizado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_contas_receberSumOrderByAggregateInput = {
@@ -1255,6 +1284,411 @@ export type fin_contas_receberSumOrderByAggregateInput = {
   valor_recebido?: Prisma.SortOrder
   valor_desconto?: Prisma.SortOrder
   valor_produtos?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
+}
+
+export type Fin_contas_receberListRelationFilter = {
+  every?: Prisma.fin_contas_receberWhereInput
+  some?: Prisma.fin_contas_receberWhereInput
+  none?: Prisma.fin_contas_receberWhereInput
+}
+
+export type fin_contas_receberOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type fin_contas_receberCreateNestedManyWithoutFin_filiaisInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_receberCreateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_contas_receberCreateWithoutFin_filiaisInput[] | Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_contas_receberCreateManyFin_filiaisInputEnvelope
+  connect?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+}
+
+export type fin_contas_receberUncheckedCreateNestedManyWithoutFin_filiaisInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_receberCreateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_contas_receberCreateWithoutFin_filiaisInput[] | Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_contas_receberCreateManyFin_filiaisInputEnvelope
+  connect?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+}
+
+export type fin_contas_receberUpdateManyWithoutFin_filiaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_receberCreateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_contas_receberCreateWithoutFin_filiaisInput[] | Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput[]
+  upsert?: Prisma.fin_contas_receberUpsertWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_contas_receberUpsertWithWhereUniqueWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_contas_receberCreateManyFin_filiaisInputEnvelope
+  set?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  disconnect?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  delete?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  connect?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  update?: Prisma.fin_contas_receberUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_contas_receberUpdateWithWhereUniqueWithoutFin_filiaisInput[]
+  updateMany?: Prisma.fin_contas_receberUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_contas_receberUpdateManyWithWhereWithoutFin_filiaisInput[]
+  deleteMany?: Prisma.fin_contas_receberScalarWhereInput | Prisma.fin_contas_receberScalarWhereInput[]
+}
+
+export type fin_contas_receberUncheckedUpdateManyWithoutFin_filiaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_receberCreateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_contas_receberCreateWithoutFin_filiaisInput[] | Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_contas_receberCreateOrConnectWithoutFin_filiaisInput[]
+  upsert?: Prisma.fin_contas_receberUpsertWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_contas_receberUpsertWithWhereUniqueWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_contas_receberCreateManyFin_filiaisInputEnvelope
+  set?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  disconnect?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  delete?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  connect?: Prisma.fin_contas_receberWhereUniqueInput | Prisma.fin_contas_receberWhereUniqueInput[]
+  update?: Prisma.fin_contas_receberUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_contas_receberUpdateWithWhereUniqueWithoutFin_filiaisInput[]
+  updateMany?: Prisma.fin_contas_receberUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_contas_receberUpdateManyWithWhereWithoutFin_filiaisInput[]
+  deleteMany?: Prisma.fin_contas_receberScalarWhereInput | Prisma.fin_contas_receberScalarWhereInput[]
+}
+
+export type fin_contas_receberCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave_titulo: string
+  filial?: string | null
+  pedido?: string | null
+  os?: string | null
+  contrato?: string | null
+  nfse?: string | null
+  documento?: string | null
+  tipo_documento?: string | null
+  cpf_cnpj?: string | null
+  bloqueado?: string | null
+  cliente_codigo?: string | null
+  cliente?: string | null
+  cidade?: string | null
+  uf?: string | null
+  cep?: string | null
+  classificacao?: string | null
+  grupo?: string | null
+  representante?: string | null
+  data_emissao?: Date | string | null
+  data_vencto?: Date | string | null
+  previsao_pgto?: Date | string | null
+  data_cancelado?: Date | string | null
+  data_recebimento?: Date | string | null
+  dias?: number | null
+  banco?: string | null
+  num_titulo?: string | null
+  bordero?: string | null
+  total_retido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: string | null
+  ultima_origem?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+}
+
+export type fin_contas_receberUncheckedCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave_titulo: string
+  filial?: string | null
+  pedido?: string | null
+  os?: string | null
+  contrato?: string | null
+  nfse?: string | null
+  documento?: string | null
+  tipo_documento?: string | null
+  cpf_cnpj?: string | null
+  bloqueado?: string | null
+  cliente_codigo?: string | null
+  cliente?: string | null
+  cidade?: string | null
+  uf?: string | null
+  cep?: string | null
+  classificacao?: string | null
+  grupo?: string | null
+  representante?: string | null
+  data_emissao?: Date | string | null
+  data_vencto?: Date | string | null
+  previsao_pgto?: Date | string | null
+  data_cancelado?: Date | string | null
+  data_recebimento?: Date | string | null
+  dias?: number | null
+  banco?: string | null
+  num_titulo?: string | null
+  bordero?: string | null
+  total_retido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: string | null
+  ultima_origem?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+}
+
+export type fin_contas_receberCreateOrConnectWithoutFin_filiaisInput = {
+  where: Prisma.fin_contas_receberWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_contas_receberCreateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_contas_receberCreateManyFin_filiaisInputEnvelope = {
+  data: Prisma.fin_contas_receberCreateManyFin_filiaisInput | Prisma.fin_contas_receberCreateManyFin_filiaisInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_contas_receberUpsertWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_contas_receberWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_contas_receberUpdateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedUpdateWithoutFin_filiaisInput>
+  create: Prisma.XOR<Prisma.fin_contas_receberCreateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_contas_receberUpdateWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_contas_receberWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_contas_receberUpdateWithoutFin_filiaisInput, Prisma.fin_contas_receberUncheckedUpdateWithoutFin_filiaisInput>
+}
+
+export type fin_contas_receberUpdateManyWithWhereWithoutFin_filiaisInput = {
+  where: Prisma.fin_contas_receberScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_contas_receberUpdateManyMutationInput, Prisma.fin_contas_receberUncheckedUpdateManyWithoutFin_filiaisInput>
+}
+
+export type fin_contas_receberScalarWhereInput = {
+  AND?: Prisma.fin_contas_receberScalarWhereInput | Prisma.fin_contas_receberScalarWhereInput[]
+  OR?: Prisma.fin_contas_receberScalarWhereInput[]
+  NOT?: Prisma.fin_contas_receberScalarWhereInput | Prisma.fin_contas_receberScalarWhereInput[]
+  id?: Prisma.BigIntFilter<"fin_contas_receber"> | bigint | number
+  legado_id?: Prisma.IntNullableFilter<"fin_contas_receber"> | number | null
+  chave_titulo?: Prisma.StringFilter<"fin_contas_receber"> | string
+  filial?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  pedido?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  os?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  contrato?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  nfse?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  documento?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  tipo_documento?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  cpf_cnpj?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  bloqueado?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  cliente_codigo?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  cliente?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  cidade?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  uf?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  cep?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  classificacao?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  grupo?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  representante?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  data_emissao?: Prisma.DateTimeNullableFilter<"fin_contas_receber"> | Date | string | null
+  data_vencto?: Prisma.DateTimeNullableFilter<"fin_contas_receber"> | Date | string | null
+  previsao_pgto?: Prisma.DateTimeNullableFilter<"fin_contas_receber"> | Date | string | null
+  data_cancelado?: Prisma.DateTimeNullableFilter<"fin_contas_receber"> | Date | string | null
+  data_recebimento?: Prisma.DateTimeNullableFilter<"fin_contas_receber"> | Date | string | null
+  dias?: Prisma.IntNullableFilter<"fin_contas_receber"> | number | null
+  banco?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  num_titulo?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  bordero?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  total_retido?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: Prisma.DecimalNullableFilter<"fin_contas_receber"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  ultima_origem?: Prisma.StringNullableFilter<"fin_contas_receber"> | string | null
+  criado_em?: Prisma.DateTimeFilter<"fin_contas_receber"> | Date | string
+  atualizado_em?: Prisma.DateTimeFilter<"fin_contas_receber"> | Date | string
+  filial_id?: Prisma.BigIntNullableFilter<"fin_contas_receber"> | bigint | number | null
+}
+
+export type fin_contas_receberCreateManyFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave_titulo: string
+  filial?: string | null
+  pedido?: string | null
+  os?: string | null
+  contrato?: string | null
+  nfse?: string | null
+  documento?: string | null
+  tipo_documento?: string | null
+  cpf_cnpj?: string | null
+  bloqueado?: string | null
+  cliente_codigo?: string | null
+  cliente?: string | null
+  cidade?: string | null
+  uf?: string | null
+  cep?: string | null
+  classificacao?: string | null
+  grupo?: string | null
+  representante?: string | null
+  data_emissao?: Date | string | null
+  data_vencto?: Date | string | null
+  previsao_pgto?: Date | string | null
+  data_cancelado?: Date | string | null
+  data_recebimento?: Date | string | null
+  dias?: number | null
+  banco?: string | null
+  num_titulo?: string | null
+  bordero?: string | null
+  total_retido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: string | null
+  ultima_origem?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+}
+
+export type fin_contas_receberUpdateWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave_titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo_documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cpf_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bloqueado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  grupo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_vencto?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previsao_pgto?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_cancelado?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_recebimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dias?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  banco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  num_titulo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bordero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  total_retido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultima_origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type fin_contas_receberUncheckedUpdateWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave_titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo_documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cpf_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bloqueado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  grupo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_vencto?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previsao_pgto?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_cancelado?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_recebimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dias?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  banco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  num_titulo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bordero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  total_retido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultima_origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type fin_contas_receberUncheckedUpdateManyWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave_titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo_documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cpf_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bloqueado?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  grupo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representante?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_vencto?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previsao_pgto?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_cancelado?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_recebimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dias?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  banco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  num_titulo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bordero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  total_retido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_vencido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_a_vencer?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_emissao?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_devido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_juros_multa?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_recebido?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultima_origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1303,6 +1737,8 @@ export type fin_contas_receberSelect<ExtArgs extends runtime.Types.Extensions.In
   ultima_origem?: boolean
   criado_em?: boolean
   atualizado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_contas_receber"]>
 
 export type fin_contas_receberSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1349,6 +1785,8 @@ export type fin_contas_receberSelectCreateManyAndReturn<ExtArgs extends runtime.
   ultima_origem?: boolean
   criado_em?: boolean
   atualizado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_contas_receber"]>
 
 export type fin_contas_receberSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1395,6 +1833,8 @@ export type fin_contas_receberSelectUpdateManyAndReturn<ExtArgs extends runtime.
   ultima_origem?: boolean
   criado_em?: boolean
   atualizado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_contas_receber"]>
 
 export type fin_contas_receberSelectScalar = {
@@ -1441,13 +1881,25 @@ export type fin_contas_receberSelectScalar = {
   ultima_origem?: boolean
   criado_em?: boolean
   atualizado_em?: boolean
+  filial_id?: boolean
 }
 
-export type fin_contas_receberOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "chave_titulo" | "filial" | "pedido" | "os" | "contrato" | "nfse" | "documento" | "tipo_documento" | "cpf_cnpj" | "bloqueado" | "cliente_codigo" | "cliente" | "cidade" | "uf" | "cep" | "classificacao" | "grupo" | "representante" | "data_emissao" | "data_vencto" | "previsao_pgto" | "data_cancelado" | "data_recebimento" | "dias" | "banco" | "num_titulo" | "bordero" | "total_retido" | "valor_vencido" | "valor_a_vencer" | "valor_emissao" | "valor_devido" | "valor_juros_multa" | "valor_total" | "valor_recebido" | "valor_desconto" | "valor_produtos" | "situacao" | "ultima_origem" | "criado_em" | "atualizado_em", ExtArgs["result"]["fin_contas_receber"]>
+export type fin_contas_receberOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "chave_titulo" | "filial" | "pedido" | "os" | "contrato" | "nfse" | "documento" | "tipo_documento" | "cpf_cnpj" | "bloqueado" | "cliente_codigo" | "cliente" | "cidade" | "uf" | "cep" | "classificacao" | "grupo" | "representante" | "data_emissao" | "data_vencto" | "previsao_pgto" | "data_cancelado" | "data_recebimento" | "dias" | "banco" | "num_titulo" | "bordero" | "total_retido" | "valor_vencido" | "valor_a_vencer" | "valor_emissao" | "valor_devido" | "valor_juros_multa" | "valor_total" | "valor_recebido" | "valor_desconto" | "valor_produtos" | "situacao" | "ultima_origem" | "criado_em" | "atualizado_em" | "filial_id", ExtArgs["result"]["fin_contas_receber"]>
+export type fin_contas_receberInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>
+}
+export type fin_contas_receberIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>
+}
+export type fin_contas_receberIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>
+}
 
 export type $fin_contas_receberPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "fin_contas_receber"
-  objects: {}
+  objects: {
+    fin_filiais: Prisma.$fin_filiaisPayload<ExtArgs> | null
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
     legado_id: number | null
@@ -1492,6 +1944,7 @@ export type $fin_contas_receberPayload<ExtArgs extends runtime.Types.Extensions.
     ultima_origem: string | null
     criado_em: Date
     atualizado_em: Date
+    filial_id: bigint | null
   }, ExtArgs["result"]["fin_contas_receber"]>
   composites: {}
 }
@@ -1886,6 +2339,7 @@ readonly fields: fin_contas_receberFieldRefs;
  */
 export interface Prisma__fin_contas_receberClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  fin_filiais<T extends Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_contas_receber$fin_filiaisArgs<ExtArgs>>): Prisma.Prisma__fin_filiaisClient<runtime.Types.Result.GetResult<Prisma.$fin_filiaisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1958,6 +2412,7 @@ export interface fin_contas_receberFieldRefs {
   readonly ultima_origem: Prisma.FieldRef<"fin_contas_receber", 'String'>
   readonly criado_em: Prisma.FieldRef<"fin_contas_receber", 'DateTime'>
   readonly atualizado_em: Prisma.FieldRef<"fin_contas_receber", 'DateTime'>
+  readonly filial_id: Prisma.FieldRef<"fin_contas_receber", 'BigInt'>
 }
     
 
@@ -1974,6 +2429,10 @@ export type fin_contas_receberFindUniqueArgs<ExtArgs extends runtime.Types.Exten
    * Omit specific fields from the fin_contas_receber
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
   /**
    * Filter, which fin_contas_receber to fetch.
    */
@@ -1993,6 +2452,10 @@ export type fin_contas_receberFindUniqueOrThrowArgs<ExtArgs extends runtime.Type
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
+  /**
    * Filter, which fin_contas_receber to fetch.
    */
   where: Prisma.fin_contas_receberWhereUniqueInput
@@ -2010,6 +2473,10 @@ export type fin_contas_receberFindFirstArgs<ExtArgs extends runtime.Types.Extens
    * Omit specific fields from the fin_contas_receber
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
   /**
    * Filter, which fin_contas_receber to fetch.
    */
@@ -2059,6 +2526,10 @@ export type fin_contas_receberFindFirstOrThrowArgs<ExtArgs extends runtime.Types
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
+  /**
    * Filter, which fin_contas_receber to fetch.
    */
   where?: Prisma.fin_contas_receberWhereInput
@@ -2106,6 +2577,10 @@ export type fin_contas_receberFindManyArgs<ExtArgs extends runtime.Types.Extensi
    * Omit specific fields from the fin_contas_receber
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
   /**
    * Filter, which fin_contas_recebers to fetch.
    */
@@ -2155,6 +2630,10 @@ export type fin_contas_receberCreateArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
+  /**
    * The data needed to create a fin_contas_receber.
    */
   data: Prisma.XOR<Prisma.fin_contas_receberCreateInput, Prisma.fin_contas_receberUncheckedCreateInput>
@@ -2188,6 +2667,10 @@ export type fin_contas_receberCreateManyAndReturnArgs<ExtArgs extends runtime.Ty
    */
   data: Prisma.fin_contas_receberCreateManyInput | Prisma.fin_contas_receberCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -2202,6 +2685,10 @@ export type fin_contas_receberUpdateArgs<ExtArgs extends runtime.Types.Extension
    * Omit specific fields from the fin_contas_receber
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
   /**
    * The data needed to update a fin_contas_receber.
    */
@@ -2254,6 +2741,10 @@ export type fin_contas_receberUpdateManyAndReturnArgs<ExtArgs extends runtime.Ty
    * Limit how many fin_contas_recebers to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -2268,6 +2759,10 @@ export type fin_contas_receberUpsertArgs<ExtArgs extends runtime.Types.Extension
    * Omit specific fields from the fin_contas_receber
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
   /**
    * The filter to search for the fin_contas_receber to update in case it exists.
    */
@@ -2295,6 +2790,10 @@ export type fin_contas_receberDeleteArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
+  /**
    * Filter which fin_contas_receber to delete.
    */
   where: Prisma.fin_contas_receberWhereUniqueInput
@@ -2315,6 +2814,25 @@ export type fin_contas_receberDeleteManyArgs<ExtArgs extends runtime.Types.Exten
 }
 
 /**
+ * fin_contas_receber.fin_filiais
+ */
+export type fin_contas_receber$fin_filiaisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_filiais
+   */
+  select?: Prisma.fin_filiaisSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_filiais
+   */
+  omit?: Prisma.fin_filiaisOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_filiaisInclude<ExtArgs> | null
+  where?: Prisma.fin_filiaisWhereInput
+}
+
+/**
  * fin_contas_receber without action
  */
 export type fin_contas_receberDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2326,4 +2844,8 @@ export type fin_contas_receberDefaultArgs<ExtArgs extends runtime.Types.Extensio
    * Omit specific fields from the fin_contas_receber
    */
   omit?: Prisma.fin_contas_receberOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_receberInclude<ExtArgs> | null
 }

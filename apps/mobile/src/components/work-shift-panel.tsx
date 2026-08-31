@@ -1,4 +1,5 @@
 import { ForegroundLocationCapture } from "./foreground-location-capture";
+import { isOfflineMessage, useConnectivityStore } from "../stores/connectivity.store";
 import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, Alert, Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import {
@@ -13,6 +14,7 @@ export function WorkShiftPanel({ onShiftChange }: { onShiftChange?: (shift: Work
   const [busy, setBusy] = useState(true);
   const [error, setError] = useState("");
   const [now, setNow] = useState(Date.now());
+  const online = useConnectivityStore((state) => state.online);
 
   const load = useCallback(async () => {
     setBusy(true); setError("");
@@ -31,7 +33,7 @@ export function WorkShiftPanel({ onShiftChange }: { onShiftChange?: (shift: Work
   async function run(action: () => Promise<unknown>) {
     setBusy(true); setError("");
     try { await action(); await load(); }
-    catch (e) { const message = e instanceof Error ? e.message : "Falha na operação."; setError(message); Alert.alert("Expediente", message); setBusy(false); }
+    catch (e) { const offline=!online||isOfflineMessage(e);const message=offline?"Modo offline. A operação será liberada quando a conexão retornar.":(e instanceof Error?e.message:"Falha na operação.");setError(message);if(!offline)Alert.alert("Expediente",message);setBusy(false); }
   }
   async function accept() {
     if (!term || !device) return;
@@ -58,7 +60,7 @@ export function WorkShiftPanel({ onShiftChange }: { onShiftChange?: (shift: Work
         shiftId={shift?.id}
         deviceId={device?.id}
       />
-      {error ? <Text style={s.error}>{error}</Text> : null}
+      {error ? <Text style={[s.error,!online&&s.offline]}>{error}</Text> : null}
       {busy ? <ActivityIndicator style={{ marginVertical: 12 }} /> : null}
       <Pressable disabled={busy || !term?.aceito || Boolean(shift)} style={[s.button, (busy || !term?.aceito || Boolean(shift)) && s.disabled]} onPress={() => device && void run(() => startShift(device.id))}>
         <Text style={s.buttonText}>Iniciar expediente</Text>
@@ -82,5 +84,5 @@ export function WorkShiftPanel({ onShiftChange }: { onShiftChange?: (shift: Work
   );
 }
 const s = StyleSheet.create({
-  card:{backgroundColor:"#fff",borderRadius:16,padding:16,marginBottom:20,borderWidth:1,borderColor:"#e2e8f0"},heading:{fontSize:20,fontWeight:"900",color:"#111827",marginBottom:12},statusRow:{flexDirection:"row",justifyContent:"space-between",marginBottom:8},label:{color:"#64748b"},status:{fontWeight:"900",color:"#0f766e"},meta:{color:"#64748b",marginBottom:6},error:{color:"#b91c1c",marginVertical:8},button:{backgroundColor:"#0f172a",padding:14,borderRadius:10,marginTop:10},finish:{backgroundColor:"#b91c1c"},disabled:{opacity:.35},buttonText:{color:"#fff",fontWeight:"800",textAlign:"center"},modal:{flex:1,padding:20,paddingTop:54,backgroundColor:"#f8fafc"},modalTitle:{fontSize:22,fontWeight:"900",color:"#111827"},version:{color:"#64748b",marginVertical:8},term:{flex:1,backgroundColor:"#fff",borderRadius:12,padding:14,marginVertical:12},termText:{lineHeight:22,color:"#1f2937"},accept:{backgroundColor:"#0f766e",padding:16,borderRadius:12,marginBottom:20}
+  card:{backgroundColor:"#fff",borderRadius:16,padding:16,marginBottom:20,borderWidth:1,borderColor:"#e2e8f0"},heading:{fontSize:20,fontWeight:"900",color:"#111827",marginBottom:12},statusRow:{flexDirection:"row",justifyContent:"space-between",marginBottom:8},label:{color:"#64748b"},status:{fontWeight:"900",color:"#0f766e"},meta:{color:"#64748b",marginBottom:6},error:{color:"#b91c1c",marginVertical:8},offline:{color:"#92400e"},button:{backgroundColor:"#0f172a",padding:14,borderRadius:10,marginTop:10},finish:{backgroundColor:"#b91c1c"},disabled:{opacity:.35},buttonText:{color:"#fff",fontWeight:"800",textAlign:"center"},modal:{flex:1,padding:20,paddingTop:54,backgroundColor:"#f8fafc"},modalTitle:{fontSize:22,fontWeight:"900",color:"#111827"},version:{color:"#64748b",marginVertical:8},term:{flex:1,backgroundColor:"#fff",borderRadius:12,padding:14,marginVertical:12},termText:{lineHeight:22,color:"#1f2937"},accept:{backgroundColor:"#0f766e",padding:16,borderRadius:12,marginBottom:20}
 });

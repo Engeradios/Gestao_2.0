@@ -3,7 +3,11 @@ import { Request } from 'express';
 import { RequirePermissions } from '../auth/decorators/permissions.decorator';
 import { JwtAuthGuard, JwtPayload } from '../auth/guards/jwt-auth.guard';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
-import { ReportQueryDto, TeamQueryDto, TrackQueryDto } from './dto/geolocation.dto';
+import {
+  ReportQueryDto,
+  TeamQueryDto,
+  TrackQueryDto,
+} from './dto/geolocation.dto';
 import { GeolocationService } from './geolocation.service';
 
 type AuthenticatedRequest = Request & { user: JwtPayload };
@@ -47,9 +51,19 @@ export class GeolocationController {
   /** Jornadas consolidadas para o relatório. */
   @Get('relatorio')
   @RequirePermissions('APP_CAMPO.LOCALIZACAO.VISUALIZAR')
-  relatorio(@Query() query: ReportQueryDto, @Req() request: AuthenticatedRequest) {
+  relatorio(
+    @Query() query: ReportQueryDto,
+    @Req() request: AuthenticatedRequest,
+  ) {
     const ctx = this.contexto(request);
-    return this.service.relatorio({ ...query, consultorId: ctx.consultorId, ip: ctx.ip, userAgent: ctx.userAgent, pagina: query.pagina ?? 1, limite: query.limite ?? 25 });
+    return this.service.relatorio({
+      ...query,
+      consultorId: ctx.consultorId,
+      ip: ctx.ip,
+      userAgent: ctx.userAgent,
+      pagina: query.pagina ?? 1,
+      limite: query.limite ?? 25,
+    });
   }
 
   /** Percurso completo de um expediente. */

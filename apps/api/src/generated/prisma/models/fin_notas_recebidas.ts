@@ -41,6 +41,7 @@ export type Fin_notas_recebidasAvgAggregateOutputType = {
   valor_cofins: runtime.Decimal | null
   valor_total: runtime.Decimal | null
   projeto_legado_id: number | null
+  filial_id: number | null
 }
 
 export type Fin_notas_recebidasSumAggregateOutputType = {
@@ -58,6 +59,7 @@ export type Fin_notas_recebidasSumAggregateOutputType = {
   valor_cofins: runtime.Decimal | null
   valor_total: runtime.Decimal | null
   projeto_legado_id: number | null
+  filial_id: bigint | null
 }
 
 export type Fin_notas_recebidasMinAggregateOutputType = {
@@ -101,6 +103,11 @@ export type Fin_notas_recebidasMinAggregateOutputType = {
   atualizado_em: Date | null
   enviado_pagar: boolean | null
   enviado_pagar_em: Date | null
+  xml_sha256: string | null
+  nsu: string | null
+  schema_xml: string | null
+  capturado_em: Date | null
+  filial_id: bigint | null
 }
 
 export type Fin_notas_recebidasMaxAggregateOutputType = {
@@ -144,6 +151,11 @@ export type Fin_notas_recebidasMaxAggregateOutputType = {
   atualizado_em: Date | null
   enviado_pagar: boolean | null
   enviado_pagar_em: Date | null
+  xml_sha256: string | null
+  nsu: string | null
+  schema_xml: string | null
+  capturado_em: Date | null
+  filial_id: bigint | null
 }
 
 export type Fin_notas_recebidasCountAggregateOutputType = {
@@ -187,6 +199,11 @@ export type Fin_notas_recebidasCountAggregateOutputType = {
   atualizado_em: number
   enviado_pagar: number
   enviado_pagar_em: number
+  xml_sha256: number
+  nsu: number
+  schema_xml: number
+  capturado_em: number
+  filial_id: number
   _all: number
 }
 
@@ -206,6 +223,7 @@ export type Fin_notas_recebidasAvgAggregateInputType = {
   valor_cofins?: true
   valor_total?: true
   projeto_legado_id?: true
+  filial_id?: true
 }
 
 export type Fin_notas_recebidasSumAggregateInputType = {
@@ -223,6 +241,7 @@ export type Fin_notas_recebidasSumAggregateInputType = {
   valor_cofins?: true
   valor_total?: true
   projeto_legado_id?: true
+  filial_id?: true
 }
 
 export type Fin_notas_recebidasMinAggregateInputType = {
@@ -266,6 +285,11 @@ export type Fin_notas_recebidasMinAggregateInputType = {
   atualizado_em?: true
   enviado_pagar?: true
   enviado_pagar_em?: true
+  xml_sha256?: true
+  nsu?: true
+  schema_xml?: true
+  capturado_em?: true
+  filial_id?: true
 }
 
 export type Fin_notas_recebidasMaxAggregateInputType = {
@@ -309,6 +333,11 @@ export type Fin_notas_recebidasMaxAggregateInputType = {
   atualizado_em?: true
   enviado_pagar?: true
   enviado_pagar_em?: true
+  xml_sha256?: true
+  nsu?: true
+  schema_xml?: true
+  capturado_em?: true
+  filial_id?: true
 }
 
 export type Fin_notas_recebidasCountAggregateInputType = {
@@ -352,6 +381,11 @@ export type Fin_notas_recebidasCountAggregateInputType = {
   atualizado_em?: true
   enviado_pagar?: true
   enviado_pagar_em?: true
+  xml_sha256?: true
+  nsu?: true
+  schema_xml?: true
+  capturado_em?: true
+  filial_id?: true
   _all?: true
 }
 
@@ -482,6 +516,11 @@ export type Fin_notas_recebidasGroupByOutputType = {
   atualizado_em: Date
   enviado_pagar: boolean
   enviado_pagar_em: Date | null
+  xml_sha256: string | null
+  nsu: string | null
+  schema_xml: string | null
+  capturado_em: Date | null
+  filial_id: bigint | null
   _count: Fin_notas_recebidasCountAggregateOutputType | null
   _avg: Fin_notas_recebidasAvgAggregateOutputType | null
   _sum: Fin_notas_recebidasSumAggregateOutputType | null
@@ -548,9 +587,15 @@ export type fin_notas_recebidasWhereInput = {
   atualizado_em?: Prisma.DateTimeFilter<"fin_notas_recebidas"> | Date | string
   enviado_pagar?: Prisma.BoolFilter<"fin_notas_recebidas"> | boolean
   enviado_pagar_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  xml_sha256?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nsu?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  schema_xml?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  capturado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  filial_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas"> | bigint | number | null
   fin_contas_pagar?: Prisma.Fin_contas_pagarListRelationFilter
   fin_notas_recebidas_itens?: Prisma.Fin_notas_recebidas_itensListRelationFilter
   fin_notas_recebidas_parcelas?: Prisma.Fin_notas_recebidas_parcelasListRelationFilter
+  fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
 }
 
 export type fin_notas_recebidasOrderByWithRelationInput = {
@@ -594,9 +639,15 @@ export type fin_notas_recebidasOrderByWithRelationInput = {
   atualizado_em?: Prisma.SortOrder
   enviado_pagar?: Prisma.SortOrder
   enviado_pagar_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  xml_sha256?: Prisma.SortOrderInput | Prisma.SortOrder
+  nsu?: Prisma.SortOrderInput | Prisma.SortOrder
+  schema_xml?: Prisma.SortOrderInput | Prisma.SortOrder
+  capturado_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
   fin_contas_pagar?: Prisma.fin_contas_pagarOrderByRelationAggregateInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensOrderByRelationAggregateInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasOrderByRelationAggregateInput
+  fin_filiais?: Prisma.fin_filiaisOrderByWithRelationInput
 }
 
 export type fin_notas_recebidasWhereUniqueInput = Prisma.AtLeast<{
@@ -643,9 +694,15 @@ export type fin_notas_recebidasWhereUniqueInput = Prisma.AtLeast<{
   atualizado_em?: Prisma.DateTimeFilter<"fin_notas_recebidas"> | Date | string
   enviado_pagar?: Prisma.BoolFilter<"fin_notas_recebidas"> | boolean
   enviado_pagar_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  xml_sha256?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nsu?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  schema_xml?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  capturado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  filial_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas"> | bigint | number | null
   fin_contas_pagar?: Prisma.Fin_contas_pagarListRelationFilter
   fin_notas_recebidas_itens?: Prisma.Fin_notas_recebidas_itensListRelationFilter
   fin_notas_recebidas_parcelas?: Prisma.Fin_notas_recebidas_parcelasListRelationFilter
+  fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
 }, "id" | "legado_id" | "chave">
 
 export type fin_notas_recebidasOrderByWithAggregationInput = {
@@ -689,6 +746,11 @@ export type fin_notas_recebidasOrderByWithAggregationInput = {
   atualizado_em?: Prisma.SortOrder
   enviado_pagar?: Prisma.SortOrder
   enviado_pagar_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  xml_sha256?: Prisma.SortOrderInput | Prisma.SortOrder
+  nsu?: Prisma.SortOrderInput | Prisma.SortOrder
+  schema_xml?: Prisma.SortOrderInput | Prisma.SortOrder
+  capturado_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.fin_notas_recebidasCountOrderByAggregateInput
   _avg?: Prisma.fin_notas_recebidasAvgOrderByAggregateInput
   _max?: Prisma.fin_notas_recebidasMaxOrderByAggregateInput
@@ -740,6 +802,11 @@ export type fin_notas_recebidasScalarWhereWithAggregatesInput = {
   atualizado_em?: Prisma.DateTimeWithAggregatesFilter<"fin_notas_recebidas"> | Date | string
   enviado_pagar?: Prisma.BoolWithAggregatesFilter<"fin_notas_recebidas"> | boolean
   enviado_pagar_em?: Prisma.DateTimeNullableWithAggregatesFilter<"fin_notas_recebidas"> | Date | string | null
+  xml_sha256?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  nsu?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  schema_xml?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  capturado_em?: Prisma.DateTimeNullableWithAggregatesFilter<"fin_notas_recebidas"> | Date | string | null
+  filial_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_notas_recebidas"> | bigint | number | null
 }
 
 export type fin_notas_recebidasCreateInput = {
@@ -783,9 +850,14 @@ export type fin_notas_recebidasCreateInput = {
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
 }
 
 export type fin_notas_recebidasUncheckedCreateInput = {
@@ -829,6 +901,11 @@ export type fin_notas_recebidasUncheckedCreateInput = {
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
@@ -875,9 +952,14 @@ export type fin_notas_recebidasUpdateInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateInput = {
@@ -921,6 +1003,11 @@ export type fin_notas_recebidasUncheckedUpdateInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
@@ -967,6 +1054,11 @@ export type fin_notas_recebidasCreateManyInput = {
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
 }
 
 export type fin_notas_recebidasUpdateManyMutationInput = {
@@ -1010,6 +1102,10 @@ export type fin_notas_recebidasUpdateManyMutationInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type fin_notas_recebidasUncheckedUpdateManyInput = {
@@ -1053,6 +1149,11 @@ export type fin_notas_recebidasUncheckedUpdateManyInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type Fin_notas_recebidasNullableScalarRelationFilter = {
@@ -1101,6 +1202,11 @@ export type fin_notas_recebidasCountOrderByAggregateInput = {
   atualizado_em?: Prisma.SortOrder
   enviado_pagar?: Prisma.SortOrder
   enviado_pagar_em?: Prisma.SortOrder
+  xml_sha256?: Prisma.SortOrder
+  nsu?: Prisma.SortOrder
+  schema_xml?: Prisma.SortOrder
+  capturado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasAvgOrderByAggregateInput = {
@@ -1118,6 +1224,7 @@ export type fin_notas_recebidasAvgOrderByAggregateInput = {
   valor_cofins?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
   projeto_legado_id?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasMaxOrderByAggregateInput = {
@@ -1161,6 +1268,11 @@ export type fin_notas_recebidasMaxOrderByAggregateInput = {
   atualizado_em?: Prisma.SortOrder
   enviado_pagar?: Prisma.SortOrder
   enviado_pagar_em?: Prisma.SortOrder
+  xml_sha256?: Prisma.SortOrder
+  nsu?: Prisma.SortOrder
+  schema_xml?: Prisma.SortOrder
+  capturado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasMinOrderByAggregateInput = {
@@ -1204,6 +1316,11 @@ export type fin_notas_recebidasMinOrderByAggregateInput = {
   atualizado_em?: Prisma.SortOrder
   enviado_pagar?: Prisma.SortOrder
   enviado_pagar_em?: Prisma.SortOrder
+  xml_sha256?: Prisma.SortOrder
+  nsu?: Prisma.SortOrder
+  schema_xml?: Prisma.SortOrder
+  capturado_em?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasSumOrderByAggregateInput = {
@@ -1221,11 +1338,22 @@ export type fin_notas_recebidasSumOrderByAggregateInput = {
   valor_cofins?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
   projeto_legado_id?: Prisma.SortOrder
+  filial_id?: Prisma.SortOrder
 }
 
 export type Fin_notas_recebidasScalarRelationFilter = {
   is?: Prisma.fin_notas_recebidasWhereInput
   isNot?: Prisma.fin_notas_recebidasWhereInput
+}
+
+export type Fin_notas_recebidasListRelationFilter = {
+  every?: Prisma.fin_notas_recebidasWhereInput
+  some?: Prisma.fin_notas_recebidasWhereInput
+  none?: Prisma.fin_notas_recebidasWhereInput
+}
+
+export type fin_notas_recebidasOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasCreateNestedOneWithoutFin_contas_pagarInput = {
@@ -1272,6 +1400,48 @@ export type fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_parce
   update?: Prisma.XOR<Prisma.XOR<Prisma.fin_notas_recebidasUpdateToOneWithWhereWithoutFin_notas_recebidas_parcelasInput, Prisma.fin_notas_recebidasUpdateWithoutFin_notas_recebidas_parcelasInput>, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_parcelasInput>
 }
 
+export type fin_notas_recebidasCreateNestedManyWithoutFin_filiaisInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyFin_filiaisInputEnvelope
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+}
+
+export type fin_notas_recebidasUncheckedCreateNestedManyWithoutFin_filiaisInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyFin_filiaisInputEnvelope
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+}
+
+export type fin_notas_recebidasUpdateManyWithoutFin_filiaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput[]
+  upsert?: Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyFin_filiaisInputEnvelope
+  set?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput[]
+  updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput[]
+  deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
+export type fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput[]
+  upsert?: Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyFin_filiaisInputEnvelope
+  set?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput[]
+  updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput[]
+  deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
 export type fin_notas_recebidasCreateWithoutFin_contas_pagarInput = {
   id?: bigint | number
   legado_id?: number | null
@@ -1313,8 +1483,13 @@ export type fin_notas_recebidasCreateWithoutFin_contas_pagarInput = {
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
 }
 
 export type fin_notas_recebidasUncheckedCreateWithoutFin_contas_pagarInput = {
@@ -1358,6 +1533,11 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_contas_pagarInput = {
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
 }
@@ -1419,8 +1599,13 @@ export type fin_notas_recebidasUpdateWithoutFin_contas_pagarInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_contas_pagarInput = {
@@ -1464,6 +1649,11 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_contas_pagarInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
 }
@@ -1509,8 +1699,13 @@ export type fin_notas_recebidasCreateWithoutFin_notas_recebidas_itensInput = {
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
 }
 
 export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_itensInput = {
@@ -1554,6 +1749,11 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_itensIn
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
 }
@@ -1615,8 +1815,13 @@ export type fin_notas_recebidasUpdateWithoutFin_notas_recebidas_itensInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_itensInput = {
@@ -1660,6 +1865,11 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_itensIn
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
 }
@@ -1705,8 +1915,13 @@ export type fin_notas_recebidasCreateWithoutFin_notas_recebidas_parcelasInput = 
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
 }
 
 export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_parcelasInput = {
@@ -1750,6 +1965,11 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_parcela
   atualizado_em?: Date | string
   enviado_pagar?: boolean
   enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
 }
@@ -1811,8 +2031,13 @@ export type fin_notas_recebidasUpdateWithoutFin_notas_recebidas_parcelasInput = 
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_parcelasInput = {
@@ -1856,8 +2081,384 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_parcela
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+}
+
+export type fin_notas_recebidasCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+}
+
+export type fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+}
+
+export type fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasCreateManyFin_filiaisInputEnvelope = {
+  data: Prisma.fin_notas_recebidasCreateManyFin_filiaisInput | Prisma.fin_notas_recebidasCreateManyFin_filiaisInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateManyMutationInput, Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasScalarWhereInput = {
+  AND?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+  OR?: Prisma.fin_notas_recebidasScalarWhereInput[]
+  NOT?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+  id?: Prisma.BigIntFilter<"fin_notas_recebidas"> | bigint | number
+  legado_id?: Prisma.IntNullableFilter<"fin_notas_recebidas"> | number | null
+  chave?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  numero?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  serie?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  modelo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  natureza?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  data_emissao?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  data_entrada?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  emit_cnpj?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  emit_nome?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  emit_fantasia?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  emit_uf?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  emit_ie?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  valor_produtos?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.DecimalNullableFilter<"fin_notas_recebidas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  projeto_legado_id?: Prisma.IntNullableFilter<"fin_notas_recebidas"> | number | null
+  protocolo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  status_sefaz?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  origem?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  situacao?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  forma_pgto?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  categoria?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  observacoes?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  xml_arquivo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  criado_por?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  criado_em?: Prisma.DateTimeFilter<"fin_notas_recebidas"> | Date | string
+  atualizado_em?: Prisma.DateTimeFilter<"fin_notas_recebidas"> | Date | string
+  enviado_pagar?: Prisma.BoolFilter<"fin_notas_recebidas"> | boolean
+  enviado_pagar_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  xml_sha256?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nsu?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  schema_xml?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  capturado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  filial_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas"> | bigint | number | null
+}
+
+export type fin_notas_recebidasCreateManyFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+}
+
+export type fin_notas_recebidasUpdateWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -1950,9 +2551,15 @@ export type fin_notas_recebidasSelect<ExtArgs extends runtime.Types.Extensions.I
   atualizado_em?: boolean
   enviado_pagar?: boolean
   enviado_pagar_em?: boolean
+  xml_sha256?: boolean
+  nsu?: boolean
+  schema_xml?: boolean
+  capturado_em?: boolean
+  filial_id?: boolean
   fin_contas_pagar?: boolean | Prisma.fin_notas_recebidas$fin_contas_pagarArgs<ExtArgs>
   fin_notas_recebidas_itens?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs>
   fin_notas_recebidas_parcelas?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs>
+  fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
   _count?: boolean | Prisma.Fin_notas_recebidasCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas"]>
 
@@ -1997,6 +2604,12 @@ export type fin_notas_recebidasSelectCreateManyAndReturn<ExtArgs extends runtime
   atualizado_em?: boolean
   enviado_pagar?: boolean
   enviado_pagar_em?: boolean
+  xml_sha256?: boolean
+  nsu?: boolean
+  schema_xml?: boolean
+  capturado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas"]>
 
 export type fin_notas_recebidasSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -2040,6 +2653,12 @@ export type fin_notas_recebidasSelectUpdateManyAndReturn<ExtArgs extends runtime
   atualizado_em?: boolean
   enviado_pagar?: boolean
   enviado_pagar_em?: boolean
+  xml_sha256?: boolean
+  nsu?: boolean
+  schema_xml?: boolean
+  capturado_em?: boolean
+  filial_id?: boolean
+  fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas"]>
 
 export type fin_notas_recebidasSelectScalar = {
@@ -2083,17 +2702,27 @@ export type fin_notas_recebidasSelectScalar = {
   atualizado_em?: boolean
   enviado_pagar?: boolean
   enviado_pagar_em?: boolean
+  xml_sha256?: boolean
+  nsu?: boolean
+  schema_xml?: boolean
+  capturado_em?: boolean
+  filial_id?: boolean
 }
 
-export type fin_notas_recebidasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "chave" | "numero" | "serie" | "modelo" | "natureza" | "data_emissao" | "data_entrada" | "emit_cnpj" | "emit_nome" | "emit_fantasia" | "emit_uf" | "emit_ie" | "valor_produtos" | "valor_frete" | "valor_seguro" | "valor_desconto" | "valor_outros" | "valor_icms" | "valor_icms_st" | "valor_ipi" | "valor_pis" | "valor_cofins" | "valor_total" | "numero_pedido" | "projeto_legado_id" | "protocolo" | "status_sefaz" | "origem" | "situacao" | "forma_pgto" | "categoria" | "observacoes" | "xml_arquivo" | "criado_por" | "criado_em" | "atualizado_em" | "enviado_pagar" | "enviado_pagar_em", ExtArgs["result"]["fin_notas_recebidas"]>
+export type fin_notas_recebidasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "chave" | "numero" | "serie" | "modelo" | "natureza" | "data_emissao" | "data_entrada" | "emit_cnpj" | "emit_nome" | "emit_fantasia" | "emit_uf" | "emit_ie" | "valor_produtos" | "valor_frete" | "valor_seguro" | "valor_desconto" | "valor_outros" | "valor_icms" | "valor_icms_st" | "valor_ipi" | "valor_pis" | "valor_cofins" | "valor_total" | "numero_pedido" | "projeto_legado_id" | "protocolo" | "status_sefaz" | "origem" | "situacao" | "forma_pgto" | "categoria" | "observacoes" | "xml_arquivo" | "criado_por" | "criado_em" | "atualizado_em" | "enviado_pagar" | "enviado_pagar_em" | "xml_sha256" | "nsu" | "schema_xml" | "capturado_em" | "filial_id", ExtArgs["result"]["fin_notas_recebidas"]>
 export type fin_notas_recebidasInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_contas_pagar?: boolean | Prisma.fin_notas_recebidas$fin_contas_pagarArgs<ExtArgs>
   fin_notas_recebidas_itens?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs>
   fin_notas_recebidas_parcelas?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs>
+  fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
   _count?: boolean | Prisma.Fin_notas_recebidasCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type fin_notas_recebidasIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type fin_notas_recebidasIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type fin_notas_recebidasIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+}
+export type fin_notas_recebidasIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+}
 
 export type $fin_notas_recebidasPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "fin_notas_recebidas"
@@ -2101,6 +2730,7 @@ export type $fin_notas_recebidasPayload<ExtArgs extends runtime.Types.Extensions
     fin_contas_pagar: Prisma.$fin_contas_pagarPayload<ExtArgs>[]
     fin_notas_recebidas_itens: Prisma.$fin_notas_recebidas_itensPayload<ExtArgs>[]
     fin_notas_recebidas_parcelas: Prisma.$fin_notas_recebidas_parcelasPayload<ExtArgs>[]
+    fin_filiais: Prisma.$fin_filiaisPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -2143,6 +2773,11 @@ export type $fin_notas_recebidasPayload<ExtArgs extends runtime.Types.Extensions
     atualizado_em: Date
     enviado_pagar: boolean
     enviado_pagar_em: Date | null
+    xml_sha256: string | null
+    nsu: string | null
+    schema_xml: string | null
+    capturado_em: Date | null
+    filial_id: bigint | null
   }, ExtArgs["result"]["fin_notas_recebidas"]>
   composites: {}
 }
@@ -2540,6 +3175,7 @@ export interface Prisma__fin_notas_recebidasClient<T, Null = never, ExtArgs exte
   fin_contas_pagar<T extends Prisma.fin_notas_recebidas$fin_contas_pagarArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_contas_pagarArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_contas_pagarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fin_notas_recebidas_itens<T extends Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_itensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fin_notas_recebidas_parcelas<T extends Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_parcelasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fin_filiais<T extends Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>>): Prisma.Prisma__fin_filiaisClient<runtime.Types.Result.GetResult<Prisma.$fin_filiaisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2609,6 +3245,11 @@ export interface fin_notas_recebidasFieldRefs {
   readonly atualizado_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
   readonly enviado_pagar: Prisma.FieldRef<"fin_notas_recebidas", 'Boolean'>
   readonly enviado_pagar_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
+  readonly xml_sha256: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly nsu: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly schema_xml: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly capturado_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
+  readonly filial_id: Prisma.FieldRef<"fin_notas_recebidas", 'BigInt'>
 }
     
 
@@ -2863,6 +3504,10 @@ export type fin_notas_recebidasCreateManyAndReturnArgs<ExtArgs extends runtime.T
    */
   data: Prisma.fin_notas_recebidasCreateManyInput | Prisma.fin_notas_recebidasCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_notas_recebidasIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -2933,6 +3578,10 @@ export type fin_notas_recebidasUpdateManyAndReturnArgs<ExtArgs extends runtime.T
    * Limit how many fin_notas_recebidas to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_notas_recebidasIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -3071,6 +3720,25 @@ export type fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs extends
   take?: number
   skip?: number
   distinct?: Prisma.Fin_notas_recebidas_parcelasScalarFieldEnum | Prisma.Fin_notas_recebidas_parcelasScalarFieldEnum[]
+}
+
+/**
+ * fin_notas_recebidas.fin_filiais
+ */
+export type fin_notas_recebidas$fin_filiaisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_filiais
+   */
+  select?: Prisma.fin_filiaisSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_filiais
+   */
+  omit?: Prisma.fin_filiaisOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_filiaisInclude<ExtArgs> | null
+  where?: Prisma.fin_filiaisWhereInput
 }
 
 /**

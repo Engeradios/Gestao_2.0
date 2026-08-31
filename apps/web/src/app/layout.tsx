@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SessionRefresh } from "@/components/auth/session-refresh";
 
 export const metadata: Metadata = {
   title: {
@@ -35,7 +36,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <SessionRefresh />
+        {children}
+      </body>
     </html>
   );
 }

@@ -16,6 +16,7 @@ import {
   listarRoteiros,
 } from "../../services/delivery-route.service";
 import { PermissionGate } from '../../components/permission-gate';
+import { useConnectivityStore } from '../../stores/connectivity.store';
 const statusColor: Record<string, string> = {
   RASCUNHO: "#92400E",
   EM_PLANEJAMENTO: "#1D4ED8",
@@ -27,6 +28,7 @@ const statusColor: Record<string, string> = {
   CANCELADO: "#991B1B",
 };
 function RbacContent() {
+  const online = useConnectivityStore((state) => state.online);
   const [items, setItems] = useState<DeliveryRoute[]>([]);
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(true);
@@ -97,9 +99,7 @@ function RbacContent() {
       {error ? (
         <View style={s.error}>
           <Text style={s.errorText}>{error}</Text>
-          <Pressable onPress={load}>
-            <Text style={s.retry}>Tentar novamente</Text>
-          </Pressable>
+          {online ? <Pressable onPress={load}><Text style={s.retry}>Tentar novamente</Text></Pressable> : null}
         </View>
       ) : null}
       {!loading && !error && view.length === 0 ? (

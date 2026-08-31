@@ -145,7 +145,21 @@ export const ModelName = {
   ComprasPedidoItem: 'ComprasPedidoItem',
   ComprasPedidoRateio: 'ComprasPedidoRateio',
   ComprasRecebimento: 'ComprasRecebimento',
-  ComprasRecebimentoItem: 'ComprasRecebimentoItem'
+  ComprasRecebimentoItem: 'ComprasRecebimentoItem',
+  fin_filiais: 'fin_filiais',
+  fin_filiais_historico: 'fin_filiais_historico',
+  OrcChecklistModelo: 'OrcChecklistModelo',
+  OrcChecklistGrupo: 'OrcChecklistGrupo',
+  OrcChecklistPergunta: 'OrcChecklistPergunta',
+  OrcChecklistOpcao: 'OrcChecklistOpcao',
+  OrcRegraCondicional: 'OrcRegraCondicional',
+  OrcMaterialBasico: 'OrcMaterialBasico',
+  OrcPerguntaMaterial: 'OrcPerguntaMaterial',
+  OrcOrcamento: 'OrcOrcamento',
+  OrcOrcamentoResposta: 'OrcOrcamentoResposta',
+  OrcOrcamentoItem: 'OrcOrcamentoItem',
+  OrcOrcamentoEvidencia: 'OrcOrcamentoEvidencia',
+  OrcOrcamentoHistorico: 'OrcOrcamentoHistorico'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -884,7 +898,8 @@ export const Fin_contas_pagarScalarFieldEnum = {
   criado_em: 'criado_em',
   atualizado_em: 'atualizado_em',
   origem_nf_id: 'origem_nf_id',
-  origem_nf_parcela_legado_id: 'origem_nf_parcela_legado_id'
+  origem_nf_parcela_legado_id: 'origem_nf_parcela_legado_id',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_contas_pagarScalarFieldEnum = (typeof Fin_contas_pagarScalarFieldEnum)[keyof typeof Fin_contas_pagarScalarFieldEnum]
@@ -933,7 +948,8 @@ export const Fin_contas_receberScalarFieldEnum = {
   situacao: 'situacao',
   ultima_origem: 'ultima_origem',
   criado_em: 'criado_em',
-  atualizado_em: 'atualizado_em'
+  atualizado_em: 'atualizado_em',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_contas_receberScalarFieldEnum = (typeof Fin_contas_receberScalarFieldEnum)[keyof typeof Fin_contas_receberScalarFieldEnum]
@@ -964,7 +980,8 @@ export const Fin_fluxos_saldoScalarFieldEnum = {
   data_ref: 'data_ref',
   valor: 'valor',
   descricao: 'descricao',
-  criado_em: 'criado_em'
+  criado_em: 'criado_em',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_fluxos_saldoScalarFieldEnum = (typeof Fin_fluxos_saldoScalarFieldEnum)[keyof typeof Fin_fluxos_saldoScalarFieldEnum]
@@ -1028,7 +1045,12 @@ export const Fin_notas_recebidasScalarFieldEnum = {
   criado_em: 'criado_em',
   atualizado_em: 'atualizado_em',
   enviado_pagar: 'enviado_pagar',
-  enviado_pagar_em: 'enviado_pagar_em'
+  enviado_pagar_em: 'enviado_pagar_em',
+  xml_sha256: 'xml_sha256',
+  nsu: 'nsu',
+  schema_xml: 'schema_xml',
+  capturado_em: 'capturado_em',
+  filial_id: 'filial_id'
 } as const
 
 export type Fin_notas_recebidasScalarFieldEnum = (typeof Fin_notas_recebidasScalarFieldEnum)[keyof typeof Fin_notas_recebidasScalarFieldEnum]
@@ -2127,6 +2149,214 @@ export const ComprasRecebimentoItemScalarFieldEnum = {
 } as const
 
 export type ComprasRecebimentoItemScalarFieldEnum = (typeof ComprasRecebimentoItemScalarFieldEnum)[keyof typeof ComprasRecebimentoItemScalarFieldEnum]
+
+
+export const Fin_filiaisScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome',
+  cnpj: 'cnpj',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em',
+  razao_social: 'razao_social',
+  nome_fantasia: 'nome_fantasia',
+  tipo_estabelecimento: 'tipo_estabelecimento',
+  inscricao_estadual: 'inscricao_estadual',
+  inscricao_municipal: 'inscricao_municipal',
+  cep: 'cep',
+  logradouro: 'logradouro',
+  numero: 'numero',
+  complemento: 'complemento',
+  bairro: 'bairro',
+  cidade: 'cidade',
+  uf: 'uf'
+} as const
+
+export type Fin_filiaisScalarFieldEnum = (typeof Fin_filiaisScalarFieldEnum)[keyof typeof Fin_filiaisScalarFieldEnum]
+
+
+export const Fin_filiais_historicoScalarFieldEnum = {
+  id: 'id',
+  filial_id: 'filial_id',
+  usuario_id: 'usuario_id',
+  acao: 'acao',
+  antes: 'antes',
+  depois: 'depois',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_filiais_historicoScalarFieldEnum = (typeof Fin_filiais_historicoScalarFieldEnum)[keyof typeof Fin_filiais_historicoScalarFieldEnum]
+
+
+export const OrcChecklistModeloScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  descricao: 'descricao',
+  ativo: 'ativo',
+  versao: 'versao',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcChecklistModeloScalarFieldEnum = (typeof OrcChecklistModeloScalarFieldEnum)[keyof typeof OrcChecklistModeloScalarFieldEnum]
+
+
+export const OrcChecklistGrupoScalarFieldEnum = {
+  id: 'id',
+  modeloId: 'modeloId',
+  nome: 'nome',
+  descricao: 'descricao',
+  ordem: 'ordem',
+  ativo: 'ativo'
+} as const
+
+export type OrcChecklistGrupoScalarFieldEnum = (typeof OrcChecklistGrupoScalarFieldEnum)[keyof typeof OrcChecklistGrupoScalarFieldEnum]
+
+
+export const OrcChecklistPerguntaScalarFieldEnum = {
+  id: 'id',
+  grupoId: 'grupoId',
+  codigo: 'codigo',
+  titulo: 'titulo',
+  ajuda: 'ajuda',
+  tipo: 'tipo',
+  obrigatoria: 'obrigatoria',
+  ordem: 'ordem',
+  ativo: 'ativo'
+} as const
+
+export type OrcChecklistPerguntaScalarFieldEnum = (typeof OrcChecklistPerguntaScalarFieldEnum)[keyof typeof OrcChecklistPerguntaScalarFieldEnum]
+
+
+export const OrcChecklistOpcaoScalarFieldEnum = {
+  id: 'id',
+  perguntaId: 'perguntaId',
+  valor: 'valor',
+  rotulo: 'rotulo',
+  ordem: 'ordem',
+  ativo: 'ativo'
+} as const
+
+export type OrcChecklistOpcaoScalarFieldEnum = (typeof OrcChecklistOpcaoScalarFieldEnum)[keyof typeof OrcChecklistOpcaoScalarFieldEnum]
+
+
+export const OrcRegraCondicionalScalarFieldEnum = {
+  id: 'id',
+  perguntaOrigemId: 'perguntaOrigemId',
+  perguntaDestinoCodigo: 'perguntaDestinoCodigo',
+  operador: 'operador',
+  valor: 'valor',
+  acao: 'acao',
+  ativa: 'ativa'
+} as const
+
+export type OrcRegraCondicionalScalarFieldEnum = (typeof OrcRegraCondicionalScalarFieldEnum)[keyof typeof OrcRegraCondicionalScalarFieldEnum]
+
+
+export const OrcMaterialBasicoScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome',
+  descricao: 'descricao',
+  fotoCaminho: 'fotoCaminho',
+  unidade: 'unidade',
+  tipo: 'tipo',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcMaterialBasicoScalarFieldEnum = (typeof OrcMaterialBasicoScalarFieldEnum)[keyof typeof OrcMaterialBasicoScalarFieldEnum]
+
+
+export const OrcPerguntaMaterialScalarFieldEnum = {
+  perguntaId: 'perguntaId',
+  materialId: 'materialId',
+  condicao: 'condicao',
+  quantidadeFormula: 'quantidadeFormula'
+} as const
+
+export type OrcPerguntaMaterialScalarFieldEnum = (typeof OrcPerguntaMaterialScalarFieldEnum)[keyof typeof OrcPerguntaMaterialScalarFieldEnum]
+
+
+export const OrcOrcamentoScalarFieldEnum = {
+  id: 'id',
+  numero: 'numero',
+  status: 'status',
+  titulo: 'titulo',
+  clienteId: 'clienteId',
+  tecnicoId: 'tecnicoId',
+  checklistModeloId: 'checklistModeloId',
+  propostaId: 'propostaId',
+  propostaNumero: 'propostaNumero',
+  motivoRecusa: 'motivoRecusa',
+  observacaoAnalise: 'observacaoAnalise',
+  enviadoEm: 'enviadoEm',
+  analisadoEm: 'analisadoEm',
+  analisadoPorId: 'analisadoPorId',
+  propostaVinculadaEm: 'propostaVinculadaEm',
+  propostaVinculadaPorId: 'propostaVinculadaPorId',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcOrcamentoScalarFieldEnum = (typeof OrcOrcamentoScalarFieldEnum)[keyof typeof OrcOrcamentoScalarFieldEnum]
+
+
+export const OrcOrcamentoRespostaScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  perguntaId: 'perguntaId',
+  valor: 'valor',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OrcOrcamentoRespostaScalarFieldEnum = (typeof OrcOrcamentoRespostaScalarFieldEnum)[keyof typeof OrcOrcamentoRespostaScalarFieldEnum]
+
+
+export const OrcOrcamentoItemScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  materialId: 'materialId',
+  tipo: 'tipo',
+  descricao: 'descricao',
+  unidade: 'unidade',
+  quantidade: 'quantidade',
+  origem: 'origem'
+} as const
+
+export type OrcOrcamentoItemScalarFieldEnum = (typeof OrcOrcamentoItemScalarFieldEnum)[keyof typeof OrcOrcamentoItemScalarFieldEnum]
+
+
+export const OrcOrcamentoEvidenciaScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  tipo: 'tipo',
+  caminho: 'caminho',
+  nomeOriginal: 'nomeOriginal',
+  mime: 'mime',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  criadoEm: 'criadoEm'
+} as const
+
+export type OrcOrcamentoEvidenciaScalarFieldEnum = (typeof OrcOrcamentoEvidenciaScalarFieldEnum)[keyof typeof OrcOrcamentoEvidenciaScalarFieldEnum]
+
+
+export const OrcOrcamentoHistoricoScalarFieldEnum = {
+  id: 'id',
+  orcamentoId: 'orcamentoId',
+  usuarioId: 'usuarioId',
+  acao: 'acao',
+  statusAnterior: 'statusAnterior',
+  statusNovo: 'statusNovo',
+  observacao: 'observacao',
+  dados: 'dados',
+  criadoEm: 'criadoEm'
+} as const
+
+export type OrcOrcamentoHistoricoScalarFieldEnum = (typeof OrcOrcamentoHistoricoScalarFieldEnum)[keyof typeof OrcOrcamentoHistoricoScalarFieldEnum]
 
 
 export const SortOrder = {

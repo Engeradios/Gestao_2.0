@@ -528,6 +528,7 @@ export type OpPropostaWhereInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoListRelationFilter
   servico?: Prisma.XOR<Prisma.OpServicoNullableScalarRelationFilter, Prisma.OpServicoWhereInput> | null
   acompanhamentoLogistica?: Prisma.XOR<Prisma.OpPropostaLogisticaNullableScalarRelationFilter, Prisma.OpPropostaLogisticaWhereInput> | null
+  orcamentoOrigem?: Prisma.XOR<Prisma.OrcOrcamentoNullableScalarRelationFilter, Prisma.OrcOrcamentoWhereInput> | null
 }
 
 export type OpPropostaOrderByWithRelationInput = {
@@ -574,6 +575,7 @@ export type OpPropostaOrderByWithRelationInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoOrderByRelationAggregateInput
   servico?: Prisma.OpServicoOrderByWithRelationInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaOrderByWithRelationInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoOrderByWithRelationInput
 }
 
 export type OpPropostaWhereUniqueInput = Prisma.AtLeast<{
@@ -623,6 +625,7 @@ export type OpPropostaWhereUniqueInput = Prisma.AtLeast<{
   evolucoes?: Prisma.OpPropostaEvolucaoListRelationFilter
   servico?: Prisma.XOR<Prisma.OpServicoNullableScalarRelationFilter, Prisma.OpServicoWhereInput> | null
   acompanhamentoLogistica?: Prisma.XOR<Prisma.OpPropostaLogisticaNullableScalarRelationFilter, Prisma.OpPropostaLogisticaWhereInput> | null
+  orcamentoOrigem?: Prisma.XOR<Prisma.OrcOrcamentoNullableScalarRelationFilter, Prisma.OrcOrcamentoWhereInput> | null
 }, "id" | "numero">
 
 export type OpPropostaOrderByWithAggregationInput = {
@@ -760,6 +763,7 @@ export type OpPropostaCreateInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoCreateNestedOneWithoutPropostaCadastroInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaUncheckedCreateInput = {
@@ -806,6 +810,7 @@ export type OpPropostaUncheckedCreateInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoUncheckedCreateNestedOneWithoutPropostaCadastroInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaUpdateInput = {
@@ -851,6 +856,7 @@ export type OpPropostaUpdateInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUpdateOneWithoutPropostaCadastroNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaUncheckedUpdateInput = {
@@ -897,6 +903,7 @@ export type OpPropostaUncheckedUpdateInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUncheckedUpdateOneWithoutPropostaCadastroNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaCreateManyInput = {
@@ -1244,6 +1251,22 @@ export type OpPropostaUpdateOneRequiredWithoutContratosAdministrativosNestedInpu
   update?: Prisma.XOR<Prisma.XOR<Prisma.OpPropostaUpdateToOneWithWhereWithoutContratosAdministrativosInput, Prisma.OpPropostaUpdateWithoutContratosAdministrativosInput>, Prisma.OpPropostaUncheckedUpdateWithoutContratosAdministrativosInput>
 }
 
+export type OpPropostaCreateNestedOneWithoutOrcamentoOrigemInput = {
+  create?: Prisma.XOR<Prisma.OpPropostaCreateWithoutOrcamentoOrigemInput, Prisma.OpPropostaUncheckedCreateWithoutOrcamentoOrigemInput>
+  connectOrCreate?: Prisma.OpPropostaCreateOrConnectWithoutOrcamentoOrigemInput
+  connect?: Prisma.OpPropostaWhereUniqueInput
+}
+
+export type OpPropostaUpdateOneWithoutOrcamentoOrigemNestedInput = {
+  create?: Prisma.XOR<Prisma.OpPropostaCreateWithoutOrcamentoOrigemInput, Prisma.OpPropostaUncheckedCreateWithoutOrcamentoOrigemInput>
+  connectOrCreate?: Prisma.OpPropostaCreateOrConnectWithoutOrcamentoOrigemInput
+  upsert?: Prisma.OpPropostaUpsertWithoutOrcamentoOrigemInput
+  disconnect?: Prisma.OpPropostaWhereInput | boolean
+  delete?: Prisma.OpPropostaWhereInput | boolean
+  connect?: Prisma.OpPropostaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OpPropostaUpdateToOneWithWhereWithoutOrcamentoOrigemInput, Prisma.OpPropostaUpdateWithoutOrcamentoOrigemInput>, Prisma.OpPropostaUncheckedUpdateWithoutOrcamentoOrigemInput>
+}
+
 export type OpPropostaCreateWithoutServicoInput = {
   numero: string
   local?: string | null
@@ -1286,6 +1309,7 @@ export type OpPropostaCreateWithoutServicoInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaCreateNestedManyWithoutPropostaInput
   evolucoes?: Prisma.OpPropostaEvolucaoCreateNestedManyWithoutPropostaInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaUncheckedCreateWithoutServicoInput = {
@@ -1331,6 +1355,7 @@ export type OpPropostaUncheckedCreateWithoutServicoInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUncheckedCreateNestedManyWithoutPropostaInput
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedCreateNestedManyWithoutPropostaInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaCreateOrConnectWithoutServicoInput = {
@@ -1391,6 +1416,7 @@ export type OpPropostaUpdateWithoutServicoInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUpdateManyWithoutPropostaNestedInput
   evolucoes?: Prisma.OpPropostaEvolucaoUpdateManyWithoutPropostaNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaUncheckedUpdateWithoutServicoInput = {
@@ -1436,6 +1462,7 @@ export type OpPropostaUncheckedUpdateWithoutServicoInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUncheckedUpdateManyWithoutPropostaNestedInput
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedUpdateManyWithoutPropostaNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaCreateWithoutEvolucoesInput = {
@@ -1480,6 +1507,7 @@ export type OpPropostaCreateWithoutEvolucoesInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoCreateNestedOneWithoutPropostaCadastroInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaUncheckedCreateWithoutEvolucoesInput = {
@@ -1525,6 +1553,7 @@ export type OpPropostaUncheckedCreateWithoutEvolucoesInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUncheckedCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoUncheckedCreateNestedOneWithoutPropostaCadastroInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaCreateOrConnectWithoutEvolucoesInput = {
@@ -1585,6 +1614,7 @@ export type OpPropostaUpdateWithoutEvolucoesInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUpdateOneWithoutPropostaCadastroNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaUncheckedUpdateWithoutEvolucoesInput = {
@@ -1630,6 +1660,7 @@ export type OpPropostaUncheckedUpdateWithoutEvolucoesInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUncheckedUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUncheckedUpdateOneWithoutPropostaCadastroNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaCreateWithoutAcompanhamentoLogisticaInput = {
@@ -1674,6 +1705,7 @@ export type OpPropostaCreateWithoutAcompanhamentoLogisticaInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaCreateNestedManyWithoutPropostaInput
   evolucoes?: Prisma.OpPropostaEvolucaoCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoCreateNestedOneWithoutPropostaCadastroInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaUncheckedCreateWithoutAcompanhamentoLogisticaInput = {
@@ -1719,6 +1751,7 @@ export type OpPropostaUncheckedCreateWithoutAcompanhamentoLogisticaInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUncheckedCreateNestedManyWithoutPropostaInput
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoUncheckedCreateNestedOneWithoutPropostaCadastroInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaCreateOrConnectWithoutAcompanhamentoLogisticaInput = {
@@ -1779,6 +1812,7 @@ export type OpPropostaUpdateWithoutAcompanhamentoLogisticaInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUpdateManyWithoutPropostaNestedInput
   evolucoes?: Prisma.OpPropostaEvolucaoUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUpdateOneWithoutPropostaCadastroNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaUncheckedUpdateWithoutAcompanhamentoLogisticaInput = {
@@ -1824,6 +1858,7 @@ export type OpPropostaUncheckedUpdateWithoutAcompanhamentoLogisticaInput = {
   contratosAdministrativos?: Prisma.ContratoPropostaUncheckedUpdateManyWithoutPropostaNestedInput
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUncheckedUpdateOneWithoutPropostaCadastroNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaCreateWithoutContratosAdministrativosInput = {
@@ -1868,6 +1903,7 @@ export type OpPropostaCreateWithoutContratosAdministrativosInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoCreateNestedOneWithoutPropostaCadastroInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaUncheckedCreateWithoutContratosAdministrativosInput = {
@@ -1913,6 +1949,7 @@ export type OpPropostaUncheckedCreateWithoutContratosAdministrativosInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedCreateNestedManyWithoutPropostaInput
   servico?: Prisma.OpServicoUncheckedCreateNestedOneWithoutPropostaCadastroInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedCreateNestedOneWithoutPropostaInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedCreateNestedOneWithoutPropostaInput
 }
 
 export type OpPropostaCreateOrConnectWithoutContratosAdministrativosInput = {
@@ -1973,6 +2010,7 @@ export type OpPropostaUpdateWithoutContratosAdministrativosInput = {
   evolucoes?: Prisma.OpPropostaEvolucaoUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUpdateOneWithoutPropostaCadastroNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUpdateOneWithoutPropostaNestedInput
 }
 
 export type OpPropostaUncheckedUpdateWithoutContratosAdministrativosInput = {
@@ -2015,6 +2053,205 @@ export type OpPropostaUncheckedUpdateWithoutContratosAdministrativosInput = {
   valFrete?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   transportadora?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   valProposta?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  evolucoes?: Prisma.OpPropostaEvolucaoUncheckedUpdateManyWithoutPropostaNestedInput
+  servico?: Prisma.OpServicoUncheckedUpdateOneWithoutPropostaCadastroNestedInput
+  acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedUpdateOneWithoutPropostaNestedInput
+  orcamentoOrigem?: Prisma.OrcOrcamentoUncheckedUpdateOneWithoutPropostaNestedInput
+}
+
+export type OpPropostaCreateWithoutOrcamentoOrigemInput = {
+  numero: string
+  local?: string | null
+  status: string
+  faseNegociacao?: string | null
+  clienteCodigo?: string | null
+  clienteNome?: string | null
+  clienteTelefone?: string | null
+  clienteMunicipio?: string | null
+  clienteUf?: string | null
+  contatoCodigo?: string | null
+  contatoNome?: string | null
+  contatoEmail?: string | null
+  contatoCelular?: string | null
+  representanteCod?: string | null
+  representanteNome?: string | null
+  dataInicio?: Date | string | null
+  dataFim?: Date | string | null
+  dataCadastro?: Date | string | null
+  previsaoFechamento?: Date | string | null
+  contrato?: string | null
+  tipo?: string | null
+  prazoExecucaoDiasUteis?: number | null
+  enderecoInstalacao?: string | null
+  titulo?: string | null
+  ultimaOrigem?: string | null
+  criadoEm?: Date | string | null
+  atualizadoEm?: Date | string | null
+  motivo?: string | null
+  valProdutos?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valServicos?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valTarifadores?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valDesconto?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  tipoFrete?: string | null
+  valFreteIda?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFreteVolta?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFrete?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  transportadora?: string | null
+  valProposta?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  contratosAdministrativos?: Prisma.ContratoPropostaCreateNestedManyWithoutPropostaInput
+  evolucoes?: Prisma.OpPropostaEvolucaoCreateNestedManyWithoutPropostaInput
+  servico?: Prisma.OpServicoCreateNestedOneWithoutPropostaCadastroInput
+  acompanhamentoLogistica?: Prisma.OpPropostaLogisticaCreateNestedOneWithoutPropostaInput
+}
+
+export type OpPropostaUncheckedCreateWithoutOrcamentoOrigemInput = {
+  id?: number
+  numero: string
+  local?: string | null
+  status: string
+  faseNegociacao?: string | null
+  clienteCodigo?: string | null
+  clienteNome?: string | null
+  clienteTelefone?: string | null
+  clienteMunicipio?: string | null
+  clienteUf?: string | null
+  contatoCodigo?: string | null
+  contatoNome?: string | null
+  contatoEmail?: string | null
+  contatoCelular?: string | null
+  representanteCod?: string | null
+  representanteNome?: string | null
+  dataInicio?: Date | string | null
+  dataFim?: Date | string | null
+  dataCadastro?: Date | string | null
+  previsaoFechamento?: Date | string | null
+  contrato?: string | null
+  tipo?: string | null
+  prazoExecucaoDiasUteis?: number | null
+  enderecoInstalacao?: string | null
+  titulo?: string | null
+  ultimaOrigem?: string | null
+  criadoEm?: Date | string | null
+  atualizadoEm?: Date | string | null
+  motivo?: string | null
+  valProdutos?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valServicos?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valTarifadores?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valDesconto?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  tipoFrete?: string | null
+  valFreteIda?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFreteVolta?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFrete?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  transportadora?: string | null
+  valProposta?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  contratosAdministrativos?: Prisma.ContratoPropostaUncheckedCreateNestedManyWithoutPropostaInput
+  evolucoes?: Prisma.OpPropostaEvolucaoUncheckedCreateNestedManyWithoutPropostaInput
+  servico?: Prisma.OpServicoUncheckedCreateNestedOneWithoutPropostaCadastroInput
+  acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedCreateNestedOneWithoutPropostaInput
+}
+
+export type OpPropostaCreateOrConnectWithoutOrcamentoOrigemInput = {
+  where: Prisma.OpPropostaWhereUniqueInput
+  create: Prisma.XOR<Prisma.OpPropostaCreateWithoutOrcamentoOrigemInput, Prisma.OpPropostaUncheckedCreateWithoutOrcamentoOrigemInput>
+}
+
+export type OpPropostaUpsertWithoutOrcamentoOrigemInput = {
+  update: Prisma.XOR<Prisma.OpPropostaUpdateWithoutOrcamentoOrigemInput, Prisma.OpPropostaUncheckedUpdateWithoutOrcamentoOrigemInput>
+  create: Prisma.XOR<Prisma.OpPropostaCreateWithoutOrcamentoOrigemInput, Prisma.OpPropostaUncheckedCreateWithoutOrcamentoOrigemInput>
+  where?: Prisma.OpPropostaWhereInput
+}
+
+export type OpPropostaUpdateToOneWithWhereWithoutOrcamentoOrigemInput = {
+  where?: Prisma.OpPropostaWhereInput
+  data: Prisma.XOR<Prisma.OpPropostaUpdateWithoutOrcamentoOrigemInput, Prisma.OpPropostaUncheckedUpdateWithoutOrcamentoOrigemInput>
+}
+
+export type OpPropostaUpdateWithoutOrcamentoOrigemInput = {
+  numero?: Prisma.StringFieldUpdateOperationsInput | string
+  local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  faseNegociacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteCodigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteTelefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteMunicipio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoCodigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoCelular?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representanteCod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representanteNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataInicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dataFim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dataCadastro?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previsaoFechamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  enderecoInstalacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  titulo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultimaOrigem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valProdutos?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valServicos?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valTarifadores?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valDesconto?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  tipoFrete?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valFreteIda?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFreteVolta?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFrete?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  transportadora?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valProposta?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  contratosAdministrativos?: Prisma.ContratoPropostaUpdateManyWithoutPropostaNestedInput
+  evolucoes?: Prisma.OpPropostaEvolucaoUpdateManyWithoutPropostaNestedInput
+  servico?: Prisma.OpServicoUpdateOneWithoutPropostaCadastroNestedInput
+  acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUpdateOneWithoutPropostaNestedInput
+}
+
+export type OpPropostaUncheckedUpdateWithoutOrcamentoOrigemInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  numero?: Prisma.StringFieldUpdateOperationsInput | string
+  local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  faseNegociacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteCodigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteTelefone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteMunicipio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  clienteUf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoCodigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contatoCelular?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representanteCod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  representanteNome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dataInicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dataFim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dataCadastro?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  previsaoFechamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  enderecoInstalacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  titulo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultimaOrigem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizadoEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valProdutos?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valServicos?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valTarifadores?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valDesconto?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  tipoFrete?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valFreteIda?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFreteVolta?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valFrete?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  transportadora?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valProposta?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  contratosAdministrativos?: Prisma.ContratoPropostaUncheckedUpdateManyWithoutPropostaNestedInput
   evolucoes?: Prisma.OpPropostaEvolucaoUncheckedUpdateManyWithoutPropostaNestedInput
   servico?: Prisma.OpServicoUncheckedUpdateOneWithoutPropostaCadastroNestedInput
   acompanhamentoLogistica?: Prisma.OpPropostaLogisticaUncheckedUpdateOneWithoutPropostaNestedInput
@@ -2104,6 +2341,7 @@ export type OpPropostaSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   evolucoes?: boolean | Prisma.OpProposta$evolucoesArgs<ExtArgs>
   servico?: boolean | Prisma.OpProposta$servicoArgs<ExtArgs>
   acompanhamentoLogistica?: boolean | Prisma.OpProposta$acompanhamentoLogisticaArgs<ExtArgs>
+  orcamentoOrigem?: boolean | Prisma.OpProposta$orcamentoOrigemArgs<ExtArgs>
   _count?: boolean | Prisma.OpPropostaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["opProposta"]>
 
@@ -2239,6 +2477,7 @@ export type OpPropostaInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   evolucoes?: boolean | Prisma.OpProposta$evolucoesArgs<ExtArgs>
   servico?: boolean | Prisma.OpProposta$servicoArgs<ExtArgs>
   acompanhamentoLogistica?: boolean | Prisma.OpProposta$acompanhamentoLogisticaArgs<ExtArgs>
+  orcamentoOrigem?: boolean | Prisma.OpProposta$orcamentoOrigemArgs<ExtArgs>
   _count?: boolean | Prisma.OpPropostaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OpPropostaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2251,6 +2490,7 @@ export type $OpPropostaPayload<ExtArgs extends runtime.Types.Extensions.Internal
     evolucoes: Prisma.$OpPropostaEvolucaoPayload<ExtArgs>[]
     servico: Prisma.$OpServicoPayload<ExtArgs> | null
     acompanhamentoLogistica: Prisma.$OpPropostaLogisticaPayload<ExtArgs> | null
+    orcamentoOrigem: Prisma.$OrcOrcamentoPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2690,6 +2930,7 @@ export interface Prisma__OpPropostaClient<T, Null = never, ExtArgs extends runti
   evolucoes<T extends Prisma.OpProposta$evolucoesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OpProposta$evolucoesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OpPropostaEvolucaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   servico<T extends Prisma.OpProposta$servicoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OpProposta$servicoArgs<ExtArgs>>): Prisma.Prisma__OpServicoClient<runtime.Types.Result.GetResult<Prisma.$OpServicoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   acompanhamentoLogistica<T extends Prisma.OpProposta$acompanhamentoLogisticaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OpProposta$acompanhamentoLogisticaArgs<ExtArgs>>): Prisma.Prisma__OpPropostaLogisticaClient<runtime.Types.Result.GetResult<Prisma.$OpPropostaLogisticaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  orcamentoOrigem<T extends Prisma.OpProposta$orcamentoOrigemArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OpProposta$orcamentoOrigemArgs<ExtArgs>>): Prisma.Prisma__OrcOrcamentoClient<runtime.Types.Result.GetResult<Prisma.$OrcOrcamentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3234,6 +3475,25 @@ export type OpProposta$acompanhamentoLogisticaArgs<ExtArgs extends runtime.Types
    */
   include?: Prisma.OpPropostaLogisticaInclude<ExtArgs> | null
   where?: Prisma.OpPropostaLogisticaWhereInput
+}
+
+/**
+ * OpProposta.orcamentoOrigem
+ */
+export type OpProposta$orcamentoOrigemArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrcOrcamento
+   */
+  select?: Prisma.OrcOrcamentoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrcOrcamento
+   */
+  omit?: Prisma.OrcOrcamentoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrcOrcamentoInclude<ExtArgs> | null
+  where?: Prisma.OrcOrcamentoWhereInput
 }
 
 /**

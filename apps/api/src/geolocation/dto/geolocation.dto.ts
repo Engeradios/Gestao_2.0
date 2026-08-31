@@ -1,5 +1,16 @@
 import { Type, Transform } from 'class-transformer';
-import { IsBooleanString, IsDateString, IsIn, IsInt, IsOptional, IsString, IsUUID, Max, MaxLength, Min } from 'class-validator';
+import {
+  IsBooleanString,
+  IsDateString,
+  IsIn,
+  IsInt,
+  IsOptional,
+  IsString,
+  IsUUID,
+  Max,
+  MaxLength,
+  Min,
+} from 'class-validator';
 
 /**
  * Filtros do painel de equipe.
@@ -66,12 +77,19 @@ export interface TeamMemberPosition {
 export class ReportQueryDto {
   @IsOptional() @IsDateString() inicio?: string;
   @IsOptional() @IsDateString() fim?: string;
-  @Transform(({ value }) => value === "" ? undefined : value)
-  @IsOptional() @IsUUID() usuarioId?: string;
-  @Transform(({ value }) => value === "" ? undefined : value)
-  @IsOptional() @IsString() @MaxLength(160) busca?: string;
-  @Transform(({ value }) => value === "" ? undefined : value)
-  @IsOptional() @IsIn(["ATIVO", "PAUSADO", "FINALIZADO"]) status?: string;
+  @Transform(({ value }) => (value === '' ? undefined : value))
+  @IsOptional()
+  @IsUUID()
+  usuarioId?: string;
+  @Transform(({ value }) => (value === '' ? undefined : value))
+  @IsOptional()
+  @IsString()
+  @MaxLength(160)
+  busca?: string;
+  @Transform(({ value }) => (value === '' ? undefined : value))
+  @IsOptional()
+  @IsIn(['ATIVO', 'PAUSADO', 'FINALIZADO'])
+  status?: string;
   @IsOptional() @Type(() => Number) @IsInt() @Min(1) pagina?: number;
   @IsOptional() @Type(() => Number) @IsInt() @Min(10) @Max(100) limite?: number;
 }

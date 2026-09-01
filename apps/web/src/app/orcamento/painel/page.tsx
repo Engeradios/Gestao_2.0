@@ -1,5 +1,5 @@
 import { AppShell } from "@/components/layout/app-shell";
-import { UnderConstruction } from "@/components/administrative/under-construction";
+import { OrcamentoPainel } from "@/components/orcamento/orcamento-painel";
 import { requireOperationalUser } from "@/lib/operational-page-auth";
 
 export default async function Page() {
@@ -7,11 +7,7 @@ export default async function Page() {
 
   return (
     <AppShell userName={user.nome} userEmail={user.email}>
-      <UnderConstruction
-        category="Orçamento"
-        title="Painel de Orçamento"
-        description="Cadastro, acompanhamento, filtros e gestão dos orçamentos serão disponibilizados neste espaço."
-      />
+      <OrcamentoPainel />
     </AppShell>
   );
 }

@@ -57,7 +57,22 @@ type Data = {
   comparativo: Compare[];
   diasInatividade: number;
 };
-type Filters = { periodo: string; uf: string; ini: string; fim: string };
+type ValueRange = "0_100" | "100_300" | "300_500" | "500_MAIS";
+type Filters = {
+  periodo: string;
+  uf: string;
+  ini: string;
+  fim: string;
+  tipos: string[];
+  faixasValor: ValueRange[];
+};
+
+const VALUE_RANGES: Array<{ value: ValueRange; label: string }> = [
+  { value: "0_100", label: "R$ 0 a R$ 100 mil" },
+  { value: "100_300", label: "Acima de R$ 100 mil a R$ 300 mil" },
+  { value: "300_500", label: "Acima de R$ 300 mil a R$ 500 mil" },
+  { value: "500_MAIS", label: "Acima de R$ 500 mil" },
+];
 
 const money = (v: unknown) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(
@@ -87,9 +102,12 @@ export function ProposalsDashboard() {
     uf: "",
     ini: "",
     fim: "",
+    tipos: [],
+    faixasValor: ["0_100"],
   });
   const [data, setData] = useState<Data | null>(null);
   const [ufs, setUfs] = useState<string[]>([]);
+  const [tiposDisponiveis, setTiposDisponiveis] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -98,6 +116,9 @@ export function ProposalsDashboard() {
     setError("");
     const q = new URLSearchParams({ periodo: f.periodo });
     if (f.uf) q.set("uf", f.uf);
+    if (f.tipos.length) q.set("tipos", f.tipos.join(","));
+    if (f.faixasValor.length)
+      q.set("faixasValor", f.faixasValor.join(","));
     if (f.periodo === "custom") {
       if (f.ini) q.set("ini", f.ini);
       if (f.fim) q.set("fim", f.fim);
@@ -128,7 +149,10 @@ export function ProposalsDashboard() {
   useEffect(() => {
     void fetch("/api/propostas/filtros", { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : {}))
-      .then((b: { ufs?: string[] }) => setUfs((b.ufs || []).filter(Boolean)))
+      .then((b: { ufs?: string[]; tipos?: string[] }) => {
+        setUfs((b.ufs || []).filter(Boolean));
+        setTiposDisponiveis((b.tipos || []).filter(Boolean));
+      })
       .catch(() => undefined);
   }, []);
 
@@ -241,13 +265,72 @@ export function ProposalsDashboard() {
           <div className="flex items-end">
             <button
               onClick={() =>
-                setFilters({ periodo: "45", uf: "", ini: "", fim: "" })
+                setFilters({
+                  periodo: "45",
+                  uf: "",
+                  ini: "",
+                  fim: "",
+                  tipos: [],
+                  faixasValor: ["0_100"],
+                })
               }
               className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold hover:bg-slate-50 dark:border-slate-700"
             >
               Restaurar padrão
             </button>
           </div>
+        </div>
+        <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          <fieldset className="rounded-xl border border-slate-200 p-3 dark:border-slate-700">
+            <legend className="px-1 text-sm font-semibold">Tipos de proposta</legend>
+            <div className="mt-2 max-h-44 space-y-2 overflow-auto">
+              {tiposDisponiveis.length ? (
+                tiposDisponiveis.map((tipo) => (
+                  <label key={tipo} className="flex items-center gap-2 text-sm">
+                    <input
+                      type="checkbox"
+                      checked={filters.tipos.includes(tipo)}
+                      onChange={(event) =>
+                        setFilters((currentFilters) => ({
+                          ...currentFilters,
+                          tipos: event.target.checked
+                            ? [...currentFilters.tipos, tipo]
+                            : currentFilters.tipos.filter((item) => item !== tipo),
+                        }))
+                      }
+                    />
+                    <span>{tipo}</span>
+                  </label>
+                ))
+              ) : (
+                <span className="text-sm text-slate-500">Nenhum tipo disponível.</span>
+              )}
+            </div>
+          </fieldset>
+          <fieldset className="rounded-xl border border-slate-200 p-3 dark:border-slate-700">
+            <legend className="px-1 text-sm font-semibold">Faixa de valor</legend>
+            <div className="mt-2 space-y-2">
+              {VALUE_RANGES.map((range) => (
+                <label key={range.value} className="flex items-center gap-2 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={filters.faixasValor.includes(range.value)}
+                    onChange={(event) =>
+                      setFilters((currentFilters) => ({
+                        ...currentFilters,
+                        faixasValor: event.target.checked
+                          ? [...currentFilters.faixasValor, range.value]
+                          : currentFilters.faixasValor.filter(
+                              (item) => item !== range.value,
+                            ),
+                      }))
+                    }
+                  />
+                  <span>{range.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
         </div>
         {data && (
           <p className="mt-3 text-xs text-slate-500">

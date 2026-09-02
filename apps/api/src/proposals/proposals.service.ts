@@ -360,6 +360,18 @@ export class ProposalsService {
     };
   }
 
+  private lista(value: unknown, limite = 50): string[] {
+    const origem = Array.isArray(value) ? value : [value];
+    return [
+      ...new Set(
+        origem
+          .flatMap((item) => String(item || '').split(','))
+          .map((item) => item.trim())
+          .filter(Boolean),
+      ),
+    ].slice(0, limite);
+  }
+
   async dashboard(q: Record<string, string | undefined>) {
     const dias = q.dias
       ? this.inteiro(q.dias, 90, 1, 3650)
@@ -367,6 +379,18 @@ export class ProposalsService {
     const permitidos = ['30', '45', '90', 'mes', 'ano', 'tudo', 'custom'];
     const periodo = permitidos.includes(q.periodo || '') ? q.periodo! : '45';
     const uf = this.texto(q.uf);
+    const tipos = this.lista(q.tipos);
+    const faixasValor = this.lista(q.faixasValor, 4);
+    const faixasPermitidas = new Set([
+      '0_100',
+      '100_300',
+      '300_500',
+      '500_MAIS',
+    ]);
+    if (faixasValor.some((faixa) => !faixasPermitidas.has(faixa))) {
+      throw new BadRequestException('Faixa de valor inválida');
+    }
+
     const hoje = new Date();
     const iso = (d: Date) => d.toISOString().slice(0, 10);
     const inicioMes = new Date(
@@ -403,6 +427,32 @@ export class ProposalsService {
       filtros.push(Prisma.sql`${dataCriacao} >= ${dataInicio}::date`);
     if (dataFim) filtros.push(Prisma.sql`${dataCriacao} <= ${dataFim}::date`);
     if (uf) filtros.push(Prisma.sql`upper(cliente_uf)=upper(${uf})`);
+    if (tipos.length) {
+      filtros.push(
+        Prisma.sql`upper(coalesce(tipo,'')) IN (${Prisma.join(
+          tipos.map((tipo) => Prisma.sql`upper(${tipo})`),
+        )})`,
+      );
+    }
+    if (faixasValor.length) {
+      const condicoes: Prisma.Sql[] = [];
+      if (faixasValor.includes('0_100'))
+        condicoes.push(
+          Prisma.sql`coalesce(val_proposta,0) BETWEEN 0 AND 100000`,
+        );
+      if (faixasValor.includes('100_300'))
+        condicoes.push(
+          Prisma.sql`coalesce(val_proposta,0) > 100000 AND coalesce(val_proposta,0) <= 300000`,
+        );
+      if (faixasValor.includes('300_500'))
+        condicoes.push(
+          Prisma.sql`coalesce(val_proposta,0) > 300000 AND coalesce(val_proposta,0) <= 500000`,
+        );
+      if (faixasValor.includes('500_MAIS'))
+        condicoes.push(Prisma.sql`coalesce(val_proposta,0) > 500000`);
+      filtros.push(Prisma.sql`(${Prisma.join(condicoes, ' OR ')})`);
+    }
+
     const where = Prisma.sql`WHERE ${Prisma.join(filtros, ' AND ')}`;
     const filtroUf = uf
       ? Prisma.sql`WHERE upper(cliente_uf)=upper(${uf})`
@@ -491,7 +541,15 @@ export class ProposalsService {
     const total = Number(r.total || 0);
     const aprovadas = Number(r.aprovadas || 0);
     return {
-      filtros: { periodo, periodoLabel, dataInicio, dataFim, uf: uf || null },
+      filtros: {
+        periodo,
+        periodoLabel,
+        dataInicio,
+        dataFim,
+        uf: uf || null,
+        tipos,
+        faixasValor,
+      },
       resumo: {
         ...r,
         total,

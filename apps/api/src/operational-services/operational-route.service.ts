@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
 import { Prisma } from '../generated/prisma/client';
+import * as XLSX from 'xlsx';
 
 @Injectable()
 export class OperationalRouteService {
@@ -109,6 +110,135 @@ export class OperationalRouteService {
       servicos: services,
       preventivas: preventives,
       tecnicos: technicians,
+    };
+  }
+
+  private safeSpreadsheetText(value: unknown): string {
+    let text = '';
+
+    if (
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      typeof value === 'boolean' ||
+      typeof value === 'bigint'
+    ) {
+      text = String(value);
+    }
+
+    return /^[=+\-@\t\r\n]/.test(text) ? `\t${text}` : text;
+  }
+
+  async exportRouteXlsx(
+    data: string,
+    unidade: string,
+    statusOperacional?: string,
+  ) {
+    const roteiro = await this.dispatch({
+      data,
+      unidade,
+      statusOperacional,
+    });
+
+    const formatDate = (value: Date | string | null): string => {
+      if (!value) return '';
+
+      const parsed = value instanceof Date ? value : new Date(value);
+
+      if (Number.isNaN(parsed.getTime())) {
+        return '';
+      }
+
+      return new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'UTC',
+      }).format(parsed);
+    };
+
+    const rows = roteiro.visitas.map((visita) => {
+      const cliente =
+        visita.servico?.cliente || visita.preventiva?.clienteNome || '';
+
+      const origem =
+        visita.servico?.proposta ||
+        visita.servicoId ||
+        visita.preventivaId ||
+        visita.tipo;
+
+      return {
+        Ordem: Number(visita.ordemExecucao),
+        'Data da visita': formatDate(visita.dataVisita),
+        'Data final': formatDate(visita.dataFim),
+        Técnico: this.safeSpreadsheetText(visita.tecnico),
+        Função: this.safeSpreadsheetText(visita.funcaoProfissional),
+        Unidade: this.safeSpreadsheetText(visita.unidade),
+        Turno: this.safeSpreadsheetText(visita.turno),
+        Tipo: this.safeSpreadsheetText(visita.tipo),
+        Status: this.safeSpreadsheetText(visita.status),
+        Cliente: this.safeSpreadsheetText(cliente),
+        Origem: this.safeSpreadsheetText(origem),
+        Observações: this.safeSpreadsheetText(visita.observacoes),
+      };
+    });
+
+    const headers = [
+      'Ordem',
+      'Data da visita',
+      'Data final',
+      'Técnico',
+      'Função',
+      'Unidade',
+      'Turno',
+      'Tipo',
+      'Status',
+      'Cliente',
+      'Origem',
+      'Observações',
+    ];
+
+    const worksheet = XLSX.utils.json_to_sheet(rows, {
+      header: headers,
+    });
+
+    worksheet['!cols'] = [
+      { wch: 10 },
+      { wch: 16 },
+      { wch: 16 },
+      { wch: 28 },
+      { wch: 22 },
+      { wch: 10 },
+      { wch: 14 },
+      { wch: 18 },
+      { wch: 20 },
+      { wch: 36 },
+      { wch: 24 },
+      { wch: 50 },
+    ];
+
+    if (worksheet['!ref']) {
+      worksheet['!autofilter'] = {
+        ref: worksheet['!ref'],
+      };
+    }
+
+    const workbook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Roteiro Técnico');
+
+    const buffer = XLSX.write(workbook, {
+      type: 'buffer',
+      bookType: 'xlsx',
+      compression: true,
+    }) as Buffer;
+
+    const unit = unidade?.toUpperCase() === 'SP' ? 'SP' : 'RJ';
+
+    const safeDate = String(data || '')
+      .slice(0, 10)
+      .replace(/[^0-9-]/g, '');
+
+    return {
+      buffer,
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      name: `roteiro-tecnico-${safeDate}-${unit}.xlsx`,
     };
   }
 

@@ -48,6 +48,31 @@ export class OperationalRouteController {
     });
   }
 
+  @Get('excel')
+  @RequirePermissions('OPERACIONAL.ROTEIRO.VISUALIZAR')
+  async downloadExcel(
+    @Query('data') data: string,
+    @Query('unidade') unidade: string,
+    @Query('statusOperacional')
+    statusOperacional: string | undefined,
+    @Res() response: Response,
+  ): Promise<void> {
+    const file = await this.service.exportRouteXlsx(
+      data,
+      unidade,
+      statusOperacional,
+    );
+
+    response.setHeader('Content-Type', file.type);
+    response.setHeader(
+      'Content-Disposition',
+      `attachment; filename="${file.name}"`,
+    );
+    response.setHeader('Content-Length', String(file.buffer.length));
+
+    response.send(file.buffer);
+  }
+
   @Get('pdf')
   @RequirePermissions('OPERACIONAL.ROTEIRO.VISUALIZAR')
   async downloadPdf(

@@ -18,6 +18,7 @@ import {
   MapPinned,
   Plus,
   FileDown,
+  FileSpreadsheet,
   RefreshCw,
   Trash2,
 } from "lucide-react";
@@ -364,6 +365,14 @@ export default function OperationalRouteManager({
             >
               <FileDown className="mr-2 inline h-4 w-4" />
               Emitir roteiro em PDF
+            </a>
+            <a
+              href={`/api/operacional/roteiro/excel?data=${encodeURIComponent(date)}&unidade=${encodeURIComponent(unit)}`}
+              className="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-600"
+              download
+            >
+              <FileSpreadsheet className="mr-2 inline h-4 w-4" />
+              Exportar Excel
             </a>
           </div>
         )}

@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
 import { MailService } from '../mail/mail.service';
+import { NotificationRecipientSelectorService } from './notification-recipient-selector.service';
 
 @Injectable()
 export class ServiceOpeningNotificationService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly mail: MailService,
+    private readonly recipientSelector: NotificationRecipientSelectorService,
   ) {}
 
   async send(serviceId: string, actor: string) {
@@ -52,62 +54,18 @@ export class ServiceOpeningNotificationService {
       return { sucesso: false, motivo: 'SERVICO_NAO_ENCONTRADO' };
     }
 
-    const area = service.areaResponsavel || 'OPERACIONAL';
-    const acceptedAreas =
-      area === 'AMBAS'
-        ? ['OPERACIONAL', 'LOGISTICA', 'AMBAS']
-        : [area, 'AMBAS'];
-
-    const configuredUsers = await this.prisma.usuario.findMany({
-      where: {
-        status: 'ATIVO',
-        preferenciaNotificacao: {
-          is: {
-            ativo: true,
-            receberAberturaServico: true,
-            areaServicos: { in: acceptedAreas },
-          },
-        },
-      },
-      select: {
-        id: true,
-        nome: true,
-        email: true,
-      },
+    const selection = await this.recipientSelector.select({
+      uf: service.ufExecucao,
+      praca: service.pracaResponsavel ?? '',
+      area: service.areaResponsavel ?? '',
+      evento: 'ABERTURA',
     });
 
-    const responsibleUsers = service.responsaveis
-      .filter((item) => {
-        const preference = item.pessoa.usuario?.preferenciaNotificacao;
-
-        return (
-          item.pessoa.usuario?.status === 'ATIVO' &&
-          preference?.ativo &&
-          preference.receberAberturaServico &&
-          acceptedAreas.includes(preference.areaServicos)
-        );
-      })
-      .map((item) => item.pessoa.usuario)
-      .filter((user): user is NonNullable<typeof user> => Boolean(user));
-
-    const targetUsers = new Map<
-      string,
-      { id: string; nome: string; email: string }
-    >();
-
-    for (const user of configuredUsers) {
-      targetUsers.set(user.id, user);
-    }
-
-    for (const user of responsibleUsers) {
-      targetUsers.set(user.id, {
-        id: user.id,
-        nome: user.nome,
-        email: user.email,
-      });
-    }
-
-    const users = [...targetUsers.values()];
+    const users = selection.destinatarios.map((recipient) => ({
+      id: recipient.usuarioId,
+      nome: recipient.nome,
+      email: recipient.email,
+    }));
 
     await this.prisma.notificacaoUsuario.createMany({
       data: users.map((user) => ({
@@ -135,17 +93,14 @@ export class ServiceOpeningNotificationService {
     ];
 
     if (!recipients.length) {
-      await this.registerFailure(
-        serviceId,
-        key,
-        actor,
-        'Nenhum destinatário configurado.',
-        [],
-      );
+      const detail = `SEM_COBERTURA | ROTEAMENTO:${selection.estrategia}`;
+
+      await this.registerFailure(serviceId, key, actor, detail, []);
 
       return {
         sucesso: false,
-        motivo: 'SEM_DESTINATARIOS',
+        motivo: 'SEM_COBERTURA',
+        estrategia: selection.estrategia,
       };
     }
 
@@ -184,7 +139,7 @@ export class ServiceOpeningNotificationService {
             destinatarios: recipients.join('; '),
             qtdDest: recipients.length,
             sucesso: true,
-            detalhe: result.messageId || 'Enviado',
+            detalhe: `${result.messageId || 'Enviado'} | ROTEAMENTO:${selection.estrategia}`,
             comAnexo: service.anexos.length > 0,
             usuario: actor,
             tentativa: service.emailAberturaTentativas + 1,
@@ -207,6 +162,7 @@ export class ServiceOpeningNotificationService {
       return {
         sucesso: true,
         destinatarios: recipients.length,
+        estrategia: selection.estrategia,
       };
     } catch (error) {
       const detail =

@@ -415,6 +415,7 @@ export const ModelName = {
   OpServicoHistorico: 'OpServicoHistorico',
   OpLista: 'OpLista',
   OpFeriado: 'OpFeriado',
+  OpNotificacaoResponsabilidade: 'OpNotificacaoResponsabilidade',
   OpNotificacaoEmail: 'OpNotificacaoEmail',
   OpEmailLog: 'OpEmailLog',
   OpPreventiva: 'OpPreventiva',
@@ -521,7 +522,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico"
+    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoResponsabilidade" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1854,6 +1855,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.OpFeriadoCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.OpFeriadoCountAggregateOutputType> | number
+        }
+      }
+    }
+    OpNotificacaoResponsabilidade: {
+      payload: Prisma.$OpNotificacaoResponsabilidadePayload<ExtArgs>
+      fields: Prisma.OpNotificacaoResponsabilidadeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OpNotificacaoResponsabilidadeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OpNotificacaoResponsabilidadeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>
+        }
+        findFirst: {
+          args: Prisma.OpNotificacaoResponsabilidadeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OpNotificacaoResponsabilidadeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>
+        }
+        findMany: {
+          args: Prisma.OpNotificacaoResponsabilidadeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>[]
+        }
+        create: {
+          args: Prisma.OpNotificacaoResponsabilidadeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>
+        }
+        createMany: {
+          args: Prisma.OpNotificacaoResponsabilidadeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OpNotificacaoResponsabilidadeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>[]
+        }
+        delete: {
+          args: Prisma.OpNotificacaoResponsabilidadeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>
+        }
+        update: {
+          args: Prisma.OpNotificacaoResponsabilidadeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>
+        }
+        deleteMany: {
+          args: Prisma.OpNotificacaoResponsabilidadeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OpNotificacaoResponsabilidadeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OpNotificacaoResponsabilidadeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>[]
+        }
+        upsert: {
+          args: Prisma.OpNotificacaoResponsabilidadeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OpNotificacaoResponsabilidadePayload>
+        }
+        aggregate: {
+          args: Prisma.OpNotificacaoResponsabilidadeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOpNotificacaoResponsabilidade>
+        }
+        groupBy: {
+          args: Prisma.OpNotificacaoResponsabilidadeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OpNotificacaoResponsabilidadeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OpNotificacaoResponsabilidadeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OpNotificacaoResponsabilidadeCountAggregateOutputType> | number
         }
       }
     }
@@ -8881,6 +8956,9 @@ export const OpServicoScalarFieldEnum = {
   areaResponsavel: 'areaResponsavel',
   prazoExecucaoDiasUteis: 'prazoExecucaoDiasUteis',
   ufExecucao: 'ufExecucao',
+  pracaResponsavel: 'pracaResponsavel',
+  chegadaPrevista: 'chegadaPrevista',
+  origemDataAprovacao: 'origemDataAprovacao',
   servicoAtividade: 'servicoAtividade',
   categoria: 'categoria',
   responsavel: 'responsavel',
@@ -8906,6 +8984,9 @@ export const OpServicoScalarFieldEnum = {
   emailConclusaoStatus: 'emailConclusaoStatus',
   emailAberturaTentativas: 'emailAberturaTentativas',
   emailConclusaoTentativas: 'emailConclusaoTentativas',
+  emailLogisticaStatus: 'emailLogisticaStatus',
+  emailLogisticaTentativas: 'emailLogisticaTentativas',
+  emailLogisticaErro: 'emailLogisticaErro',
   emailAberturaErro: 'emailAberturaErro',
   emailConclusaoErro: 'emailConclusaoErro',
   contrato: 'contrato',
@@ -9008,6 +9089,23 @@ export const OpFeriadoScalarFieldEnum = {
 } as const
 
 export type OpFeriadoScalarFieldEnum = (typeof OpFeriadoScalarFieldEnum)[keyof typeof OpFeriadoScalarFieldEnum]
+
+
+export const OpNotificacaoResponsabilidadeScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  uf: 'uf',
+  praca: 'praca',
+  areaResponsavel: 'areaResponsavel',
+  recAbertura: 'recAbertura',
+  recConclusao: 'recConclusao',
+  recLogistica: 'recLogistica',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OpNotificacaoResponsabilidadeScalarFieldEnum = (typeof OpNotificacaoResponsabilidadeScalarFieldEnum)[keyof typeof OpNotificacaoResponsabilidadeScalarFieldEnum]
 
 
 export const OpNotificacaoEmailScalarFieldEnum = {
@@ -11222,6 +11320,7 @@ export type GlobalOmitConfig = {
   opServicoHistorico?: Prisma.OpServicoHistoricoOmit
   opLista?: Prisma.OpListaOmit
   opFeriado?: Prisma.OpFeriadoOmit
+  opNotificacaoResponsabilidade?: Prisma.OpNotificacaoResponsabilidadeOmit
   opNotificacaoEmail?: Prisma.OpNotificacaoEmailOmit
   opEmailLog?: Prisma.OpEmailLogOmit
   opPreventiva?: Prisma.OpPreventivaOmit

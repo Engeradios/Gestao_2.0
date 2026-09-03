@@ -51,6 +51,12 @@ type Data = {
     mes: string;
     quantidade: number;
     valor_aprovado: number | string;
+    ticket_medio: number | string;
+  }>;
+  serieTicketMedio: Array<{
+    mes: string;
+    quantidade: number;
+    ticket_medio: number | string;
   }>;
   topClientesValor: Row[];
   topClientesQuantidade: Row[];
@@ -430,6 +436,9 @@ export function ProposalsDashboard() {
                 <SeriesChart rows={data.serie} />
               </div>
             </Card>
+            <Card title="Ticket médio mês a mês">
+              <TicketAverageChart rows={data.serieTicketMedio} />
+            </Card>
             <Card title="Aprovação por tipo de proposta">
               <ApprovalByType rows={data.aprovacaoPorTipo || []} />
             </Card>
@@ -677,160 +686,162 @@ function HorizontalBars({
     </div>
   );
 }
-function SeriesChart({ rows }: { rows: Data["serie"] }) {
-  const maxQ = Math.max(1, ...rows.map((x) => Number(x.quantidade)));
-  const maxV = Math.max(1, ...rows.map((x) => Number(x.valor_aprovado)));
-
+function TicketAverageChart({ rows }: { rows: Data["serieTicketMedio"] }) {
   const width = 960;
-  const height = 190;
-  const chartTop = 15;
-  const chartBottom = 150;
+  const height = 210;
+  const chartTop = 20;
+  const chartBottom = 160;
   const slot = width / Math.max(rows.length, 1);
-
+  const maxTicket = Math.max(1, ...rows.map((item) => Number(item.ticket_medio)));
   const points = rows
     .map((item, index) => {
       const x = slot * index + slot / 2;
       const y =
         chartBottom -
-        (Number(item.valor_aprovado) / maxV) * (chartBottom - chartTop);
-
+        (Number(item.ticket_medio) / maxTicket) * (chartBottom - chartTop);
       return `${x},${y}`;
     })
     .join(" ");
 
   return (
-    <div>
-      <div className="mb-3 flex flex-wrap gap-4 text-xs">
-        <span className="inline-flex items-center gap-1.5">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-blue-600" />
-          Quantidade de propostas
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <i className="inline-block h-0.5 w-5 bg-emerald-600" />
-          Valor aprovado
-        </span>
-      </div>
-
-      <div className="overflow-x-auto pb-2">
-        <div className="relative min-w-[960px]">
-          <svg
-            viewBox={`0 0 ${width} ${height}`}
-            className="h-56 w-full"
-            role="img"
-            aria-label="Quantidade de propostas em barras e valor aprovado em linha nos últimos 12 meses"
-            preserveAspectRatio="none"
-          >
-            {[0, 1, 2, 3].map((line) => {
-              const y = chartTop + ((chartBottom - chartTop) / 3) * line;
-
-              return (
-                <line
-                  key={line}
-                  x1="0"
-                  y1={y}
-                  x2={width}
-                  y2={y}
-                  stroke="currentColor"
-                  strokeOpacity="0.08"
-                  vectorEffect="non-scaling-stroke"
-                />
-              );
-            })}
-
-            {rows.map((item, index) => {
-              const barHeight =
-                (Number(item.quantidade) / maxQ) * (chartBottom - chartTop);
-
-              const x = slot * index + slot / 2;
-              const barWidth = Math.min(30, slot * 0.38);
-
-              return (
-                <rect
-                  key={`bar-${item.mes}`}
-                  x={x - barWidth / 2}
-                  y={chartBottom - barHeight}
-                  width={barWidth}
-                  height={Math.max(3, barHeight)}
-                  rx="4"
-                  fill="#2563eb"
-                >
-                  <title>
-                    {item.mes}: {integer(item.quantidade)} propostas
-                  </title>
-                </rect>
-              );
-            })}
-
-            <polyline
-              points={points}
-              fill="none"
-              stroke="#059669"
-              strokeWidth="3"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-            />
-
-            {rows.map((item, index) => {
-              const x = slot * index + slot / 2;
-              const y =
-                chartBottom -
-                (Number(item.valor_aprovado) / maxV) * (chartBottom - chartTop);
-
-              return (
+    <div className="overflow-x-auto pb-2">
+      <div className="relative min-w-[960px]">
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          className="h-60 w-full"
+          role="img"
+          aria-label="Ticket médio das propostas mês a mês"
+          preserveAspectRatio="none"
+        >
+          {[0, 1, 2, 3].map((line) => {
+            const y = chartTop + ((chartBottom - chartTop) / 3) * line;
+            return (
+              <line
+                key={line}
+                x1="0"
+                y1={y}
+                x2={width}
+                y2={y}
+                stroke="currentColor"
+                strokeOpacity="0.08"
+                vectorEffect="non-scaling-stroke"
+              />
+            );
+          })}
+          <polyline
+            points={points}
+            fill="none"
+            stroke="#7c3aed"
+            strokeWidth="3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+          />
+          {rows.map((item, index) => {
+            const x = slot * index + slot / 2;
+            const y =
+              chartBottom -
+              (Number(item.ticket_medio) / maxTicket) *
+                (chartBottom - chartTop);
+            return (
+              <g key={`ticket-${item.mes}`}>
                 <circle
-                  key={`point-${item.mes}`}
                   cx={x}
                   cy={y}
                   r="5"
-                  fill="#059669"
+                  fill="#7c3aed"
                   stroke="white"
                   strokeWidth="2"
                   vectorEffect="non-scaling-stroke"
                 >
-                  <title>
-                    {item.mes}: {money(item.valor_aprovado)}
-                  </title>
+                  <title>{item.mes}: {money(item.ticket_medio)}</title>
                 </circle>
-              );
-            })}
-
-            {rows.map((item, index) => (
-              <text
-                key={`label-${item.mes}`}
-                x={slot * index + slot / 2}
-                y="178"
-                textAnchor="middle"
-                fill="currentColor"
-                opacity="0.65"
-                fontSize="11"
-              >
-                {item.mes}
-              </text>
-            ))}
-          </svg>
-        </div>
+                <text
+                  x={x}
+                  y="188"
+                  textAnchor="middle"
+                  fill="currentColor"
+                  opacity="0.65"
+                  fontSize="11"
+                >
+                  {item.mes}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
       </div>
-
       <table className="sr-only">
-        <caption>Desempenho mensal dos últimos 12 meses</caption>
-        <thead>
-          <tr>
-            <th>Mês</th>
-            <th>Propostas</th>
-            <th>Valor aprovado</th>
-          </tr>
-        </thead>
+        <caption>Ticket médio mensal das propostas</caption>
+        <thead><tr><th>Mês</th><th>Ticket médio</th></tr></thead>
         <tbody>
           {rows.map((item) => (
-            <tr key={item.mes}>
+            <tr key={`ticket-row-${item.mes}`}>
               <td>{item.mes}</td>
-              <td>{item.quantidade}</td>
-              <td>{money(item.valor_aprovado)}</td>
+              <td>{money(item.ticket_medio)}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
+}
+
+function SeriesChart({ rows }: { rows: Data["serie"] }) {
+  const width = 1040;
+  const height = 260;
+  const chartTop = 28;
+  const chartBottom = 190;
+  const slot = width / Math.max(rows.length, 1);
+  const maxQ = Math.max(1, ...rows.map((item) => Number(item.quantidade)));
+  const maxV = Math.max(1, ...rows.map((item) => Number(item.valor_aprovado)));
+  const totalQ = rows.reduce((sum, item) => sum + Number(item.quantidade), 0);
+  const totalV = rows.reduce((sum, item) => sum + Number(item.valor_aprovado), 0);
+  const peakQ = rows.reduce((best, item) => Number(item.quantidade) > Number(best?.quantidade || 0) ? item : best, rows[0]);
+  const peakV = rows.reduce((best, item) => Number(item.valor_aprovado) > Number(best?.valor_aprovado || 0) ? item : best, rows[0]);
+  const points = rows.map((item, index) => {
+    const x = slot * index + slot / 2;
+    const y = chartBottom - (Number(item.valor_aprovado) / maxV) * (chartBottom - chartTop);
+    return `${x},${y}`;
+  }).join(" ");
+  const area = rows.length ? `0,${chartBottom} ${points} ${width},${chartBottom}` : "";
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2 text-xs">
+          <span className="rounded-full bg-blue-50 px-3 py-1.5 font-semibold text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">Janela fixa de 12 meses</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 dark:border-slate-700"><i className="h-2.5 w-2.5 rounded-sm bg-blue-600" />Propostas</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 dark:border-slate-700"><i className="h-0.5 w-5 bg-emerald-500" />Valor aprovado</span>
+        </div>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <ChartSummary label="Propostas em 12 meses" value={integer(totalQ)} />
+        <ChartSummary label="Valor aprovado em 12 meses" value={money(totalV)} />
+        <ChartSummary label="Maior volume" value={peakQ ? `${peakQ.mes} · ${integer(peakQ.quantidade)}` : "—"} />
+        <ChartSummary label="Maior valor" value={peakV ? `${peakV.mes} · ${money(peakV.valor_aprovado)}` : "—"} />
+      </div>
+      <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-3 pb-1 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900">
+        <div className="min-w-[1040px]">
+          <svg viewBox={`0 0 ${width} ${height}`} className="h-72 w-full" role="img" aria-label="Desempenho dos últimos 12 meses: propostas em colunas e valor aprovado em linha" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="proposalBars" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#2563eb" /><stop offset="100%" stopColor="#60a5fa" /></linearGradient>
+              <linearGradient id="approvedArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#10b981" stopOpacity="0.22" /><stop offset="100%" stopColor="#10b981" stopOpacity="0" /></linearGradient>
+            </defs>
+            {[0,1,2,3,4].map((line) => { const y=chartTop+((chartBottom-chartTop)/4)*line; return <line key={line} x1="0" y1={y} x2={width} y2={y} stroke="currentColor" strokeOpacity="0.07" vectorEffect="non-scaling-stroke" />; })}
+            {area && <polygon points={area} fill="url(#approvedArea)" />}
+            {rows.map((item,index) => { const h=(Number(item.quantidade)/maxQ)*(chartBottom-chartTop); const x=slot*index+slot/2; const bw=Math.min(42,slot*.52); return <rect key={`bar-${item.mes}`} x={x-bw/2} y={chartBottom-h} width={bw} height={Math.max(4,h)} rx="8" fill="url(#proposalBars)"><title>{item.mes}: {integer(item.quantidade)} propostas</title></rect>; })}
+            <polyline points={points} fill="none" stroke="#059669" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+            {rows.map((item,index) => { const x=slot*index+slot/2; const y=chartBottom-(Number(item.valor_aprovado)/maxV)*(chartBottom-chartTop); return <g key={`point-${item.mes}`}><circle cx={x} cy={y} r="9" fill="transparent"><title>{item.mes}: {integer(item.quantidade)} propostas · {money(item.valor_aprovado)}</title></circle><circle cx={x} cy={y} r="5.5" fill="#059669" stroke="white" strokeWidth="2.5" vectorEffect="non-scaling-stroke" /></g>; })}
+            {rows.map((item,index) => <text key={`label-${item.mes}`} x={slot*index+slot/2} y="226" textAnchor="middle" fill="currentColor" opacity="0.72" fontSize="12" fontWeight="600">{item.mes}</text>)}
+          </svg>
+        </div>
+      </div>
+      <table className="sr-only"><caption>Desempenho mensal dos últimos 12 meses</caption><thead><tr><th>Mês</th><th>Propostas</th><th>Valor aprovado</th></tr></thead><tbody>{rows.map((item)=><tr key={item.mes}><td>{item.mes}</td><td>{item.quantidade}</td><td>{money(item.valor_aprovado)}</td></tr>)}</tbody></table>
+    </div>
+  );
+}
+
+function ChartSummary({ label, value }: { label: string; value: string }) {
+  return <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-800 dark:bg-slate-950"><p className="text-xs font-medium text-slate-500">{label}</p><p className="mt-1 truncate text-base font-bold text-slate-950 dark:text-white" title={value}>{value}</p></div>;
 }

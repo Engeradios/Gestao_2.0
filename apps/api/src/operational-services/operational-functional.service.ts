@@ -9,6 +9,7 @@ import { promises as fs } from 'fs';
 import { join } from 'path';
 import { randomUUID } from 'crypto';
 import { MailService } from '../mail/mail.service';
+import { NotificationRecipientSelectorService } from './notification-recipient-selector.service';
 @Injectable()
 export class OperationalFunctionalService {
   private readonly dir =
@@ -16,6 +17,7 @@ export class OperationalFunctionalService {
   constructor(
     private readonly db: PrismaService,
     private readonly mail: MailService,
+    private readonly recipientSelector: NotificationRecipientSelectorService,
   ) {}
   async proposta(numero: string) {
     const p = await this.db.opProposta.findFirst({
@@ -120,11 +122,30 @@ export class OperationalFunctionalService {
         : tipo === 'conclusao'
           ? 'recFaturamento'
           : 'recLogistica';
-    const dest = await this.db.opNotificacaoEmail.findMany({
-      where: { ativo: true, [campo]: true },
-      select: { email: true },
-    });
-    const emails = dest.map((x) => x.email).filter(Boolean);
+    // MAIL_OBRA_03E_V2_LOGISTICA
+    const routingEvent =
+      tipo === 'conclusao'
+        ? 'CONCLUSAO'
+        : tipo === 'logistica'
+          ? 'LOGISTICA'
+          : null;
+    const routingSelection = routingEvent
+      ? await this.recipientSelector.select({
+          uf: s.ufExecucao,
+          praca: s.pracaResponsavel ?? '',
+          area: s.areaResponsavel ?? '',
+          evento: routingEvent,
+        })
+      : null;
+    const dest = routingSelection
+      ? []
+      : await this.db.opNotificacaoEmail.findMany({
+          where: { ativo: true, [campo]: true },
+          select: { email: true },
+        });
+    const emails = routingSelection
+      ? routingSelection.destinatarios.map((item) => item.email)
+      : dest.map((item) => item.email).filter(Boolean);
     if (!emails.length)
       throw new BadRequestException('Nenhum destinatário ativo configurado');
     const titulo =
@@ -196,7 +217,9 @@ export class OperationalFunctionalService {
     const tentativa =
       (tipo === 'conclusao'
         ? s.emailConclusaoTentativas
-        : s.emailAberturaTentativas) + 1;
+        : tipo === 'logistica'
+          ? s.emailLogisticaTentativas
+          : s.emailAberturaTentativas) + 1;
     try {
       const propostaPdf = s.propostaPdf;
       const candidatos = [
@@ -261,7 +284,11 @@ export class OperationalFunctionalService {
           destinatarios: emails.join('; '),
           qtdDest: emails.length,
           sucesso: true,
-          detalhe: reenvio ? 'Reenvio manual' : 'Envio',
+          detalhe: routingSelection
+            ? `${reenvio ? 'Reenvio manual' : 'Envio'} | ROTEAMENTO:${routingSelection.estrategia}`
+            : reenvio
+              ? 'Reenvio manual'
+              : 'Envio',
           comAnexo: attachments.length > 0,
           usuario,
           tentativa,
@@ -278,12 +305,18 @@ export class OperationalFunctionalService {
                 emailConclusaoErro: null,
                 notificadoEm: new Date(),
               }
-            : {
-                emailAberturaStatus: 'ENVIADO',
-                emailAberturaTentativas: tentativa,
-                emailAberturaErro: null,
-                abertoEm: new Date(),
-              },
+            : tipo === 'logistica'
+              ? {
+                  emailLogisticaStatus: 'ENVIADO',
+                  emailLogisticaTentativas: tentativa,
+                  emailLogisticaErro: null,
+                }
+              : {
+                  emailAberturaStatus: 'ENVIADO',
+                  emailAberturaTentativas: tentativa,
+                  emailAberturaErro: null,
+                  abertoEm: new Date(),
+                },
       });
       return { sucesso: true, destinatarios: emails.length };
     } catch (error: unknown) {
@@ -323,11 +356,17 @@ export class OperationalFunctionalService {
                 emailConclusaoTentativas: tentativa,
                 emailConclusaoErro: detalhe,
               }
-            : {
-                emailAberturaStatus: 'FALHA',
-                emailAberturaTentativas: tentativa,
-                emailAberturaErro: detalhe,
-              },
+            : tipo === 'logistica'
+              ? {
+                  emailLogisticaStatus: 'FALHA',
+                  emailLogisticaTentativas: tentativa,
+                  emailLogisticaErro: detalhe,
+                }
+              : {
+                  emailAberturaStatus: 'FALHA',
+                  emailAberturaTentativas: tentativa,
+                  emailAberturaErro: detalhe,
+                },
       });
       throw new BadRequestException(`Falha no envio: ${detalhe}`);
     }

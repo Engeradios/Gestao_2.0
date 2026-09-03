@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Search, X } from "lucide-react";
+import { CalendarDays, FileText, Search, X } from "lucide-react";
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 
 type Proposal = {
@@ -28,13 +28,71 @@ type Responsible = {
   funcoes: Array<{ funcao: string }>;
 };
 
+type PlanningPreview = {
+  proposta: string;
+  tipoProposta: string;
+  areaResponsavel: "OPERACIONAL" | "LOGISTICA" | "AMBAS";
+  ufExecucao: string;
+  pracaResponsavel: string;
+  dataAprovacao: string;
+  origemDataAprovacao: "HISTORICO_STATUS" | "ATUALIZADO_EM" | "DATA_CADASTRO";
+  diasPreparacao: number;
+  tempoExecucaoDias: number | null;
+  chegadaPrevista: string | null;
+  inicioPlanejado: string | null;
+  prazoFinal: string;
+  calendarioEstadualDisponivel: boolean;
+};
+
+const UFS = [
+  "AC",
+  "AL",
+  "AP",
+  "AM",
+  "BA",
+  "CE",
+  "DF",
+  "ES",
+  "GO",
+  "MA",
+  "MT",
+  "MS",
+  "MG",
+  "PA",
+  "PB",
+  "PR",
+  "PE",
+  "PI",
+  "RJ",
+  "RN",
+  "RS",
+  "RO",
+  "RR",
+  "SC",
+  "SP",
+  "SE",
+  "TO",
+];
+
 function messageOf(data: unknown) {
   if (data && typeof data === "object" && "message" in data) {
     const value = (data as { message?: string | string[] }).message;
     return Array.isArray(value) ? value.join(". ") : value;
   }
-
   return undefined;
+}
+
+function formatDate(value: string | null) {
+  if (!value) return "Não se aplica";
+  return new Intl.DateTimeFormat("pt-BR", { timeZone: "UTC" }).format(
+    new Date(`${value}T12:00:00Z`),
+  );
+}
+
+function approvalOriginLabel(value: PlanningPreview["origemDataAprovacao"]) {
+  if (value === "HISTORICO_STATUS") return "Histórico de aprovação";
+  if (value === "ATUALIZADO_EM") return "Última atualização da proposta";
+  return "Data de cadastro da proposta";
 }
 
 export function CreateServiceFromProposalDialog({
@@ -52,15 +110,21 @@ export function CreateServiceFromProposalDialog({
   const [priority, setPriority] = useState("NORMAL");
   const [observations, setObservations] = useState("");
   const [pdf, setPdf] = useState<File | null>(null);
+  const [area, setArea] = useState("");
+  const [uf, setUf] = useState("");
+  const [square, setSquare] = useState("");
+  const [executionDays, setExecutionDays] = useState("");
+  const [preview, setPreview] = useState<PlanningPreview | null>(null);
+  const [previewing, setPreviewing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [previewError, setPreviewError] = useState("");
   const [success, setSuccess] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
     setError("");
-
     const [proposalResponse, responsibleResponse] = await Promise.all([
       fetch("/api/operacional/servicos/propostas-aprovadas-sem-servico", {
         cache: "no-store",
@@ -69,10 +133,8 @@ export function CreateServiceFromProposalDialog({
         cache: "no-store",
       }),
     ]);
-
     const proposalData = await proposalResponse.json().catch(() => null);
     const responsibleData = await responsibleResponse.json().catch(() => null);
-
     if (!proposalResponse.ok || !responsibleResponse.ok) {
       setError(
         messageOf(proposalData) ??
@@ -82,7 +144,6 @@ export function CreateServiceFromProposalDialog({
       setLoading(false);
       return;
     }
-
     setProposals(Array.isArray(proposalData) ? proposalData : []);
     setResponsibles(Array.isArray(responsibleData) ? responsibleData : []);
     setLoading(false);
@@ -90,19 +151,13 @@ export function CreateServiceFromProposalDialog({
 
   useEffect(() => {
     if (!open) return;
-
-    const timer = window.setTimeout(() => {
-      void load();
-    }, 0);
-
+    const timer = window.setTimeout(() => void load(), 0);
     return () => window.clearTimeout(timer);
   }, [open, load]);
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
-
     if (!term) return proposals;
-
     return proposals.filter((proposal) =>
       `${proposal.numero} ${proposal.clienteNome ?? ""} ${proposal.tipo ?? ""}`
         .toLowerCase()
@@ -110,10 +165,29 @@ export function CreateServiceFromProposalDialog({
     );
   }, [proposals, search]);
 
+  const executionRequired = area === "OPERACIONAL" || area === "AMBAS";
+
   function choose(proposal: Proposal) {
+    const proposalArea = proposal.areaResponsavel?.trim().toUpperCase() ?? "";
+    const proposalUf = proposal.clienteUf?.trim().toUpperCase() ?? "";
+    const suggestedSquare =
+      proposal.clienteMunicipio?.trim() ||
+      proposal.local?.trim() ||
+      proposal.enderecoInstalacao?.trim() ||
+      "";
     setSelected(proposal);
     setSelectedIds([]);
     setPdf(null);
+    setArea(proposalArea);
+    setUf(UFS.includes(proposalUf) ? proposalUf : "");
+    setSquare(suggestedSquare);
+    setExecutionDays(
+      proposalArea === "LOGISTICA"
+        ? ""
+        : (proposal.prazoExecucaoDiasUteis?.toString() ?? ""),
+    );
+    setPreview(null);
+    setPreviewError("");
     setError("");
     setSuccess("");
   }
@@ -126,21 +200,73 @@ export function CreateServiceFromProposalDialog({
     );
   }
 
+  const requestPreview = useCallback(async () => {
+    if (!selected || !area || !uf || !square.trim()) {
+      setPreview(null);
+      setPreviewError("");
+      return;
+    }
+    if (executionRequired && (!executionDays || Number(executionDays) <= 0)) {
+      setPreview(null);
+      setPreviewError("");
+      return;
+    }
+    setPreviewing(true);
+    setPreviewError("");
+    const response = await fetch(
+      "/api/operacional/servicos/planejamento/previa",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          proposta: selected.numero,
+          areaResponsavel: area,
+          ufExecucao: uf,
+          pracaResponsavel: square.trim(),
+          tempoExecucaoDias: executionRequired ? executionDays : undefined,
+        }),
+      },
+    );
+    const data = await response.json().catch(() => null);
+    setPreviewing(false);
+    if (!response.ok) {
+      setPreview(null);
+      setPreviewError(messageOf(data) ?? "Não foi possível calcular a prévia.");
+      return;
+    }
+    setPreview(data as PlanningPreview);
+  }, [selected, area, uf, square, executionDays, executionRequired]);
+
+  useEffect(() => {
+    if (!selected) return;
+    const timer = window.setTimeout(() => void requestPreview(), 450);
+    return () => window.clearTimeout(timer);
+  }, [selected, area, uf, square, executionDays, requestPreview]);
+
   async function submit(event: FormEvent) {
     event.preventDefault();
-
     if (!selected) return setError("Selecione uma proposta.");
+    if (!area) return setError("A proposta não possui área válida.");
+    if (!uf) return setError("Selecione a UF responsável.");
+    if (!square.trim()) return setError("Informe a praça responsável.");
+    if (executionRequired && (!executionDays || Number(executionDays) <= 0)) {
+      return setError("Informe os dias úteis necessários para execução.");
+    }
+    if (!preview) return setError("Aguarde uma prévia válida do planejamento.");
     if (!pdf) return setError("Selecione o PDF da proposta.");
 
     setSaving(true);
     setError("");
     setSuccess("");
-
     const form = new FormData();
     form.append("proposta", selected.numero);
     form.append("responsaveis", JSON.stringify(selectedIds));
     form.append("prioridade", priority);
     form.append("observacoes", observations.trim());
+    form.append("areaResponsavel", area);
+    form.append("ufExecucao", uf);
+    form.append("pracaResponsavel", square.trim());
+    if (executionRequired) form.append("tempoExecucaoDias", executionDays);
     form.append("pdf", pdf);
 
     const response = await fetch(
@@ -150,15 +276,12 @@ export function CreateServiceFromProposalDialog({
         body: form,
       },
     );
-
     const data = await response.json().catch(() => null);
     setSaving(false);
-
     if (!response.ok) {
       setError(messageOf(data) ?? "Não foi possível criar o serviço.");
       return;
     }
-
     setSuccess(`Serviço da proposta ${selected.numero} criado com sucesso.`);
     setProposals((current) =>
       current.filter((proposal) => proposal.id !== selected.id),
@@ -167,13 +290,13 @@ export function CreateServiceFromProposalDialog({
     setSelectedIds([]);
     setObservations("");
     setPdf(null);
+    setPreview(null);
   }
 
   if (!open) return null;
-
   return (
-    <div className="fixed inset-0 z-[80] bg-black/60 p-4">
-      <div className="mx-auto flex max-h-[94vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-slate-950">
+    <div className="fixed inset-0 z-[80] bg-black/60 p-2 sm:p-4">
+      <div className="mx-auto flex max-h-[96vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-slate-950">
         <header className="flex items-start justify-between border-b p-5 dark:border-slate-800">
           <div>
             <p className="text-sm font-semibold text-red-600">Serviços</p>
@@ -181,15 +304,13 @@ export function CreateServiceFromProposalDialog({
               Propostas aprovadas sem serviço
             </h2>
             <p className="text-sm text-slate-500">
-              Selecione uma proposta e complete a abertura.
+              Selecione uma proposta e confirme o planejamento.
             </p>
           </div>
-
           <button type="button" onClick={onClose} aria-label="Fechar">
             <X />
           </button>
         </header>
-
         <div className="grid flex-1 overflow-hidden lg:grid-cols-[420px_1fr]">
           <aside className="overflow-y-auto border-r p-4 dark:border-slate-800">
             <label className="mb-4 flex items-center gap-2 rounded-xl border px-3 py-2 dark:border-slate-700">
@@ -201,7 +322,6 @@ export function CreateServiceFromProposalDialog({
                 className="w-full bg-transparent outline-none"
               />
             </label>
-
             {loading ? (
               <p className="text-sm text-slate-500">Carregando...</p>
             ) : filtered.length === 0 ? (
@@ -216,11 +336,7 @@ export function CreateServiceFromProposalDialog({
                     key={proposal.id}
                     disabled={!proposal.configuracaoValida}
                     onClick={() => choose(proposal)}
-                    className={`w-full rounded-2xl border p-4 text-left ${
-                      selected?.id === proposal.id
-                        ? "border-red-500 bg-red-50 dark:bg-red-950/30"
-                        : "border-slate-200 dark:border-slate-800"
-                    } disabled:opacity-50`}
+                    className={`w-full rounded-2xl border p-4 text-left ${selected?.id === proposal.id ? "border-red-500 bg-red-50 dark:bg-red-950/30" : "border-slate-200 dark:border-slate-800"} disabled:opacity-50`}
                   >
                     <div className="flex justify-between gap-3">
                       <strong>Proposta {proposal.numero}</strong>
@@ -245,7 +361,6 @@ export function CreateServiceFromProposalDialog({
               </div>
             )}
           </aside>
-
           <main className="overflow-y-auto p-5">
             {!selected ? (
               <div className="grid min-h-72 place-items-center text-center text-slate-500">
@@ -271,12 +386,144 @@ export function CreateServiceFromProposalDialog({
                     <b>Tipo:</b> {selected.tipo}
                   </p>
                   <p>
-                    <b>Área:</b> {selected.areaResponsavel}
-                  </p>
-                  <p>
-                    <b>Prazo:</b> {selected.prazoExecucaoDiasUteis} dias úteis
+                    <b>Área configurada:</b> {area || "-"}
                   </p>
                 </div>
+
+                <section className="rounded-2xl border p-4 dark:border-slate-800">
+                  <h3 className="mb-4 font-semibold">Dados do planejamento</h3>
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <label className="text-sm">
+                      Área responsável
+                      <input
+                        value={area}
+                        readOnly
+                        aria-readonly="true"
+                        className="mt-2 w-full rounded-xl border bg-slate-100 p-3 dark:border-slate-700 dark:bg-slate-900"
+                      />
+                    </label>
+                    <label className="text-sm">
+                      UF responsável
+                      <select
+                        required
+                        value={uf}
+                        onChange={(event) => {
+                          setUf(event.target.value);
+                          setPreview(null);
+                        }}
+                        className="mt-2 w-full rounded-xl border bg-transparent p-3 dark:border-slate-700"
+                      >
+                        <option value="">Selecione</option>
+                        {UFS.map((item) => (
+                          <option key={item} value={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label className="text-sm">
+                      Praça responsável
+                      <input
+                        required
+                        maxLength={160}
+                        value={square}
+                        onChange={(event) => {
+                          setSquare(event.target.value);
+                          setPreview(null);
+                        }}
+                        placeholder="Município ou praça operacional"
+                        className="mt-2 w-full rounded-xl border bg-transparent p-3 dark:border-slate-700"
+                      />
+                    </label>
+                    {executionRequired && (
+                      <label className="text-sm">
+                        Dias úteis para execução
+                        <input
+                          required
+                          type="number"
+                          min={1}
+                          max={365}
+                          step={1}
+                          value={executionDays}
+                          onChange={(event) => {
+                            setExecutionDays(event.target.value);
+                            setPreview(null);
+                          }}
+                          className="mt-2 w-full rounded-xl border bg-transparent p-3 dark:border-slate-700"
+                        />
+                      </label>
+                    )}
+                  </div>
+                </section>
+
+                <section
+                  className="rounded-2xl border border-blue-200 bg-blue-50/70 p-4 dark:border-blue-900 dark:bg-blue-950/20"
+                  aria-live="polite"
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <CalendarDays size={18} />
+                    <h3 className="font-semibold">Planejamento previsto</h3>
+                    {previewing && (
+                      <span className="text-xs text-slate-500">
+                        Calculando...
+                      </span>
+                    )}
+                  </div>
+                  {previewError && (
+                    <p
+                      role="alert"
+                      className="text-sm text-red-700 dark:text-red-300"
+                    >
+                      {previewError}
+                    </p>
+                  )}
+                  {!preview && !previewError && !previewing && (
+                    <p className="text-sm text-slate-500">
+                      Preencha UF, praça e os dias de execução aplicáveis.
+                    </p>
+                  )}
+                  {preview && (
+                    <div className="grid gap-3 text-sm sm:grid-cols-2 xl:grid-cols-4">
+                      <div>
+                        <span className="block text-xs text-slate-500">
+                          Aprovação
+                        </span>
+                        <strong>{formatDate(preview.dataAprovacao)}</strong>
+                        <span className="block text-xs text-slate-500">
+                          {approvalOriginLabel(preview.origemDataAprovacao)}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="block text-xs text-slate-500">
+                          Chegada prevista
+                        </span>
+                        <strong>{formatDate(preview.chegadaPrevista)}</strong>
+                      </div>
+                      <div>
+                        <span className="block text-xs text-slate-500">
+                          Início planejado
+                        </span>
+                        <strong>{formatDate(preview.inicioPlanejado)}</strong>
+                      </div>
+                      <div>
+                        <span className="block text-xs text-slate-500">
+                          Prazo final
+                        </span>
+                        <strong>{formatDate(preview.prazoFinal)}</strong>
+                      </div>
+                    </div>
+                  )}
+                  {preview && !preview.calendarioEstadualDisponivel && (
+                    <p
+                      role="status"
+                      className="mt-3 rounded-xl bg-amber-100 p-3 text-sm text-amber-900 dark:bg-amber-950/40 dark:text-amber-200"
+                    >
+                      Não há calendário estadual cadastrado para{" "}
+                      {preview.ufExecucao}. A prévia considera fins de semana e
+                      feriados nacionais cadastrados.
+                    </p>
+                  )}
+                </section>
 
                 <div>
                   <p className="mb-2 text-sm font-semibold">Responsáveis</p>
@@ -305,7 +552,6 @@ export function CreateServiceFromProposalDialog({
                     ))}
                   </div>
                 </div>
-
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="text-sm">
                     Prioridade
@@ -320,7 +566,6 @@ export function CreateServiceFromProposalDialog({
                       <option value="URGENTE">Urgente</option>
                     </select>
                   </label>
-
                   <label className="text-sm">
                     PDF da proposta
                     <input
@@ -334,7 +579,6 @@ export function CreateServiceFromProposalDialog({
                     />
                   </label>
                 </div>
-
                 <label className="block text-sm">
                   Observações
                   <textarea
@@ -343,19 +587,22 @@ export function CreateServiceFromProposalDialog({
                     className="mt-2 min-h-20 w-full rounded-xl border bg-transparent p-3 dark:border-slate-700"
                   />
                 </label>
-
                 {error && (
-                  <p className="rounded-xl bg-red-50 p-3 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-300">
+                  <p
+                    role="alert"
+                    className="rounded-xl bg-red-50 p-3 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-300"
+                  >
                     {error}
                   </p>
                 )}
-
                 {success && (
-                  <p className="rounded-xl bg-emerald-50 p-3 text-sm text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300">
+                  <p
+                    role="status"
+                    className="rounded-xl bg-emerald-50 p-3 text-sm text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300"
+                  >
                     {success}
                   </p>
                 )}
-
                 <div className="flex justify-end gap-3">
                   <button
                     type="button"
@@ -364,9 +611,8 @@ export function CreateServiceFromProposalDialog({
                   >
                     Voltar
                   </button>
-
                   <button
-                    disabled={saving}
+                    disabled={saving || previewing || !preview}
                     className="rounded-xl bg-red-600 px-5 py-2.5 font-semibold text-white disabled:opacity-50"
                   >
                     {saving ? "Criando..." : "Criar serviço"}

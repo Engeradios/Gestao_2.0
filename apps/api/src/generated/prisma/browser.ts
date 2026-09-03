@@ -108,6 +108,11 @@ export type OpLista = Prisma.OpListaModel
  */
 export type OpFeriado = Prisma.OpFeriadoModel
 /**
+ * Model OpNotificacaoResponsabilidade
+ * 
+ */
+export type OpNotificacaoResponsabilidade = Prisma.OpNotificacaoResponsabilidadeModel
+/**
  * Model OpNotificacaoEmail
  * 
  */

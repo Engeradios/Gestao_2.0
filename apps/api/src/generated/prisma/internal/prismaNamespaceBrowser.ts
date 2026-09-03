@@ -69,6 +69,7 @@ export const ModelName = {
   OpServicoHistorico: 'OpServicoHistorico',
   OpLista: 'OpLista',
   OpFeriado: 'OpFeriado',
+  OpNotificacaoResponsabilidade: 'OpNotificacaoResponsabilidade',
   OpNotificacaoEmail: 'OpNotificacaoEmail',
   OpEmailLog: 'OpEmailLog',
   OpPreventiva: 'OpPreventiva',
@@ -429,6 +430,9 @@ export const OpServicoScalarFieldEnum = {
   areaResponsavel: 'areaResponsavel',
   prazoExecucaoDiasUteis: 'prazoExecucaoDiasUteis',
   ufExecucao: 'ufExecucao',
+  pracaResponsavel: 'pracaResponsavel',
+  chegadaPrevista: 'chegadaPrevista',
+  origemDataAprovacao: 'origemDataAprovacao',
   servicoAtividade: 'servicoAtividade',
   categoria: 'categoria',
   responsavel: 'responsavel',
@@ -454,6 +458,9 @@ export const OpServicoScalarFieldEnum = {
   emailConclusaoStatus: 'emailConclusaoStatus',
   emailAberturaTentativas: 'emailAberturaTentativas',
   emailConclusaoTentativas: 'emailConclusaoTentativas',
+  emailLogisticaStatus: 'emailLogisticaStatus',
+  emailLogisticaTentativas: 'emailLogisticaTentativas',
+  emailLogisticaErro: 'emailLogisticaErro',
   emailAberturaErro: 'emailAberturaErro',
   emailConclusaoErro: 'emailConclusaoErro',
   contrato: 'contrato',
@@ -556,6 +563,23 @@ export const OpFeriadoScalarFieldEnum = {
 } as const
 
 export type OpFeriadoScalarFieldEnum = (typeof OpFeriadoScalarFieldEnum)[keyof typeof OpFeriadoScalarFieldEnum]
+
+
+export const OpNotificacaoResponsabilidadeScalarFieldEnum = {
+  id: 'id',
+  usuarioId: 'usuarioId',
+  uf: 'uf',
+  praca: 'praca',
+  areaResponsavel: 'areaResponsavel',
+  recAbertura: 'recAbertura',
+  recConclusao: 'recConclusao',
+  recLogistica: 'recLogistica',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type OpNotificacaoResponsabilidadeScalarFieldEnum = (typeof OpNotificacaoResponsabilidadeScalarFieldEnum)[keyof typeof OpNotificacaoResponsabilidadeScalarFieldEnum]
 
 
 export const OpNotificacaoEmailScalarFieldEnum = {

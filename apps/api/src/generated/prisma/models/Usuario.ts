@@ -326,6 +326,7 @@ export type UsuarioWhereInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoListRelationFilter
   orcamentosVinculados?: Prisma.OrcOrcamentoListRelationFilter
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoListRelationFilter
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeListRelationFilter
 }
 
 export type UsuarioOrderByWithRelationInput = {
@@ -374,6 +375,7 @@ export type UsuarioOrderByWithRelationInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoOrderByRelationAggregateInput
   orcamentosVinculados?: Prisma.OrcOrcamentoOrderByRelationAggregateInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoOrderByRelationAggregateInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeOrderByRelationAggregateInput
 }
 
 export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
@@ -425,6 +427,7 @@ export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
   orcamentosAnalisados?: Prisma.OrcOrcamentoListRelationFilter
   orcamentosVinculados?: Prisma.OrcOrcamentoListRelationFilter
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoListRelationFilter
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeListRelationFilter
 }, "id" | "email" | "pessoaId">
 
 export type UsuarioOrderByWithAggregationInput = {
@@ -516,6 +519,7 @@ export type UsuarioCreateInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateInput = {
@@ -563,6 +567,7 @@ export type UsuarioUncheckedCreateInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUpdateInput = {
@@ -610,6 +615,7 @@ export type UsuarioUpdateInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateInput = {
@@ -657,6 +663,7 @@ export type UsuarioUncheckedUpdateInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateManyInput = {
@@ -844,6 +851,20 @@ export type UsuarioUpdateOneWithoutAuditoriasNestedInput = {
   delete?: Prisma.UsuarioWhereInput | boolean
   connect?: Prisma.UsuarioWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioUpdateToOneWithWhereWithoutAuditoriasInput, Prisma.UsuarioUpdateWithoutAuditoriasInput>, Prisma.UsuarioUncheckedUpdateWithoutAuditoriasInput>
+}
+
+export type UsuarioCreateNestedOneWithoutNotificacaoResponsabilidadesInput = {
+  create?: Prisma.XOR<Prisma.UsuarioCreateWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUncheckedCreateWithoutNotificacaoResponsabilidadesInput>
+  connectOrCreate?: Prisma.UsuarioCreateOrConnectWithoutNotificacaoResponsabilidadesInput
+  connect?: Prisma.UsuarioWhereUniqueInput
+}
+
+export type UsuarioUpdateOneRequiredWithoutNotificacaoResponsabilidadesNestedInput = {
+  create?: Prisma.XOR<Prisma.UsuarioCreateWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUncheckedCreateWithoutNotificacaoResponsabilidadesInput>
+  connectOrCreate?: Prisma.UsuarioCreateOrConnectWithoutNotificacaoResponsabilidadesInput
+  upsert?: Prisma.UsuarioUpsertWithoutNotificacaoResponsabilidadesInput
+  connect?: Prisma.UsuarioWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UsuarioUpdateToOneWithWhereWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUpdateWithoutNotificacaoResponsabilidadesInput>, Prisma.UsuarioUncheckedUpdateWithoutNotificacaoResponsabilidadesInput>
 }
 
 export type UsuarioCreateNestedOneWithoutAppCampoDispositivosInput = {
@@ -1320,6 +1341,7 @@ export type UsuarioCreateWithoutPerfisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutPerfisInput = {
@@ -1366,6 +1388,7 @@ export type UsuarioUncheckedCreateWithoutPerfisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutPerfisInput = {
@@ -1428,6 +1451,7 @@ export type UsuarioUpdateWithoutPerfisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutPerfisInput = {
@@ -1474,6 +1498,7 @@ export type UsuarioUncheckedUpdateWithoutPerfisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAuditoriasInput = {
@@ -1520,6 +1545,7 @@ export type UsuarioCreateWithoutAuditoriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAuditoriasInput = {
@@ -1566,6 +1592,7 @@ export type UsuarioUncheckedCreateWithoutAuditoriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAuditoriasInput = {
@@ -1628,6 +1655,7 @@ export type UsuarioUpdateWithoutAuditoriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAuditoriasInput = {
@@ -1653,6 +1681,211 @@ export type UsuarioUncheckedUpdateWithoutAuditoriasInput = {
   contratoDocumentosEnviados?: Prisma.ContratoDocumentoUncheckedUpdateManyWithoutEnviadoPorNestedInput
   contratoDocumentosExcluidos?: Prisma.ContratoDocumentoUncheckedUpdateManyWithoutExcluidoPorNestedInput
   contratoConsultasCnpj?: Prisma.ContratoConsultaCnpjUncheckedUpdateManyWithoutConsultadoPorNestedInput
+  perfis?: Prisma.UsuarioPerfilUncheckedUpdateManyWithoutUsuarioNestedInput
+  preferenciaNotificacao?: Prisma.PreferenciaNotificacaoUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
+  configuracoesEmail?: Prisma.ConfiguracaoEmailUncheckedUpdateManyWithoutAtualizadoPorNestedInput
+  solicitacoesCriadas?: Prisma.SolicitacaoUncheckedUpdateManyWithoutSolicitanteNestedInput
+  solicitacoesAtribuidas?: Prisma.SolicitacaoUncheckedUpdateManyWithoutResponsavelNestedInput
+  solicitacaoHistoricos?: Prisma.SolicitacaoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  emailLogs?: Prisma.EmailLogUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacoes?: Prisma.NotificacaoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
+  tokensAutenticacao?: Prisma.TokenAutenticacaoUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoDispositivos?: Prisma.AppCampoDispositivoUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoTermosAceites?: Prisma.AppCampoTermoAceiteUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoExpedientes?: Prisma.AppCampoExpedienteUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoTelemetrias?: Prisma.AppCampoTelemetriaUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoEvidencias?: Prisma.AppCampoEvidenciaUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoEventosOffline?: Prisma.AppCampoEventoOfflineUncheckedUpdateManyWithoutUsuarioNestedInput
+  appCampoAcessosRealizados?: Prisma.AppCampoAcessoLocalizacaoUncheckedUpdateManyWithoutConsultorNestedInput
+  appCampoAcessosComoAlvo?: Prisma.AppCampoAcessoLocalizacaoUncheckedUpdateManyWithoutAlvoNestedInput
+  orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutTecnicoNestedInput
+  orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
+  orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
+  orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioCreateWithoutNotificacaoResponsabilidadesInput = {
+  fotoPerfilCaminho?: string | null
+  fotoPerfilMime?: string | null
+  fotoPerfilNomeOriginal?: string | null
+  fotoPerfilTamanho?: number | null
+  id?: string
+  nome: string
+  email: string
+  senhaHash: string
+  status?: $Enums.StatusUsuario
+  unidade?: string | null
+  ultimoLoginEm?: Date | string | null
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  trocarSenha?: boolean
+  contratosCriados?: Prisma.ContratoAdministrativoCreateNestedManyWithoutCriadoPorInput
+  contratosResponsaveis?: Prisma.ContratoAdministrativoCreateNestedManyWithoutResponsavelInput
+  contratosAtualizados?: Prisma.ContratoAdministrativoCreateNestedManyWithoutAtualizadoPorInput
+  contratoAndamentos?: Prisma.ContratoAndamentoCreateNestedManyWithoutUsuarioInput
+  contratoDocumentosEnviados?: Prisma.ContratoDocumentoCreateNestedManyWithoutEnviadoPorInput
+  contratoDocumentosExcluidos?: Prisma.ContratoDocumentoCreateNestedManyWithoutExcluidoPorInput
+  contratoConsultasCnpj?: Prisma.ContratoConsultaCnpjCreateNestedManyWithoutConsultadoPorInput
+  auditorias?: Prisma.AuditoriaCreateNestedManyWithoutUsuarioInput
+  perfis?: Prisma.UsuarioPerfilCreateNestedManyWithoutUsuarioInput
+  pessoa?: Prisma.PessoaCreateNestedOneWithoutUsuarioInput
+  preferenciaNotificacao?: Prisma.PreferenciaNotificacaoUsuarioCreateNestedOneWithoutUsuarioInput
+  configuracoesEmail?: Prisma.ConfiguracaoEmailCreateNestedManyWithoutAtualizadoPorInput
+  solicitacoesCriadas?: Prisma.SolicitacaoCreateNestedManyWithoutSolicitanteInput
+  solicitacoesAtribuidas?: Prisma.SolicitacaoCreateNestedManyWithoutResponsavelInput
+  solicitacaoHistoricos?: Prisma.SolicitacaoHistoricoCreateNestedManyWithoutUsuarioInput
+  emailLogs?: Prisma.EmailLogCreateNestedManyWithoutUsuarioInput
+  notificacoes?: Prisma.NotificacaoUsuarioCreateNestedManyWithoutUsuarioInput
+  tokensAutenticacao?: Prisma.TokenAutenticacaoCreateNestedManyWithoutUsuarioInput
+  appCampoDispositivos?: Prisma.AppCampoDispositivoCreateNestedManyWithoutUsuarioInput
+  appCampoTermosAceites?: Prisma.AppCampoTermoAceiteCreateNestedManyWithoutUsuarioInput
+  appCampoExpedientes?: Prisma.AppCampoExpedienteCreateNestedManyWithoutUsuarioInput
+  appCampoTelemetrias?: Prisma.AppCampoTelemetriaCreateNestedManyWithoutUsuarioInput
+  appCampoEvidencias?: Prisma.AppCampoEvidenciaCreateNestedManyWithoutUsuarioInput
+  appCampoEventosOffline?: Prisma.AppCampoEventoOfflineCreateNestedManyWithoutUsuarioInput
+  appCampoAcessosRealizados?: Prisma.AppCampoAcessoLocalizacaoCreateNestedManyWithoutConsultorInput
+  appCampoAcessosComoAlvo?: Prisma.AppCampoAcessoLocalizacaoCreateNestedManyWithoutAlvoInput
+  orcamentosTecnico?: Prisma.OrcOrcamentoCreateNestedManyWithoutTecnicoInput
+  orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
+  orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
+  orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioUncheckedCreateWithoutNotificacaoResponsabilidadesInput = {
+  fotoPerfilCaminho?: string | null
+  fotoPerfilMime?: string | null
+  fotoPerfilNomeOriginal?: string | null
+  fotoPerfilTamanho?: number | null
+  id?: string
+  nome: string
+  email: string
+  senhaHash: string
+  status?: $Enums.StatusUsuario
+  unidade?: string | null
+  ultimoLoginEm?: Date | string | null
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  trocarSenha?: boolean
+  pessoaId?: string | null
+  contratosCriados?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutCriadoPorInput
+  contratosResponsaveis?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutResponsavelInput
+  contratosAtualizados?: Prisma.ContratoAdministrativoUncheckedCreateNestedManyWithoutAtualizadoPorInput
+  contratoAndamentos?: Prisma.ContratoAndamentoUncheckedCreateNestedManyWithoutUsuarioInput
+  contratoDocumentosEnviados?: Prisma.ContratoDocumentoUncheckedCreateNestedManyWithoutEnviadoPorInput
+  contratoDocumentosExcluidos?: Prisma.ContratoDocumentoUncheckedCreateNestedManyWithoutExcluidoPorInput
+  contratoConsultasCnpj?: Prisma.ContratoConsultaCnpjUncheckedCreateNestedManyWithoutConsultadoPorInput
+  auditorias?: Prisma.AuditoriaUncheckedCreateNestedManyWithoutUsuarioInput
+  perfis?: Prisma.UsuarioPerfilUncheckedCreateNestedManyWithoutUsuarioInput
+  preferenciaNotificacao?: Prisma.PreferenciaNotificacaoUsuarioUncheckedCreateNestedOneWithoutUsuarioInput
+  configuracoesEmail?: Prisma.ConfiguracaoEmailUncheckedCreateNestedManyWithoutAtualizadoPorInput
+  solicitacoesCriadas?: Prisma.SolicitacaoUncheckedCreateNestedManyWithoutSolicitanteInput
+  solicitacoesAtribuidas?: Prisma.SolicitacaoUncheckedCreateNestedManyWithoutResponsavelInput
+  solicitacaoHistoricos?: Prisma.SolicitacaoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  emailLogs?: Prisma.EmailLogUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacoes?: Prisma.NotificacaoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
+  tokensAutenticacao?: Prisma.TokenAutenticacaoUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoDispositivos?: Prisma.AppCampoDispositivoUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoTermosAceites?: Prisma.AppCampoTermoAceiteUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoExpedientes?: Prisma.AppCampoExpedienteUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoTelemetrias?: Prisma.AppCampoTelemetriaUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoEvidencias?: Prisma.AppCampoEvidenciaUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoEventosOffline?: Prisma.AppCampoEventoOfflineUncheckedCreateNestedManyWithoutUsuarioInput
+  appCampoAcessosRealizados?: Prisma.AppCampoAcessoLocalizacaoUncheckedCreateNestedManyWithoutConsultorInput
+  appCampoAcessosComoAlvo?: Prisma.AppCampoAcessoLocalizacaoUncheckedCreateNestedManyWithoutAlvoInput
+  orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutTecnicoInput
+  orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
+  orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
+  orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+}
+
+export type UsuarioCreateOrConnectWithoutNotificacaoResponsabilidadesInput = {
+  where: Prisma.UsuarioWhereUniqueInput
+  create: Prisma.XOR<Prisma.UsuarioCreateWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUncheckedCreateWithoutNotificacaoResponsabilidadesInput>
+}
+
+export type UsuarioUpsertWithoutNotificacaoResponsabilidadesInput = {
+  update: Prisma.XOR<Prisma.UsuarioUpdateWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUncheckedUpdateWithoutNotificacaoResponsabilidadesInput>
+  create: Prisma.XOR<Prisma.UsuarioCreateWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUncheckedCreateWithoutNotificacaoResponsabilidadesInput>
+  where?: Prisma.UsuarioWhereInput
+}
+
+export type UsuarioUpdateToOneWithWhereWithoutNotificacaoResponsabilidadesInput = {
+  where?: Prisma.UsuarioWhereInput
+  data: Prisma.XOR<Prisma.UsuarioUpdateWithoutNotificacaoResponsabilidadesInput, Prisma.UsuarioUncheckedUpdateWithoutNotificacaoResponsabilidadesInput>
+}
+
+export type UsuarioUpdateWithoutNotificacaoResponsabilidadesInput = {
+  fotoPerfilCaminho?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fotoPerfilMime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fotoPerfilNomeOriginal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fotoPerfilTamanho?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  senhaHash?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusUsuarioFieldUpdateOperationsInput | $Enums.StatusUsuario
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultimoLoginEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  trocarSenha?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  contratosCriados?: Prisma.ContratoAdministrativoUpdateManyWithoutCriadoPorNestedInput
+  contratosResponsaveis?: Prisma.ContratoAdministrativoUpdateManyWithoutResponsavelNestedInput
+  contratosAtualizados?: Prisma.ContratoAdministrativoUpdateManyWithoutAtualizadoPorNestedInput
+  contratoAndamentos?: Prisma.ContratoAndamentoUpdateManyWithoutUsuarioNestedInput
+  contratoDocumentosEnviados?: Prisma.ContratoDocumentoUpdateManyWithoutEnviadoPorNestedInput
+  contratoDocumentosExcluidos?: Prisma.ContratoDocumentoUpdateManyWithoutExcluidoPorNestedInput
+  contratoConsultasCnpj?: Prisma.ContratoConsultaCnpjUpdateManyWithoutConsultadoPorNestedInput
+  auditorias?: Prisma.AuditoriaUpdateManyWithoutUsuarioNestedInput
+  perfis?: Prisma.UsuarioPerfilUpdateManyWithoutUsuarioNestedInput
+  pessoa?: Prisma.PessoaUpdateOneWithoutUsuarioNestedInput
+  preferenciaNotificacao?: Prisma.PreferenciaNotificacaoUsuarioUpdateOneWithoutUsuarioNestedInput
+  configuracoesEmail?: Prisma.ConfiguracaoEmailUpdateManyWithoutAtualizadoPorNestedInput
+  solicitacoesCriadas?: Prisma.SolicitacaoUpdateManyWithoutSolicitanteNestedInput
+  solicitacoesAtribuidas?: Prisma.SolicitacaoUpdateManyWithoutResponsavelNestedInput
+  solicitacaoHistoricos?: Prisma.SolicitacaoHistoricoUpdateManyWithoutUsuarioNestedInput
+  emailLogs?: Prisma.EmailLogUpdateManyWithoutUsuarioNestedInput
+  notificacoes?: Prisma.NotificacaoUsuarioUpdateManyWithoutUsuarioNestedInput
+  tokensAutenticacao?: Prisma.TokenAutenticacaoUpdateManyWithoutUsuarioNestedInput
+  appCampoDispositivos?: Prisma.AppCampoDispositivoUpdateManyWithoutUsuarioNestedInput
+  appCampoTermosAceites?: Prisma.AppCampoTermoAceiteUpdateManyWithoutUsuarioNestedInput
+  appCampoExpedientes?: Prisma.AppCampoExpedienteUpdateManyWithoutUsuarioNestedInput
+  appCampoTelemetrias?: Prisma.AppCampoTelemetriaUpdateManyWithoutUsuarioNestedInput
+  appCampoEvidencias?: Prisma.AppCampoEvidenciaUpdateManyWithoutUsuarioNestedInput
+  appCampoEventosOffline?: Prisma.AppCampoEventoOfflineUpdateManyWithoutUsuarioNestedInput
+  appCampoAcessosRealizados?: Prisma.AppCampoAcessoLocalizacaoUpdateManyWithoutConsultorNestedInput
+  appCampoAcessosComoAlvo?: Prisma.AppCampoAcessoLocalizacaoUpdateManyWithoutAlvoNestedInput
+  orcamentosTecnico?: Prisma.OrcOrcamentoUpdateManyWithoutTecnicoNestedInput
+  orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
+  orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
+  orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+}
+
+export type UsuarioUncheckedUpdateWithoutNotificacaoResponsabilidadesInput = {
+  fotoPerfilCaminho?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fotoPerfilMime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fotoPerfilNomeOriginal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fotoPerfilTamanho?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  senhaHash?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusUsuarioFieldUpdateOperationsInput | $Enums.StatusUsuario
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ultimoLoginEm?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  trocarSenha?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  pessoaId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contratosCriados?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutCriadoPorNestedInput
+  contratosResponsaveis?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutResponsavelNestedInput
+  contratosAtualizados?: Prisma.ContratoAdministrativoUncheckedUpdateManyWithoutAtualizadoPorNestedInput
+  contratoAndamentos?: Prisma.ContratoAndamentoUncheckedUpdateManyWithoutUsuarioNestedInput
+  contratoDocumentosEnviados?: Prisma.ContratoDocumentoUncheckedUpdateManyWithoutEnviadoPorNestedInput
+  contratoDocumentosExcluidos?: Prisma.ContratoDocumentoUncheckedUpdateManyWithoutExcluidoPorNestedInput
+  contratoConsultasCnpj?: Prisma.ContratoConsultaCnpjUncheckedUpdateManyWithoutConsultadoPorNestedInput
+  auditorias?: Prisma.AuditoriaUncheckedUpdateManyWithoutUsuarioNestedInput
   perfis?: Prisma.UsuarioPerfilUncheckedUpdateManyWithoutUsuarioNestedInput
   preferenciaNotificacao?: Prisma.PreferenciaNotificacaoUsuarioUncheckedUpdateOneWithoutUsuarioNestedInput
   configuracoesEmail?: Prisma.ConfiguracaoEmailUncheckedUpdateManyWithoutAtualizadoPorNestedInput
@@ -1720,6 +1953,7 @@ export type UsuarioCreateWithoutAppCampoDispositivosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoDispositivosInput = {
@@ -1766,6 +2000,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoDispositivosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoDispositivosInput = {
@@ -1828,6 +2063,7 @@ export type UsuarioUpdateWithoutAppCampoDispositivosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoDispositivosInput = {
@@ -1874,6 +2110,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoDispositivosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAppCampoTermosAceitesInput = {
@@ -1920,6 +2157,7 @@ export type UsuarioCreateWithoutAppCampoTermosAceitesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoTermosAceitesInput = {
@@ -1966,6 +2204,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoTermosAceitesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoTermosAceitesInput = {
@@ -2028,6 +2267,7 @@ export type UsuarioUpdateWithoutAppCampoTermosAceitesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoTermosAceitesInput = {
@@ -2074,6 +2314,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoTermosAceitesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAppCampoExpedientesInput = {
@@ -2120,6 +2361,7 @@ export type UsuarioCreateWithoutAppCampoExpedientesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoExpedientesInput = {
@@ -2166,6 +2408,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoExpedientesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoExpedientesInput = {
@@ -2228,6 +2471,7 @@ export type UsuarioUpdateWithoutAppCampoExpedientesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoExpedientesInput = {
@@ -2274,6 +2518,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoExpedientesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAppCampoTelemetriasInput = {
@@ -2320,6 +2565,7 @@ export type UsuarioCreateWithoutAppCampoTelemetriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoTelemetriasInput = {
@@ -2366,6 +2612,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoTelemetriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoTelemetriasInput = {
@@ -2428,6 +2675,7 @@ export type UsuarioUpdateWithoutAppCampoTelemetriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoTelemetriasInput = {
@@ -2474,6 +2722,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoTelemetriasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAppCampoEvidenciasInput = {
@@ -2520,6 +2769,7 @@ export type UsuarioCreateWithoutAppCampoEvidenciasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoEvidenciasInput = {
@@ -2566,6 +2816,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoEvidenciasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoEvidenciasInput = {
@@ -2628,6 +2879,7 @@ export type UsuarioUpdateWithoutAppCampoEvidenciasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoEvidenciasInput = {
@@ -2674,6 +2926,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoEvidenciasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAppCampoEventosOfflineInput = {
@@ -2720,6 +2973,7 @@ export type UsuarioCreateWithoutAppCampoEventosOfflineInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoEventosOfflineInput = {
@@ -2766,6 +3020,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoEventosOfflineInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoEventosOfflineInput = {
@@ -2828,6 +3083,7 @@ export type UsuarioUpdateWithoutAppCampoEventosOfflineInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoEventosOfflineInput = {
@@ -2874,6 +3130,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoEventosOfflineInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutAppCampoAcessosRealizadosInput = {
@@ -2920,6 +3177,7 @@ export type UsuarioCreateWithoutAppCampoAcessosRealizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoAcessosRealizadosInput = {
@@ -2966,6 +3224,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoAcessosRealizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoAcessosRealizadosInput = {
@@ -3017,6 +3276,7 @@ export type UsuarioCreateWithoutAppCampoAcessosComoAlvoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutAppCampoAcessosComoAlvoInput = {
@@ -3063,6 +3323,7 @@ export type UsuarioUncheckedCreateWithoutAppCampoAcessosComoAlvoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutAppCampoAcessosComoAlvoInput = {
@@ -3125,6 +3386,7 @@ export type UsuarioUpdateWithoutAppCampoAcessosRealizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoAcessosRealizadosInput = {
@@ -3171,6 +3433,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoAcessosRealizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutAppCampoAcessosComoAlvoInput = {
@@ -3228,6 +3491,7 @@ export type UsuarioUpdateWithoutAppCampoAcessosComoAlvoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutAppCampoAcessosComoAlvoInput = {
@@ -3274,6 +3538,7 @@ export type UsuarioUncheckedUpdateWithoutAppCampoAcessosComoAlvoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutPessoaInput = {
@@ -3320,6 +3585,7 @@ export type UsuarioCreateWithoutPessoaInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutPessoaInput = {
@@ -3366,6 +3632,7 @@ export type UsuarioUncheckedCreateWithoutPessoaInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutPessoaInput = {
@@ -3428,6 +3695,7 @@ export type UsuarioUpdateWithoutPessoaInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutPessoaInput = {
@@ -3474,6 +3742,7 @@ export type UsuarioUncheckedUpdateWithoutPessoaInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutPreferenciaNotificacaoInput = {
@@ -3520,6 +3789,7 @@ export type UsuarioCreateWithoutPreferenciaNotificacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutPreferenciaNotificacaoInput = {
@@ -3566,6 +3836,7 @@ export type UsuarioUncheckedCreateWithoutPreferenciaNotificacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutPreferenciaNotificacaoInput = {
@@ -3628,6 +3899,7 @@ export type UsuarioUpdateWithoutPreferenciaNotificacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutPreferenciaNotificacaoInput = {
@@ -3674,6 +3946,7 @@ export type UsuarioUncheckedUpdateWithoutPreferenciaNotificacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutConfiguracoesEmailInput = {
@@ -3720,6 +3993,7 @@ export type UsuarioCreateWithoutConfiguracoesEmailInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutConfiguracoesEmailInput = {
@@ -3766,6 +4040,7 @@ export type UsuarioUncheckedCreateWithoutConfiguracoesEmailInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutConfiguracoesEmailInput = {
@@ -3828,6 +4103,7 @@ export type UsuarioUpdateWithoutConfiguracoesEmailInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutConfiguracoesEmailInput = {
@@ -3874,6 +4150,7 @@ export type UsuarioUncheckedUpdateWithoutConfiguracoesEmailInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutSolicitacoesCriadasInput = {
@@ -3920,6 +4197,7 @@ export type UsuarioCreateWithoutSolicitacoesCriadasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutSolicitacoesCriadasInput = {
@@ -3966,6 +4244,7 @@ export type UsuarioUncheckedCreateWithoutSolicitacoesCriadasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutSolicitacoesCriadasInput = {
@@ -4017,6 +4296,7 @@ export type UsuarioCreateWithoutSolicitacoesAtribuidasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutSolicitacoesAtribuidasInput = {
@@ -4063,6 +4343,7 @@ export type UsuarioUncheckedCreateWithoutSolicitacoesAtribuidasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutSolicitacoesAtribuidasInput = {
@@ -4125,6 +4406,7 @@ export type UsuarioUpdateWithoutSolicitacoesCriadasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutSolicitacoesCriadasInput = {
@@ -4171,6 +4453,7 @@ export type UsuarioUncheckedUpdateWithoutSolicitacoesCriadasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutSolicitacoesAtribuidasInput = {
@@ -4228,6 +4511,7 @@ export type UsuarioUpdateWithoutSolicitacoesAtribuidasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutSolicitacoesAtribuidasInput = {
@@ -4274,6 +4558,7 @@ export type UsuarioUncheckedUpdateWithoutSolicitacoesAtribuidasInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutSolicitacaoHistoricosInput = {
@@ -4320,6 +4605,7 @@ export type UsuarioCreateWithoutSolicitacaoHistoricosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutSolicitacaoHistoricosInput = {
@@ -4366,6 +4652,7 @@ export type UsuarioUncheckedCreateWithoutSolicitacaoHistoricosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutSolicitacaoHistoricosInput = {
@@ -4428,6 +4715,7 @@ export type UsuarioUpdateWithoutSolicitacaoHistoricosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutSolicitacaoHistoricosInput = {
@@ -4474,6 +4762,7 @@ export type UsuarioUncheckedUpdateWithoutSolicitacaoHistoricosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutEmailLogsInput = {
@@ -4520,6 +4809,7 @@ export type UsuarioCreateWithoutEmailLogsInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutEmailLogsInput = {
@@ -4566,6 +4856,7 @@ export type UsuarioUncheckedCreateWithoutEmailLogsInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutEmailLogsInput = {
@@ -4628,6 +4919,7 @@ export type UsuarioUpdateWithoutEmailLogsInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutEmailLogsInput = {
@@ -4674,6 +4966,7 @@ export type UsuarioUncheckedUpdateWithoutEmailLogsInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutTokensAutenticacaoInput = {
@@ -4720,6 +5013,7 @@ export type UsuarioCreateWithoutTokensAutenticacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutTokensAutenticacaoInput = {
@@ -4766,6 +5060,7 @@ export type UsuarioUncheckedCreateWithoutTokensAutenticacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutTokensAutenticacaoInput = {
@@ -4828,6 +5123,7 @@ export type UsuarioUpdateWithoutTokensAutenticacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutTokensAutenticacaoInput = {
@@ -4874,6 +5170,7 @@ export type UsuarioUncheckedUpdateWithoutTokensAutenticacaoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutNotificacoesInput = {
@@ -4920,6 +5217,7 @@ export type UsuarioCreateWithoutNotificacoesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutNotificacoesInput = {
@@ -4966,6 +5264,7 @@ export type UsuarioUncheckedCreateWithoutNotificacoesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutNotificacoesInput = {
@@ -5028,6 +5327,7 @@ export type UsuarioUpdateWithoutNotificacoesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutNotificacoesInput = {
@@ -5074,6 +5374,7 @@ export type UsuarioUncheckedUpdateWithoutNotificacoesInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutContratosCriadosInput = {
@@ -5120,6 +5421,7 @@ export type UsuarioCreateWithoutContratosCriadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratosCriadosInput = {
@@ -5166,6 +5468,7 @@ export type UsuarioUncheckedCreateWithoutContratosCriadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratosCriadosInput = {
@@ -5217,6 +5520,7 @@ export type UsuarioCreateWithoutContratosResponsaveisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratosResponsaveisInput = {
@@ -5263,6 +5567,7 @@ export type UsuarioUncheckedCreateWithoutContratosResponsaveisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratosResponsaveisInput = {
@@ -5314,6 +5619,7 @@ export type UsuarioCreateWithoutContratosAtualizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratosAtualizadosInput = {
@@ -5360,6 +5666,7 @@ export type UsuarioUncheckedCreateWithoutContratosAtualizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratosAtualizadosInput = {
@@ -5422,6 +5729,7 @@ export type UsuarioUpdateWithoutContratosCriadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratosCriadosInput = {
@@ -5468,6 +5776,7 @@ export type UsuarioUncheckedUpdateWithoutContratosCriadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutContratosResponsaveisInput = {
@@ -5525,6 +5834,7 @@ export type UsuarioUpdateWithoutContratosResponsaveisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratosResponsaveisInput = {
@@ -5571,6 +5881,7 @@ export type UsuarioUncheckedUpdateWithoutContratosResponsaveisInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutContratosAtualizadosInput = {
@@ -5628,6 +5939,7 @@ export type UsuarioUpdateWithoutContratosAtualizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratosAtualizadosInput = {
@@ -5674,6 +5986,7 @@ export type UsuarioUncheckedUpdateWithoutContratosAtualizadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutContratoAndamentosInput = {
@@ -5720,6 +6033,7 @@ export type UsuarioCreateWithoutContratoAndamentosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratoAndamentosInput = {
@@ -5766,6 +6080,7 @@ export type UsuarioUncheckedCreateWithoutContratoAndamentosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratoAndamentosInput = {
@@ -5828,6 +6143,7 @@ export type UsuarioUpdateWithoutContratoAndamentosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratoAndamentosInput = {
@@ -5874,6 +6190,7 @@ export type UsuarioUncheckedUpdateWithoutContratoAndamentosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutContratoDocumentosEnviadosInput = {
@@ -5920,6 +6237,7 @@ export type UsuarioCreateWithoutContratoDocumentosEnviadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratoDocumentosEnviadosInput = {
@@ -5966,6 +6284,7 @@ export type UsuarioUncheckedCreateWithoutContratoDocumentosEnviadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratoDocumentosEnviadosInput = {
@@ -6017,6 +6336,7 @@ export type UsuarioCreateWithoutContratoDocumentosExcluidosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratoDocumentosExcluidosInput = {
@@ -6063,6 +6383,7 @@ export type UsuarioUncheckedCreateWithoutContratoDocumentosExcluidosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratoDocumentosExcluidosInput = {
@@ -6125,6 +6446,7 @@ export type UsuarioUpdateWithoutContratoDocumentosEnviadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratoDocumentosEnviadosInput = {
@@ -6171,6 +6493,7 @@ export type UsuarioUncheckedUpdateWithoutContratoDocumentosEnviadosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutContratoDocumentosExcluidosInput = {
@@ -6228,6 +6551,7 @@ export type UsuarioUpdateWithoutContratoDocumentosExcluidosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratoDocumentosExcluidosInput = {
@@ -6274,6 +6598,7 @@ export type UsuarioUncheckedUpdateWithoutContratoDocumentosExcluidosInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutContratoConsultasCnpjInput = {
@@ -6320,6 +6645,7 @@ export type UsuarioCreateWithoutContratoConsultasCnpjInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutContratoConsultasCnpjInput = {
@@ -6366,6 +6692,7 @@ export type UsuarioUncheckedCreateWithoutContratoConsultasCnpjInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutContratoConsultasCnpjInput = {
@@ -6428,6 +6755,7 @@ export type UsuarioUpdateWithoutContratoConsultasCnpjInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutContratoConsultasCnpjInput = {
@@ -6474,6 +6802,7 @@ export type UsuarioUncheckedUpdateWithoutContratoConsultasCnpjInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutOrcamentosTecnicoInput = {
@@ -6520,6 +6849,7 @@ export type UsuarioCreateWithoutOrcamentosTecnicoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutOrcamentosTecnicoInput = {
@@ -6566,6 +6896,7 @@ export type UsuarioUncheckedCreateWithoutOrcamentosTecnicoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutOrcamentosTecnicoInput = {
@@ -6617,6 +6948,7 @@ export type UsuarioCreateWithoutOrcamentosAnalisadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoCreateNestedManyWithoutTecnicoInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutOrcamentosAnalisadosInput = {
@@ -6663,6 +6995,7 @@ export type UsuarioUncheckedCreateWithoutOrcamentosAnalisadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutTecnicoInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutOrcamentosAnalisadosInput = {
@@ -6714,6 +7047,7 @@ export type UsuarioCreateWithoutOrcamentosVinculadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoCreateNestedManyWithoutTecnicoInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutOrcamentosVinculadosInput = {
@@ -6760,6 +7094,7 @@ export type UsuarioUncheckedCreateWithoutOrcamentosVinculadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutTecnicoInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedCreateNestedManyWithoutUsuarioInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutOrcamentosVinculadosInput = {
@@ -6822,6 +7157,7 @@ export type UsuarioUpdateWithoutOrcamentosTecnicoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutOrcamentosTecnicoInput = {
@@ -6868,6 +7204,7 @@ export type UsuarioUncheckedUpdateWithoutOrcamentosTecnicoInput = {
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutOrcamentosAnalisadosInput = {
@@ -6925,6 +7262,7 @@ export type UsuarioUpdateWithoutOrcamentosAnalisadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUpdateManyWithoutTecnicoNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutOrcamentosAnalisadosInput = {
@@ -6971,6 +7309,7 @@ export type UsuarioUncheckedUpdateWithoutOrcamentosAnalisadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutTecnicoNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUpsertWithoutOrcamentosVinculadosInput = {
@@ -7028,6 +7367,7 @@ export type UsuarioUpdateWithoutOrcamentosVinculadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUpdateManyWithoutTecnicoNestedInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutOrcamentosVinculadosInput = {
@@ -7074,6 +7414,7 @@ export type UsuarioUncheckedUpdateWithoutOrcamentosVinculadosInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutTecnicoNestedInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosHistorico?: Prisma.OrcOrcamentoHistoricoUncheckedUpdateManyWithoutUsuarioNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateWithoutOrcamentosHistoricoInput = {
@@ -7120,6 +7461,7 @@ export type UsuarioCreateWithoutOrcamentosHistoricoInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoCreateNestedManyWithoutTecnicoInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoCreateNestedManyWithoutPropostaVinculadaPorInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateWithoutOrcamentosHistoricoInput = {
@@ -7166,6 +7508,7 @@ export type UsuarioUncheckedCreateWithoutOrcamentosHistoricoInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutTecnicoInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutAnalisadoPorInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedCreateNestedManyWithoutPropostaVinculadaPorInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioCreateOrConnectWithoutOrcamentosHistoricoInput = {
@@ -7228,6 +7571,7 @@ export type UsuarioUpdateWithoutOrcamentosHistoricoInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUpdateManyWithoutTecnicoNestedInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUpdateManyWithoutPropostaVinculadaPorNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateWithoutOrcamentosHistoricoInput = {
@@ -7274,6 +7618,7 @@ export type UsuarioUncheckedUpdateWithoutOrcamentosHistoricoInput = {
   orcamentosTecnico?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutTecnicoNestedInput
   orcamentosAnalisados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutAnalisadoPorNestedInput
   orcamentosVinculados?: Prisma.OrcOrcamentoUncheckedUpdateManyWithoutPropostaVinculadaPorNestedInput
+  notificacaoResponsabilidades?: Prisma.OpNotificacaoResponsabilidadeUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 
@@ -7310,6 +7655,7 @@ export type UsuarioCountOutputType = {
   orcamentosAnalisados: number
   orcamentosVinculados: number
   orcamentosHistorico: number
+  notificacaoResponsabilidades: number
 }
 
 export type UsuarioCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -7341,6 +7687,7 @@ export type UsuarioCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   orcamentosAnalisados?: boolean | UsuarioCountOutputTypeCountOrcamentosAnalisadosArgs
   orcamentosVinculados?: boolean | UsuarioCountOutputTypeCountOrcamentosVinculadosArgs
   orcamentosHistorico?: boolean | UsuarioCountOutputTypeCountOrcamentosHistoricoArgs
+  notificacaoResponsabilidades?: boolean | UsuarioCountOutputTypeCountNotificacaoResponsabilidadesArgs
 }
 
 /**
@@ -7549,6 +7896,13 @@ export type UsuarioCountOutputTypeCountOrcamentosHistoricoArgs<ExtArgs extends r
   where?: Prisma.OrcOrcamentoHistoricoWhereInput
 }
 
+/**
+ * UsuarioCountOutputType without action
+ */
+export type UsuarioCountOutputTypeCountNotificacaoResponsabilidadesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OpNotificacaoResponsabilidadeWhereInput
+}
+
 
 export type UsuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   fotoPerfilCaminho?: boolean
@@ -7596,6 +7950,7 @@ export type UsuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   orcamentosAnalisados?: boolean | Prisma.Usuario$orcamentosAnalisadosArgs<ExtArgs>
   orcamentosVinculados?: boolean | Prisma.Usuario$orcamentosVinculadosArgs<ExtArgs>
   orcamentosHistorico?: boolean | Prisma.Usuario$orcamentosHistoricoArgs<ExtArgs>
+  notificacaoResponsabilidades?: boolean | Prisma.Usuario$notificacaoResponsabilidadesArgs<ExtArgs>
   _count?: boolean | Prisma.UsuarioCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["usuario"]>
 
@@ -7687,6 +8042,7 @@ export type UsuarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   orcamentosAnalisados?: boolean | Prisma.Usuario$orcamentosAnalisadosArgs<ExtArgs>
   orcamentosVinculados?: boolean | Prisma.Usuario$orcamentosVinculadosArgs<ExtArgs>
   orcamentosHistorico?: boolean | Prisma.Usuario$orcamentosHistoricoArgs<ExtArgs>
+  notificacaoResponsabilidades?: boolean | Prisma.Usuario$notificacaoResponsabilidadesArgs<ExtArgs>
   _count?: boolean | Prisma.UsuarioCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UsuarioIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -7729,6 +8085,7 @@ export type $UsuarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     orcamentosAnalisados: Prisma.$OrcOrcamentoPayload<ExtArgs>[]
     orcamentosVinculados: Prisma.$OrcOrcamentoPayload<ExtArgs>[]
     orcamentosHistorico: Prisma.$OrcOrcamentoHistoricoPayload<ExtArgs>[]
+    notificacaoResponsabilidades: Prisma.$OpNotificacaoResponsabilidadePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     fotoPerfilCaminho: string | null
@@ -8170,6 +8527,7 @@ export interface Prisma__UsuarioClient<T, Null = never, ExtArgs extends runtime.
   orcamentosAnalisados<T extends Prisma.Usuario$orcamentosAnalisadosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Usuario$orcamentosAnalisadosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrcOrcamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   orcamentosVinculados<T extends Prisma.Usuario$orcamentosVinculadosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Usuario$orcamentosVinculadosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrcOrcamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   orcamentosHistorico<T extends Prisma.Usuario$orcamentosHistoricoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Usuario$orcamentosHistoricoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrcOrcamentoHistoricoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notificacaoResponsabilidades<T extends Prisma.Usuario$notificacaoResponsabilidadesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Usuario$notificacaoResponsabilidadesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OpNotificacaoResponsabilidadePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9322,6 +9680,30 @@ export type Usuario$orcamentosHistoricoArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.OrcOrcamentoHistoricoScalarFieldEnum | Prisma.OrcOrcamentoHistoricoScalarFieldEnum[]
+}
+
+/**
+ * Usuario.notificacaoResponsabilidades
+ */
+export type Usuario$notificacaoResponsabilidadesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OpNotificacaoResponsabilidade
+   */
+  select?: Prisma.OpNotificacaoResponsabilidadeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OpNotificacaoResponsabilidade
+   */
+  omit?: Prisma.OpNotificacaoResponsabilidadeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OpNotificacaoResponsabilidadeInclude<ExtArgs> | null
+  where?: Prisma.OpNotificacaoResponsabilidadeWhereInput
+  orderBy?: Prisma.OpNotificacaoResponsabilidadeOrderByWithRelationInput | Prisma.OpNotificacaoResponsabilidadeOrderByWithRelationInput[]
+  cursor?: Prisma.OpNotificacaoResponsabilidadeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OpNotificacaoResponsabilidadeScalarFieldEnum | Prisma.OpNotificacaoResponsabilidadeScalarFieldEnum[]
 }
 
 /**

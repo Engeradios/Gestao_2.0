@@ -454,6 +454,37 @@ export class ProposalsService {
     }
 
     const where = Prisma.sql`WHERE ${Prisma.join(filtros, ' AND ')}`;
+    const filtrosTicket: Prisma.Sql[] = [Prisma.sql`1=1`];
+    if (uf) filtrosTicket.push(Prisma.sql`upper(cliente_uf)=upper(${uf})`);
+    if (tipos.length) {
+      filtrosTicket.push(
+        Prisma.sql`upper(coalesce(tipo,'')) IN (${Prisma.join(
+          tipos.map((tipo) => Prisma.sql`upper(${tipo})`),
+        )})`,
+      );
+    }
+    if (faixasValor.length) {
+      const condicoesTicket: Prisma.Sql[] = [];
+      if (faixasValor.includes('0_100'))
+        condicoesTicket.push(
+          Prisma.sql`coalesce(val_proposta,0) BETWEEN 0 AND 100000`,
+        );
+      if (faixasValor.includes('100_300'))
+        condicoesTicket.push(
+          Prisma.sql`coalesce(val_proposta,0) > 100000 AND coalesce(val_proposta,0) <= 300000`,
+        );
+      if (faixasValor.includes('300_500'))
+        condicoesTicket.push(
+          Prisma.sql`coalesce(val_proposta,0) > 300000 AND coalesce(val_proposta,0) <= 500000`,
+        );
+      if (faixasValor.includes('500_MAIS'))
+        condicoesTicket.push(Prisma.sql`coalesce(val_proposta,0) > 500000`);
+      filtrosTicket.push(Prisma.sql`(${Prisma.join(condicoesTicket, ' OR ')})`);
+    }
+    const whereTicket = Prisma.sql`WHERE ${Prisma.join(
+      filtrosTicket,
+      ' AND ',
+    )}`;
     const filtroUf = uf
       ? Prisma.sql`WHERE upper(cliente_uf)=upper(${uf})`
       : Prisma.empty;
@@ -472,6 +503,7 @@ export class ProposalsService {
       status,
       fases,
       serie,
+      serieTicketMedio,
       aprovacaoPorTipo,
       topValor,
       topQuantidade,
@@ -494,13 +526,33 @@ export class ProposalsService {
             count(*)::int quantidade, coalesce(sum(val_proposta),0)::numeric valor
           FROM op_propostas ${where} GROUP BY 1 ORDER BY quantidade DESC, nome`),
       this.db.$queryRaw(Prisma.sql`
-          SELECT to_char(m.mes,'MM/YYYY') mes, count(p.*)::int quantidade,
-            coalesce(sum(p.val_proposta) FILTER (WHERE upper(p.status)='APROVADO'),0)::numeric valor_aprovado
+          WITH base AS (
+            SELECT date_trunc('month', ${dataCriacao}) mes,
+              val_proposta, upper(coalesce(status,'')) status
+            FROM op_propostas ${whereTicket}
+            AND ${dataCriacao} >= date_trunc('month',current_date)-interval '11 months'
+            AND ${dataCriacao} < date_trunc('month',current_date)+interval '1 month'
+          )
+          SELECT to_char(m.mes,'MM/YYYY') mes, count(b.*)::int quantidade,
+            coalesce(sum(b.val_proposta) FILTER (WHERE b.status='APROVADO'),0)::numeric valor_aprovado,
+            coalesce(avg(b.val_proposta),0)::numeric ticket_medio
           FROM generate_series(date_trunc('month',current_date)-interval '11 months',
             date_trunc('month',current_date), interval '1 month') m(mes)
-          LEFT JOIN op_propostas p
-            ON date_trunc('month',coalesce(p.data_cadastro,p.criado_em::date))=m.mes
-            ${uf ? Prisma.sql`AND upper(p.cliente_uf)=upper(${uf})` : Prisma.empty}
+          LEFT JOIN base b ON b.mes=m.mes
+          GROUP BY m.mes ORDER BY m.mes`),
+      this.db.$queryRaw(Prisma.sql`
+          WITH base_ticket AS (
+            SELECT date_trunc('month', ${dataCriacao}) mes, val_proposta
+            FROM op_propostas ${whereTicket}
+            AND ${dataCriacao} >= date_trunc('month',current_date)-interval '11 months'
+            AND ${dataCriacao} < date_trunc('month',current_date)+interval '1 month'
+          )
+          SELECT to_char(m.mes,'MM/YYYY') mes,
+            count(b.*)::int quantidade,
+            coalesce(avg(b.val_proposta),0)::numeric ticket_medio
+          FROM generate_series(date_trunc('month',current_date)-interval '11 months',
+            date_trunc('month',current_date), interval '1 month') m(mes)
+          LEFT JOIN base_ticket b ON b.mes=m.mes
           GROUP BY m.mes ORDER BY m.mes`),
       this.db.$queryRaw(Prisma.sql`
           SELECT coalesce(nullif(tipo,''),'SEM TIPO') nome,
@@ -561,6 +613,7 @@ export class ProposalsService {
       status,
       fases,
       serie,
+      serieTicketMedio,
       aprovacaoPorTipo,
       topClientesValor: topValor,
       topClientesQuantidade: topQuantidade,

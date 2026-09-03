@@ -14,6 +14,7 @@ import { RequirePermissions } from '../auth/decorators/permissions.decorator';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import { OperationalServiceImportService } from './operational-service-import.service';
+import { ServicePlanningPreviewService } from './service-planning-preview.service';
 
 type AuthRequest = Request & {
   user?: Record<string, unknown>;
@@ -22,7 +23,22 @@ type AuthRequest = Request & {
 @Controller('operacional/servicos')
 @UseGuards(JwtAuthGuard, PermissionsGuard)
 export class OperationalServiceImportController {
-  constructor(private readonly service: OperationalServiceImportService) {}
+  constructor(
+    private readonly service: OperationalServiceImportService,
+    private readonly planningPreview: ServicePlanningPreviewService,
+  ) {}
+
+  @Post('planejamento/previa')
+  @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
+  previewPlanning(@Body() body: Record<string, string>) {
+    return this.planningPreview.preview({
+      proposta: body.proposta || '',
+      areaResponsavel: body.areaResponsavel || '',
+      ufExecucao: body.ufExecucao || '',
+      pracaResponsavel: body.pracaResponsavel || '',
+      tempoExecucaoDias: body.tempoExecucaoDias,
+    });
+  }
 
   @Post('importacao')
   @RequirePermissions('OPERACIONAL.OS.GERENCIAR')
@@ -58,6 +74,10 @@ export class OperationalServiceImportController {
         responsaveis,
         prioridade: body.prioridade,
         observacoes: body.observacoes,
+        areaResponsavel: body.areaResponsavel,
+        ufExecucao: body.ufExecucao,
+        pracaResponsavel: body.pracaResponsavel,
+        tempoExecucaoDias: body.tempoExecucaoDias,
         actorId,
         actorName,
         ip: request.ip,

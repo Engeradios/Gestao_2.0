@@ -69,6 +69,10 @@ const navigation: NavigationItem[] = [
       { label: "Dashboard", href: "/propostas/dashboard" },
       { label: "Painel", href: "/propostas/painel" },
       { label: "Importação", href: "/propostas/importacao" },
+      {
+        label: "Auditoria de Faturamento",
+        href: "/propostas/auditoria-faturamento",
+      },
     ],
   },
   {
@@ -203,6 +207,10 @@ const navigation: NavigationItem[] = [
       {
         label: "Notificações",
         href: "/ferramentas/notificacoes",
+      },
+      {
+        label: "Responsáveis de notificações",
+        href: "/ferramentas/responsabilidades-notificacoes",
       },
       { label: "Importações", href: "/ferramentas/importacoes" },
       { label: "Integrações", href: "/ferramentas/integracoes" },

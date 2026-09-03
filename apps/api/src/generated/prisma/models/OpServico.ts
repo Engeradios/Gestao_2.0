@@ -35,6 +35,7 @@ export type OpServicoAvgAggregateOutputType = {
   propostaId: number | null
   emailAberturaTentativas: number | null
   emailConclusaoTentativas: number | null
+  emailLogisticaTentativas: number | null
 }
 
 export type OpServicoSumAggregateOutputType = {
@@ -46,6 +47,7 @@ export type OpServicoSumAggregateOutputType = {
   propostaId: number | null
   emailAberturaTentativas: number | null
   emailConclusaoTentativas: number | null
+  emailLogisticaTentativas: number | null
 }
 
 export type OpServicoMinAggregateOutputType = {
@@ -62,6 +64,9 @@ export type OpServicoMinAggregateOutputType = {
   areaResponsavel: string | null
   prazoExecucaoDiasUteis: number | null
   ufExecucao: string | null
+  pracaResponsavel: string | null
+  chegadaPrevista: Date | null
+  origemDataAprovacao: string | null
   servicoAtividade: string | null
   categoria: string | null
   responsavel: string | null
@@ -87,6 +92,9 @@ export type OpServicoMinAggregateOutputType = {
   emailConclusaoStatus: string | null
   emailAberturaTentativas: number | null
   emailConclusaoTentativas: number | null
+  emailLogisticaStatus: string | null
+  emailLogisticaTentativas: number | null
+  emailLogisticaErro: string | null
   emailAberturaErro: string | null
   emailConclusaoErro: string | null
   contrato: string | null
@@ -116,6 +124,9 @@ export type OpServicoMaxAggregateOutputType = {
   areaResponsavel: string | null
   prazoExecucaoDiasUteis: number | null
   ufExecucao: string | null
+  pracaResponsavel: string | null
+  chegadaPrevista: Date | null
+  origemDataAprovacao: string | null
   servicoAtividade: string | null
   categoria: string | null
   responsavel: string | null
@@ -141,6 +152,9 @@ export type OpServicoMaxAggregateOutputType = {
   emailConclusaoStatus: string | null
   emailAberturaTentativas: number | null
   emailConclusaoTentativas: number | null
+  emailLogisticaStatus: string | null
+  emailLogisticaTentativas: number | null
+  emailLogisticaErro: string | null
   emailAberturaErro: string | null
   emailConclusaoErro: string | null
   contrato: string | null
@@ -170,6 +184,9 @@ export type OpServicoCountAggregateOutputType = {
   areaResponsavel: number
   prazoExecucaoDiasUteis: number
   ufExecucao: number
+  pracaResponsavel: number
+  chegadaPrevista: number
+  origemDataAprovacao: number
   servicoAtividade: number
   categoria: number
   responsavel: number
@@ -195,6 +212,9 @@ export type OpServicoCountAggregateOutputType = {
   emailConclusaoStatus: number
   emailAberturaTentativas: number
   emailConclusaoTentativas: number
+  emailLogisticaStatus: number
+  emailLogisticaTentativas: number
+  emailLogisticaErro: number
   emailAberturaErro: number
   emailConclusaoErro: number
   contrato: number
@@ -221,6 +241,7 @@ export type OpServicoAvgAggregateInputType = {
   propostaId?: true
   emailAberturaTentativas?: true
   emailConclusaoTentativas?: true
+  emailLogisticaTentativas?: true
 }
 
 export type OpServicoSumAggregateInputType = {
@@ -232,6 +253,7 @@ export type OpServicoSumAggregateInputType = {
   propostaId?: true
   emailAberturaTentativas?: true
   emailConclusaoTentativas?: true
+  emailLogisticaTentativas?: true
 }
 
 export type OpServicoMinAggregateInputType = {
@@ -248,6 +270,9 @@ export type OpServicoMinAggregateInputType = {
   areaResponsavel?: true
   prazoExecucaoDiasUteis?: true
   ufExecucao?: true
+  pracaResponsavel?: true
+  chegadaPrevista?: true
+  origemDataAprovacao?: true
   servicoAtividade?: true
   categoria?: true
   responsavel?: true
@@ -273,6 +298,9 @@ export type OpServicoMinAggregateInputType = {
   emailConclusaoStatus?: true
   emailAberturaTentativas?: true
   emailConclusaoTentativas?: true
+  emailLogisticaStatus?: true
+  emailLogisticaTentativas?: true
+  emailLogisticaErro?: true
   emailAberturaErro?: true
   emailConclusaoErro?: true
   contrato?: true
@@ -302,6 +330,9 @@ export type OpServicoMaxAggregateInputType = {
   areaResponsavel?: true
   prazoExecucaoDiasUteis?: true
   ufExecucao?: true
+  pracaResponsavel?: true
+  chegadaPrevista?: true
+  origemDataAprovacao?: true
   servicoAtividade?: true
   categoria?: true
   responsavel?: true
@@ -327,6 +358,9 @@ export type OpServicoMaxAggregateInputType = {
   emailConclusaoStatus?: true
   emailAberturaTentativas?: true
   emailConclusaoTentativas?: true
+  emailLogisticaStatus?: true
+  emailLogisticaTentativas?: true
+  emailLogisticaErro?: true
   emailAberturaErro?: true
   emailConclusaoErro?: true
   contrato?: true
@@ -356,6 +390,9 @@ export type OpServicoCountAggregateInputType = {
   areaResponsavel?: true
   prazoExecucaoDiasUteis?: true
   ufExecucao?: true
+  pracaResponsavel?: true
+  chegadaPrevista?: true
+  origemDataAprovacao?: true
   servicoAtividade?: true
   categoria?: true
   responsavel?: true
@@ -381,6 +418,9 @@ export type OpServicoCountAggregateInputType = {
   emailConclusaoStatus?: true
   emailAberturaTentativas?: true
   emailConclusaoTentativas?: true
+  emailLogisticaStatus?: true
+  emailLogisticaTentativas?: true
+  emailLogisticaErro?: true
   emailAberturaErro?: true
   emailConclusaoErro?: true
   contrato?: true
@@ -497,6 +537,9 @@ export type OpServicoGroupByOutputType = {
   areaResponsavel: string | null
   prazoExecucaoDiasUteis: number | null
   ufExecucao: string
+  pracaResponsavel: string | null
+  chegadaPrevista: Date | null
+  origemDataAprovacao: string | null
   servicoAtividade: string
   categoria: string | null
   responsavel: string | null
@@ -522,6 +565,9 @@ export type OpServicoGroupByOutputType = {
   emailConclusaoStatus: string
   emailAberturaTentativas: number
   emailConclusaoTentativas: number
+  emailLogisticaStatus: string | null
+  emailLogisticaTentativas: number
+  emailLogisticaErro: string | null
   emailAberturaErro: string | null
   emailConclusaoErro: string | null
   contrato: string | null
@@ -574,6 +620,9 @@ export type OpServicoWhereInput = {
   areaResponsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
   prazoExecucaoDiasUteis?: Prisma.IntNullableFilter<"OpServico"> | number | null
   ufExecucao?: Prisma.StringFilter<"OpServico"> | string
+  pracaResponsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
+  chegadaPrevista?: Prisma.DateTimeNullableFilter<"OpServico"> | Date | string | null
+  origemDataAprovacao?: Prisma.StringNullableFilter<"OpServico"> | string | null
   servicoAtividade?: Prisma.StringFilter<"OpServico"> | string
   categoria?: Prisma.StringNullableFilter<"OpServico"> | string | null
   responsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
@@ -599,6 +648,9 @@ export type OpServicoWhereInput = {
   emailConclusaoStatus?: Prisma.StringFilter<"OpServico"> | string
   emailAberturaTentativas?: Prisma.IntFilter<"OpServico"> | number
   emailConclusaoTentativas?: Prisma.IntFilter<"OpServico"> | number
+  emailLogisticaStatus?: Prisma.StringNullableFilter<"OpServico"> | string | null
+  emailLogisticaTentativas?: Prisma.IntFilter<"OpServico"> | number
+  emailLogisticaErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   emailAberturaErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   emailConclusaoErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   contrato?: Prisma.StringNullableFilter<"OpServico"> | string | null
@@ -636,6 +688,9 @@ export type OpServicoOrderByWithRelationInput = {
   areaResponsavel?: Prisma.SortOrderInput | Prisma.SortOrder
   prazoExecucaoDiasUteis?: Prisma.SortOrderInput | Prisma.SortOrder
   ufExecucao?: Prisma.SortOrder
+  pracaResponsavel?: Prisma.SortOrderInput | Prisma.SortOrder
+  chegadaPrevista?: Prisma.SortOrderInput | Prisma.SortOrder
+  origemDataAprovacao?: Prisma.SortOrderInput | Prisma.SortOrder
   servicoAtividade?: Prisma.SortOrder
   categoria?: Prisma.SortOrderInput | Prisma.SortOrder
   responsavel?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -661,6 +716,9 @@ export type OpServicoOrderByWithRelationInput = {
   emailConclusaoStatus?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaStatus?: Prisma.SortOrderInput | Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
+  emailLogisticaErro?: Prisma.SortOrderInput | Prisma.SortOrder
   emailAberturaErro?: Prisma.SortOrderInput | Prisma.SortOrder
   emailConclusaoErro?: Prisma.SortOrderInput | Prisma.SortOrder
   contrato?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -702,6 +760,9 @@ export type OpServicoWhereUniqueInput = Prisma.AtLeast<{
   areaResponsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
   prazoExecucaoDiasUteis?: Prisma.IntNullableFilter<"OpServico"> | number | null
   ufExecucao?: Prisma.StringFilter<"OpServico"> | string
+  pracaResponsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
+  chegadaPrevista?: Prisma.DateTimeNullableFilter<"OpServico"> | Date | string | null
+  origemDataAprovacao?: Prisma.StringNullableFilter<"OpServico"> | string | null
   servicoAtividade?: Prisma.StringFilter<"OpServico"> | string
   categoria?: Prisma.StringNullableFilter<"OpServico"> | string | null
   responsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
@@ -726,6 +787,9 @@ export type OpServicoWhereUniqueInput = Prisma.AtLeast<{
   emailConclusaoStatus?: Prisma.StringFilter<"OpServico"> | string
   emailAberturaTentativas?: Prisma.IntFilter<"OpServico"> | number
   emailConclusaoTentativas?: Prisma.IntFilter<"OpServico"> | number
+  emailLogisticaStatus?: Prisma.StringNullableFilter<"OpServico"> | string | null
+  emailLogisticaTentativas?: Prisma.IntFilter<"OpServico"> | number
+  emailLogisticaErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   emailAberturaErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   emailConclusaoErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   contrato?: Prisma.StringNullableFilter<"OpServico"> | string | null
@@ -763,6 +827,9 @@ export type OpServicoOrderByWithAggregationInput = {
   areaResponsavel?: Prisma.SortOrderInput | Prisma.SortOrder
   prazoExecucaoDiasUteis?: Prisma.SortOrderInput | Prisma.SortOrder
   ufExecucao?: Prisma.SortOrder
+  pracaResponsavel?: Prisma.SortOrderInput | Prisma.SortOrder
+  chegadaPrevista?: Prisma.SortOrderInput | Prisma.SortOrder
+  origemDataAprovacao?: Prisma.SortOrderInput | Prisma.SortOrder
   servicoAtividade?: Prisma.SortOrder
   categoria?: Prisma.SortOrderInput | Prisma.SortOrder
   responsavel?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -788,6 +855,9 @@ export type OpServicoOrderByWithAggregationInput = {
   emailConclusaoStatus?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaStatus?: Prisma.SortOrderInput | Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
+  emailLogisticaErro?: Prisma.SortOrderInput | Prisma.SortOrder
   emailAberturaErro?: Prisma.SortOrderInput | Prisma.SortOrder
   emailConclusaoErro?: Prisma.SortOrderInput | Prisma.SortOrder
   contrato?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -825,6 +895,9 @@ export type OpServicoScalarWhereWithAggregatesInput = {
   areaResponsavel?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
   prazoExecucaoDiasUteis?: Prisma.IntNullableWithAggregatesFilter<"OpServico"> | number | null
   ufExecucao?: Prisma.StringWithAggregatesFilter<"OpServico"> | string
+  pracaResponsavel?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
+  chegadaPrevista?: Prisma.DateTimeNullableWithAggregatesFilter<"OpServico"> | Date | string | null
+  origemDataAprovacao?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
   servicoAtividade?: Prisma.StringWithAggregatesFilter<"OpServico"> | string
   categoria?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
   responsavel?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
@@ -850,6 +923,9 @@ export type OpServicoScalarWhereWithAggregatesInput = {
   emailConclusaoStatus?: Prisma.StringWithAggregatesFilter<"OpServico"> | string
   emailAberturaTentativas?: Prisma.IntWithAggregatesFilter<"OpServico"> | number
   emailConclusaoTentativas?: Prisma.IntWithAggregatesFilter<"OpServico"> | number
+  emailLogisticaStatus?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
+  emailLogisticaTentativas?: Prisma.IntWithAggregatesFilter<"OpServico"> | number
+  emailLogisticaErro?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
   emailAberturaErro?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
   emailConclusaoErro?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
   contrato?: Prisma.StringNullableWithAggregatesFilter<"OpServico"> | string | null
@@ -878,6 +954,9 @@ export type OpServicoCreateInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -902,6 +981,9 @@ export type OpServicoCreateInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -939,6 +1021,9 @@ export type OpServicoUncheckedCreateInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -964,6 +1049,9 @@ export type OpServicoUncheckedCreateInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -998,6 +1086,9 @@ export type OpServicoUpdateInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1022,6 +1113,9 @@ export type OpServicoUpdateInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1059,6 +1153,9 @@ export type OpServicoUncheckedUpdateInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1084,6 +1181,9 @@ export type OpServicoUncheckedUpdateInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1119,6 +1219,9 @@ export type OpServicoCreateManyInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -1144,6 +1247,9 @@ export type OpServicoCreateManyInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -1172,6 +1278,9 @@ export type OpServicoUpdateManyMutationInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1196,6 +1305,9 @@ export type OpServicoUpdateManyMutationInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1225,6 +1337,9 @@ export type OpServicoUncheckedUpdateManyInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1250,6 +1365,9 @@ export type OpServicoUncheckedUpdateManyInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1289,6 +1407,9 @@ export type OpServicoCountOrderByAggregateInput = {
   areaResponsavel?: Prisma.SortOrder
   prazoExecucaoDiasUteis?: Prisma.SortOrder
   ufExecucao?: Prisma.SortOrder
+  pracaResponsavel?: Prisma.SortOrder
+  chegadaPrevista?: Prisma.SortOrder
+  origemDataAprovacao?: Prisma.SortOrder
   servicoAtividade?: Prisma.SortOrder
   categoria?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
@@ -1314,6 +1435,9 @@ export type OpServicoCountOrderByAggregateInput = {
   emailConclusaoStatus?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaStatus?: Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
+  emailLogisticaErro?: Prisma.SortOrder
   emailAberturaErro?: Prisma.SortOrder
   emailConclusaoErro?: Prisma.SortOrder
   contrato?: Prisma.SortOrder
@@ -1338,6 +1462,7 @@ export type OpServicoAvgOrderByAggregateInput = {
   propostaId?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
 }
 
 export type OpServicoMaxOrderByAggregateInput = {
@@ -1354,6 +1479,9 @@ export type OpServicoMaxOrderByAggregateInput = {
   areaResponsavel?: Prisma.SortOrder
   prazoExecucaoDiasUteis?: Prisma.SortOrder
   ufExecucao?: Prisma.SortOrder
+  pracaResponsavel?: Prisma.SortOrder
+  chegadaPrevista?: Prisma.SortOrder
+  origemDataAprovacao?: Prisma.SortOrder
   servicoAtividade?: Prisma.SortOrder
   categoria?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
@@ -1379,6 +1507,9 @@ export type OpServicoMaxOrderByAggregateInput = {
   emailConclusaoStatus?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaStatus?: Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
+  emailLogisticaErro?: Prisma.SortOrder
   emailAberturaErro?: Prisma.SortOrder
   emailConclusaoErro?: Prisma.SortOrder
   contrato?: Prisma.SortOrder
@@ -1408,6 +1539,9 @@ export type OpServicoMinOrderByAggregateInput = {
   areaResponsavel?: Prisma.SortOrder
   prazoExecucaoDiasUteis?: Prisma.SortOrder
   ufExecucao?: Prisma.SortOrder
+  pracaResponsavel?: Prisma.SortOrder
+  chegadaPrevista?: Prisma.SortOrder
+  origemDataAprovacao?: Prisma.SortOrder
   servicoAtividade?: Prisma.SortOrder
   categoria?: Prisma.SortOrder
   responsavel?: Prisma.SortOrder
@@ -1433,6 +1567,9 @@ export type OpServicoMinOrderByAggregateInput = {
   emailConclusaoStatus?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaStatus?: Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
+  emailLogisticaErro?: Prisma.SortOrder
   emailAberturaErro?: Prisma.SortOrder
   emailConclusaoErro?: Prisma.SortOrder
   contrato?: Prisma.SortOrder
@@ -1457,6 +1594,7 @@ export type OpServicoSumOrderByAggregateInput = {
   propostaId?: Prisma.SortOrder
   emailAberturaTentativas?: Prisma.SortOrder
   emailConclusaoTentativas?: Prisma.SortOrder
+  emailLogisticaTentativas?: Prisma.SortOrder
 }
 
 export type OpServicoScalarRelationFilter = {
@@ -1652,6 +1790,9 @@ export type OpServicoCreateWithoutClienteCadastroInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -1676,6 +1817,9 @@ export type OpServicoCreateWithoutClienteCadastroInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -1711,6 +1855,9 @@ export type OpServicoUncheckedCreateWithoutClienteCadastroInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -1736,6 +1883,9 @@ export type OpServicoUncheckedCreateWithoutClienteCadastroInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -1800,6 +1950,9 @@ export type OpServicoScalarWhereInput = {
   areaResponsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
   prazoExecucaoDiasUteis?: Prisma.IntNullableFilter<"OpServico"> | number | null
   ufExecucao?: Prisma.StringFilter<"OpServico"> | string
+  pracaResponsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
+  chegadaPrevista?: Prisma.DateTimeNullableFilter<"OpServico"> | Date | string | null
+  origemDataAprovacao?: Prisma.StringNullableFilter<"OpServico"> | string | null
   servicoAtividade?: Prisma.StringFilter<"OpServico"> | string
   categoria?: Prisma.StringNullableFilter<"OpServico"> | string | null
   responsavel?: Prisma.StringNullableFilter<"OpServico"> | string | null
@@ -1825,6 +1978,9 @@ export type OpServicoScalarWhereInput = {
   emailConclusaoStatus?: Prisma.StringFilter<"OpServico"> | string
   emailAberturaTentativas?: Prisma.IntFilter<"OpServico"> | number
   emailConclusaoTentativas?: Prisma.IntFilter<"OpServico"> | number
+  emailLogisticaStatus?: Prisma.StringNullableFilter<"OpServico"> | string | null
+  emailLogisticaTentativas?: Prisma.IntFilter<"OpServico"> | number
+  emailLogisticaErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   emailAberturaErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   emailConclusaoErro?: Prisma.StringNullableFilter<"OpServico"> | string | null
   contrato?: Prisma.StringNullableFilter<"OpServico"> | string | null
@@ -1853,6 +2009,9 @@ export type OpServicoCreateWithoutResponsaveisInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -1877,6 +2036,9 @@ export type OpServicoCreateWithoutResponsaveisInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -1913,6 +2075,9 @@ export type OpServicoUncheckedCreateWithoutResponsaveisInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -1938,6 +2103,9 @@ export type OpServicoUncheckedCreateWithoutResponsaveisInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -1987,6 +2155,9 @@ export type OpServicoUpdateWithoutResponsaveisInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2011,6 +2182,9 @@ export type OpServicoUpdateWithoutResponsaveisInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2047,6 +2221,9 @@ export type OpServicoUncheckedUpdateWithoutResponsaveisInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2072,6 +2249,9 @@ export type OpServicoUncheckedUpdateWithoutResponsaveisInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2105,6 +2285,9 @@ export type OpServicoCreateWithoutAnexosInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2129,6 +2312,9 @@ export type OpServicoCreateWithoutAnexosInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2165,6 +2351,9 @@ export type OpServicoUncheckedCreateWithoutAnexosInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2190,6 +2379,9 @@ export type OpServicoUncheckedCreateWithoutAnexosInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2239,6 +2431,9 @@ export type OpServicoUpdateWithoutAnexosInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2263,6 +2458,9 @@ export type OpServicoUpdateWithoutAnexosInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2299,6 +2497,9 @@ export type OpServicoUncheckedUpdateWithoutAnexosInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2324,6 +2525,9 @@ export type OpServicoUncheckedUpdateWithoutAnexosInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2357,6 +2561,9 @@ export type OpServicoCreateWithoutAndamentosInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2381,6 +2588,9 @@ export type OpServicoCreateWithoutAndamentosInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2417,6 +2627,9 @@ export type OpServicoUncheckedCreateWithoutAndamentosInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2442,6 +2655,9 @@ export type OpServicoUncheckedCreateWithoutAndamentosInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2491,6 +2707,9 @@ export type OpServicoUpdateWithoutAndamentosInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2515,6 +2734,9 @@ export type OpServicoUpdateWithoutAndamentosInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2551,6 +2773,9 @@ export type OpServicoUncheckedUpdateWithoutAndamentosInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2576,6 +2801,9 @@ export type OpServicoUncheckedUpdateWithoutAndamentosInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2609,6 +2837,9 @@ export type OpServicoCreateWithoutHistoricosInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2633,6 +2864,9 @@ export type OpServicoCreateWithoutHistoricosInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2669,6 +2903,9 @@ export type OpServicoUncheckedCreateWithoutHistoricosInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2694,6 +2931,9 @@ export type OpServicoUncheckedCreateWithoutHistoricosInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2743,6 +2983,9 @@ export type OpServicoUpdateWithoutHistoricosInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2767,6 +3010,9 @@ export type OpServicoUpdateWithoutHistoricosInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2803,6 +3049,9 @@ export type OpServicoUncheckedUpdateWithoutHistoricosInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2828,6 +3077,9 @@ export type OpServicoUncheckedUpdateWithoutHistoricosInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2861,6 +3113,9 @@ export type OpServicoCreateWithoutEmailsInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2885,6 +3140,9 @@ export type OpServicoCreateWithoutEmailsInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2921,6 +3179,9 @@ export type OpServicoUncheckedCreateWithoutEmailsInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -2946,6 +3207,9 @@ export type OpServicoUncheckedCreateWithoutEmailsInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -2995,6 +3259,9 @@ export type OpServicoUpdateWithoutEmailsInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3019,6 +3286,9 @@ export type OpServicoUpdateWithoutEmailsInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3055,6 +3325,9 @@ export type OpServicoUncheckedUpdateWithoutEmailsInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3080,6 +3353,9 @@ export type OpServicoUncheckedUpdateWithoutEmailsInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3113,6 +3389,9 @@ export type OpServicoCreateWithoutRoteiroVisitasInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -3137,6 +3416,9 @@ export type OpServicoCreateWithoutRoteiroVisitasInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -3173,6 +3455,9 @@ export type OpServicoUncheckedCreateWithoutRoteiroVisitasInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -3198,6 +3483,9 @@ export type OpServicoUncheckedCreateWithoutRoteiroVisitasInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -3247,6 +3535,9 @@ export type OpServicoUpdateWithoutRoteiroVisitasInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3271,6 +3562,9 @@ export type OpServicoUpdateWithoutRoteiroVisitasInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3307,6 +3601,9 @@ export type OpServicoUncheckedUpdateWithoutRoteiroVisitasInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3332,6 +3629,9 @@ export type OpServicoUncheckedUpdateWithoutRoteiroVisitasInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3365,6 +3665,9 @@ export type OpServicoCreateWithoutPropostaCadastroInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -3389,6 +3692,9 @@ export type OpServicoCreateWithoutPropostaCadastroInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -3425,6 +3731,9 @@ export type OpServicoUncheckedCreateWithoutPropostaCadastroInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -3449,6 +3758,9 @@ export type OpServicoUncheckedCreateWithoutPropostaCadastroInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -3499,6 +3811,9 @@ export type OpServicoUpdateWithoutPropostaCadastroInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3523,6 +3838,9 @@ export type OpServicoUpdateWithoutPropostaCadastroInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3559,6 +3877,9 @@ export type OpServicoUncheckedUpdateWithoutPropostaCadastroInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3583,6 +3904,9 @@ export type OpServicoUncheckedUpdateWithoutPropostaCadastroInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3617,6 +3941,9 @@ export type OpServicoCreateManyClienteCadastroInput = {
   areaResponsavel?: string | null
   prazoExecucaoDiasUteis?: number | null
   ufExecucao?: string
+  pracaResponsavel?: string | null
+  chegadaPrevista?: Date | string | null
+  origemDataAprovacao?: string | null
   servicoAtividade: string
   categoria?: string | null
   responsavel?: string | null
@@ -3642,6 +3969,9 @@ export type OpServicoCreateManyClienteCadastroInput = {
   emailConclusaoStatus?: string
   emailAberturaTentativas?: number
   emailConclusaoTentativas?: number
+  emailLogisticaStatus?: string | null
+  emailLogisticaTentativas?: number
+  emailLogisticaErro?: string | null
   emailAberturaErro?: string | null
   emailConclusaoErro?: string | null
   contrato?: string | null
@@ -3670,6 +4000,9 @@ export type OpServicoUpdateWithoutClienteCadastroInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3694,6 +4027,9 @@ export type OpServicoUpdateWithoutClienteCadastroInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3729,6 +4065,9 @@ export type OpServicoUncheckedUpdateWithoutClienteCadastroInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3754,6 +4093,9 @@ export type OpServicoUncheckedUpdateWithoutClienteCadastroInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3788,6 +4130,9 @@ export type OpServicoUncheckedUpdateManyWithoutClienteCadastroInput = {
   areaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prazoExecucaoDiasUteis?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   ufExecucao?: Prisma.StringFieldUpdateOperationsInput | string
+  pracaResponsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  chegadaPrevista?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  origemDataAprovacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   servicoAtividade?: Prisma.StringFieldUpdateOperationsInput | string
   categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   responsavel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3813,6 +4158,9 @@ export type OpServicoUncheckedUpdateManyWithoutClienteCadastroInput = {
   emailConclusaoStatus?: Prisma.StringFieldUpdateOperationsInput | string
   emailAberturaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
   emailConclusaoTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emailLogisticaTentativas?: Prisma.IntFieldUpdateOperationsInput | number
+  emailLogisticaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailAberturaErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   emailConclusaoErro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3918,6 +4266,9 @@ export type OpServicoSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   areaResponsavel?: boolean
   prazoExecucaoDiasUteis?: boolean
   ufExecucao?: boolean
+  pracaResponsavel?: boolean
+  chegadaPrevista?: boolean
+  origemDataAprovacao?: boolean
   servicoAtividade?: boolean
   categoria?: boolean
   responsavel?: boolean
@@ -3943,6 +4294,9 @@ export type OpServicoSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   emailConclusaoStatus?: boolean
   emailAberturaTentativas?: boolean
   emailConclusaoTentativas?: boolean
+  emailLogisticaStatus?: boolean
+  emailLogisticaTentativas?: boolean
+  emailLogisticaErro?: boolean
   emailAberturaErro?: boolean
   emailConclusaoErro?: boolean
   contrato?: boolean
@@ -3981,6 +4335,9 @@ export type OpServicoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   areaResponsavel?: boolean
   prazoExecucaoDiasUteis?: boolean
   ufExecucao?: boolean
+  pracaResponsavel?: boolean
+  chegadaPrevista?: boolean
+  origemDataAprovacao?: boolean
   servicoAtividade?: boolean
   categoria?: boolean
   responsavel?: boolean
@@ -4006,6 +4363,9 @@ export type OpServicoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   emailConclusaoStatus?: boolean
   emailAberturaTentativas?: boolean
   emailConclusaoTentativas?: boolean
+  emailLogisticaStatus?: boolean
+  emailLogisticaTentativas?: boolean
+  emailLogisticaErro?: boolean
   emailAberturaErro?: boolean
   emailConclusaoErro?: boolean
   contrato?: boolean
@@ -4037,6 +4397,9 @@ export type OpServicoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   areaResponsavel?: boolean
   prazoExecucaoDiasUteis?: boolean
   ufExecucao?: boolean
+  pracaResponsavel?: boolean
+  chegadaPrevista?: boolean
+  origemDataAprovacao?: boolean
   servicoAtividade?: boolean
   categoria?: boolean
   responsavel?: boolean
@@ -4062,6 +4425,9 @@ export type OpServicoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   emailConclusaoStatus?: boolean
   emailAberturaTentativas?: boolean
   emailConclusaoTentativas?: boolean
+  emailLogisticaStatus?: boolean
+  emailLogisticaTentativas?: boolean
+  emailLogisticaErro?: boolean
   emailAberturaErro?: boolean
   emailConclusaoErro?: boolean
   contrato?: boolean
@@ -4093,6 +4459,9 @@ export type OpServicoSelectScalar = {
   areaResponsavel?: boolean
   prazoExecucaoDiasUteis?: boolean
   ufExecucao?: boolean
+  pracaResponsavel?: boolean
+  chegadaPrevista?: boolean
+  origemDataAprovacao?: boolean
   servicoAtividade?: boolean
   categoria?: boolean
   responsavel?: boolean
@@ -4118,6 +4487,9 @@ export type OpServicoSelectScalar = {
   emailConclusaoStatus?: boolean
   emailAberturaTentativas?: boolean
   emailConclusaoTentativas?: boolean
+  emailLogisticaStatus?: boolean
+  emailLogisticaTentativas?: boolean
+  emailLogisticaErro?: boolean
   emailAberturaErro?: boolean
   emailConclusaoErro?: boolean
   contrato?: boolean
@@ -4133,7 +4505,7 @@ export type OpServicoSelectScalar = {
   inativadoPor?: boolean
 }
 
-export type OpServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legadoId" | "proposta" | "clienteId" | "cliente" | "clienteLocal" | "dataAprovacao" | "diasPreparacao" | "tempoExecucaoDias" | "tipoProposta" | "areaResponsavel" | "prazoExecucaoDiasUteis" | "ufExecucao" | "servicoAtividade" | "categoria" | "responsavel" | "prioridade" | "inicioPlanejado" | "prazoFinal" | "inicioReal" | "conclusaoReal" | "status" | "percentual" | "proximaAcao" | "ultimaSituacao" | "observacoes" | "propostaPdf" | "propostaPdfNome" | "propostaPdfEm" | "abertoEm" | "notificadoEm" | "criadoEm" | "atualizadoEm" | "propostaId" | "emailAberturaStatus" | "emailConclusaoStatus" | "emailAberturaTentativas" | "emailConclusaoTentativas" | "emailAberturaErro" | "emailConclusaoErro" | "contrato" | "pedido" | "contatoNome" | "contatoEmail" | "contatoTelefone" | "enderecoInstalacao" | "titulo" | "statusBase" | "ativo" | "inativadoEm" | "inativadoPor", ExtArgs["result"]["opServico"]>
+export type OpServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legadoId" | "proposta" | "clienteId" | "cliente" | "clienteLocal" | "dataAprovacao" | "diasPreparacao" | "tempoExecucaoDias" | "tipoProposta" | "areaResponsavel" | "prazoExecucaoDiasUteis" | "ufExecucao" | "pracaResponsavel" | "chegadaPrevista" | "origemDataAprovacao" | "servicoAtividade" | "categoria" | "responsavel" | "prioridade" | "inicioPlanejado" | "prazoFinal" | "inicioReal" | "conclusaoReal" | "status" | "percentual" | "proximaAcao" | "ultimaSituacao" | "observacoes" | "propostaPdf" | "propostaPdfNome" | "propostaPdfEm" | "abertoEm" | "notificadoEm" | "criadoEm" | "atualizadoEm" | "propostaId" | "emailAberturaStatus" | "emailConclusaoStatus" | "emailAberturaTentativas" | "emailConclusaoTentativas" | "emailLogisticaStatus" | "emailLogisticaTentativas" | "emailLogisticaErro" | "emailAberturaErro" | "emailConclusaoErro" | "contrato" | "pedido" | "contatoNome" | "contatoEmail" | "contatoTelefone" | "enderecoInstalacao" | "titulo" | "statusBase" | "ativo" | "inativadoEm" | "inativadoPor", ExtArgs["result"]["opServico"]>
 export type OpServicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   emails?: boolean | Prisma.OpServico$emailsArgs<ExtArgs>
   roteiroVisitas?: boolean | Prisma.OpServico$roteiroVisitasArgs<ExtArgs>
@@ -4180,6 +4552,9 @@ export type $OpServicoPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     areaResponsavel: string | null
     prazoExecucaoDiasUteis: number | null
     ufExecucao: string
+    pracaResponsavel: string | null
+    chegadaPrevista: Date | null
+    origemDataAprovacao: string | null
     servicoAtividade: string
     categoria: string | null
     responsavel: string | null
@@ -4205,6 +4580,9 @@ export type $OpServicoPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     emailConclusaoStatus: string
     emailAberturaTentativas: number
     emailConclusaoTentativas: number
+    emailLogisticaStatus: string | null
+    emailLogisticaTentativas: number
+    emailLogisticaErro: string | null
     emailAberturaErro: string | null
     emailConclusaoErro: string | null
     contrato: string | null
@@ -4662,6 +5040,9 @@ export interface OpServicoFieldRefs {
   readonly areaResponsavel: Prisma.FieldRef<"OpServico", 'String'>
   readonly prazoExecucaoDiasUteis: Prisma.FieldRef<"OpServico", 'Int'>
   readonly ufExecucao: Prisma.FieldRef<"OpServico", 'String'>
+  readonly pracaResponsavel: Prisma.FieldRef<"OpServico", 'String'>
+  readonly chegadaPrevista: Prisma.FieldRef<"OpServico", 'DateTime'>
+  readonly origemDataAprovacao: Prisma.FieldRef<"OpServico", 'String'>
   readonly servicoAtividade: Prisma.FieldRef<"OpServico", 'String'>
   readonly categoria: Prisma.FieldRef<"OpServico", 'String'>
   readonly responsavel: Prisma.FieldRef<"OpServico", 'String'>
@@ -4687,6 +5068,9 @@ export interface OpServicoFieldRefs {
   readonly emailConclusaoStatus: Prisma.FieldRef<"OpServico", 'String'>
   readonly emailAberturaTentativas: Prisma.FieldRef<"OpServico", 'Int'>
   readonly emailConclusaoTentativas: Prisma.FieldRef<"OpServico", 'Int'>
+  readonly emailLogisticaStatus: Prisma.FieldRef<"OpServico", 'String'>
+  readonly emailLogisticaTentativas: Prisma.FieldRef<"OpServico", 'Int'>
+  readonly emailLogisticaErro: Prisma.FieldRef<"OpServico", 'String'>
   readonly emailAberturaErro: Prisma.FieldRef<"OpServico", 'String'>
   readonly emailConclusaoErro: Prisma.FieldRef<"OpServico", 'String'>
   readonly contrato: Prisma.FieldRef<"OpServico", 'String'>

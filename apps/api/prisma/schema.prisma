@@ -22,40 +22,41 @@ model Usuario {
   contratoDocumentosExcluidos ContratoDocumento[]      @relation("ContratoDocumentoExcluidoPor")
   contratoConsultasCnpj       ContratoConsultaCnpj[]
 
-  id                        String                         @id @default(uuid()) @db.Uuid
-  nome                      String                         @db.VarChar(160)
-  email                     String                         @unique @db.VarChar(200)
-  senhaHash                 String                         @map("senha_hash") @db.VarChar(255)
-  status                    StatusUsuario                  @default(ATIVO)
-  unidade                   String?                        @db.VarChar(10)
-  ultimoLoginEm             DateTime?                      @map("ultimo_login_em")
-  criadoEm                  DateTime                       @default(now()) @map("criado_em")
-  atualizadoEm              DateTime                       @updatedAt @map("atualizado_em")
-  trocarSenha               Boolean                        @default(true) @map("trocar_senha")
-  pessoaId                  String?                        @unique(map: "usuarios_pessoa_id_uq") @map("pessoa_id") @db.Uuid
-  auditorias                Auditoria[]                    @relation("AuditoriaUsuario")
-  perfis                    UsuarioPerfil[]
-  pessoa                    Pessoa?                        @relation(fields: [pessoaId], references: [id], onDelete: SetNull)
-  preferenciaNotificacao    PreferenciaNotificacaoUsuario?
-  configuracoesEmail        ConfiguracaoEmail[]
-  solicitacoesCriadas       Solicitacao[]                  @relation("SolicitacaoSolicitante")
-  solicitacoesAtribuidas    Solicitacao[]                  @relation("SolicitacaoResponsavel")
-  solicitacaoHistoricos     SolicitacaoHistorico[]
-  emailLogs                 EmailLog[]
-  notificacoes              NotificacaoUsuario[]
-  tokensAutenticacao        TokenAutenticacao[]
-  appCampoDispositivos      AppCampoDispositivo[]
-  appCampoTermosAceites     AppCampoTermoAceite[]
-  appCampoExpedientes       AppCampoExpediente[]
-  appCampoTelemetrias       AppCampoTelemetria[]
-  appCampoEvidencias        AppCampoEvidencia[]
-  appCampoEventosOffline    AppCampoEventoOffline[]
-  appCampoAcessosRealizados AppCampoAcessoLocalizacao[]    @relation("AppCampoAcessoConsultor")
-  appCampoAcessosComoAlvo   AppCampoAcessoLocalizacao[]    @relation("AppCampoAcessoAlvo")
-  orcamentosTecnico         OrcOrcamento[]                 @relation("OrcTecnico")
-  orcamentosAnalisados      OrcOrcamento[]                 @relation("OrcAnalista")
-  orcamentosVinculados      OrcOrcamento[]                 @relation("OrcVinculador")
-  orcamentosHistorico       OrcOrcamentoHistorico[]        @relation("OrcHistoricoUsuario")
+  id                           String                          @id @default(uuid()) @db.Uuid
+  nome                         String                          @db.VarChar(160)
+  email                        String                          @unique @db.VarChar(200)
+  senhaHash                    String                          @map("senha_hash") @db.VarChar(255)
+  status                       StatusUsuario                   @default(ATIVO)
+  unidade                      String?                         @db.VarChar(10)
+  ultimoLoginEm                DateTime?                       @map("ultimo_login_em")
+  criadoEm                     DateTime                        @default(now()) @map("criado_em")
+  atualizadoEm                 DateTime                        @updatedAt @map("atualizado_em")
+  trocarSenha                  Boolean                         @default(true) @map("trocar_senha")
+  pessoaId                     String?                         @unique(map: "usuarios_pessoa_id_uq") @map("pessoa_id") @db.Uuid
+  auditorias                   Auditoria[]                     @relation("AuditoriaUsuario")
+  perfis                       UsuarioPerfil[]
+  pessoa                       Pessoa?                         @relation(fields: [pessoaId], references: [id], onDelete: SetNull)
+  preferenciaNotificacao       PreferenciaNotificacaoUsuario?
+  configuracoesEmail           ConfiguracaoEmail[]
+  solicitacoesCriadas          Solicitacao[]                   @relation("SolicitacaoSolicitante")
+  solicitacoesAtribuidas       Solicitacao[]                   @relation("SolicitacaoResponsavel")
+  solicitacaoHistoricos        SolicitacaoHistorico[]
+  emailLogs                    EmailLog[]
+  notificacoes                 NotificacaoUsuario[]
+  tokensAutenticacao           TokenAutenticacao[]
+  appCampoDispositivos         AppCampoDispositivo[]
+  appCampoTermosAceites        AppCampoTermoAceite[]
+  appCampoExpedientes          AppCampoExpediente[]
+  appCampoTelemetrias          AppCampoTelemetria[]
+  appCampoEvidencias           AppCampoEvidencia[]
+  appCampoEventosOffline       AppCampoEventoOffline[]
+  appCampoAcessosRealizados    AppCampoAcessoLocalizacao[]     @relation("AppCampoAcessoConsultor")
+  appCampoAcessosComoAlvo      AppCampoAcessoLocalizacao[]     @relation("AppCampoAcessoAlvo")
+  orcamentosTecnico            OrcOrcamento[]                  @relation("OrcTecnico")
+  orcamentosAnalisados         OrcOrcamento[]                  @relation("OrcAnalista")
+  orcamentosVinculados         OrcOrcamento[]                  @relation("OrcVinculador")
+  orcamentosHistorico          OrcOrcamentoHistorico[]         @relation("OrcHistoricoUsuario")
+  notificacaoResponsabilidades OpNotificacaoResponsabilidade[]
 
   @@index([status])
   @@map("usuarios")
@@ -327,6 +328,9 @@ model OpServico {
   areaResponsavel          String?                @map("area_responsavel") @db.VarChar(20)
   prazoExecucaoDiasUteis   Int?                   @map("prazo_execucao_dias_uteis")
   ufExecucao               String                 @default("RJ") @map("uf_execucao") @db.VarChar(2)
+  pracaResponsavel         String?                @map("praca_responsavel") @db.VarChar(160)
+  chegadaPrevista          DateTime?              @map("chegada_prevista") @db.Date
+  origemDataAprovacao      String?                @map("origem_data_aprovacao") @db.VarChar(30)
   servicoAtividade         String                 @map("servico_atividade")
   categoria                String?                @db.VarChar(100)
   responsavel              String?                @db.VarChar(160)
@@ -352,6 +356,9 @@ model OpServico {
   emailConclusaoStatus     String                 @default("PENDENTE") @map("email_conclusao_status") @db.VarChar(20)
   emailAberturaTentativas  Int                    @default(0) @map("email_abertura_tentativas")
   emailConclusaoTentativas Int                    @default(0) @map("email_conclusao_tentativas")
+  emailLogisticaStatus     String?                @map("email_logistica_status") @db.VarChar(20)
+  emailLogisticaTentativas Int                    @default(0) @map("email_logistica_tentativas")
+  emailLogisticaErro       String?                @map("email_logistica_erro") @db.VarChar(1000)
   emailAberturaErro        String?                @map("email_abertura_erro")
   emailConclusaoErro       String?                @map("email_conclusao_erro")
   contrato                 String?                @db.VarChar(120)
@@ -476,6 +483,25 @@ model OpFeriado {
   legado_id Int?     @unique
 
   @@map("op_feriados")
+}
+
+model OpNotificacaoResponsabilidade {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  usuarioId       String   @map("usuario_id") @db.Uuid
+  uf              String   @db.VarChar(2)
+  praca           String?  @db.VarChar(160)
+  areaResponsavel String   @map("area_responsavel") @db.VarChar(20)
+  recAbertura     Boolean  @default(false) @map("rec_abertura")
+  recConclusao    Boolean  @default(false) @map("rec_conclusao")
+  recLogistica    Boolean  @default(false) @map("rec_logistica")
+  ativo           Boolean  @default(true)
+  criadoEm        DateTime @default(now()) @map("criado_em")
+  atualizadoEm    DateTime @default(now()) @updatedAt @map("atualizado_em")
+  usuario         Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Restrict)
+
+  @@index([uf, areaResponsavel, ativo])
+  @@index([usuarioId, ativo])
+  @@map("op_notificacao_responsabilidades")
 }
 
 model OpNotificacaoEmail {

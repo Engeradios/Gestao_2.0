@@ -8,7 +8,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { promises as fs } from 'node:fs';
 import { join } from 'node:path';
 import { PrismaService } from '../database/prisma.service';
+import { BusinessCalendarService } from './business-calendar.service';
 import { ServiceOpeningNotificationService } from './service-opening-notification.service';
+import { ServicePlanningRulesService } from './service-planning-rules.service';
 
 interface CreateInput {
   proposta: string;
@@ -16,6 +18,10 @@ interface CreateInput {
   responsaveis: string[];
   prioridade?: string;
   observacoes?: string;
+  areaResponsavel?: string;
+  ufExecucao?: string;
+  pracaResponsavel?: string;
+  tempoExecucaoDias?: string;
   actorId: string;
   actorName: string;
   ip?: string;
@@ -30,6 +36,8 @@ export class OperationalServiceImportService {
   constructor(
     private readonly db: PrismaService,
     private readonly openingNotification: ServiceOpeningNotificationService,
+    private readonly businessCalendar: BusinessCalendarService,
+    private readonly planningRules: ServicePlanningRulesService,
   ) {}
 
   async create(input: CreateInput, file: Express.Multer.File) {
@@ -113,18 +121,102 @@ export class OperationalServiceImportService {
       );
     }
 
-    const holidays = await this.db.opFeriado.findMany({
-      where: {
-        OR: [{ uf: null }, { uf: { in: ['RJ', 'SP'] } }],
-      },
-      select: { dia: true },
-    });
+    const newPlanningRequested = Boolean(
+      input.areaResponsavel?.trim() ||
+      input.ufExecucao?.trim() ||
+      input.pracaResponsavel?.trim() ||
+      input.tempoExecucaoDias?.trim(),
+    );
 
-    const holidaySet = new Set(holidays.map((item) => this.dateKey(item.dia)));
+    const approvalEvolution = newPlanningRequested
+      ? await this.db.opPropostaEvolucao.findFirst({
+          where: {
+            proposta: { is: { id: proposta.id } },
+            campo: { equals: 'STATUS', mode: 'insensitive' },
+            valorNovo: { equals: 'APROVADO', mode: 'insensitive' },
+          },
+          select: { registradoEm: true },
+          orderBy: { registradoEm: 'desc' },
+        })
+      : null;
 
-    const plannedStart = this.nextBusinessDay(this.today(), holidaySet);
+    const approvalDate = approvalEvolution?.registradoEm
+      ? approvalEvolution.registradoEm
+      : proposta.atualizadoEm
+        ? proposta.atualizadoEm
+        : proposta.dataCadastro;
 
-    const deadline = this.addBusinessDays(plannedStart, duration, holidaySet);
+    if (!approvalDate) {
+      throw new BadRequestException(
+        'Não foi possível identificar a data de aprovação da proposta.',
+      );
+    }
+
+    const approvalDateOrigin = approvalEvolution?.registradoEm
+      ? 'HISTORICO_STATUS'
+      : proposta.atualizadoEm
+        ? 'ATUALIZADO_EM'
+        : 'DATA_CADASTRO';
+
+    let planningVersion = 'LEGADO';
+    let planningArea = configuration.area;
+    let executionDays: number | null = duration;
+    let preparationDays: number | undefined;
+    let stateCalendarAvailable: boolean | null = null;
+    let serviceUf = proposta.clienteUf || 'RJ';
+    let serviceSquare: string | null = null;
+    let deliveryExpectedAt: Date | null = null;
+    let plannedStart: Date | null;
+    let deadline: Date;
+
+    if (newPlanningRequested) {
+      const requestedArea = input.areaResponsavel?.trim().toUpperCase();
+      if (!requestedArea || requestedArea !== configuration.area) {
+        throw new BadRequestException(
+          'Área informada incompatível com o tipo da proposta.',
+        );
+      }
+
+      const square = input.pracaResponsavel?.trim().replace(/\s+/g, ' ');
+      if (!square || square.length > 160) {
+        throw new BadRequestException(
+          'Praça responsável é obrigatória e deve possuir até 160 caracteres.',
+        );
+      }
+
+      const numericExecution = input.tempoExecucaoDias?.trim()
+        ? Number(input.tempoExecucaoDias)
+        : null;
+      const planning = await this.planningRules.calculate({
+        area: requestedArea,
+        approvalDate,
+        uf: input.ufExecucao || '',
+        executionBusinessDays: numericExecution,
+      });
+
+      planningVersion = 'NOVA_REGRA';
+      planningArea = planning.area;
+      executionDays = planning.executionBusinessDays;
+      preparationDays = planning.preparationBusinessDays;
+      stateCalendarAvailable = planning.stateCalendarAvailable;
+      serviceUf = planning.uf;
+      serviceSquare = square;
+      deliveryExpectedAt = planning.deliveryExpectedAt;
+      plannedStart = planning.plannedStartAt;
+      deadline = planning.deadlineAt;
+    } else {
+      const compatibilityCalendar =
+        await this.businessCalendar.calendarInfoForUfs(['RJ', 'SP']);
+      plannedStart = this.businessCalendar.nextBusinessDayInclusiveFromCalendar(
+        this.today(),
+        compatibilityCalendar.holidays,
+      );
+      deadline = this.businessCalendar.addBusinessDaysInclusiveFromCalendar(
+        plannedStart,
+        duration,
+        compatibilityCalendar.holidays,
+      );
+    }
 
     await fs.mkdir(this.directory, {
       recursive: true,
@@ -148,12 +240,22 @@ export class OperationalServiceImportService {
               proposta.local ||
               proposta.enderecoInstalacao ||
               proposta.clienteMunicipio,
-            dataAprovacao: proposta.atualizadoEm ?? proposta.dataCadastro,
+            dataAprovacao: approvalDate,
             tipoProposta: tipo,
-            areaResponsavel: configuration.area,
-            prazoExecucaoDiasUteis: duration,
-            tempoExecucaoDias: duration,
-            ufExecucao: proposta.clienteUf || 'RJ',
+            areaResponsavel: planningArea,
+            prazoExecucaoDiasUteis: newPlanningRequested
+              ? planningArea === 'LOGISTICA'
+                ? 15
+                : executionDays
+              : duration,
+            tempoExecucaoDias: newPlanningRequested ? executionDays : duration,
+            ufExecucao: serviceUf,
+            pracaResponsavel: serviceSquare,
+            chegadaPrevista: deliveryExpectedAt,
+            origemDataAprovacao: newPlanningRequested
+              ? approvalDateOrigin
+              : null,
+            diasPreparacao: preparationDays,
             servicoAtividade:
               proposta.titulo?.trim() || `Proposta ${proposta.numero}`,
             prioridade: input.prioridade?.trim() || 'NORMAL',
@@ -210,10 +312,22 @@ export class OperationalServiceImportService {
             acao: 'SERVICO_CRIADO_PROPOSTA',
             dadosDepois: {
               proposta: proposta.numero,
-              area: configuration.area,
-              prazoDiasUteis: duration,
-              inicioPlanejado: this.dateKey(plannedStart),
+              area: planningArea,
+              planejamentoVersao: planningVersion,
+              ufExecucao: serviceUf,
+              pracaResponsavel: serviceSquare,
+              dataAprovacao: this.dateKey(approvalDate),
+              origemDataAprovacao: newPlanningRequested
+                ? approvalDateOrigin
+                : null,
+              diasPreparacao: preparationDays,
+              tempoExecucaoDias: executionDays,
+              chegadaPrevista: deliveryExpectedAt
+                ? this.dateKey(deliveryExpectedAt)
+                : null,
+              inicioPlanejado: plannedStart ? this.dateKey(plannedStart) : null,
               prazoFinal: this.dateKey(deadline),
+              calendarioEstadualDisponivel: stateCalendarAvailable,
               responsaveis: people.map((person) => person.id),
               pdfHashSha256: hash,
             },
@@ -265,38 +379,5 @@ export class OperationalServiceImportService {
 
   private dateKey(date: Date) {
     return date.toISOString().slice(0, 10);
-  }
-
-  private isBusinessDay(date: Date, holidays: Set<string>) {
-    const weekday = date.getUTCDay();
-
-    return weekday !== 0 && weekday !== 6 && !holidays.has(this.dateKey(date));
-  }
-
-  private nextBusinessDay(date: Date, holidays: Set<string>) {
-    const result = new Date(date);
-
-    while (!this.isBusinessDay(result, holidays)) {
-      result.setUTCDate(result.getUTCDate() + 1);
-    }
-
-    return result;
-  }
-
-  private addBusinessDays(start: Date, amount: number, holidays: Set<string>) {
-    const result = new Date(start);
-    let counted = 0;
-
-    while (counted < amount) {
-      if (this.isBusinessDay(result, holidays)) {
-        counted++;
-      }
-
-      if (counted < amount) {
-        result.setUTCDate(result.getUTCDate() + 1);
-      }
-    }
-
-    return result;
   }
 }

@@ -568,3 +568,33 @@ export type OrcOrcamentoEvidencia = Prisma.OrcOrcamentoEvidenciaModel
  * 
  */
 export type OrcOrcamentoHistorico = Prisma.OrcOrcamentoHistoricoModel
+/**
+ * Model RhSetor
+ * 
+ */
+export type RhSetor = Prisma.RhSetorModel
+/**
+ * Model RhCargo
+ * 
+ */
+export type RhCargo = Prisma.RhCargoModel
+/**
+ * Model RhUnidade
+ * 
+ */
+export type RhUnidade = Prisma.RhUnidadeModel
+/**
+ * Model RhFuncionario
+ * 
+ */
+export type RhFuncionario = Prisma.RhFuncionarioModel
+/**
+ * Model RhMovimentacao
+ * 
+ */
+export type RhMovimentacao = Prisma.RhMovimentacaoModel
+/**
+ * Model RhDesligamento
+ * 
+ */
+export type RhDesligamento = Prisma.RhDesligamentoModel

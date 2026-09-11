@@ -160,7 +160,13 @@ export const ModelName = {
   OrcOrcamentoResposta: 'OrcOrcamentoResposta',
   OrcOrcamentoItem: 'OrcOrcamentoItem',
   OrcOrcamentoEvidencia: 'OrcOrcamentoEvidencia',
-  OrcOrcamentoHistorico: 'OrcOrcamentoHistorico'
+  OrcOrcamentoHistorico: 'OrcOrcamentoHistorico',
+  RhSetor: 'RhSetor',
+  RhCargo: 'RhCargo',
+  RhUnidade: 'RhUnidade',
+  RhFuncionario: 'RhFuncionario',
+  RhMovimentacao: 'RhMovimentacao',
+  RhDesligamento: 'RhDesligamento'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2381,6 +2387,93 @@ export const OrcOrcamentoHistoricoScalarFieldEnum = {
 } as const
 
 export type OrcOrcamentoHistoricoScalarFieldEnum = (typeof OrcOrcamentoHistoricoScalarFieldEnum)[keyof typeof OrcOrcamentoHistoricoScalarFieldEnum]
+
+
+export const RhSetorScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type RhSetorScalarFieldEnum = (typeof RhSetorScalarFieldEnum)[keyof typeof RhSetorScalarFieldEnum]
+
+
+export const RhCargoScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type RhCargoScalarFieldEnum = (typeof RhCargoScalarFieldEnum)[keyof typeof RhCargoScalarFieldEnum]
+
+
+export const RhUnidadeScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  ativo: 'ativo',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type RhUnidadeScalarFieldEnum = (typeof RhUnidadeScalarFieldEnum)[keyof typeof RhUnidadeScalarFieldEnum]
+
+
+export const RhFuncionarioScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  cpf: 'cpf',
+  matricula: 'matricula',
+  email: 'email',
+  telefone: 'telefone',
+  dataNascimento: 'dataNascimento',
+  dataAdmissao: 'dataAdmissao',
+  dataDesligamento: 'dataDesligamento',
+  status: 'status',
+  tipoContrato: 'tipoContrato',
+  salarioCentavos: 'salarioCentavos',
+  gestor: 'gestor',
+  observacao: 'observacao',
+  setorId: 'setorId',
+  cargoId: 'cargoId',
+  unidadeId: 'unidadeId',
+  criadoEm: 'criadoEm',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type RhFuncionarioScalarFieldEnum = (typeof RhFuncionarioScalarFieldEnum)[keyof typeof RhFuncionarioScalarFieldEnum]
+
+
+export const RhMovimentacaoScalarFieldEnum = {
+  id: 'id',
+  funcionarioId: 'funcionarioId',
+  tipo: 'tipo',
+  data: 'data',
+  observacao: 'observacao',
+  criadoEm: 'criadoEm'
+} as const
+
+export type RhMovimentacaoScalarFieldEnum = (typeof RhMovimentacaoScalarFieldEnum)[keyof typeof RhMovimentacaoScalarFieldEnum]
+
+
+export const RhDesligamentoScalarFieldEnum = {
+  id: 'id',
+  funcionarioId: 'funcionarioId',
+  dataDesligamento: 'dataDesligamento',
+  motivo: 'motivo',
+  iniciativa: 'iniciativa',
+  avisoPrevio: 'avisoPrevio',
+  elegivelRecontratacao: 'elegivelRecontratacao',
+  setorSnapshot: 'setorSnapshot',
+  cargoSnapshot: 'cargoSnapshot',
+  observacao: 'observacao',
+  criadoEm: 'criadoEm'
+} as const
+
+export type RhDesligamentoScalarFieldEnum = (typeof RhDesligamentoScalarFieldEnum)[keyof typeof RhDesligamentoScalarFieldEnum]
 
 
 export const SortOrder = {

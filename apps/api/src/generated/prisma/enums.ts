@@ -66,3 +66,23 @@ export const OrcTipoItem = {
 } as const
 
 export type OrcTipoItem = (typeof OrcTipoItem)[keyof typeof OrcTipoItem]
+
+
+export const RhStatusFuncionario = {
+  ATIVO: 'ATIVO',
+  AFASTADO: 'AFASTADO',
+  DESLIGADO: 'DESLIGADO'
+} as const
+
+export type RhStatusFuncionario = (typeof RhStatusFuncionario)[keyof typeof RhStatusFuncionario]
+
+
+export const RhTipoMovimentacao = {
+  ADMISSAO: 'ADMISSAO',
+  ALTERACAO: 'ALTERACAO',
+  AFASTAMENTO: 'AFASTAMENTO',
+  RETORNO: 'RETORNO',
+  DESLIGAMENTO: 'DESLIGAMENTO'
+} as const
+
+export type RhTipoMovimentacao = (typeof RhTipoMovimentacao)[keyof typeof RhTipoMovimentacao]

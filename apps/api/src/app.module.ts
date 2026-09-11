@@ -30,8 +30,10 @@ import { AppFieldEvidenceModule } from './app-field-evidence/app-field-evidence.
 import { GeolocationModule } from './geolocation/geolocation.module';
 
 import { OrcamentoModule } from './orcamento/orcamento.module';
+import { DpRhModule } from './dp-rh/dp-rh.module';
 @Module({
   imports: [
+    DpRhModule,
     OrcamentoModule,
     GeolocationModule,
     AppFieldCoreModule,

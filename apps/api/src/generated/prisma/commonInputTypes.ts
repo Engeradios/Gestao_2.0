@@ -598,6 +598,40 @@ export type EnumOrcStatusNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumOrcStatusNullableFilter<$PrismaModel>
 }
 
+export type EnumRhStatusFuncionarioFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhStatusFuncionario | Prisma.EnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  in?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhStatusFuncionarioFilter<$PrismaModel> | $Enums.RhStatusFuncionario
+}
+
+export type EnumRhStatusFuncionarioWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhStatusFuncionario | Prisma.EnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  in?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhStatusFuncionarioWithAggregatesFilter<$PrismaModel> | $Enums.RhStatusFuncionario
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRhStatusFuncionarioFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRhStatusFuncionarioFilter<$PrismaModel>
+}
+
+export type EnumRhTipoMovimentacaoFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhTipoMovimentacao | Prisma.EnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  in?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhTipoMovimentacaoFilter<$PrismaModel> | $Enums.RhTipoMovimentacao
+}
+
+export type EnumRhTipoMovimentacaoWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhTipoMovimentacao | Prisma.EnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  in?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhTipoMovimentacaoWithAggregatesFilter<$PrismaModel> | $Enums.RhTipoMovimentacao
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRhTipoMovimentacaoFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRhTipoMovimentacaoFilter<$PrismaModel>
+}
+
 export type NestedStringNullableFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
@@ -1135,6 +1169,40 @@ export type NestedEnumOrcStatusNullableWithAggregatesFilter<$PrismaModel = never
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumOrcStatusNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumOrcStatusNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumRhStatusFuncionarioFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhStatusFuncionario | Prisma.EnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  in?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhStatusFuncionarioFilter<$PrismaModel> | $Enums.RhStatusFuncionario
+}
+
+export type NestedEnumRhStatusFuncionarioWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhStatusFuncionario | Prisma.EnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  in?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhStatusFuncionario[] | Prisma.ListEnumRhStatusFuncionarioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhStatusFuncionarioWithAggregatesFilter<$PrismaModel> | $Enums.RhStatusFuncionario
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRhStatusFuncionarioFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRhStatusFuncionarioFilter<$PrismaModel>
+}
+
+export type NestedEnumRhTipoMovimentacaoFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhTipoMovimentacao | Prisma.EnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  in?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhTipoMovimentacaoFilter<$PrismaModel> | $Enums.RhTipoMovimentacao
+}
+
+export type NestedEnumRhTipoMovimentacaoWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RhTipoMovimentacao | Prisma.EnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  in?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RhTipoMovimentacao[] | Prisma.ListEnumRhTipoMovimentacaoFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRhTipoMovimentacaoWithAggregatesFilter<$PrismaModel> | $Enums.RhTipoMovimentacao
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRhTipoMovimentacaoFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRhTipoMovimentacaoFilter<$PrismaModel>
 }
 
 

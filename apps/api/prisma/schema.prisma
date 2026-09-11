@@ -2651,3 +2651,112 @@ model OrcOrcamentoHistorico {
   @@index([orcamentoId, criadoEm(sort: Desc)])
   @@map("orc_orcamento_historicos")
 }
+
+enum RhStatusFuncionario {
+  ATIVO
+  AFASTADO
+  DESLIGADO
+}
+
+enum RhTipoMovimentacao {
+  ADMISSAO
+  ALTERACAO
+  AFASTAMENTO
+  RETORNO
+  DESLIGAMENTO
+}
+
+model RhSetor {
+  id           String          @id @default(uuid()) @db.Uuid
+  nome         String          @unique @db.VarChar(120)
+  ativo        Boolean         @default(true)
+  criadoEm     DateTime        @default(now()) @map("criado_em") @db.Timestamptz(6)
+  atualizadoEm DateTime        @updatedAt @map("atualizado_em") @db.Timestamptz(6)
+  funcionarios RhFuncionario[]
+  @@map("rh_setores")
+}
+
+model RhCargo {
+  id           String          @id @default(uuid()) @db.Uuid
+  nome         String          @unique @db.VarChar(120)
+  ativo        Boolean         @default(true)
+  criadoEm     DateTime        @default(now()) @map("criado_em") @db.Timestamptz(6)
+  atualizadoEm DateTime        @updatedAt @map("atualizado_em") @db.Timestamptz(6)
+  funcionarios RhFuncionario[]
+  @@map("rh_cargos")
+}
+
+model RhUnidade {
+  id           String          @id @default(uuid()) @db.Uuid
+  nome         String          @unique @db.VarChar(120)
+  ativo        Boolean         @default(true)
+  criadoEm     DateTime        @default(now()) @map("criado_em") @db.Timestamptz(6)
+  atualizadoEm DateTime        @updatedAt @map("atualizado_em") @db.Timestamptz(6)
+  funcionarios RhFuncionario[]
+  @@map("rh_unidades")
+}
+
+model RhFuncionario {
+  id               String              @id @default(uuid()) @db.Uuid
+  nome             String              @db.VarChar(180)
+  cpf              String?             @unique @db.VarChar(14)
+  matricula        String?             @unique @db.VarChar(40)
+  email            String?             @db.VarChar(180)
+  telefone         String?             @db.VarChar(30)
+  dataNascimento   DateTime?           @map("data_nascimento") @db.Date
+  dataAdmissao     DateTime            @map("data_admissao") @db.Date
+  dataDesligamento DateTime?           @map("data_desligamento") @db.Date
+  status           RhStatusFuncionario @default(ATIVO)
+  tipoContrato     String?             @map("tipo_contrato") @db.VarChar(40)
+  salarioCentavos  BigInt?             @map("salario_centavos")
+  gestor           String?             @db.VarChar(180)
+  observacao       String?             @db.Text
+  setorId          String?             @map("setor_id") @db.Uuid
+  cargoId          String?             @map("cargo_id") @db.Uuid
+  unidadeId        String?             @map("unidade_id") @db.Uuid
+  criadoEm         DateTime            @default(now()) @map("criado_em") @db.Timestamptz(6)
+  atualizadoEm     DateTime            @updatedAt @map("atualizado_em") @db.Timestamptz(6)
+  setor            RhSetor?            @relation(fields: [setorId], references: [id], onDelete: SetNull)
+  cargo            RhCargo?            @relation(fields: [cargoId], references: [id], onDelete: SetNull)
+  unidade          RhUnidade?          @relation(fields: [unidadeId], references: [id], onDelete: SetNull)
+  movimentacoes    RhMovimentacao[]
+  desligamento     RhDesligamento?
+
+  @@index([status])
+  @@index([dataAdmissao])
+  @@index([dataDesligamento])
+  @@index([setorId, status])
+  @@index([nome])
+  @@map("rh_funcionarios")
+}
+
+model RhMovimentacao {
+  id            String              @id @default(uuid()) @db.Uuid
+  funcionarioId String              @map("funcionario_id") @db.Uuid
+  tipo          RhTipoMovimentacao
+  data          DateTime            @db.Date
+  observacao    String?             @db.Text
+  criadoEm      DateTime            @default(now()) @map("criado_em") @db.Timestamptz(6)
+  funcionario   RhFuncionario       @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
+  @@index([funcionarioId, data])
+  @@map("rh_movimentacoes")
+}
+
+model RhDesligamento {
+  id                    String        @id @default(uuid()) @db.Uuid
+  funcionarioId         String        @unique @map("funcionario_id") @db.Uuid
+  dataDesligamento      DateTime      @map("data_desligamento") @db.Date
+  motivo                String        @db.VarChar(180)
+  iniciativa            String        @db.VarChar(30)
+  avisoPrevio           String?       @map("aviso_previo") @db.VarChar(30)
+  elegivelRecontratacao Boolean?      @map("elegivel_recontratacao")
+  setorSnapshot         String?       @map("setor_snapshot") @db.VarChar(120)
+  cargoSnapshot         String?       @map("cargo_snapshot") @db.VarChar(120)
+  observacao            String?       @db.Text
+  criadoEm              DateTime      @default(now()) @map("criado_em") @db.Timestamptz(6)
+  funcionario           RhFuncionario @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
+
+  @@index([dataDesligamento])
+  @@index([motivo])
+  @@map("rh_desligamentos")
+}

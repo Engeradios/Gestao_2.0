@@ -127,6 +127,17 @@ const navigation: NavigationItem[] = [
       { label: "Relatórios", href: "/grandes-projetos/relatorios" },
     ],
   },
+  {
+    label: "DP e RH",
+    href: "/dp-rh",
+    icon: Gauge,
+    children: [
+      { label: "Dashboard", href: "/dp-rh/dashboard" },
+      { label: "Funcion\u00e1rios", href: "/dp-rh/funcionarios" },
+      { label: "Movimenta\u00e7\u00f5es", href: "/dp-rh/movimentacoes" },
+      { label: "Cadastros", href: "/dp-rh/cadastros" },
+    ],
+  },
   { label: "Vistorias", href: "/vistoria", icon: ShieldCheck },
   {
     label: "Portal de Chamados",

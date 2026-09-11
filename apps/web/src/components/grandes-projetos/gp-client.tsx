@@ -34,6 +34,10 @@ type Project = {
   numero_contrato?: string;
   numero_pedido?: string;
   gerente?: string;
+  aprovacao_status?: "NAO_SUBMETIDO" | "PENDENTE" | "APROVADO" | "REJEITADO";
+  versao: number;
+  aprovado_em?: string | null;
+  aprovado_por_id?: string | null;
   financeiro: Finance;
   _count?: { gp_os: number; gp_material: number; gp_relatorio: number };
 };
@@ -266,12 +270,14 @@ export function GpDetail({
   canDelete: _canDelete,
   canRestore: _canRestore,
   canManageOs,
+  canApprove,
 }: {
   id: number;
   canManage: boolean;
   canDelete: boolean;
   canRestore: boolean;
   canManageOs: boolean;
+  canApprove: boolean;
 }) {
   void _canManage;
   void _canDelete;
@@ -279,7 +285,10 @@ export function GpDetail({
 
   const [p, setP] = useState<Detail | null>(null),
     [tab, setTab] = useState("resumo"),
-    [error, setError] = useState("");
+    [error, setError] = useState(""),
+    [message, setMessage] = useState(""),
+    [approvalAction, setApprovalAction] = useState<"submeter" | "aprovar" | "rejeitar" | "">(""),
+    [rejectionReason, setRejectionReason] = useState("");
   const load = useCallback(
     () =>
       api<Detail>(String(id))
@@ -290,6 +299,39 @@ export function GpDetail({
   useEffect(() => {
     load();
   }, [load]);
+  async function transitionApproval(action: "submeter" | "aprovar" | "rejeitar") {
+    if (action === "rejeitar" && !rejectionReason.trim()) {
+      setError("Informe o motivo da rejeição.");
+      return;
+    }
+    if (action === "aprovar" && !window.confirm("Confirma a aprovação deste projeto?")) return;
+    if (action === "submeter" && !window.confirm("Confirma o envio deste projeto para aprovação?")) return;
+    setApprovalAction(action);
+    setError("");
+    setMessage("");
+    try {
+      await api(`${id}/${action}`, {
+        method: "POST",
+        body: JSON.stringify({
+          versao: p?.versao,
+          ...(action === "rejeitar" ? { motivo: rejectionReason.trim() } : {}),
+        }),
+      });
+      setRejectionReason("");
+      setMessage(
+        action === "submeter" ? "Projeto enviado para aprovação." :
+        action === "aprovar" ? "Projeto aprovado com sucesso." :
+        "Projeto rejeitado com sucesso.",
+      );
+      await load();
+    } catch (x) {
+      setError(x instanceof Error ? x.message : "Falha na transição de aprovação.");
+      await load();
+    } finally {
+      setApprovalAction("");
+    }
+  }
+
   async function importOs() {
     try {
       await api(`${id}/os/importar-contrato`, { method: "POST" });
@@ -317,6 +359,22 @@ export function GpDetail({
         actions={
           <>
             <Badge tone={tone(p.status)}>{p.status || "Sem status"}</Badge>
+            <Badge tone={p.aprovacao_status === "APROVADO" ? "success" : p.aprovacao_status === "PENDENTE" ? "warning" : p.aprovacao_status === "REJEITADO" ? "danger" : "neutral"}>
+              {p.aprovacao_status === "NAO_SUBMETIDO" ? "Não submetido" : p.aprovacao_status === "PENDENTE" ? "Pendente de aprovação" : p.aprovacao_status === "APROVADO" ? "Aprovado" : p.aprovacao_status === "REJEITADO" ? "Rejeitado" : "Não submetido"}
+            </Badge>
+            {_canManage && ["NAO_SUBMETIDO", "REJEITADO", undefined].includes(p.aprovacao_status) && (
+              <Button disabled={Boolean(approvalAction)} onClick={() => void transitionApproval("submeter")}>
+                {approvalAction === "submeter" ? "Enviando..." : "Submeter para aprovação"}
+              </Button>
+            )}
+            {canApprove && p.aprovacao_status === "PENDENTE" && (
+              <>
+                <Button disabled={Boolean(approvalAction)} onClick={() => void transitionApproval("aprovar")}>
+                  {approvalAction === "aprovar" ? "Aprovando..." : "Aprovar"}
+                </Button>
+                <Button variant="secondary" disabled={Boolean(approvalAction)} onClick={() => (document.getElementById("gp-reject-dialog") as HTMLDialogElement | null)?.showModal()}>Rejeitar</Button>
+              </>
+            )}
             {p.numero_contrato && canManageOs && (
               <Button variant="secondary" onClick={importOs}>
                 Importar OS do contrato
@@ -325,7 +383,24 @@ export function GpDetail({
           </>
         }
       />
-      {error && <p className="mb-4 text-red-600">{error}</p>}
+      {error && <p role="alert" className="mb-4 rounded-xl bg-red-50 p-3 text-red-700 dark:bg-red-950/40 dark:text-red-300">{error}</p>}
+      {message && <p role="status" className="mb-4 rounded-xl bg-emerald-50 p-3 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">{message}</p>}
+      {p.aprovacao_status === "APROVADO" && p.aprovado_em && (
+        <p className="mb-4 text-sm text-slate-500">Aprovado em {new Date(p.aprovado_em).toLocaleString("pt-BR")}.</p>
+      )}
+      <dialog id="gp-reject-dialog" className="m-auto w-[min(560px,calc(100%-2rem))] rounded-2xl bg-white p-6 shadow-2xl backdrop:bg-black/60 dark:bg-slate-950">
+        <h2 className="text-xl font-bold">Rejeitar projeto</h2>
+        <p className="mt-2 text-sm text-slate-500">Informe o motivo. Ele será registrado na auditoria.</p>
+        <label className="mt-4 block text-sm font-semibold">Motivo da rejeição
+          <textarea value={rejectionReason} maxLength={500} onChange={(e) => setRejectionReason(e.target.value)} className="mt-2 min-h-28 w-full rounded-xl border bg-transparent p-3 dark:border-slate-700" />
+        </label>
+        <div className="mt-5 flex justify-end gap-2">
+          <Button variant="secondary" disabled={Boolean(approvalAction)} onClick={() => (document.getElementById("gp-reject-dialog") as HTMLDialogElement | null)?.close()}>Cancelar</Button>
+          <Button disabled={Boolean(approvalAction) || !rejectionReason.trim()} onClick={async () => { await transitionApproval("rejeitar"); (document.getElementById("gp-reject-dialog") as HTMLDialogElement | null)?.close(); }}>
+            {approvalAction === "rejeitar" ? "Rejeitando..." : "Confirmar rejeição"}
+          </Button>
+        </div>
+      </dialog>
       <div className="mb-5 flex flex-wrap gap-2">
         {tabs.map(([k, l]) => (
           <Button

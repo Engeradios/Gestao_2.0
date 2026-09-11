@@ -6,7 +6,10 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
 import { Prisma } from '../generated/prisma/client';
-import { AdminUpdateServiceDto } from './dto/service.dto';
+import {
+  AdminUpdateServiceDto,
+  UpdateServicePlanningPlaceDto,
+} from './dto/service.dto';
 @Injectable()
 export class OperationalServicesService {
   constructor(private readonly db: PrismaService) {}
@@ -900,6 +903,100 @@ export class OperationalServicesService {
       return novo;
     });
   }
+  async atualizarPracaPlanejamento(
+    id: string,
+    body: UpdateServicePlanningPlaceDto,
+    ator: string,
+    usuarioIdCandidato: string | null,
+  ) {
+    const praca = body.pracaResponsavel.trim().replace(/\s+/g, ' ');
+    const uuid =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    const usuarioId =
+      usuarioIdCandidato && uuid.test(usuarioIdCandidato)
+        ? usuarioIdCandidato
+        : null;
+
+    return this.db.$transaction(async (tx) => {
+      const antigo = await tx.opServico.findUnique({ where: { id } });
+      if (!antigo) throw new NotFoundException('Serviço não encontrado');
+      if (antigo.pracaResponsavel?.trim()) {
+        throw new ConflictException('Serviço já possui praça responsável.');
+      }
+      if (
+        antigo.emailLogisticaStatus !== null ||
+        antigo.emailLogisticaTentativas !== 0
+      ) {
+        throw new ConflictException(
+          'Praça não pode ser corrigida após tentativa logística.',
+        );
+      }
+      if (antigo.propostaId === null) {
+        throw new BadRequestException('Serviço sem proposta vinculada.');
+      }
+
+      const proposta = await tx.opProposta.findUnique({
+        where: { id: antigo.propostaId },
+        select: { clienteMunicipio: true, clienteUf: true, status: true },
+      });
+      if (!proposta) {
+        throw new NotFoundException('Proposta vinculada não encontrada.');
+      }
+
+      const municipio = proposta.clienteMunicipio?.trim().replace(/\s+/g, ' ');
+      if (!municipio || municipio.toUpperCase() !== praca.toUpperCase()) {
+        throw new BadRequestException(
+          'Praça divergente do município cadastrado na proposta.',
+        );
+      }
+      if (
+        proposta.clienteUf?.trim().toUpperCase() !==
+        antigo.ufExecucao.trim().toUpperCase()
+      ) {
+        throw new BadRequestException(
+          'UF da proposta divergente da UF do serviço.',
+        );
+      }
+      if (proposta.status.trim().toUpperCase() !== 'APROVADO') {
+        throw new BadRequestException('Proposta vinculada não está aprovada.');
+      }
+
+      const updated = await tx.opServico.updateMany({
+        where: {
+          id,
+          OR: [{ pracaResponsavel: null }, { pracaResponsavel: '' }],
+          emailLogisticaStatus: null,
+          emailLogisticaTentativas: 0,
+        },
+        data: { pracaResponsavel: praca },
+      });
+      if (updated.count !== 1) {
+        throw new ConflictException(
+          'Estado do serviço mudou durante a operação.',
+        );
+      }
+
+      await tx.auditoria.create({
+        data: {
+          usuarioId,
+          entidade: 'SERVICO',
+          entidadeId: id,
+          acao: 'SERVICO_PRACA_CORRIGIDA',
+          dadosAntes: {
+            pracaResponsavel: antigo.pracaResponsavel,
+          } as never,
+          dadosDepois: {
+            pracaResponsavel: praca,
+            origem: 'op_propostas.cliente_municipio',
+            ator,
+          } as never,
+        },
+      });
+
+      return tx.opServico.findUniqueOrThrow({ where: { id } });
+    });
+  }
+
   async atualizarAdministrativo(
     id: string,
     body: AdminUpdateServiceDto,

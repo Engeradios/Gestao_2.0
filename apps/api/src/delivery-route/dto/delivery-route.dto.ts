@@ -78,19 +78,22 @@ export class SaveDeliveryRouteStopsDto {
   paradas!: DeliveryRouteStopDto[];
 }
 
+// ROTEIRO_ENTREGA_FASE02B1_BACKEND_V1
 export class SaveDeliveryRouteHeaderDto {
   @IsISO8601({ strict: true })
   dataRota!: string;
 
+  @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  entregadorId!: number;
+  entregadorId?: number;
 
+  @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  veiculoId!: number;
+  veiculoId?: number;
 
   @IsOptional()
   @Transform(trim)
@@ -99,6 +102,7 @@ export class SaveDeliveryRouteHeaderDto {
   observacoes?: string;
 }
 
+// ROTEIRO_ENTREGA_FASE02A_BACKEND_V3
 export class DeliveryRouteQueryDto {
   @IsOptional()
   @IsISO8601({ strict: true })
@@ -115,6 +119,12 @@ export class DeliveryRouteQueryDto {
   @IsInt()
   @Min(1)
   entregadorId?: number;
+
+  @IsOptional()
+  @Transform(trim)
+  @IsString()
+  @MaxLength(2)
+  uf?: string;
 }
 
 export class DeliverySourceQueryDto {

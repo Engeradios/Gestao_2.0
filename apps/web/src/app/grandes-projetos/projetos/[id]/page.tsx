@@ -26,6 +26,9 @@ export default async function Page({
         canManageOs={
           u.permissoes?.includes("GRANDES_PROJETOS.OS.GERENCIAR") ?? false
         }
+        canApprove={
+          u.permissoes?.includes("GRANDES_PROJETOS.PROJETOS.APROVAR") ?? false
+        }
       />
     </AppShell>
   );

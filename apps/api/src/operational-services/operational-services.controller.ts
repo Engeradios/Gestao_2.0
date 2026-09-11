@@ -23,6 +23,7 @@ import {
 import type { Request } from 'express';
 import {
   AdminUpdateServiceDto,
+  UpdateServicePlanningPlaceDto,
   CreateProgressDto,
   CreateServiceDto,
   ServicesQueryDto,
@@ -80,6 +81,22 @@ export class OperationalServicesController {
   criar(@Body() b: CreateServiceDto, @Req() req: AuthRequest) {
     return this.s.salvar(null, { ...b, usuario: actor(req) });
   }
+  @RequirePermissions('OPERACIONAL.OS.EDITAR_DADOS')
+  @Patch('servicos/:id/planejamento/praca')
+  atualizarPracaPlanejamento(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() body: UpdateServicePlanningPlaceDto,
+    @Req() req: AuthRequest,
+  ) {
+    const sub = req.user?.sub;
+    return this.s.atualizarPracaPlanejamento(
+      id,
+      body,
+      actor(req),
+      typeof sub === 'string' ? sub : null,
+    );
+  }
+
   @RequirePermissions('OPERACIONAL.OS.EDITAR_DADOS')
   @Patch('servicos/:id')
   atualizar(

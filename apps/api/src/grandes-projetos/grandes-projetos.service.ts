@@ -256,6 +256,72 @@ export class GrandesProjetosService {
       return p;
     });
   }
+  async transitionApproval(
+    id: number,
+    target: 'PENDENTE' | 'APROVADO' | 'REJEITADO',
+    version: number,
+    actor: Actor,
+    rejectionReason?: string,
+  ) {
+    return this.db.$transaction(async (tx) => {
+      const before = await tx.gp_projeto.findFirst({
+        where: { id, excluido_em: null },
+      });
+      if (!before) throw new NotFoundException('Projeto não encontrado');
+
+      const allowed =
+        target === 'PENDENTE'
+          ? ['NAO_SUBMETIDO', 'REJEITADO'].includes(before.aprovacao_status)
+          : before.aprovacao_status === 'PENDENTE';
+      if (!allowed) {
+        throw new BadRequestException(
+          `Transição de aprovação inválida: ${before.aprovacao_status} -> ${target}`,
+        );
+      }
+      const reason = rejectionReason?.trim();
+      if (target === 'REJEITADO' && !reason) {
+        throw new BadRequestException('Informe o motivo da rejeição');
+      }
+
+      const result = await tx.gp_projeto.updateMany({
+        where: {
+          id,
+          versao: version,
+          aprovacao_status: before.aprovacao_status,
+          excluido_em: null,
+        },
+        data: {
+          aprovacao_status: target,
+          aprovado_em: target === 'APROVADO' ? new Date() : null,
+          aprovado_por_id: target === 'APROVADO' ? actor.id || null : null,
+          atualizado_por_id: actor.id || null,
+          atualizado_em: new Date(),
+          versao: { increment: 1 },
+        },
+      });
+      if (result.count !== 1) {
+        throw new BadRequestException(
+          'O projeto foi alterado por outro usuário. Atualize a tela e tente novamente.',
+        );
+      }
+      const after = await tx.gp_projeto.findUniqueOrThrow({ where: { id } });
+      await this.audit(
+        tx,
+        actor,
+        'gp_projeto',
+        id,
+        target === 'PENDENTE'
+          ? 'SUBMETER_APROVACAO'
+          : target === 'APROVADO'
+            ? 'APROVAR'
+            : 'REJEITAR',
+        before,
+        target === 'REJEITADO' ? { ...after, motivo_rejeicao: reason } : after,
+      );
+      return after;
+    });
+  }
+
   async remove(
     _k: string,
     id: number,

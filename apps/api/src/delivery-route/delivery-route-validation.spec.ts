@@ -83,4 +83,50 @@ describe('Roteiro de Entrega - historico e retorno', () => {
   it('aceita origem WEB, APP ou SISTEMA validada por DTO', () => {
     expect(dto).toContain("@IsIn(['WEB', 'APP', 'SISTEMA'])");
   });
+  // ROTEIRO_ENTREGA_FASE02A_BACKEND_V3
+  it('separa indicadores globais da listagem por data', () => {
+    expect(service).toContain(
+      'const dataEntrega = query.data ? this.date(query.data) : undefined',
+    );
+    expect(service).toContain(
+      'const indicatorWhere: Prisma.OpRoteiroEntregaWhereInput',
+    );
+    expect(service).toContain('...commonWhere');
+    expect(service).not.toContain(
+      'const indicatorWhere: Prisma.OpRoteiroEntregaWhereInput = {\n      dataEntrega,',
+    );
+  });
+
+  it('aceita e normaliza filtro por UF', () => {
+    expect(dto).toContain('uf?: string');
+    expect(service).toContain('query.uf?.trim().toUpperCase() || undefined');
+    expect(service).toContain('...(uf ? { uf } : {})');
+  });
+
+  it('exporta roteiro de entrega em XLSX', () => {
+    expect(controller).toContain("@Get('excel')");
+    expect(controller).toContain('this.service.exportExcel(query)');
+    expect(service).toContain("import * as XLSX from 'xlsx'");
+    expect(service).toContain('async exportExcel(');
+    expect(service).toContain('XLSX.utils.book_append_sheet');
+    expect(service).toContain("bookType: 'xlsx'");
+    expect(service).toContain(
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    );
+  });
+
+  it('neutraliza formulas na exportacao XLSX', () => {
+    expect(service).toContain('/^[=+\\-@]/');
+    expect(service).toContain("`'${text}`");
+  });
+  // ROTEIRO_ENTREGA_FASE02B1_BACKEND_V1
+  it('permite rascunho sem entregador e veiculo e exige ambos no despacho', () => {
+    expect(dto).toContain('entregadorId?: number');
+    expect(dto).toContain('veiculoId?: number');
+    expect(service).toContain(
+      'Selecione um entregador ativo antes do despacho',
+    );
+    expect(service).toContain('Selecione um veículo ativo antes do despacho');
+    expect(service).toContain('dataEntrega: data.dataRota');
+  });
 });

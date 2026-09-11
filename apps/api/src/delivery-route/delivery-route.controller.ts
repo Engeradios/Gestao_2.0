@@ -55,6 +55,25 @@ export class DeliveryRouteController {
     return this.service.dashboard(query);
   }
 
+  // ROTEIRO_ENTREGA_FASE02A_BACKEND_V3
+  @Get('excel')
+  @RequirePermissions('ESTOQUE_LOGISTICA.ROTEIRO_ENTREGA.VISUALIZAR')
+  async exportExcel(
+    @Query() query: DeliveryRouteQueryDto,
+    @Res() response: Response,
+  ) {
+    const file = await this.service.exportExcel(query);
+
+    response.setHeader('Content-Type', file.type);
+    response.setHeader(
+      'Content-Disposition',
+      `attachment; filename="${file.name}"`,
+    );
+    response.setHeader('Content-Length', String(file.buffer.length));
+    response.setHeader('Cache-Control', 'no-store, max-age=0');
+    response.send(file.buffer);
+  }
+
   @Get('roteiros')
   @RequirePermissions('ESTOQUE_LOGISTICA.ROTEIRO_ENTREGA.VISUALIZAR')
   routes(@Query('data') data?: string) {

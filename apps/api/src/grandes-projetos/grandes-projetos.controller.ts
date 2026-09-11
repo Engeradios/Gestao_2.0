@@ -16,12 +16,14 @@ import { RequirePermissions } from '../auth/decorators/permissions.decorator';
 import { JwtAuthGuard, JwtPayload } from '../auth/guards/jwt-auth.guard';
 import { PermissionsGuard } from '../auth/guards/permissions.guard';
 import {
+  ApprovalTransitionDto,
   CostDto,
   MaterialDto,
   MilestoneDto,
   OrderDto,
   ProjectDto,
   ProjectQueryDto,
+  RejectProjectDto,
   ReportDto,
 } from './dto/grandes-projetos.dto';
 import { GrandesProjetosService } from './grandes-projetos.service';
@@ -71,6 +73,52 @@ export class GrandesProjetosController {
   ) {
     return this.service.save(id, b, this.actor(r));
   }
+  @Post(':id/submeter')
+  @RequirePermissions('GRANDES_PROJETOS.PROJETOS.GERENCIAR')
+  submit(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: ApprovalTransitionDto,
+    @Req() r: R,
+  ) {
+    return this.service.transitionApproval(
+      id,
+      'PENDENTE',
+      body.versao,
+      this.actor(r),
+    );
+  }
+
+  @Post(':id/aprovar')
+  @RequirePermissions('GRANDES_PROJETOS.PROJETOS.APROVAR')
+  approve(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: ApprovalTransitionDto,
+    @Req() r: R,
+  ) {
+    return this.service.transitionApproval(
+      id,
+      'APROVADO',
+      body.versao,
+      this.actor(r),
+    );
+  }
+
+  @Post(':id/rejeitar')
+  @RequirePermissions('GRANDES_PROJETOS.PROJETOS.APROVAR')
+  reject(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: RejectProjectDto,
+    @Req() r: R,
+  ) {
+    return this.service.transitionApproval(
+      id,
+      'REJEITADO',
+      body.versao,
+      this.actor(r),
+      body.motivo,
+    );
+  }
+
   @Delete(':id')
   @RequirePermissions('GRANDES_PROJETOS.PROJETOS.EXCLUIR')
   remove(

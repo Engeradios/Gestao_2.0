@@ -4,6 +4,7 @@ import {
   IsDateString,
   IsIn,
   IsInt,
+  IsNotEmpty,
   IsNumber,
   IsObject,
   IsOptional,
@@ -72,6 +73,20 @@ export class ProjectDto {
   aliqOutros?: number;
   @IsOptional() @IsString() observacoes?: string;
 }
+export class ApprovalTransitionDto {
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  versao!: number;
+}
+
+export class RejectProjectDto extends ApprovalTransitionDto {
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(500)
+  motivo!: string;
+}
+
 export class CostDto {
   @IsOptional() @IsString() @MaxLength(30) categoria?: string;
   @IsOptional() @IsIn(['direto', 'indireto']) tipo?: string;

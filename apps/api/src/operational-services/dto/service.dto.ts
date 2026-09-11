@@ -138,6 +138,14 @@ export class CreateProgressDto {
  * Não inclui proposta, cliente, aprovação, planejamento,
  * prazo, percentual, categoria, ações ou dados do PDF.
  */
+export class UpdateServicePlanningPlaceDto {
+  @Transform(trim)
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(160)
+  pracaResponsavel!: string;
+}
+
 export class AdminUpdateServiceDto {
   @IsOptional()
   @Transform(trim)

@@ -2,6 +2,7 @@
 
 import {
   CalendarDays,
+  FileSpreadsheet,
   CheckCircle2,
   CircleX,
   Clock3,
@@ -152,6 +153,8 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
   const [date, setDate] = useState(today);
   const [status, setStatus] = useState("");
   const [driverId, setDriverId] = useState("");
+  // ROTEIRO_ENTREGA_FASE03A2_FRONTEND_V5
+  const [uf, setUf] = useState("");
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
   const [drivers, setDrivers] = useState<Driver[]>([]);
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
@@ -185,6 +188,7 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
 
       if (status) query.set("status", status);
       if (driverId) query.set("entregadorId", driverId);
+      if (uf) query.set("uf", uf);
 
       const [panel, driverList, vehicleList] = await Promise.all([
         api<Dashboard>(`?${query.toString()}`),
@@ -204,7 +208,7 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
     } finally {
       setLoading(false);
     }
-  }, [date, driverId, status]);
+  }, [date, driverId, status, uf]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -282,6 +286,14 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
 
   const indicators = dashboard?.indicadores;
 
+  const excelQuery = new URLSearchParams({ data: date });
+
+  if (status) excelQuery.set("status", status);
+  if (driverId) excelQuery.set("entregadorId", driverId);
+  if (uf) excelQuery.set("uf", uf);
+
+  const excelHref = `/api/estoque-logistica/roteiro-entrega/excel?${excelQuery.toString()}`;
+
   const cards = [
     {
       label: "Total",
@@ -325,7 +337,7 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
       <PageHeader
         section="Estoque e Logística"
         title="Roteiro de Entrega"
-        description="Planejamento, execução e acompanhamento diário das entregas."
+        description="Planejamento, execução e acompanhamento das entregas."
         actions={
           <>
             {canManage && (
@@ -340,6 +352,14 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
             )}
 
             <a
+              href={excelHref}
+              className="flex items-center gap-2 rounded-xl border border-emerald-600 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-950/30"
+            >
+              <FileSpreadsheet size={17} />
+              Exportar Excel
+            </a>
+
+            <a
               href={`/api/estoque-logistica/roteiro-entrega/roteiros/pdf?data=${encodeURIComponent(date)}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -352,6 +372,16 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
         }
       />
 
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs font-medium text-slate-500">
+          Indicadores de todas as datas
+          {uf ? ` na UF ${uf}` : ""}
+          {driverId ? " para o entregador selecionado" : ""}
+        </p>
+        <p className="text-xs text-slate-500">
+          O campo Data filtra somente a lista de entregas.
+        </p>
+      </div>
       <section className="mb-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
         {cards.map(({ label, value, icon: Icon, color, filter }) => (
           <button
@@ -424,6 +454,31 @@ export function DeliveryRouteManager({ canManage }: { canManage: boolean }) {
                 {driver.nome}
               </option>
             ))}
+          </select>
+        </label>
+
+        <label className="space-y-1">
+          <span className="text-xs font-semibold uppercase text-slate-500">
+            UF
+          </span>
+
+          <select
+            value={uf}
+            onChange={(event) => setUf(event.target.value)}
+            className="min-w-32 rounded-xl border bg-transparent px-3 py-2"
+          >
+            <option value="">Todas as UFs</option>
+            <option value="RJ">RJ</option>
+            <option value="SP">SP</option>
+            <option value="MG">MG</option>
+            <option value="ES">ES</option>
+            <option value="PR">PR</option>
+            <option value="SC">SC</option>
+            <option value="RS">RS</option>
+            <option value="BA">BA</option>
+            <option value="DF">DF</option>
+            <option value="GO">GO</option>
+            <option value="PE">PE</option>
           </select>
         </label>
 

@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
 import { Prisma } from '../generated/prisma/client';
+import * as XLSX from 'xlsx';
 import {
   CancelDeliveryDto,
   DeliveryReturnDto,
@@ -46,27 +47,32 @@ export class DeliveryRouteService {
     return JSON.parse(serialized) as T;
   }
 
+  // ROTEIRO_ENTREGA_FASE02A_BACKEND_V3
   async dashboard(query: DeliveryRouteQueryDto) {
-    const dataEntrega = this.date(query.data);
-
+    const dataEntrega = query.data ? this.date(query.data) : undefined;
+    const uf = query.uf?.trim().toUpperCase() || undefined;
     const statusFilter =
       query.status === 'OCORRENCIAS'
         ? { in: ['Não Entregue', 'Devolvido'] }
         : query.status
           ? { equals: query.status }
           : undefined;
-    const where: Prisma.OpRoteiroEntregaWhereInput = {
-      dataEntrega,
-      ...(statusFilter ? { status: statusFilter } : {}),
+
+    const commonWhere: Prisma.OpRoteiroEntregaWhereInput = {
+      ...(uf ? { uf } : {}),
       ...(query.entregadorId
         ? { entregadorId: BigInt(query.entregadorId) }
         : {}),
     };
+
+    const where: Prisma.OpRoteiroEntregaWhereInput = {
+      ...commonWhere,
+      ...(dataEntrega ? { dataEntrega } : {}),
+      ...(statusFilter ? { status: statusFilter } : {}),
+    };
+
     const indicatorWhere: Prisma.OpRoteiroEntregaWhereInput = {
-      dataEntrega,
-      ...(query.entregadorId
-        ? { entregadorId: BigInt(query.entregadorId) }
-        : {}),
+      ...commonWhere,
     };
 
     const [
@@ -97,6 +103,7 @@ export class DeliveryRouteService {
           },
         },
         orderBy: [
+          { dataEntrega: 'desc' },
           { entregador: { nome: 'asc' } },
           { ordemExecucao: 'asc' },
           { id: 'asc' },
@@ -124,7 +131,11 @@ export class DeliveryRouteService {
     ]);
 
     return this.json({
-      data: dataEntrega,
+      data: dataEntrega ?? null,
+      filtrosIndicadores: {
+        uf: uf ?? null,
+        entregadorId: query.entregadorId ?? null,
+      },
       indicadores: {
         total,
         agendadas,
@@ -137,6 +148,194 @@ export class DeliveryRouteService {
       },
       entregas,
     });
+  }
+
+  private excelText(value: unknown): string {
+    if (value === null || value === undefined) return '';
+
+    let text: string;
+
+    if (value instanceof Date) {
+      text = value.toISOString().slice(0, 10);
+    } else if (typeof value === 'string') {
+      text = value;
+    } else if (
+      typeof value === 'number' ||
+      typeof value === 'bigint' ||
+      typeof value === 'boolean'
+    ) {
+      text = value.toString();
+    } else {
+      try {
+        text = JSON.stringify(value) ?? '';
+      } catch {
+        text = '';
+      }
+    }
+
+    return /^[=+\-@]/.test(text) ? `'${text}` : text;
+  }
+
+  // ROTEIRO_ENTREGA_FASE02A_BACKEND_V3
+  async exportExcel(query: DeliveryRouteQueryDto) {
+    const dataEntrega = query.data ? this.date(query.data) : undefined;
+    const uf = query.uf?.trim().toUpperCase() || undefined;
+    const statusFilter =
+      query.status === 'OCORRENCIAS'
+        ? { in: ['Não Entregue', 'Devolvido'] }
+        : query.status
+          ? { equals: query.status }
+          : undefined;
+
+    const where: Prisma.OpRoteiroEntregaWhereInput = {
+      ...(dataEntrega ? { dataEntrega } : {}),
+      ...(uf ? { uf } : {}),
+      ...(statusFilter ? { status: statusFilter } : {}),
+      ...(query.entregadorId
+        ? { entregadorId: BigInt(query.entregadorId) }
+        : {}),
+    };
+
+    const deliveries = await this.db.opRoteiroEntrega.findMany({
+      where,
+      include: {
+        entregador: true,
+        veiculo: true,
+        roteiro: {
+          select: {
+            id: true,
+            titulo: true,
+            status: true,
+            dataRota: true,
+            despachadoEm: true,
+            despachadoPor: true,
+          },
+        },
+      },
+      orderBy: [
+        { dataEntrega: 'desc' },
+        { entregador: { nome: 'asc' } },
+        { roteiroId: 'asc' },
+        { ordemExecucao: 'asc' },
+        { id: 'asc' },
+      ],
+    });
+
+    const rows = deliveries.map((delivery) => ({
+      ID: delivery.id.toString(),
+      Data: delivery.dataEntrega.toISOString().slice(0, 10),
+      UF: this.excelText(delivery.uf),
+      Status: this.excelText(delivery.status),
+      Origem: this.excelText(delivery.origem),
+      'OS/Pedido': this.excelText(delivery.origemNumero),
+      Cliente: this.excelText(delivery.clienteNome),
+      Endereco: this.excelText(delivery.enderecoEntrega),
+      Bairro: this.excelText(delivery.bairro),
+      Cidade: this.excelText(delivery.cidade),
+      Entregador: this.excelText(delivery.entregador?.nome),
+      Veiculo: this.excelText(
+        delivery.veiculo
+          ? `${delivery.veiculo.placa} ${delivery.veiculo.modelo ?? ''}`.trim()
+          : '',
+      ),
+      'Roteiro ID': delivery.roteiroId?.toString() ?? '',
+      'Roteiro Titulo': this.excelText(delivery.roteiro?.titulo),
+      'Status Roteiro': this.excelText(delivery.roteiro?.status),
+      Ordem: delivery.ordemExecucao,
+      Tentativa: delivery.tentativaNumero,
+      Reentrega: delivery.isReentrega ? 'Sim' : 'Nao',
+      'Observacao da Rota': this.excelText(delivery.observacaoRota),
+      'Observacao do Retorno': this.excelText(delivery.observacaoRetorno),
+      'Motivo do Insucesso': this.excelText(delivery.motivoInsucesso),
+      'Criado em': delivery.criadoEm.toISOString(),
+      'Atualizado em': delivery.atualizadoEm.toISOString(),
+      'Despachado em': delivery.roteiro?.despachadoEm?.toISOString() ?? '',
+      'Despachado por': this.excelText(delivery.roteiro?.despachadoPor),
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(rows, {
+      header: [
+        'ID',
+        'Data',
+        'UF',
+        'Status',
+        'Origem',
+        'OS/Pedido',
+        'Cliente',
+        'Endereco',
+        'Bairro',
+        'Cidade',
+        'Entregador',
+        'Veiculo',
+        'Roteiro ID',
+        'Roteiro Titulo',
+        'Status Roteiro',
+        'Ordem',
+        'Tentativa',
+        'Reentrega',
+        'Observacao da Rota',
+        'Observacao do Retorno',
+        'Motivo do Insucesso',
+        'Criado em',
+        'Atualizado em',
+        'Despachado em',
+        'Despachado por',
+      ],
+    });
+
+    worksheet['!autofilter'] = {
+      ref: worksheet['!ref'] ?? 'A1:Y1',
+    };
+
+    worksheet['!cols'] = [
+      { wch: 12 },
+      { wch: 12 },
+      { wch: 5 },
+      { wch: 18 },
+      { wch: 12 },
+      { wch: 16 },
+      { wch: 36 },
+      { wch: 45 },
+      { wch: 22 },
+      { wch: 24 },
+      { wch: 26 },
+      { wch: 24 },
+      { wch: 12 },
+      { wch: 28 },
+      { wch: 18 },
+      { wch: 9 },
+      { wch: 10 },
+      { wch: 11 },
+      { wch: 40 },
+      { wch: 40 },
+      { wch: 28 },
+      { wch: 24 },
+      { wch: 24 },
+      { wch: 24 },
+      { wch: 28 },
+    ];
+
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Roteiro de Entrega');
+
+    const generated = XLSX.write(workbook, {
+      type: 'buffer',
+      bookType: 'xlsx',
+      compression: true,
+    }) as Uint8Array;
+
+    const stamp = new Date()
+      .toISOString()
+      .replace(/[:.]/g, '-')
+      .replace('T', '_')
+      .replace('Z', '');
+
+    return {
+      buffer: Buffer.from(generated),
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      name: `roteiro-entrega-${stamp}.xlsx`,
+      total: deliveries.length,
+    };
   }
 
   async routes(dataValue?: string) {
@@ -170,6 +369,7 @@ export class DeliveryRouteService {
     return this.json(route);
   }
 
+  // ROTEIRO_ENTREGA_FASE02B1_BACKEND_V1
   async saveRoute(
     id: bigint | null,
     body: SaveDeliveryRouteHeaderDto,
@@ -185,24 +385,26 @@ export class DeliveryRouteService {
           'Somente roteiros em rascunho podem ser editados',
         );
       }
-
+      const entregadorId = body.entregadorId ? BigInt(body.entregadorId) : null;
+      const veiculoId = body.veiculoId ? BigInt(body.veiculoId) : null;
       const [driver, vehicle] = await Promise.all([
-        tx.opEntregador.findFirst({
-          where: { id: BigInt(body.entregadorId), ativo: true },
-        }),
-        tx.opVeiculo.findFirst({
-          where: { id: BigInt(body.veiculoId), ativo: true },
-        }),
+        entregadorId
+          ? tx.opEntregador.findFirst({
+              where: { id: entregadorId, ativo: true },
+            })
+          : null,
+        veiculoId
+          ? tx.opVeiculo.findFirst({ where: { id: veiculoId, ativo: true } })
+          : null,
       ]);
-      if (!driver)
+      if (entregadorId && !driver)
         throw new BadRequestException('Entregador inválido ou inativo');
-      if (!vehicle)
+      if (veiculoId && !vehicle)
         throw new BadRequestException('Veículo inválido ou inativo');
-
       const data = {
         dataRota: this.date(body.dataRota),
-        entregadorId: BigInt(body.entregadorId),
-        veiculoId: BigInt(body.veiculoId),
+        entregadorId,
+        veiculoId,
         observacoes: body.observacoes?.trim() || null,
         criadoPor: before?.criadoPor ?? actor.nome,
         atualizadoEm: new Date(),
@@ -210,7 +412,17 @@ export class DeliveryRouteService {
       const saved = id
         ? await tx.opRoteiroEntregaCabecalho.update({ where: { id }, data })
         : await tx.opRoteiroEntregaCabecalho.create({ data });
-
+      if (id) {
+        await tx.opRoteiroEntrega.updateMany({
+          where: { roteiroId: id },
+          data: {
+            entregadorId,
+            veiculoId,
+            dataEntrega: data.dataRota,
+            atualizadoEm: new Date(),
+          },
+        });
+      }
       await this.audit(
         tx,
         actor,
@@ -333,11 +545,18 @@ export class DeliveryRouteService {
     });
   }
 
+  // ROTEIRO_ENTREGA_FASE02B1_BACKEND_V1
   async dispatchRoute(id: bigint, actor: { id: string; nome: string }) {
     return this.db.$transaction(async (tx) => {
       const before = await tx.opRoteiroEntregaCabecalho.findUnique({
         where: { id },
-        include: { _count: { select: { entregas: true } } },
+        include: {
+          entregador: true,
+          veiculo: true,
+          entregas: {
+            select: { id: true, entregadorId: true, veiculoId: true },
+          },
+        },
       });
       if (!before) throw new NotFoundException('Roteiro não encontrado');
       if (before.status !== 'RASCUNHO') {
@@ -345,12 +564,40 @@ export class DeliveryRouteService {
           'Somente roteiros em rascunho podem ser despachados',
         );
       }
-      if (before._count.entregas === 0) {
+      if (!before.entregas.length) {
         throw new BadRequestException(
           'Inclua ao menos uma entrega antes do despacho',
         );
       }
-
+      if (
+        !before.entregadorId ||
+        !before.entregador ||
+        !before.entregador.ativo
+      ) {
+        throw new BadRequestException(
+          'Selecione um entregador ativo antes do despacho',
+        );
+      }
+      if (!before.veiculoId || !before.veiculo || !before.veiculo.ativo) {
+        throw new BadRequestException(
+          'Selecione um veículo ativo antes do despacho',
+        );
+      }
+      const inconsistent = before.entregas.some(
+        (item) =>
+          item.entregadorId !== before.entregadorId ||
+          item.veiculoId !== before.veiculoId,
+      );
+      if (inconsistent) {
+        await tx.opRoteiroEntrega.updateMany({
+          where: { roteiroId: id },
+          data: {
+            entregadorId: before.entregadorId,
+            veiculoId: before.veiculoId,
+            atualizadoEm: new Date(),
+          },
+        });
+      }
       const updated = await tx.opRoteiroEntregaCabecalho.update({
         where: { id },
         data: {

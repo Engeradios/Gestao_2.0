@@ -7,6 +7,7 @@ import nodemailer from 'nodemailer';
 import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 import { PrismaService } from '../database/prisma.service';
 import { MailCryptoService } from './mail-crypto.service';
+import { access } from 'node:fs/promises';
 
 export interface SendEmailInput {
   to: string[];
@@ -189,6 +190,19 @@ export class MailService {
 
     const subject = input.subject.trim().slice(0, 255);
 
+    // MAIL_OBRA_IGNORE_MISSING_ATTACHMENTS_V1
+    // Anexos locais ausentes nao devem impedir a entrega da notificacao.
+    const validAttachments: NonNullable<SendEmailInput['attachments']> = [];
+
+    for (const attachment of input.attachments ?? []) {
+      try {
+        await access(attachment.path);
+        validAttachments.push(attachment);
+      } catch {
+        // Referencia historica sem arquivo fisico: ignora somente o anexo.
+      }
+    }
+
     try {
       const info = await this.createTransporter(config).sendMail({
         from: {
@@ -200,7 +214,7 @@ export class MailService {
         subject,
         text: input.text,
         html: input.html,
-        attachments: input.attachments,
+        attachments: validAttachments,
       });
 
       await this.createLog({

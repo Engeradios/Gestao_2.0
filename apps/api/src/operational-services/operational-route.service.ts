@@ -54,12 +54,31 @@ export class OperationalRouteService {
       );
   }
 
+  private async eligibleTechnician(name: string, unit: string) {
+    const normalized = unit.toUpperCase() === 'SP' ? 'SP' : 'RJ';
+    return this.db.opLista.findFirst({
+      where: {
+        tipo: 'responsavel',
+        ativo: true,
+        pessoaId: { not: null },
+        pessoa: { is: { ativo: true } },
+        nome: { equals: name.trim(), mode: 'insensitive' },
+        ...(normalized === 'SP'
+          ? { unidade: 'SP' }
+          : { OR: [{ unidade: { not: 'SP' } }, { unidade: null }] }),
+      },
+      select: { nome: true, unidade: true, funcao: true, pessoaId: true },
+    });
+  }
+
   async technicians(unit: string) {
     const normalized = unit.toUpperCase() === 'SP' ? 'SP' : 'RJ';
     return this.db.opLista.findMany({
       where: {
         tipo: 'responsavel',
         ativo: true,
+        pessoaId: { not: null },
+        pessoa: { is: { ativo: true } },
         ...(normalized === 'SP'
           ? { unidade: 'SP' }
           : { OR: [{ unidade: { not: 'SP' } }, { unidade: null }] }),
@@ -281,25 +300,16 @@ export class OperationalRouteService {
           Math.max(1, Number(body.diasAfastamento) || 1) -
           1,
       );
-    const profissional = await this.db.opLista.findFirst({
-      where: {
-        tipo: 'responsavel',
-        ativo: true,
-        nome: {
-          equals: String(body.tecnico || '').trim(),
-          mode: 'insensitive',
-        },
-      },
-      select: {
-        pessoaId: true,
-        funcao: true,
-        nome: true,
-      },
-    });
+    const unidade =
+      String(body.unidade || 'RJ').toUpperCase() === 'SP' ? 'SP' : 'RJ';
+    const profissional = await this.eligibleTechnician(
+      String(body.tecnico || ''),
+      unidade,
+    );
 
-    if (!profissional?.pessoaId) {
+    if (!profissional) {
       throw new BadRequestException(
-        'Profissional não vinculado ao cadastro de pessoas.',
+        'Técnico inativo, não vinculado ou fora da unidade informada.',
       );
     }
 
@@ -309,8 +319,7 @@ export class OperationalRouteService {
       tecnico: profissional.nome,
       pessoaId: profissional.pessoaId,
       funcaoProfissional: profissional.funcao || 'Não definida',
-      unidade:
-        String(body.unidade || 'RJ').toUpperCase() === 'SP' ? 'SP' : 'RJ',
+      unidade,
       turno:
         tipo === 'AFASTADO'
           ? 'Diurno'
@@ -381,6 +390,20 @@ export class OperationalRouteService {
       throw new BadRequestException('Técnico é obrigatório');
     }
 
+    const changingTechnician =
+      tecnico.localeCompare(current.tecnico, 'pt-BR', {
+        sensitivity: 'base',
+      }) !== 0;
+    const profissional = changingTechnician
+      ? await this.eligibleTechnician(tecnico, current.unidade)
+      : null;
+
+    if (changingTechnician && !profissional) {
+      throw new BadRequestException(
+        'Técnico inativo, não vinculado ou fora da unidade informada.',
+      );
+    }
+
     let servicoId: string | null = current.servicoId;
     let preventivaId: bigint | null = current.preventivaId;
 
@@ -427,7 +450,10 @@ export class OperationalRouteService {
       return tx.opRoteiroVisita.update({
         where: { id },
         data: {
-          tecnico,
+          tecnico: profissional?.nome ?? current.tecnico,
+          pessoaId: profissional?.pessoaId ?? current.pessoaId,
+          funcaoProfissional:
+            profissional?.funcao ?? current.funcaoProfissional,
           tipo,
           servicoId,
           preventivaId,

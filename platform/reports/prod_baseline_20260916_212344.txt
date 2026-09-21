@@ -1,0 +1,10 @@
+===== CONTAINER =====
+fb7ffa30bd15   engeradios2-api:fast-app-r6-20260913_103019   "docker-entrypoint.s…"   31 hours ago   Up 38 minutes             127.0.0.1:3001->3001/tcp   engeradios2-api-original
+33b3f432c000   engeradios2-api:fast-app-r6-20260913_103019   "docker-entrypoint.s…"   3 days ago     Exited (0) 31 hours ago                              engeradios2-api-pre-fase15-20260915_142324
+d209fb166419   engeradios2-api:fast-app-r6-20260913_103019   "docker-entrypoint.s…"   3 days ago     Exited (0) 3 days ago                                engeradios2-api-rollback-20260913_191319
+
+===== IMAGE =====
+engeradios2-api:fast-app-r6-20260913_103019
+
+===== HEALTH =====
+{"status":"ok","application":"Gestão Engerádios 2.0 API","timestamp":"2026-09-17T00:23:44.804Z"}

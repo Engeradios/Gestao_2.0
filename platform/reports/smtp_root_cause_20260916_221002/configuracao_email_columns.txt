@@ -1,0 +1,23 @@
+     column_name     |          data_type          
+---------------------+-----------------------------
+ id                  | smallint
+ host                | character varying
+ porta               | integer
+ seguranca           | character varying
+ usuario             | character varying
+ senha_criptografada | bytea
+ senha_iv            | bytea
+ senha_tag           | bytea
+ remetente_email     | character varying
+ remetente_nome      | character varying
+ responder_para      | character varying
+ ativo               | boolean
+ timeout_segundos    | integer
+ testado_em          | timestamp without time zone
+ teste_sucesso       | boolean
+ teste_detalhe       | character varying
+ atualizado_por      | uuid
+ criado_em           | timestamp without time zone
+ atualizado_em       | timestamp without time zone
+(19 rows)
+

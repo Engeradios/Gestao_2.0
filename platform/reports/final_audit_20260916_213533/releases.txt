@@ -1,0 +1,4 @@
+/opt/engeradios2/platform/releases/20260916_212307/compose/docker-compose.production.yml
+/opt/engeradios2/platform/releases/20260916_212307/compose/docker-compose.yml
+/opt/engeradios2/platform/releases/20260916_212307/env/.env.production
+/opt/engeradios2/platform/releases/20260916_212307/env/.env.production.template

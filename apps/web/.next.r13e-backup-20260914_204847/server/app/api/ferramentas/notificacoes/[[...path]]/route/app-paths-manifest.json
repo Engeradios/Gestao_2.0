@@ -1,0 +1,3 @@
+{
+  "/api/ferramentas/notificacoes/[[...path]]/route": "app/api/ferramentas/notificacoes/[[...path]]/route.js"
+}

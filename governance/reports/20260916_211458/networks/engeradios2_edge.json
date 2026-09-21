@@ -1,0 +1,49 @@
+[
+    {
+        "Name": "engeradios2_edge",
+        "Id": "3129718a22409350cd26d60bfac5644a8180625f817e4a77f2f58307b947d2da",
+        "Created": "2026-09-13T13:06:17.406141709-03:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {},
+        "Containers": {
+            "fb7ffa30bd157571f5d74a1b78175156c9ff7925b8c27bf97b6794127d788e0b": {
+                "Name": "engeradios2-api-original",
+                "EndpointID": "73c2e9e324f9b6aeaa2df8908108c7d696fc583024f91a46f11ef4f5eee34bc8",
+                "MacAddress": "32:16:c1:ab:5d:d9",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 4,
+                        "DynamicIPsAvailable": 65532
+                    }
+                }
+            }
+        }
+    }
+]

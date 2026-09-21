@@ -1,3 +1,4 @@
+import HmlBanner from "@/components/hml-banner";
 import type { Metadata } from "next";
 import "./globals.css";
 import { SessionRefresh } from "@/components/auth/session-refresh";
@@ -37,6 +38,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
+        <HmlBanner />
         <SessionRefresh />
         {children}
       </body>

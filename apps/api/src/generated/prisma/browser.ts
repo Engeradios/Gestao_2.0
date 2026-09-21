@@ -598,3 +598,18 @@ export type RhMovimentacao = Prisma.RhMovimentacaoModel
  * 
  */
 export type RhDesligamento = Prisma.RhDesligamentoModel
+/**
+ * Model gp_visita
+ * 
+ */
+export type gp_visita = Prisma.gp_visitaModel
+/**
+ * Model gp_projeto_equipe
+ * 
+ */
+export type gp_projeto_equipe = Prisma.gp_projeto_equipeModel
+/**
+ * Model gp_risco
+ * 
+ */
+export type gp_risco = Prisma.gp_riscoModel

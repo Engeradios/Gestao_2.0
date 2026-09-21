@@ -1,0 +1,10 @@
+         tablename         
+---------------------------
+ configuracao_email
+ email_logs
+ op_email_logs
+ op_notificacao_emails
+ op_proposta_configuracoes
+ os_sla_configuracoes
+(6 rows)
+

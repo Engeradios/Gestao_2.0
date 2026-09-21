@@ -1,0 +1,11 @@
+IMAGE                                                                              ID             DISK USAGE   CONTENT SIZE   EXTRA
+alpine:latest                                                                      28bd5fe8b56d         13MB         3.93MB        
+engeradios2-api:backup-mail-key                                                    9b52cf180714       1.16GB          227MB        
+engeradios2-api:fast-app-4ae8c000b6f27a42                                          0c2074542ed2       1.16GB          227MB        
+engeradios2-api:fast-app-r6-20260913_103019                                        7c6a3ae6db27       1.16GB          227MB   U    
+node:22-bookworm-slim                                                              83f487e0a634        329MB         82.6MB        
+postgres:16                                                                        f1c3376c26f2        642MB          166MB        
+postgres:18                                                                        4ef4dbc939d6        650MB          168MB        
+postgres:18.6-bookworm                                                             1c59e2c3c818        630MB          163MB   U    
+postgres@sha256:a10c981235b4f635e65df0cfb66a5598064628128505dbc6a3ed4ca303717521   a10c981235b4        623MB          157MB   U    
+redis:7.4.11-bookworm                                                              71da9275c5f3        170MB           46MB   U    

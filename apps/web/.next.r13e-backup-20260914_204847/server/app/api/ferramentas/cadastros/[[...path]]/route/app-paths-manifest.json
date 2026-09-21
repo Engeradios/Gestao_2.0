@@ -1,0 +1,3 @@
+{
+  "/api/ferramentas/cadastros/[[...path]]/route": "app/api/ferramentas/cadastros/[[...path]]/route.js"
+}

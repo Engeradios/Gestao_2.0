@@ -1,0 +1,4 @@
+/opt/engeradios2/infrastructure/.env
+/opt/engeradios2/apps/api/.env.bak.20260916_201632
+/opt/engeradios2/apps/api/.env
+/opt/engeradios2/apps/mobile/.env

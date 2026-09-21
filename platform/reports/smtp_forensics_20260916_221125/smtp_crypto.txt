@@ -1,0 +1,5 @@
+ id |          host          | porta | seguranca |         usuario          | ativo |           senha_hex            |          iv_hex          |             tag_hex              | senha_len | iv_len | tag_len 
+----+------------------------+-------+-----------+--------------------------+-------+--------------------------------+--------------------------+----------------------------------+-----------+--------+---------
+  1 | smtp.engeradios.com.br |   465 | SSL       | gestao@engeradios.com.br | t     | b46b0ee2943cd9026a5e85cbbce442 | ca2fe5c4067aafb0f3851dd4 | 4488c355e6579cb06ab5833dae0d4c83 |        15 |     12 |      16
+(1 row)
+

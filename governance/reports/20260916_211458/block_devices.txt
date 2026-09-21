@@ -1,0 +1,7 @@
+NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sr0      11:0    1  1024M  1 rom  
+xvda    202:0    0   170G  0 disk 
+├─xvda1 202:1    0     1M  0 part 
+├─xvda2 202:2    0   1.2G  0 part /boot
+├─xvda3 202:3    0     1G  0 part [SWAP]
+└─xvda4 202:4    0 167.8G  0 part /

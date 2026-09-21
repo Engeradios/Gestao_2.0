@@ -1,0 +1,3 @@
+{
+  "/api/usuarios/me/notificacoes/marcar-todas-lidas/route": "app/api/usuarios/me/notificacoes/marcar-todas-lidas/route.js"
+}

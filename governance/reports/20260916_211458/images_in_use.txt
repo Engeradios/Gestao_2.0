@@ -1,0 +1,3 @@
+engeradios2-postgres|a10c981235b4
+engeradios2-redis|redis:7.4.11-bookworm
+engeradios2-api-original|engeradios2-api:fast-app-r6-20260913_103019

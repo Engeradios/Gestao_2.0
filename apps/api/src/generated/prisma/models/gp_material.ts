@@ -33,6 +33,9 @@ export type Gp_materialAvgAggregateOutputType = {
   qtd_entregue: runtime.Decimal | null
   valor_unit: runtime.Decimal | null
   versao: number | null
+  qtd_solicitada: runtime.Decimal | null
+  qtd_utilizada: runtime.Decimal | null
+  qtd_devolvida: runtime.Decimal | null
 }
 
 export type Gp_materialSumAggregateOutputType = {
@@ -42,6 +45,9 @@ export type Gp_materialSumAggregateOutputType = {
   qtd_entregue: runtime.Decimal | null
   valor_unit: runtime.Decimal | null
   versao: number | null
+  qtd_solicitada: runtime.Decimal | null
+  qtd_utilizada: runtime.Decimal | null
+  qtd_devolvida: runtime.Decimal | null
 }
 
 export type Gp_materialMinAggregateOutputType = {
@@ -60,6 +66,14 @@ export type Gp_materialMinAggregateOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  codigo_interno: string | null
+  qtd_solicitada: runtime.Decimal | null
+  qtd_utilizada: runtime.Decimal | null
+  qtd_devolvida: runtime.Decimal | null
+  fornecedor: string | null
+  origem: string | null
+  situacao: string | null
+  documento: string | null
 }
 
 export type Gp_materialMaxAggregateOutputType = {
@@ -78,6 +92,14 @@ export type Gp_materialMaxAggregateOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  codigo_interno: string | null
+  qtd_solicitada: runtime.Decimal | null
+  qtd_utilizada: runtime.Decimal | null
+  qtd_devolvida: runtime.Decimal | null
+  fornecedor: string | null
+  origem: string | null
+  situacao: string | null
+  documento: string | null
 }
 
 export type Gp_materialCountAggregateOutputType = {
@@ -96,6 +118,14 @@ export type Gp_materialCountAggregateOutputType = {
   excluido_em: number
   excluido_por_id: number
   motivo_exclusao: number
+  codigo_interno: number
+  qtd_solicitada: number
+  qtd_utilizada: number
+  qtd_devolvida: number
+  fornecedor: number
+  origem: number
+  situacao: number
+  documento: number
   _all: number
 }
 
@@ -107,6 +137,9 @@ export type Gp_materialAvgAggregateInputType = {
   qtd_entregue?: true
   valor_unit?: true
   versao?: true
+  qtd_solicitada?: true
+  qtd_utilizada?: true
+  qtd_devolvida?: true
 }
 
 export type Gp_materialSumAggregateInputType = {
@@ -116,6 +149,9 @@ export type Gp_materialSumAggregateInputType = {
   qtd_entregue?: true
   valor_unit?: true
   versao?: true
+  qtd_solicitada?: true
+  qtd_utilizada?: true
+  qtd_devolvida?: true
 }
 
 export type Gp_materialMinAggregateInputType = {
@@ -134,6 +170,14 @@ export type Gp_materialMinAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  codigo_interno?: true
+  qtd_solicitada?: true
+  qtd_utilizada?: true
+  qtd_devolvida?: true
+  fornecedor?: true
+  origem?: true
+  situacao?: true
+  documento?: true
 }
 
 export type Gp_materialMaxAggregateInputType = {
@@ -152,6 +196,14 @@ export type Gp_materialMaxAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  codigo_interno?: true
+  qtd_solicitada?: true
+  qtd_utilizada?: true
+  qtd_devolvida?: true
+  fornecedor?: true
+  origem?: true
+  situacao?: true
+  documento?: true
 }
 
 export type Gp_materialCountAggregateInputType = {
@@ -170,6 +222,14 @@ export type Gp_materialCountAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  codigo_interno?: true
+  qtd_solicitada?: true
+  qtd_utilizada?: true
+  qtd_devolvida?: true
+  fornecedor?: true
+  origem?: true
+  situacao?: true
+  documento?: true
   _all?: true
 }
 
@@ -275,6 +335,14 @@ export type Gp_materialGroupByOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  codigo_interno: string | null
+  qtd_solicitada: runtime.Decimal | null
+  qtd_utilizada: runtime.Decimal | null
+  qtd_devolvida: runtime.Decimal | null
+  fornecedor: string | null
+  origem: string | null
+  situacao: string | null
+  documento: string | null
   _count: Gp_materialCountAggregateOutputType | null
   _avg: Gp_materialAvgAggregateOutputType | null
   _sum: Gp_materialSumAggregateOutputType | null
@@ -316,6 +384,14 @@ export type gp_materialWhereInput = {
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_material"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_material"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  codigo_interno?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  qtd_solicitada?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  origem?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  situacao?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  documento?: Prisma.StringNullableFilter<"gp_material"> | string | null
   gp_projeto?: Prisma.XOR<Prisma.Gp_projetoScalarRelationFilter, Prisma.gp_projetoWhereInput>
 }
 
@@ -335,6 +411,14 @@ export type gp_materialOrderByWithRelationInput = {
   excluido_em?: Prisma.SortOrderInput | Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrderInput | Prisma.SortOrder
+  codigo_interno?: Prisma.SortOrderInput | Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrderInput | Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrderInput | Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrderInput | Prisma.SortOrder
+  fornecedor?: Prisma.SortOrderInput | Prisma.SortOrder
+  origem?: Prisma.SortOrderInput | Prisma.SortOrder
+  situacao?: Prisma.SortOrderInput | Prisma.SortOrder
+  documento?: Prisma.SortOrderInput | Prisma.SortOrder
   gp_projeto?: Prisma.gp_projetoOrderByWithRelationInput
 }
 
@@ -357,6 +441,14 @@ export type gp_materialWhereUniqueInput = Prisma.AtLeast<{
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_material"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_material"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  codigo_interno?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  qtd_solicitada?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  origem?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  situacao?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  documento?: Prisma.StringNullableFilter<"gp_material"> | string | null
   gp_projeto?: Prisma.XOR<Prisma.Gp_projetoScalarRelationFilter, Prisma.gp_projetoWhereInput>
 }, "id">
 
@@ -376,6 +468,14 @@ export type gp_materialOrderByWithAggregationInput = {
   excluido_em?: Prisma.SortOrderInput | Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrderInput | Prisma.SortOrder
+  codigo_interno?: Prisma.SortOrderInput | Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrderInput | Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrderInput | Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrderInput | Prisma.SortOrder
+  fornecedor?: Prisma.SortOrderInput | Prisma.SortOrder
+  origem?: Prisma.SortOrderInput | Prisma.SortOrder
+  situacao?: Prisma.SortOrderInput | Prisma.SortOrder
+  documento?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.gp_materialCountOrderByAggregateInput
   _avg?: Prisma.gp_materialAvgOrderByAggregateInput
   _max?: Prisma.gp_materialMaxOrderByAggregateInput
@@ -402,6 +502,14 @@ export type gp_materialScalarWhereWithAggregatesInput = {
   excluido_em?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_material"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableWithAggregatesFilter<"gp_material"> | string | null
   motivo_exclusao?: Prisma.StringNullableWithAggregatesFilter<"gp_material"> | string | null
+  codigo_interno?: Prisma.StringNullableWithAggregatesFilter<"gp_material"> | string | null
+  qtd_solicitada?: Prisma.DecimalNullableWithAggregatesFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.DecimalNullableWithAggregatesFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.DecimalNullableWithAggregatesFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.StringNullableWithAggregatesFilter<"gp_material"> | string | null
+  origem?: Prisma.StringNullableWithAggregatesFilter<"gp_material"> | string | null
+  situacao?: Prisma.StringNullableWithAggregatesFilter<"gp_material"> | string | null
+  documento?: Prisma.StringNullableWithAggregatesFilter<"gp_material"> | string | null
 }
 
 export type gp_materialCreateInput = {
@@ -418,6 +526,14 @@ export type gp_materialCreateInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  codigo_interno?: string | null
+  qtd_solicitada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: string | null
+  origem?: string | null
+  situacao?: string | null
+  documento?: string | null
   gp_projeto: Prisma.gp_projetoCreateNestedOneWithoutGp_materialInput
 }
 
@@ -437,6 +553,14 @@ export type gp_materialUncheckedCreateInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  codigo_interno?: string | null
+  qtd_solicitada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: string | null
+  origem?: string | null
+  situacao?: string | null
+  documento?: string | null
 }
 
 export type gp_materialUpdateInput = {
@@ -453,6 +577,14 @@ export type gp_materialUpdateInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gp_projeto?: Prisma.gp_projetoUpdateOneRequiredWithoutGp_materialNestedInput
 }
 
@@ -472,6 +604,14 @@ export type gp_materialUncheckedUpdateInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_materialCreateManyInput = {
@@ -490,6 +630,14 @@ export type gp_materialCreateManyInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  codigo_interno?: string | null
+  qtd_solicitada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: string | null
+  origem?: string | null
+  situacao?: string | null
+  documento?: string | null
 }
 
 export type gp_materialUpdateManyMutationInput = {
@@ -506,6 +654,14 @@ export type gp_materialUpdateManyMutationInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_materialUncheckedUpdateManyInput = {
@@ -524,6 +680,14 @@ export type gp_materialUncheckedUpdateManyInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_materialCountOrderByAggregateInput = {
@@ -542,6 +706,14 @@ export type gp_materialCountOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  codigo_interno?: Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrder
+  fornecedor?: Prisma.SortOrder
+  origem?: Prisma.SortOrder
+  situacao?: Prisma.SortOrder
+  documento?: Prisma.SortOrder
 }
 
 export type gp_materialAvgOrderByAggregateInput = {
@@ -551,6 +723,9 @@ export type gp_materialAvgOrderByAggregateInput = {
   qtd_entregue?: Prisma.SortOrder
   valor_unit?: Prisma.SortOrder
   versao?: Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrder
 }
 
 export type gp_materialMaxOrderByAggregateInput = {
@@ -569,6 +744,14 @@ export type gp_materialMaxOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  codigo_interno?: Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrder
+  fornecedor?: Prisma.SortOrder
+  origem?: Prisma.SortOrder
+  situacao?: Prisma.SortOrder
+  documento?: Prisma.SortOrder
 }
 
 export type gp_materialMinOrderByAggregateInput = {
@@ -587,6 +770,14 @@ export type gp_materialMinOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  codigo_interno?: Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrder
+  fornecedor?: Prisma.SortOrder
+  origem?: Prisma.SortOrder
+  situacao?: Prisma.SortOrder
+  documento?: Prisma.SortOrder
 }
 
 export type gp_materialSumOrderByAggregateInput = {
@@ -596,6 +787,9 @@ export type gp_materialSumOrderByAggregateInput = {
   qtd_entregue?: Prisma.SortOrder
   valor_unit?: Prisma.SortOrder
   versao?: Prisma.SortOrder
+  qtd_solicitada?: Prisma.SortOrder
+  qtd_utilizada?: Prisma.SortOrder
+  qtd_devolvida?: Prisma.SortOrder
 }
 
 export type Gp_materialListRelationFilter = {
@@ -664,6 +858,14 @@ export type gp_materialCreateWithoutGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  codigo_interno?: string | null
+  qtd_solicitada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: string | null
+  origem?: string | null
+  situacao?: string | null
+  documento?: string | null
 }
 
 export type gp_materialUncheckedCreateWithoutGp_projetoInput = {
@@ -681,6 +883,14 @@ export type gp_materialUncheckedCreateWithoutGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  codigo_interno?: string | null
+  qtd_solicitada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: string | null
+  origem?: string | null
+  situacao?: string | null
+  documento?: string | null
 }
 
 export type gp_materialCreateOrConnectWithoutGp_projetoInput = {
@@ -728,6 +938,14 @@ export type gp_materialScalarWhereInput = {
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_material"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_material"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  codigo_interno?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  qtd_solicitada?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.DecimalNullableFilter<"gp_material"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  origem?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  situacao?: Prisma.StringNullableFilter<"gp_material"> | string | null
+  documento?: Prisma.StringNullableFilter<"gp_material"> | string | null
 }
 
 export type gp_materialCreateManyGp_projetoInput = {
@@ -745,6 +963,14 @@ export type gp_materialCreateManyGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  codigo_interno?: string | null
+  qtd_solicitada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: string | null
+  origem?: string | null
+  situacao?: string | null
+  documento?: string | null
 }
 
 export type gp_materialUpdateWithoutGp_projetoInput = {
@@ -761,6 +987,14 @@ export type gp_materialUpdateWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_materialUncheckedUpdateWithoutGp_projetoInput = {
@@ -778,6 +1012,14 @@ export type gp_materialUncheckedUpdateWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_materialUncheckedUpdateManyWithoutGp_projetoInput = {
@@ -795,6 +1037,14 @@ export type gp_materialUncheckedUpdateManyWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo_interno?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  qtd_solicitada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_utilizada?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  qtd_devolvida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -815,6 +1065,14 @@ export type gp_materialSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  codigo_interno?: boolean
+  qtd_solicitada?: boolean
+  qtd_utilizada?: boolean
+  qtd_devolvida?: boolean
+  fornecedor?: boolean
+  origem?: boolean
+  situacao?: boolean
+  documento?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_material"]>
 
@@ -834,6 +1092,14 @@ export type gp_materialSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  codigo_interno?: boolean
+  qtd_solicitada?: boolean
+  qtd_utilizada?: boolean
+  qtd_devolvida?: boolean
+  fornecedor?: boolean
+  origem?: boolean
+  situacao?: boolean
+  documento?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_material"]>
 
@@ -853,6 +1119,14 @@ export type gp_materialSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  codigo_interno?: boolean
+  qtd_solicitada?: boolean
+  qtd_utilizada?: boolean
+  qtd_devolvida?: boolean
+  fornecedor?: boolean
+  origem?: boolean
+  situacao?: boolean
+  documento?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_material"]>
 
@@ -872,9 +1146,17 @@ export type gp_materialSelectScalar = {
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  codigo_interno?: boolean
+  qtd_solicitada?: boolean
+  qtd_utilizada?: boolean
+  qtd_devolvida?: boolean
+  fornecedor?: boolean
+  origem?: boolean
+  situacao?: boolean
+  documento?: boolean
 }
 
-export type gp_materialOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projeto_id" | "produto" | "unidade" | "qtd_prevista" | "qtd_entregue" | "valor_unit" | "data_entrega" | "nf" | "observacoes" | "versao" | "atualizado_por_id" | "excluido_em" | "excluido_por_id" | "motivo_exclusao", ExtArgs["result"]["gp_material"]>
+export type gp_materialOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projeto_id" | "produto" | "unidade" | "qtd_prevista" | "qtd_entregue" | "valor_unit" | "data_entrega" | "nf" | "observacoes" | "versao" | "atualizado_por_id" | "excluido_em" | "excluido_por_id" | "motivo_exclusao" | "codigo_interno" | "qtd_solicitada" | "qtd_utilizada" | "qtd_devolvida" | "fornecedor" | "origem" | "situacao" | "documento", ExtArgs["result"]["gp_material"]>
 export type gp_materialInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }
@@ -906,6 +1188,14 @@ export type $gp_materialPayload<ExtArgs extends runtime.Types.Extensions.Interna
     excluido_em: Date | null
     excluido_por_id: string | null
     motivo_exclusao: string | null
+    codigo_interno: string | null
+    qtd_solicitada: runtime.Decimal | null
+    qtd_utilizada: runtime.Decimal | null
+    qtd_devolvida: runtime.Decimal | null
+    fornecedor: string | null
+    origem: string | null
+    situacao: string | null
+    documento: string | null
   }, ExtArgs["result"]["gp_material"]>
   composites: {}
 }
@@ -1345,6 +1635,14 @@ export interface gp_materialFieldRefs {
   readonly excluido_em: Prisma.FieldRef<"gp_material", 'DateTime'>
   readonly excluido_por_id: Prisma.FieldRef<"gp_material", 'String'>
   readonly motivo_exclusao: Prisma.FieldRef<"gp_material", 'String'>
+  readonly codigo_interno: Prisma.FieldRef<"gp_material", 'String'>
+  readonly qtd_solicitada: Prisma.FieldRef<"gp_material", 'Decimal'>
+  readonly qtd_utilizada: Prisma.FieldRef<"gp_material", 'Decimal'>
+  readonly qtd_devolvida: Prisma.FieldRef<"gp_material", 'Decimal'>
+  readonly fornecedor: Prisma.FieldRef<"gp_material", 'String'>
+  readonly origem: Prisma.FieldRef<"gp_material", 'String'>
+  readonly situacao: Prisma.FieldRef<"gp_material", 'String'>
+  readonly documento: Prisma.FieldRef<"gp_material", 'String'>
 }
     
 

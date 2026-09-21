@@ -1,0 +1,3 @@
+{
+  "/api/estoque-logistica/roteiro-entrega/[...path]/route": "app/api/estoque-logistica/roteiro-entrega/[...path]/route.js"
+}

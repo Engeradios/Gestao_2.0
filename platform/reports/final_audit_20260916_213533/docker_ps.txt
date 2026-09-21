@@ -1,0 +1,8 @@
+CONTAINER ID   IMAGE                                         COMMAND                  CREATED        STATUS                    PORTS                      NAMES
+90d5e1c393bb   a10c981235b4                                  "docker-entrypoint.s…"   30 hours ago   Up 30 hours (healthy)     5432/tcp                   engeradios2-postgres
+caf7f51e7964   redis:7.4.11-bookworm                         "docker-entrypoint.s…"   31 hours ago   Up 31 hours (healthy)     6379/tcp                   engeradios2-redis
+fb7ffa30bd15   engeradios2-api:fast-app-r6-20260913_103019   "docker-entrypoint.s…"   31 hours ago   Up 50 minutes             127.0.0.1:3001->3001/tcp   engeradios2-api-original
+33b3f432c000   engeradios2-api:fast-app-r6-20260913_103019   "docker-entrypoint.s…"   3 days ago     Exited (0) 31 hours ago                              engeradios2-api-pre-fase15-20260915_142324
+d209fb166419   engeradios2-api:fast-app-r6-20260913_103019   "docker-entrypoint.s…"   3 days ago     Exited (0) 3 days ago                                engeradios2-api-rollback-20260913_191319
+b01a748a8600   redis:7.4.11-bookworm                         "docker-entrypoint.s…"   3 days ago     Exited (0) 31 hours ago                              engeradios2-redis-pre-fase17-20260915_142721
+8a1ffe1462ae   a10c981235b4                                  "docker-entrypoint.s…"   4 days ago     Exited (0) 30 hours ago                              engeradios2-postgres-pre-fase23-20260915_151553

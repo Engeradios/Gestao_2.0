@@ -1,0 +1,22 @@
+SMTP FINAL ASSESSMENT
+
+RESULTADO ESPERADO:
+
+LOGIN:
+OK
+
+FORGOT PASSWORD:
+ERRO DE DESCRIPTOGRAFIA
+
+SE ISSO OCORRER:
+
+CAUSA MAIS PROVÁVEL:
+
+A senha SMTP foi criptografada utilizando
+uma chave diferente da MAIL_ENCRYPTION_KEY
+atualmente configurada.
+
+AÇÃO RECOMENDADA:
+
+Reconfigurar SMTP pela interface administrativa
+e salvar novamente a senha SMTP.

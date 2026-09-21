@@ -143,6 +143,109 @@ export class GrandesProjetosService {
       }, {}),
     };
   }
+  async painelExecutivoV2() {
+    return this.db.$queryRaw<Array<Record<string, unknown>>>(Prisma.sql`
+      SELECT
+        projeto_id,
+        codigo,
+        nome,
+        cliente,
+        cliente_local,
+        uf,
+        gerente,
+        status,
+        aprovacao_status,
+        tipo_escopo,
+        numero_contrato,
+        numero_pedido,
+        valor_contrato::double precision AS valor_contrato,
+        data_inicio,
+        data_fim_prev,
+        data_fim_real,
+        total_custos,
+        valor_orcado::double precision AS valor_orcado,
+        valor_realizado::double precision AS valor_realizado,
+        saldo_orcamento::double precision AS saldo_orcamento,
+        percentual_orcamento_consumido::double precision
+          AS percentual_orcamento_consumido,
+        total_marcos,
+        progresso_medio::double precision AS progresso_medio,
+        menor_percentual_marco::double precision
+          AS menor_percentual_marco,
+        maior_percentual_marco::double precision
+          AS maior_percentual_marco,
+        total_materiais,
+        quantidade_prevista::double precision AS quantidade_prevista,
+        quantidade_entregue::double precision AS quantidade_entregue,
+        valor_previsto_material::double precision
+          AS valor_previsto_material,
+        percentual_material_entregue::double precision
+          AS percentual_material_entregue,
+        total_os,
+        os_encerradas,
+        os_abertas,
+        os_encerradas_sem_data,
+        os_abertas_com_data,
+        percentual_os_encerradas::double precision
+          AS percentual_os_encerradas,
+        total_relatorios,
+        relatorios_inicio,
+        relatorios_fim,
+        relatorios_rascunho,
+        indicador_financeiro,
+        indicador_progresso,
+        indicador_material,
+        indicador_os,
+        indicador_prazo,
+        alerta_sem_gerente,
+        alerta_realizado_sem_orcamento,
+        alerta_sem_marcos,
+        alerta_sem_materiais,
+        alerta_divergencia_os,
+        alertas,
+        quantidade_alertas
+      FROM public.vw_gp_painel_executivo_v2
+      ORDER BY
+        quantidade_alertas DESC,
+        projeto_id ASC
+    `);
+  }
+
+  async painelResumoV2() {
+    const rows = await this.db.$queryRaw<
+      Array<Record<string, unknown>>
+    >(Prisma.sql`
+      SELECT
+        total_projetos,
+        projetos_em_execucao,
+        projetos_atrasados,
+        projetos_vencendo_hoje,
+        projetos_vencendo_30_dias,
+        projetos_sem_gerente,
+        projetos_sem_marcos,
+        projetos_sem_materiais,
+        projetos_realizado_sem_orcamento,
+        projetos_com_divergencia_os,
+        valor_total_contratos::double precision
+          AS valor_total_contratos,
+        valor_total_orcado::double precision
+          AS valor_total_orcado,
+        valor_total_realizado::double precision
+          AS valor_total_realizado,
+        saldo_total_orcamento::double precision
+          AS saldo_total_orcamento,
+        total_os,
+        total_os_encerradas,
+        total_os_abertas,
+        total_os_encerradas_sem_data,
+        total_relatorios,
+        total_relatorios_rascunho
+      FROM public.vw_gp_painel_resumo_v2
+    `);
+
+    return rows[0] ?? null;
+  }
+
   async one(id: number) {
     const p = await this.db.gp_projeto.findFirst({
       where: { id, excluido_em: null },
@@ -545,61 +648,146 @@ export class GrandesProjetosService {
       return x;
     });
   }
-  async importOrders(id: number, a: Actor) {
+  async syncOrdersForProject(id: number, a: Actor) {
     const p = await this.exists(id);
-    if (!p.numero_contrato)
-      throw new BadRequestException('Projeto sem número de contrato');
+    const proposta = this.str(p.proposta);
+    const contrato = this.str(p.numero_contrato);
+
+    const base = {
+      projetoId: id,
+      proposta,
+      contrato,
+      localizadas: 0,
+      existentes: 0,
+      incluidas: 0,
+      ignoradas: 0,
+      ambiguidades: 0,
+      sincronizadoEm: new Date().toISOString(),
+    };
+
+    if (!proposta || !contrato) {
+      return {
+        ...base,
+        ignoradas: 1,
+        motivo: 'PROJETO_SEM_PROPOSTA_OU_CONTRATO',
+      };
+    }
+
+    const [
+      servicosProposta,
+      servicosContrato,
+    ] = await Promise.all([
+      this.db.opServico.count({
+        where: {
+          proposta: {
+            equals: proposta,
+            mode: 'insensitive',
+          },
+          ativo: true,
+        },
+      }),
+
+      this.db.opServico.count({
+        where: {
+          contrato: {
+            equals: contrato,
+            mode: 'insensitive',
+          },
+          ativo: true,
+        },
+      }),
+    ]);
+
+    if (
+      servicosProposta !== 1
+      || servicosContrato !== 1
+    ) {
+      return {
+        ...base,
+        ambiguidades: 1,
+        motivo: 'SERVICO_NAO_UNICO',
+        servicosProposta,
+        servicosContrato,
+      };
+    }
+
     const orders = await this.db.ordemServico.findMany({
-      where: { contrato: { equals: p.numero_contrato, mode: 'insensitive' } },
+      where: {
+        contrato: {
+          equals: contrato,
+          mode: 'insensitive',
+        },
+      },
+      orderBy: {
+        numero: 'asc',
+      },
     });
+
     return this.db.$transaction(async (tx) => {
-      let novas = 0,
-        atualizadas = 0;
-      for (const o of orders) {
+      let existentes = 0;
+      let incluidas = 0;
+
+      for (const order of orders) {
         const found = await tx.gp_os.findUnique({
           where: {
-            projeto_id_numero_os: { projeto_id: id, numero_os: o.numero },
+            projeto_id_numero_os: {
+              projeto_id: id,
+              numero_os: order.numero,
+            },
           },
         });
-        await tx.gp_os.upsert({
-          where: {
-            projeto_id_numero_os: { projeto_id: id, numero_os: o.numero },
-          },
-          update: {
-            tipo: o.tipo,
-            situacao: o.situacao,
-            tecnico: o.tecnico,
-            descricao: o.titulo || o.solicitacao,
-            valor: o.valor,
-            data_abertura: o.abertura,
-            data_fechamento: o.fechamento,
+
+        if (found) {
+          existentes += 1;
+          continue;
+        }
+
+        await tx.gp_os.create({
+          data: {
+            projeto_id: id,
+            numero_os: order.numero,
+            tipo: order.tipo,
+            situacao:
+              order.status
+              || order.situacao,
+            tecnico: order.tecnico,
+            descricao:
+              order.titulo
+              || order.solicitacao
+              || `OS ${order.numero}`,
+            valor: order.valor,
+            data_abertura: order.abertura,
+            data_fechamento: order.fechamento,
             importado_em: new Date(),
           },
-          create: {
-            projeto_id: id,
-            numero_os: o.numero,
-            tipo: o.tipo,
-            situacao: o.situacao,
-            tecnico: o.tecnico,
-            descricao: o.titulo || o.solicitacao,
-            valor: o.valor,
-            data_abertura: o.abertura,
-            data_fechamento: o.fechamento,
-          },
         });
-        found ? atualizadas++ : novas++;
+
+        incluidas += 1;
       }
-      await this.audit(tx, a, 'gp_os', id, 'IMPORTAR_CONTRATO', null, {
-        contrato: p.numero_contrato,
-        novas,
-        atualizadas,
-      });
-      return {
-        contrato: p.numero_contrato,
-        total: orders.length,
-        novas,
-        atualizadas,
+
+      const result = {
+        ...base,
+        localizadas: orders.length,
+        existentes,
+        incluidas,
+        sincronizadoEm: new Date().toISOString(),
       };
+
+      await this.audit(
+        tx,
+        a,
+        'gp_os',
+        id,
+        'SINCRONIZAR_AUTOMATICO',
+        null,
+        result,
+      );
+
+      return result;
     });
+  }
+
+  async importOrders(id: number, a: Actor) {
+    return this.syncOrdersForProject(id, a);
   }
 }

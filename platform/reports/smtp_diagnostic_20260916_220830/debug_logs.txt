@@ -1,0 +1,408 @@
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +256ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +4ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +6ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRequestsModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFinanceiroModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mOperationalModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGeolocationModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserSelfProfileModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppFieldEvidenceModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSalesOrdersImportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDpRhModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mOrcamentoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mLogisticsProposalsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDashboardTvModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProposalsModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPurchasesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdministrativeContractsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProposalTypeAreasModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mReferenceDataModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMailModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDeliveryRouteModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGrandesProjetosModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuditModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProfilesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppFieldCoreModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mOperationalServicesModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/api/v1}:[39m[38;5;3m +11ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1, GET} route[39m[38;5;3m +7ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/health, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDpRhController {/api/v1/dp-rh}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/dashboard, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/funcionarios, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/funcionarios/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/funcionarios, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/funcionarios/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/funcionarios/:id/desligamento, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/movimentacoes, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/movimentacoes, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/setores, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/setores, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/setores/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/cargos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/cargos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/cargos/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/unidades, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/unidades, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/cadastros/unidades/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dp-rh/relatorios/funcionarios.csv, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOrcamentoController {/api/v1/orcamentos}:[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/health, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/respostas, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/gerar-itens, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/itens, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/evidencias, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/evidencias, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/evidencias/:evidenciaId/download, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/evidencias/:evidenciaId, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/enviar-analise, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/iniciar-analise, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/aceitar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/devolver, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/orcamentos/:id/recusar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGeolocationController {/api/v1/geolocalizacao}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/geolocalizacao/equipe, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/geolocalizacao/relatorio, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/geolocalizacao/trilha/:expedienteId, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppFieldCoreController {/api/v1/app-campo}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/dispositivos/registrar, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/dispositivos/meus, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/expedientes/atual, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/expedientes/iniciar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/expedientes/:id/pausar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/expedientes/:id/retomar, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/expedientes/:id/finalizar, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/expedientes/:id/telemetria, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppFieldTermsController {/api/v1/app-campo/termos}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/termos/vigente, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/termos/status, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/termos/:id/aceitar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserSelfProfileController {/api/v1/usuarios/me/perfil}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/perfil, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/perfil, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/perfil/photo, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/perfil/photo, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/perfil/photo, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/v1/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/forgot-password, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/reset-password, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/change-password, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/access-history, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppFieldEvidenceController {/api/v1/app-campo/os/:id/evidencias}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/os/:id/evidencias, POST} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/os/:id/evidencias, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/os/:id/evidencias/:evidenciaId/download, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/app-campo/os/:id/evidencias/:evidenciaId, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPurchasesImportController {/api/v1/compras/importacao}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/importacao/previa, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/importacao/executar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPurchasesOperationsController {/api/v1/compras}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/painel, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/dashboard, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/fornecedores, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/fornecedores, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/fornecedores/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/produtos-pendentes, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/produtos-pendentes/exportar.xlsx, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/compras/produtos-pendentes/relatorio.pdf, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdministrativeContractsController {/api/v1/administrativo/contratos}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/opcoes/clientes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/opcoes/propostas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/indicadores, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id/consultar-cnpj, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id/documentos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id/documentos/:documentId/download, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id/documentos/:documentId, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/administrativo/contratos/:id/andamentos, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mLogisticsProposalsController {/api/v1/estoque-logistica/novas-propostas}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/novas-propostas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/novas-propostas/:propostaId/receber, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProposalTypeAreasController {/api/v1/ferramentas/tipos-proposta}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/tipos-proposta, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/tipos-proposta/:tipo, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSalesOrdersImportController {/api/v1/estoque-logistica/importacao-pedidos}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/importacao-pedidos/previa, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/importacao-pedidos/executar, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mReferenceDataController {/api/v1/ferramentas/cadastros}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/pessoas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/pessoas/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/pessoas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/pessoas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/pessoas/:id/status, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/pessoas/:id/auditoria, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/tecnicos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/motoristas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/veiculos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/veiculos/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/veiculos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/veiculos/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/veiculos/:id/status, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/cadastros/veiculos/:id/auditoria, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDashboardTvController {/api/v1/dashboard-tv}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/catalogo, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id/publicar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id/heartbeat, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id/dispositivos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/dispositivos/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id/dados, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/:id/cenas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/cenas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/cenas/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/cenas/:id/widgets, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/widgets/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/dashboard-tv/widgets/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMailController {/api/v1/ferramentas/configuracao-email}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/configuracao-email, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/configuracao-email, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/configuracao-email/testar-conexao, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/configuracao-email/enviar-teste, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminNotificationsController {/api/v1/ferramentas/notificacoes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/notificacoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/notificacoes/:usuarioId, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRequestsController {/api/v1/solicitacoes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/solicitacoes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/solicitacoes, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/solicitacoes/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/solicitacoes/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationPreferencesController {/api/v1/usuarios/me/preferencias-notificacao}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/preferencias-notificacao, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserNotificationsController {/api/v1/usuarios/me/notificacoes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/notificacoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/notificacoes/marcar-todas-lidas, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/usuarios/me/notificacoes/:id/lida, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mDeliveryRouteController {/api/v1/estoque-logistica/roteiro-entrega}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/excel, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros/pdf, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros/:id/pdf, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros/:id/paradas, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/roteiros/:id/despachar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/sugestoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/origem, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregadores, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/veiculos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/historico, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/status, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/retorno, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/devolver, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/cancelar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/ordem, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregas/:id/reentrega, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregadores, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/entregadores/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/veiculos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/estoque-logistica/roteiro-entrega/veiculos/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNfeConsultaController {/api/v1/financeiro/notas-recebidas}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas/consulta-chave/:filialId, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas/importar-chave/:filialId, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFiliaisCertificadoController {/api/v1/financeiro/filiais}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/:id/certificado, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/:id/certificado, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/:id/certificado, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/:id/sefaz/status, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFiliaisController {/api/v1/financeiro/filiais}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/consulta/cnpj/:cnpj, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/consulta/cep/:cep, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/:id/historico, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/filiais/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFinanceiroController {/api/v1/financeiro}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/dashboard, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/receber, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/receber, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/receber/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/pagar, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/pagar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/pagar/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/pagar/:id/baixar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/dre/contas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/dre/contas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/dre/contas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/dre, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/fluxo, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/fluxo/saldos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas, GET} route[39m[38;5;3m +6ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/notas-recebidas/:id/enviar-pagar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/importacoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/financeiro/:kind/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGrandesProjetosController {/api/v1/grandes-projetos}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/dashboard, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/propostas/:numero, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/submeter, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/aprovar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/rejeitar, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/restaurar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/custos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/custos/:child, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/materiais, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/materiais/:child, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/os, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/os/importar-contrato, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/os/:child, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/marcos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/marcos/:child, DELETE} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/relatorios, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/relatorios/:child, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/grandes-projetos/:id/relatorios/:child, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBillingAuditReviewController {/api/v1/propostas/auditoria-faturamento}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/auditoria-faturamento/:numero/confirmar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/auditoria-faturamento/:numero/reabrir, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBillingAuditController {/api/v1/propostas/auditoria-faturamento}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/auditoria-faturamento, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/auditoria-faturamento/resumo, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/auditoria-faturamento/filtros, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/auditoria-faturamento/:numero, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProposalsPreviewController {/api/v1/propostas/importar}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/importar/previa, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProposalsController {/api/v1/propostas}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/dashboard, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/painel, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/filtros, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/configuracoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/configuracoes/:chave, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/importacoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/processar-inativas, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/:numero, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProposalsImportController {/api/v1/propostas}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/propostas/importar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationResponsibilitiesController {/api/v1/operacional/notificacoes-obra}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes-obra/responsabilidades, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes-obra/usuarios-elegiveis, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes-obra/responsabilidades, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes-obra/responsabilidades/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes-obra/responsabilidades/:id/status, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOperationalServiceImportController {/api/v1/operacional/servicos}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/planejamento/previa, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/importacao, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOperationalServicesController {/api/v1/operacional}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/painel, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/responsaveis-elegiveis, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/propostas-aprovadas-sem-servico, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/proposta/:proposta, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/detalhes, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/planejamento/praca, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/andamentos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/clientes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/clientes/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/clientes, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/clientes/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/clientes/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/listas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/listas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/listas/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/emails, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOperationalFunctionalController {/api/v1/operacional}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/propostas/:numero, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/pdf, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/pdf, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/pdf, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/servicos/:id/emails/:tipo, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/listas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/notificacoes/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOperationalPreventivesController {/api/v1/operacional/preventivas}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/preventivas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/preventivas/indicadores, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/preventivas/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/preventivas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/preventivas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/preventivas/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOperationalRouteController {/api/v1/operacional/roteiro}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/despacho, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/excel, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/pdf, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/agenda, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/tecnicos, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/visitas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/visitas/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/visitas/:id/mover, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/visitas/:id/status, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/roteiro/concluir-todos, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOsImportController {/api/v1/operacional/os/importacao}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/importacao/previa, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/importacao/executar, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOperationalController {/api/v1/operacional/os}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/indicadores, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/filtros, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/sincronizacoes/status, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/sincronizacoes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/dashboard, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/painel, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/laboratorio, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/operacional/os/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOsSlaAdminController {/api/v1/ferramentas/sla-os}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/sla-os, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/sla-os/feriados, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/sla-os/feriados/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/sla-os/feriados/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/sla-os/horarios, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/sla-os, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/api/v1/ferramentas/auditoria}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/auditoria, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/auditoria/filtros, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/auditoria/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProfilesController {/api/v1/ferramentas/perfis}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/perfis, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/perfis/permissoes, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/perfis/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/perfis, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/perfis/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/v1/ferramentas/usuarios}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/perfis, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/pessoas-disponiveis, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/:id/status, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/:id/redefinir-senha, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/:id/auditoria, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/ferramentas/usuarios/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m09/17/2026, 12:49:51 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +308ms[39m

@@ -1,0 +1,11 @@
+Rollback Strategy
+
+1. Backup Runtime
+2. Backup Env
+3. Preserve Release
+4. Restore Last Release
+5. Validate Health
+6. Reopen Traffic
+
+Production Modified:
+NO

@@ -1,0 +1,290 @@
+[
+    {
+        "Id": "b01a748a8600d2596581fb7a8d3aedc2d8d2e7195641ab95372c58aa44553930",
+        "Created": "2026-09-13T16:06:10.748755163Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "sh",
+            "-c",
+            "exec redis-server --appendonly yes --requirepass \"$REDIS_PASSWORD\""
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-09-13T16:50:23.748077264Z",
+            "FinishedAt": "2026-09-15T17:27:23.064625412Z",
+            "Health": {
+                "Status": "unhealthy",
+                "FailingStreak": 20,
+                "Log": [
+                    {
+                        "Start": "2026-09-15T14:26:36.779160755-03:00",
+                        "End": "2026-09-15T14:26:36.872632441-03:00",
+                        "ExitCode": -1,
+                        "Output": "OCI runtime exec failed: exec failed: unable to start container process: unable to init seccomp: error adding SSB flag to seccomp filter: SetSSB requires libseccomp >= 2.5.0 and API level >= 4 (current version: 2.5.5, API level: 1)"
+                    },
+                    {
+                        "Start": "2026-09-15T14:26:46.873640399-03:00",
+                        "End": "2026-09-15T14:26:46.972901933-03:00",
+                        "ExitCode": -1,
+                        "Output": "OCI runtime exec failed: exec failed: unable to start container process: unable to init seccomp: error adding SSB flag to seccomp filter: SetSSB requires libseccomp >= 2.5.0 and API level >= 4 (current version: 2.5.5, API level: 1)"
+                    },
+                    {
+                        "Start": "2026-09-15T14:26:56.974098414-03:00",
+                        "End": "2026-09-15T14:26:57.080881569-03:00",
+                        "ExitCode": -1,
+                        "Output": "OCI runtime exec failed: exec failed: unable to start container process: unable to init seccomp: error adding SSB flag to seccomp filter: SetSSB requires libseccomp >= 2.5.0 and API level >= 4 (current version: 2.5.5, API level: 1)"
+                    },
+                    {
+                        "Start": "2026-09-15T14:27:07.083364604-03:00",
+                        "End": "2026-09-15T14:27:07.17510964-03:00",
+                        "ExitCode": -1,
+                        "Output": "OCI runtime exec failed: exec failed: unable to start container process: unable to init seccomp: error adding SSB flag to seccomp filter: SetSSB requires libseccomp >= 2.5.0 and API level >= 4 (current version: 2.5.5, API level: 1)"
+                    },
+                    {
+                        "Start": "2026-09-15T14:27:17.178216535-03:00",
+                        "End": "2026-09-15T14:27:17.275805424-03:00",
+                        "ExitCode": -1,
+                        "Output": "OCI runtime exec failed: exec failed: unable to start container process: unable to init seccomp: error adding SSB flag to seccomp filter: SetSSB requires libseccomp >= 2.5.0 and API level >= 4 (current version: 2.5.5, API level: 1)"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7",
+        "ResolvConfPath": "/var/lib/docker/containers/b01a748a8600d2596581fb7a8d3aedc2d8d2e7195641ab95372c58aa44553930/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/b01a748a8600d2596581fb7a8d3aedc2d8d2e7195641ab95372c58aa44553930/hostname",
+        "HostsPath": "/var/lib/docker/containers/b01a748a8600d2596581fb7a8d3aedc2d8d2e7195641ab95372c58aa44553930/hosts",
+        "LogPath": "/var/lib/docker/containers/b01a748a8600d2596581fb7a8d3aedc2d8d2e7195641ab95372c58aa44553930/b01a748a8600d2596581fb7a8d3aedc2d8d2e7195641ab95372c58aa44553930-json.log",
+        "Name": "/engeradios2-redis-pre-fase17-20260915_142721",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "5",
+                    "max-size": "20m"
+                }
+            },
+            "NetworkMode": "engeradios2_backend",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "no-new-privileges:true"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "engeradios2_redis_data",
+                    "Target": "/data"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "engeradios2_redis_data",
+                "Source": "/var/lib/docker/volumes/engeradios2_redis_data/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "b01a748a8600",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "6379/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "POSTGRES_DB=engeradios2_novo",
+                "POSTGRES_USER=engeradios_app",
+                "POSTGRES_PASSWORD=ea30efa51c33ef5026f3b022cd25fedcdce9923262fe6c316e0d8b45befd19ed",
+                "REDIS_PASSWORD=b5b09c4d43748023d18c479dde1f4d2e0dc2c2030dfe94d5399561197c3702e3",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "REDIS_VERSION=7.4.11"
+            ],
+            "Cmd": [
+                "sh",
+                "-c",
+                "exec redis-server --appendonly yes --requirepass \"$REDIS_PASSWORD\""
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "redis-cli -a \"$REDIS_PASSWORD\" ping | grep PONG"
+                ],
+                "Interval": 10000000000,
+                "Timeout": 5000000000,
+                "StartPeriod": 10000000000,
+                "Retries": 10
+            },
+            "Image": "redis:7.4.11-bookworm",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "engeradios2_backend": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "19230f9be00cb086e70a8103fd8fabc89ed14d12c69e709a19e889eadd2369ca",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "engeradios2-redis",
+                        "b01a748a8600"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:e2debfb7956fa12c7ddc79d7e645c8cf26b30c99a6e9161ea9bf4171e1668a5f",
+            "size": 2288,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.digest": "sha256:5ae3c39ebd15e229dcedd5cee596b2497182493d41ff162e824ba13fc1b2b867",
+                "org.opencontainers.image.base.name": "debian:bookworm-slim",
+                "org.opencontainers.image.created": "2026-08-25T00:42:59Z",
+                "org.opencontainers.image.revision": "74654c612ee06275377d483dc4e134e57b463e9e",
+                "org.opencontainers.image.source": "https://github.com/redis/docker-library-redis.git#74654c612ee06275377d483dc4e134e57b463e9e:debian",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/redis",
+                "org.opencontainers.image.version": "7.4.11"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

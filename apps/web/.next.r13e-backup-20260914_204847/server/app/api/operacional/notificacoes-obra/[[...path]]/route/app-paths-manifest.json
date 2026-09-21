@@ -1,0 +1,3 @@
+{
+  "/api/operacional/notificacoes-obra/[[...path]]/route": "app/api/operacional/notificacoes-obra/[[...path]]/route.js"
+}

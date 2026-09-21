@@ -8,6 +8,19 @@ type Context = {
 async function proxy(request: Request, context: Context) {
   const token = (await cookies()).get("engeradios_token")?.value;
 
+  console.log("[ESTOQUE_AUTH_DEBUG]", {
+    tokenPresente: !!token,
+    tokenSize: token?.length ?? 0,
+    url: request.url,
+  });
+
+  console.log("[ESTOQUE_DEBUG]", {
+    tokenPresente: !!token,
+    tokenSize: token ? token.length : 0,
+    url: request.url,
+  });
+
+
   if (!token) {
     return NextResponse.json({ message: "Sessão expirada" }, { status: 401 });
   }
@@ -33,7 +46,15 @@ async function proxy(request: Request, context: Context) {
     init.body = await request.text();
   }
 
-  const response = await fetch(url, init);
+  console.log("[ESTOQUE_AUTH_DEBUG]", {
+  authorizationHeader:
+    typeof init.headers === "object" &&
+    "Authorization" in init.headers
+      ? "PRESENTE"
+      : "AUSENTE",
+});
+
+const response = await fetch(url, init);
   const body = await response.arrayBuffer();
 
   const headers = new Headers();

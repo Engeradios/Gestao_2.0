@@ -1,0 +1,6 @@
+NETWORK ID     NAME                  DRIVER    SCOPE
+56f1122b2d41   bridge                bridge    local
+19230f9be00c   engeradios2_backend   bridge    local
+3129718a2240   engeradios2_edge      bridge    local
+79b471e06c9b   host                  host      local
+7cc5d183d811   none                  null      local

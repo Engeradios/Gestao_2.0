@@ -1,0 +1,68 @@
+[
+    {
+        "Name": "engeradios2_backend",
+        "Id": "19230f9be00cb086e70a8103fd8fabc89ed14d12c69e709a19e889eadd2369ca",
+        "Created": "2026-09-12T10:31:40.334817628-03:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "0f82230c08b35655650bf1fadf60665d91a97eeb3078f2fb7d65739d51c879d9",
+            "com.docker.compose.network": "engeradios2_backend",
+            "com.docker.compose.project": "engeradios2",
+            "com.docker.compose.version": "5.5.1"
+        },
+        "Containers": {
+            "90d5e1c393bb6d45c7e60cdc2f109f8bf9106ac1c96a95ddba9336e5b8684438": {
+                "Name": "engeradios2-postgres",
+                "EndpointID": "407e6c5d39cdf339984433e75da6b72746684c1da7339bd76ac84deede6c2963",
+                "MacAddress": "1a:10:2d:5d:30:7d",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": ""
+            },
+            "caf7f51e7964b667a025322464e99954b85e1c3184abb711bc17059144e1b4f9": {
+                "Name": "engeradios2-redis",
+                "EndpointID": "146f60ed1750afaf0a259301642a236e2a595a73c7b8983713c3c5f6c8b7e8c7",
+                "MacAddress": "ea:16:5f:c8:e6:d1",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            },
+            "fb7ffa30bd157571f5d74a1b78175156c9ff7925b8c27bf97b6794127d788e0b": {
+                "Name": "engeradios2-api-original",
+                "EndpointID": "5b0230434ba12e6f6e92833de2413e75900dea7dfd7a12570b2b954560cb9524",
+                "MacAddress": "4a:8b:60:9f:18:9c",
+                "IPv4Address": "172.18.0.4/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.18.0.0/16": {
+                        "IPsInUse": 6,
+                        "DynamicIPsAvailable": 65530
+                    }
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,4 @@
+NAMES                      PORTS
+engeradios2-postgres       5432/tcp
+engeradios2-redis          6379/tcp
+engeradios2-api-original   127.0.0.1:3001->3001/tcp

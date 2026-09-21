@@ -26,8 +26,19 @@ describe('Grandes Projetos backend', () => {
     expect(c).toContain("Post(':id/restaurar')");
   });
 
-  it('preserva integração por contrato', () => {
-    expect(s).toContain('Projeto sem número de contrato');
+  it('preserva integração por contrato com sincronização aditiva', () => {
+    expect(s).toContain('async syncOrdersForProject');
+
+    expect(s).toContain(
+      "motivo: 'PROJETO_SEM_PROPOSTA_OU_CONTRATO'",
+    );
+
     expect(s).toContain('ordemServico.findMany');
+    expect(s).toContain('tx.gp_os.findUnique');
+    expect(s).toContain('tx.gp_os.create');
+
+    expect(s).not.toContain(
+      'Projeto sem número de contrato',
+    );
   });
 });

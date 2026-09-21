@@ -166,7 +166,10 @@ export const ModelName = {
   RhUnidade: 'RhUnidade',
   RhFuncionario: 'RhFuncionario',
   RhMovimentacao: 'RhMovimentacao',
-  RhDesligamento: 'RhDesligamento'
+  RhDesligamento: 'RhDesligamento',
+  gp_visita: 'gp_visita',
+  gp_projeto_equipe: 'gp_projeto_equipe',
+  gp_risco: 'gp_risco'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1192,7 +1195,21 @@ export const Gp_custoScalarFieldEnum = {
   atualizado_por_id: 'atualizado_por_id',
   excluido_em: 'excluido_em',
   excluido_por_id: 'excluido_por_id',
-  motivo_exclusao: 'motivo_exclusao'
+  motivo_exclusao: 'motivo_exclusao',
+  subcategoria: 'subcategoria',
+  natureza: 'natureza',
+  competencia: 'competencia',
+  quantidade: 'quantidade',
+  valor_unitario: 'valor_unitario',
+  recorrente: 'recorrente',
+  vigencia_inicio: 'vigencia_inicio',
+  vigencia_fim: 'vigencia_fim',
+  periodicidade: 'periodicidade',
+  os_id: 'os_id',
+  material_id: 'material_id',
+  funcionario_id: 'funcionario_id',
+  centro_custo: 'centro_custo',
+  observacoes: 'observacoes'
 } as const
 
 export type Gp_custoScalarFieldEnum = (typeof Gp_custoScalarFieldEnum)[keyof typeof Gp_custoScalarFieldEnum]
@@ -1235,7 +1252,15 @@ export const Gp_materialScalarFieldEnum = {
   atualizado_por_id: 'atualizado_por_id',
   excluido_em: 'excluido_em',
   excluido_por_id: 'excluido_por_id',
-  motivo_exclusao: 'motivo_exclusao'
+  motivo_exclusao: 'motivo_exclusao',
+  codigo_interno: 'codigo_interno',
+  qtd_solicitada: 'qtd_solicitada',
+  qtd_utilizada: 'qtd_utilizada',
+  qtd_devolvida: 'qtd_devolvida',
+  fornecedor: 'fornecedor',
+  origem: 'origem',
+  situacao: 'situacao',
+  documento: 'documento'
 } as const
 
 export type Gp_materialScalarFieldEnum = (typeof Gp_materialScalarFieldEnum)[keyof typeof Gp_materialScalarFieldEnum]
@@ -1257,7 +1282,14 @@ export const Gp_osScalarFieldEnum = {
   atualizado_por_id: 'atualizado_por_id',
   excluido_em: 'excluido_em',
   excluido_por_id: 'excluido_por_id',
-  motivo_exclusao: 'motivo_exclusao'
+  motivo_exclusao: 'motivo_exclusao',
+  natureza_valor: 'natureza_valor',
+  valor_venda: 'valor_venda',
+  custo_apropriavel: 'custo_apropriavel',
+  prioridade: 'prioridade',
+  data_programada: 'data_programada',
+  ultima_visita_em: 'ultima_visita_em',
+  proxima_visita_em: 'proxima_visita_em'
 } as const
 
 export type Gp_osScalarFieldEnum = (typeof Gp_osScalarFieldEnum)[keyof typeof Gp_osScalarFieldEnum]
@@ -2474,6 +2506,75 @@ export const RhDesligamentoScalarFieldEnum = {
 } as const
 
 export type RhDesligamentoScalarFieldEnum = (typeof RhDesligamentoScalarFieldEnum)[keyof typeof RhDesligamentoScalarFieldEnum]
+
+
+export const Gp_visitaScalarFieldEnum = {
+  id: 'id',
+  projeto_id: 'projeto_id',
+  os_id: 'os_id',
+  tecnico: 'tecnico',
+  funcionario_id: 'funcionario_id',
+  data_inicio: 'data_inicio',
+  data_fim: 'data_fim',
+  duracao_minutos: 'duracao_minutos',
+  objetivo: 'objetivo',
+  atividade_realizada: 'atividade_realizada',
+  pendencias: 'pendencias',
+  proxima_acao: 'proxima_acao',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  custo: 'custo',
+  status: 'status',
+  criado_em: 'criado_em',
+  versao: 'versao',
+  excluido_em: 'excluido_em',
+  excluido_por_id: 'excluido_por_id',
+  motivo_exclusao: 'motivo_exclusao'
+} as const
+
+export type Gp_visitaScalarFieldEnum = (typeof Gp_visitaScalarFieldEnum)[keyof typeof Gp_visitaScalarFieldEnum]
+
+
+export const Gp_projeto_equipeScalarFieldEnum = {
+  id: 'id',
+  projeto_id: 'projeto_id',
+  funcionario_id: 'funcionario_id',
+  nome: 'nome',
+  funcao: 'funcao',
+  vigencia_inicio: 'vigencia_inicio',
+  vigencia_fim: 'vigencia_fim',
+  custo_gerencial_mensal: 'custo_gerencial_mensal',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  versao: 'versao',
+  excluido_em: 'excluido_em',
+  excluido_por_id: 'excluido_por_id',
+  motivo_exclusao: 'motivo_exclusao'
+} as const
+
+export type Gp_projeto_equipeScalarFieldEnum = (typeof Gp_projeto_equipeScalarFieldEnum)[keyof typeof Gp_projeto_equipeScalarFieldEnum]
+
+
+export const Gp_riscoScalarFieldEnum = {
+  id: 'id',
+  projeto_id: 'projeto_id',
+  titulo: 'titulo',
+  descricao: 'descricao',
+  impacto: 'impacto',
+  probabilidade: 'probabilidade',
+  criticidade: 'criticidade',
+  responsavel: 'responsavel',
+  prazo: 'prazo',
+  status: 'status',
+  plano_acao: 'plano_acao',
+  criado_em: 'criado_em',
+  versao: 'versao',
+  excluido_em: 'excluido_em',
+  excluido_por_id: 'excluido_por_id',
+  motivo_exclusao: 'motivo_exclusao'
+} as const
+
+export type Gp_riscoScalarFieldEnum = (typeof Gp_riscoScalarFieldEnum)[keyof typeof Gp_riscoScalarFieldEnum]
 
 
 export const SortOrder = {

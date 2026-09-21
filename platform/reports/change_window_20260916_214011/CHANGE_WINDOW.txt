@@ -1,0 +1,27 @@
+======================================
+CHANGE WINDOW STARTED
+======================================
+
+DATE:
+Wed Sep 16 09:40:11 PM -03 2026
+
+PLATFORM STATUS:
+CERTIFIED
+
+GO/NO-GO:
+GO
+
+CURRENT CONTAINER:
+engeradios2-api-original
+
+TARGET CONTAINER:
+engeradios2-api
+
+PRODUCTION MODIFIED:
+NO
+
+CHANGE FREEZE:
+ENABLED
+
+NEXT PHASE:
+FIRST CONTROLLED DEPLOYMENT

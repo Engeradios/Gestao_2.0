@@ -1,0 +1,6 @@
+                "Source": "/opt/engeradios2/storage/propostas",
+                "Source": "/opt/engeradios2/storage/servicos",
+                "Source": "/var/lib/engeradios2/contratos",
+                "Source": "/var/lib/engeradios2/perfis",
+                "Source": "/opt/engeradios2/storage/app-campo/evidencias",
+                "Source": "/opt/engeradios2/storage/orcamento/evidencias",

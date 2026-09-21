@@ -48,6 +48,18 @@ export class GrandesProjetosController {
   dashboard() {
     return this.service.dashboard();
   }
+  @Get('painel-executivo-v2')
+  @RequirePermissions('GRANDES_PROJETOS.PROJETOS.VISUALIZAR')
+  painelExecutivoV2() {
+    return this.service.painelExecutivoV2();
+  }
+
+  @Get('painel-resumo-v2')
+  @RequirePermissions('GRANDES_PROJETOS.PROJETOS.VISUALIZAR')
+  painelResumoV2() {
+    return this.service.painelResumoV2();
+  }
+
   @Get('propostas/:numero')
   @RequirePermissions('GRANDES_PROJETOS.PROJETOS.VISUALIZAR')
   proposal(@Param('numero') n: string) {
@@ -177,6 +189,11 @@ export class GrandesProjetosController {
   @RequirePermissions('GRANDES_PROJETOS.OS.GERENCIAR')
   importOrders(@Param('id', ParseIntPipe) id: number, @Req() r: R) {
     return this.service.importOrders(id, this.actor(r));
+  }
+  @Post(':id/os/sincronizar')
+  @RequirePermissions('GRANDES_PROJETOS.OS.GERENCIAR')
+  syncOrders(@Param('id', ParseIntPipe) id: number, @Req() r: R) {
+    return this.service.syncOrdersForProject(id, this.actor(r));
   }
   @Delete(':id/os/:child')
   @RequirePermissions('GRANDES_PROJETOS.OS.GERENCIAR')

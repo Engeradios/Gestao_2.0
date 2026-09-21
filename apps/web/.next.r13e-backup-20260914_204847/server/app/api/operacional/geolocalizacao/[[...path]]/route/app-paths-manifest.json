@@ -1,0 +1,3 @@
+{
+  "/api/operacional/geolocalizacao/[[...path]]/route": "app/api/operacional/geolocalizacao/[[...path]]/route.js"
+}

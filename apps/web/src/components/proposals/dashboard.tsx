@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BarChart3,
   CalendarDays,
+  ChevronDown,
   CircleDollarSign,
   Clock3,
   FileCheck2,
@@ -92,6 +93,14 @@ const pct = (actual: number, previous: number) =>
       ? "+100%"
       : "0%"
     : `${Math.round(((actual - previous) / previous) * 100) >= 0 ? "+" : ""}${Math.round(((actual - previous) / previous) * 100)}%`;
+const compactMoney = (v: unknown) =>
+  new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    notation: "compact",
+    maximumFractionDigits: 1,
+  }).format(Number(v || 0));
+
 const colors = [
   "#dc2626",
   "#2563eb",
@@ -287,56 +296,25 @@ export function ProposalsDashboard() {
           </div>
         </div>
         <div className="mt-4 grid gap-4 lg:grid-cols-2">
-          <fieldset className="rounded-xl border border-slate-200 p-3 dark:border-slate-700">
-            <legend className="px-1 text-sm font-semibold">Tipos de proposta</legend>
-            <div className="mt-2 max-h-44 space-y-2 overflow-auto">
-              {tiposDisponiveis.length ? (
-                tiposDisponiveis.map((tipo) => (
-                  <label key={tipo} className="flex items-center gap-2 text-sm">
-                    <input
-                      type="checkbox"
-                      checked={filters.tipos.includes(tipo)}
-                      onChange={(event) =>
-                        setFilters((currentFilters) => ({
-                          ...currentFilters,
-                          tipos: event.target.checked
-                            ? [...currentFilters.tipos, tipo]
-                            : currentFilters.tipos.filter((item) => item !== tipo),
-                        }))
-                      }
-                    />
-                    <span>{tipo}</span>
-                  </label>
-                ))
-              ) : (
-                <span className="text-sm text-slate-500">Nenhum tipo disponível.</span>
-              )}
-            </div>
-          </fieldset>
-          <fieldset className="rounded-xl border border-slate-200 p-3 dark:border-slate-700">
-            <legend className="px-1 text-sm font-semibold">Faixa de valor</legend>
-            <div className="mt-2 space-y-2">
-              {VALUE_RANGES.map((range) => (
-                <label key={range.value} className="flex items-center gap-2 text-sm">
-                  <input
-                    type="checkbox"
-                    checked={filters.faixasValor.includes(range.value)}
-                    onChange={(event) =>
-                      setFilters((currentFilters) => ({
-                        ...currentFilters,
-                        faixasValor: event.target.checked
-                          ? [...currentFilters.faixasValor, range.value]
-                          : currentFilters.faixasValor.filter(
-                              (item) => item !== range.value,
-                            ),
-                      }))
-                    }
-                  />
-                  <span>{range.label}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
+          <MultiSelectDropdown
+            label="Tipos de proposta"
+            options={tiposDisponiveis.map((tipo) => ({ value: tipo, label: tipo }))}
+            values={filters.tipos}
+            emptyText="Nenhum tipo disponível."
+            allText="Todos os tipos"
+            onChange={(values) =>
+              setFilters((currentFilters) => ({ ...currentFilters, tipos: values }))
+            }
+          />
+          <MultiSelectDropdown<ValueRange>
+            label="Faixa de valor"
+            options={VALUE_RANGES}
+            values={filters.faixasValor}
+            allText="Todas as faixas"
+            onChange={(values) =>
+              setFilters((currentFilters) => ({ ...currentFilters, faixasValor: values }))
+            }
+          />
         </div>
         {data && (
           <p className="mt-3 text-xs text-slate-500">
@@ -439,9 +417,14 @@ export function ProposalsDashboard() {
             <Card title="Ticket médio mês a mês">
               <TicketAverageChart rows={data.serieTicketMedio} />
             </Card>
-            <Card title="Aprovação por tipo de proposta">
-              <ApprovalByType rows={data.aprovacaoPorTipo || []} />
-            </Card>
+            <div className="grid gap-5 xl:grid-cols-2">
+              <Card title="Aprovação por tipo de proposta">
+                <ApprovalByType rows={data.aprovacaoPorTipo || []} />
+              </Card>
+              <Card title="Distribuição das propostas por status">
+                <StatusDonut rows={data.status || []} />
+              </Card>
+            </div>
             <div className="grid gap-5 xl:grid-cols-2">
               <Card title="Distribuição por status efetivo">
                 <HorizontalBars rows={data.status} />
@@ -583,6 +566,106 @@ function Change({ value }: { value: string }) {
     >
       {value}
     </span>
+  );
+}
+
+type SelectOption<T extends string> = { value: T; label: string };
+function MultiSelectDropdown<T extends string>({
+  label,
+  options,
+  values,
+  onChange,
+  allText,
+  emptyText = "Nenhuma opção disponível.",
+}: {
+  label: string;
+  options: Array<SelectOption<T>>;
+  values: T[];
+  onChange: (values: T[]) => void;
+  allText: string;
+  emptyText?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const close = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, []);
+  const summary = values.length === 0
+    ? allText
+    : values.length === 1
+      ? options.find((option) => option.value === values[0])?.label || values[0]
+      : `${values.length} selecionados`;
+  return (
+    <div ref={rootRef} className="relative">
+      <p className="mb-1.5 text-sm font-semibold">{label}</p>
+      <button
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+        className="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-left text-sm shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
+      >
+        <span className="truncate">{summary}</span>
+        <ChevronDown size={16} className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute z-30 mt-2 w-full rounded-xl border border-slate-200 bg-white p-2 shadow-xl dark:border-slate-700 dark:bg-slate-900">
+          <div className="mb-2 flex gap-2 border-b border-slate-100 pb-2 dark:border-slate-800">
+            <button type="button" className="rounded-lg px-2 py-1 text-xs font-semibold text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40" onClick={() => onChange(options.map((option) => option.value))}>Selecionar todos</button>
+            <button type="button" className="rounded-lg px-2 py-1 text-xs font-semibold text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" onClick={() => onChange([])}>Limpar</button>
+          </div>
+          <div role="listbox" aria-multiselectable="true" className="max-h-56 space-y-1 overflow-auto">
+            {options.length ? options.map((option) => (
+              <label key={option.value} className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800">
+                <input
+                  type="checkbox"
+                  checked={values.includes(option.value)}
+                  onChange={(event) => onChange(event.target.checked ? [...values, option.value] : values.filter((value) => value !== option.value))}
+                />
+                <span>{option.label}</span>
+              </label>
+            )) : <p className="px-2 py-3 text-sm text-slate-500">{emptyText}</p>}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function StatusDonut({ rows }: { rows: Data["status"] }) {
+  const clean = rows.filter((row) => Number(row.quantidade) > 0);
+  const total = clean.reduce((sum, row) => sum + Number(row.quantidade), 0);
+  if (!total) return <p className="text-sm text-slate-500">Sem dados de status para o filtro selecionado.</p>;
+  const gradient = clean.map((row, index) => {
+    const startValue = clean
+      .slice(0, index)
+      .reduce((sum, item) => sum + Number(item.quantidade), 0);
+    const endValue = startValue + Number(row.quantidade);
+    const start = (startValue / total) * 100;
+    const end = (endValue / total) * 100;
+    return `${colors[index % colors.length]} ${start}% ${end}%`;
+  }).join(", ");
+  return (
+    <div className="grid items-center gap-5 sm:grid-cols-[180px_1fr]">
+      <div className="relative mx-auto h-44 w-44 rounded-full" style={{ background: `conic-gradient(${gradient})` }} role="img" aria-label={`Distribuição de ${integer(total)} propostas por status`}>
+        <div className="absolute inset-8 flex flex-col items-center justify-center rounded-full bg-white shadow-inner dark:bg-slate-900">
+          <strong className="text-2xl">{integer(total)}</strong>
+          <span className="text-xs text-slate-500">propostas</span>
+        </div>
+      </div>
+      <div className="space-y-2">
+        {clean.map((row, index) => (
+          <div key={row.nome} className="flex items-center justify-between gap-3 text-sm">
+            <span className="flex min-w-0 items-center gap-2"><i className="h-3 w-3 shrink-0 rounded-full" style={{ backgroundColor: colors[index % colors.length] }} /><span className="truncate">{row.nome}</span></span>
+            <strong>{integer(row.quantidade)} · {((Number(row.quantidade) / total) * 100).toLocaleString("pt-BR", { maximumFractionDigits: 1 })}%</strong>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -756,6 +839,16 @@ function TicketAverageChart({ rows }: { rows: Data["serieTicketMedio"] }) {
                 >
                   <title>{item.mes}: {money(item.ticket_medio)}</title>
                 </circle>
+                <text
+                  x={x}
+                  y={Math.max(14, y - 12)}
+                  textAnchor="middle"
+                  fill="currentColor"
+                  fontSize="10"
+                  fontWeight="700"
+                >
+                  {compactMoney(item.ticket_medio)}
+                </text>
                 <text
                   x={x}
                   y="188"

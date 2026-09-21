@@ -1,0 +1,14 @@
+/etc/nginx/sites-enabled/engeradios2:    server_name gestao.engeradios.com.br;
+/etc/nginx/sites-enabled/engeradios2:    ssl_certificate /etc/letsencrypt/live/gestao.engeradios.com.br/fullchain.pem; # managed by Certbot
+/etc/nginx/sites-enabled/engeradios2:    ssl_certificate_key /etc/letsencrypt/live/gestao.engeradios.com.br/privkey.pem; # managed by Certbot
+/etc/nginx/sites-enabled/engeradios2:    ssl_certificate /etc/letsencrypt/live/gestao.engeradios.com.br/fullchain.pem; # managed by Certbot
+/etc/nginx/sites-enabled/engeradios2:    ssl_certificate_key /etc/letsencrypt/live/gestao.engeradios.com.br/privkey.pem; # managed by Certbot
+/etc/nginx/sites-enabled/engeradios2:    if ($host = gestao.engeradios.com.br) {
+/etc/nginx/sites-enabled/engeradios2:    server_name gestao.engeradios.com.br;
+/etc/nginx/sites-available/engeradios2:    server_name gestao.engeradios.com.br;
+/etc/nginx/sites-available/engeradios2:    ssl_certificate /etc/letsencrypt/live/gestao.engeradios.com.br/fullchain.pem; # managed by Certbot
+/etc/nginx/sites-available/engeradios2:    ssl_certificate_key /etc/letsencrypt/live/gestao.engeradios.com.br/privkey.pem; # managed by Certbot
+/etc/nginx/sites-available/engeradios2:    ssl_certificate /etc/letsencrypt/live/gestao.engeradios.com.br/fullchain.pem; # managed by Certbot
+/etc/nginx/sites-available/engeradios2:    ssl_certificate_key /etc/letsencrypt/live/gestao.engeradios.com.br/privkey.pem; # managed by Certbot
+/etc/nginx/sites-available/engeradios2:    if ($host = gestao.engeradios.com.br) {
+/etc/nginx/sites-available/engeradios2:    server_name gestao.engeradios.com.br;

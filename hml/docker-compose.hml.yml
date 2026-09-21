@@ -1,0 +1,19 @@
+services:
+
+  api-hml:
+
+    image: engeradios2-api:fast-app-r6-20260913_103019
+
+    container_name: engeradios2-api-hml
+
+    restart: unless-stopped
+
+    env_file:
+      - /opt/engeradios2/hml/.env.hml
+
+    networks:
+      - engeradios2_backend
+
+networks:
+  engeradios2_backend:
+    external: true

@@ -6,7 +6,14 @@ async function proxy(request: Request, path: string[]) {
   if (!token)
     return NextResponse.json({ message: "Sessão expirada" }, { status: 401 });
   const source = new URL(request.url);
-  const target = `${process.env.API_INTERNAL_URL}/api/v1/propostas/${path.join("/")}${source.search}`;
+  
+const target = `${process.env.API_INTERNAL_URL}/api/v1/propostas/${path.join("/")}${source.search}`;
+
+console.log("==== PROPOSTAS DEBUG ====");
+console.log("API_INTERNAL_URL =", process.env.API_INTERNAL_URL);
+console.log("PATH =", path.join("/"));
+console.log("TARGET =", target);
+
   const headers: HeadersInit = { Authorization: `Bearer ${token}` };
   const init: RequestInit = {
     method: request.method,

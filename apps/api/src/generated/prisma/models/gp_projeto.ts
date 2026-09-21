@@ -493,6 +493,9 @@ export type gp_projetoWhereInput = {
   gp_material?: Prisma.Gp_materialListRelationFilter
   gp_os?: Prisma.Gp_osListRelationFilter
   gp_relatorio?: Prisma.Gp_relatorioListRelationFilter
+  gp_visita?: Prisma.Gp_visitaListRelationFilter
+  gp_projeto_equipe?: Prisma.Gp_projeto_equipeListRelationFilter
+  gp_risco?: Prisma.Gp_riscoListRelationFilter
 }
 
 export type gp_projetoOrderByWithRelationInput = {
@@ -536,6 +539,9 @@ export type gp_projetoOrderByWithRelationInput = {
   gp_material?: Prisma.gp_materialOrderByRelationAggregateInput
   gp_os?: Prisma.gp_osOrderByRelationAggregateInput
   gp_relatorio?: Prisma.gp_relatorioOrderByRelationAggregateInput
+  gp_visita?: Prisma.gp_visitaOrderByRelationAggregateInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeOrderByRelationAggregateInput
+  gp_risco?: Prisma.gp_riscoOrderByRelationAggregateInput
 }
 
 export type gp_projetoWhereUniqueInput = Prisma.AtLeast<{
@@ -582,6 +588,9 @@ export type gp_projetoWhereUniqueInput = Prisma.AtLeast<{
   gp_material?: Prisma.Gp_materialListRelationFilter
   gp_os?: Prisma.Gp_osListRelationFilter
   gp_relatorio?: Prisma.Gp_relatorioListRelationFilter
+  gp_visita?: Prisma.Gp_visitaListRelationFilter
+  gp_projeto_equipe?: Prisma.Gp_projeto_equipeListRelationFilter
+  gp_risco?: Prisma.Gp_riscoListRelationFilter
 }, "id">
 
 export type gp_projetoOrderByWithAggregationInput = {
@@ -708,6 +717,9 @@ export type gp_projetoCreateInput = {
   gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUncheckedCreateInput = {
@@ -751,6 +763,9 @@ export type gp_projetoUncheckedCreateInput = {
   gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUpdateInput = {
@@ -793,6 +808,9 @@ export type gp_projetoUpdateInput = {
   gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoUncheckedUpdateInput = {
@@ -836,6 +854,9 @@ export type gp_projetoUncheckedUpdateInput = {
   gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoCreateManyInput = {
@@ -1164,6 +1185,48 @@ export type gp_projetoUpdateOneRequiredWithoutGp_relatorioNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.gp_projetoUpdateToOneWithWhereWithoutGp_relatorioInput, Prisma.gp_projetoUpdateWithoutGp_relatorioInput>, Prisma.gp_projetoUncheckedUpdateWithoutGp_relatorioInput>
 }
 
+export type gp_projetoCreateNestedOneWithoutGp_visitaInput = {
+  create?: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_visitaInput, Prisma.gp_projetoUncheckedCreateWithoutGp_visitaInput>
+  connectOrCreate?: Prisma.gp_projetoCreateOrConnectWithoutGp_visitaInput
+  connect?: Prisma.gp_projetoWhereUniqueInput
+}
+
+export type gp_projetoUpdateOneRequiredWithoutGp_visitaNestedInput = {
+  create?: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_visitaInput, Prisma.gp_projetoUncheckedCreateWithoutGp_visitaInput>
+  connectOrCreate?: Prisma.gp_projetoCreateOrConnectWithoutGp_visitaInput
+  upsert?: Prisma.gp_projetoUpsertWithoutGp_visitaInput
+  connect?: Prisma.gp_projetoWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.gp_projetoUpdateToOneWithWhereWithoutGp_visitaInput, Prisma.gp_projetoUpdateWithoutGp_visitaInput>, Prisma.gp_projetoUncheckedUpdateWithoutGp_visitaInput>
+}
+
+export type gp_projetoCreateNestedOneWithoutGp_projeto_equipeInput = {
+  create?: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_projeto_equipeInput, Prisma.gp_projetoUncheckedCreateWithoutGp_projeto_equipeInput>
+  connectOrCreate?: Prisma.gp_projetoCreateOrConnectWithoutGp_projeto_equipeInput
+  connect?: Prisma.gp_projetoWhereUniqueInput
+}
+
+export type gp_projetoUpdateOneRequiredWithoutGp_projeto_equipeNestedInput = {
+  create?: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_projeto_equipeInput, Prisma.gp_projetoUncheckedCreateWithoutGp_projeto_equipeInput>
+  connectOrCreate?: Prisma.gp_projetoCreateOrConnectWithoutGp_projeto_equipeInput
+  upsert?: Prisma.gp_projetoUpsertWithoutGp_projeto_equipeInput
+  connect?: Prisma.gp_projetoWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.gp_projetoUpdateToOneWithWhereWithoutGp_projeto_equipeInput, Prisma.gp_projetoUpdateWithoutGp_projeto_equipeInput>, Prisma.gp_projetoUncheckedUpdateWithoutGp_projeto_equipeInput>
+}
+
+export type gp_projetoCreateNestedOneWithoutGp_riscoInput = {
+  create?: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_riscoInput, Prisma.gp_projetoUncheckedCreateWithoutGp_riscoInput>
+  connectOrCreate?: Prisma.gp_projetoCreateOrConnectWithoutGp_riscoInput
+  connect?: Prisma.gp_projetoWhereUniqueInput
+}
+
+export type gp_projetoUpdateOneRequiredWithoutGp_riscoNestedInput = {
+  create?: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_riscoInput, Prisma.gp_projetoUncheckedCreateWithoutGp_riscoInput>
+  connectOrCreate?: Prisma.gp_projetoCreateOrConnectWithoutGp_riscoInput
+  upsert?: Prisma.gp_projetoUpsertWithoutGp_riscoInput
+  connect?: Prisma.gp_projetoWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.gp_projetoUpdateToOneWithWhereWithoutGp_riscoInput, Prisma.gp_projetoUpdateWithoutGp_riscoInput>, Prisma.gp_projetoUncheckedUpdateWithoutGp_riscoInput>
+}
+
 export type gp_projetoCreateWithoutGp_custoInput = {
   proposta?: string | null
   codigo?: string | null
@@ -1203,6 +1266,9 @@ export type gp_projetoCreateWithoutGp_custoInput = {
   gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUncheckedCreateWithoutGp_custoInput = {
@@ -1245,6 +1311,9 @@ export type gp_projetoUncheckedCreateWithoutGp_custoInput = {
   gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoCreateOrConnectWithoutGp_custoInput = {
@@ -1302,6 +1371,9 @@ export type gp_projetoUpdateWithoutGp_custoInput = {
   gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoUncheckedUpdateWithoutGp_custoInput = {
@@ -1344,6 +1416,9 @@ export type gp_projetoUncheckedUpdateWithoutGp_custoInput = {
   gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoCreateWithoutGp_marcoInput = {
@@ -1385,6 +1460,9 @@ export type gp_projetoCreateWithoutGp_marcoInput = {
   gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUncheckedCreateWithoutGp_marcoInput = {
@@ -1427,6 +1505,9 @@ export type gp_projetoUncheckedCreateWithoutGp_marcoInput = {
   gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoCreateOrConnectWithoutGp_marcoInput = {
@@ -1484,6 +1565,9 @@ export type gp_projetoUpdateWithoutGp_marcoInput = {
   gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoUncheckedUpdateWithoutGp_marcoInput = {
@@ -1526,6 +1610,9 @@ export type gp_projetoUncheckedUpdateWithoutGp_marcoInput = {
   gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoCreateWithoutGp_materialInput = {
@@ -1567,6 +1654,9 @@ export type gp_projetoCreateWithoutGp_materialInput = {
   gp_marco?: Prisma.gp_marcoCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUncheckedCreateWithoutGp_materialInput = {
@@ -1609,6 +1699,9 @@ export type gp_projetoUncheckedCreateWithoutGp_materialInput = {
   gp_marco?: Prisma.gp_marcoUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoCreateOrConnectWithoutGp_materialInput = {
@@ -1666,6 +1759,9 @@ export type gp_projetoUpdateWithoutGp_materialInput = {
   gp_marco?: Prisma.gp_marcoUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoUncheckedUpdateWithoutGp_materialInput = {
@@ -1708,6 +1804,9 @@ export type gp_projetoUncheckedUpdateWithoutGp_materialInput = {
   gp_marco?: Prisma.gp_marcoUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoCreateWithoutGp_osInput = {
@@ -1749,6 +1848,9 @@ export type gp_projetoCreateWithoutGp_osInput = {
   gp_marco?: Prisma.gp_marcoCreateNestedManyWithoutGp_projetoInput
   gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUncheckedCreateWithoutGp_osInput = {
@@ -1791,6 +1893,9 @@ export type gp_projetoUncheckedCreateWithoutGp_osInput = {
   gp_marco?: Prisma.gp_marcoUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoCreateOrConnectWithoutGp_osInput = {
@@ -1848,6 +1953,9 @@ export type gp_projetoUpdateWithoutGp_osInput = {
   gp_marco?: Prisma.gp_marcoUpdateManyWithoutGp_projetoNestedInput
   gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoUncheckedUpdateWithoutGp_osInput = {
@@ -1890,6 +1998,9 @@ export type gp_projetoUncheckedUpdateWithoutGp_osInput = {
   gp_marco?: Prisma.gp_marcoUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoCreateWithoutGp_relatorioInput = {
@@ -1931,6 +2042,9 @@ export type gp_projetoCreateWithoutGp_relatorioInput = {
   gp_marco?: Prisma.gp_marcoCreateNestedManyWithoutGp_projetoInput
   gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoUncheckedCreateWithoutGp_relatorioInput = {
@@ -1973,6 +2087,9 @@ export type gp_projetoUncheckedCreateWithoutGp_relatorioInput = {
   gp_marco?: Prisma.gp_marcoUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
   gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
 }
 
 export type gp_projetoCreateOrConnectWithoutGp_relatorioInput = {
@@ -2030,6 +2147,9 @@ export type gp_projetoUpdateWithoutGp_relatorioInput = {
   gp_marco?: Prisma.gp_marcoUpdateManyWithoutGp_projetoNestedInput
   gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
 }
 
 export type gp_projetoUncheckedUpdateWithoutGp_relatorioInput = {
@@ -2072,6 +2192,591 @@ export type gp_projetoUncheckedUpdateWithoutGp_relatorioInput = {
   gp_marco?: Prisma.gp_marcoUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
   gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
+}
+
+export type gp_projetoCreateWithoutGp_visitaInput = {
+  proposta?: string | null
+  codigo?: string | null
+  nome: string
+  cliente?: string | null
+  cliente_local?: string | null
+  uf?: string | null
+  gerente?: string | null
+  valor_contrato?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Date | string | null
+  data_fim_prev?: Date | string | null
+  data_fim_real?: Date | string | null
+  status?: string | null
+  aliq_simples?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string | null
+  atualizado_em?: Date | string | null
+  tipo_escopo?: string | null
+  numero_contrato?: string | null
+  numero_pedido?: string | null
+  meses_contrato?: number | null
+  valor_mensal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: boolean | null
+  aprovacao_status?: string
+  aprovado_em?: Date | string | null
+  aprovado_por_id?: string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  gp_custo?: Prisma.gp_custoCreateNestedManyWithoutGp_projetoInput
+  gp_marco?: Prisma.gp_marcoCreateNestedManyWithoutGp_projetoInput
+  gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
+  gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
+  gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
+}
+
+export type gp_projetoUncheckedCreateWithoutGp_visitaInput = {
+  id?: number
+  proposta?: string | null
+  codigo?: string | null
+  nome: string
+  cliente?: string | null
+  cliente_local?: string | null
+  uf?: string | null
+  gerente?: string | null
+  valor_contrato?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Date | string | null
+  data_fim_prev?: Date | string | null
+  data_fim_real?: Date | string | null
+  status?: string | null
+  aliq_simples?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string | null
+  atualizado_em?: Date | string | null
+  tipo_escopo?: string | null
+  numero_contrato?: string | null
+  numero_pedido?: string | null
+  meses_contrato?: number | null
+  valor_mensal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: boolean | null
+  aprovacao_status?: string
+  aprovado_em?: Date | string | null
+  aprovado_por_id?: string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  gp_custo?: Prisma.gp_custoUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_marco?: Prisma.gp_marcoUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
+}
+
+export type gp_projetoCreateOrConnectWithoutGp_visitaInput = {
+  where: Prisma.gp_projetoWhereUniqueInput
+  create: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_visitaInput, Prisma.gp_projetoUncheckedCreateWithoutGp_visitaInput>
+}
+
+export type gp_projetoUpsertWithoutGp_visitaInput = {
+  update: Prisma.XOR<Prisma.gp_projetoUpdateWithoutGp_visitaInput, Prisma.gp_projetoUncheckedUpdateWithoutGp_visitaInput>
+  create: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_visitaInput, Prisma.gp_projetoUncheckedCreateWithoutGp_visitaInput>
+  where?: Prisma.gp_projetoWhereInput
+}
+
+export type gp_projetoUpdateToOneWithWhereWithoutGp_visitaInput = {
+  where?: Prisma.gp_projetoWhereInput
+  data: Prisma.XOR<Prisma.gp_projetoUpdateWithoutGp_visitaInput, Prisma.gp_projetoUncheckedUpdateWithoutGp_visitaInput>
+}
+
+export type gp_projetoUpdateWithoutGp_visitaInput = {
+  proposta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gerente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_contrato?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_prev?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_real?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aliq_simples?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_escopo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meses_contrato?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  valor_mensal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  aprovacao_status?: Prisma.StringFieldUpdateOperationsInput | string
+  aprovado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  aprovado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gp_custo?: Prisma.gp_custoUpdateManyWithoutGp_projetoNestedInput
+  gp_marco?: Prisma.gp_marcoUpdateManyWithoutGp_projetoNestedInput
+  gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
+  gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
+  gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
+}
+
+export type gp_projetoUncheckedUpdateWithoutGp_visitaInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gerente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_contrato?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_prev?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_real?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aliq_simples?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_escopo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meses_contrato?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  valor_mensal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  aprovacao_status?: Prisma.StringFieldUpdateOperationsInput | string
+  aprovado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  aprovado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gp_custo?: Prisma.gp_custoUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_marco?: Prisma.gp_marcoUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
+}
+
+export type gp_projetoCreateWithoutGp_projeto_equipeInput = {
+  proposta?: string | null
+  codigo?: string | null
+  nome: string
+  cliente?: string | null
+  cliente_local?: string | null
+  uf?: string | null
+  gerente?: string | null
+  valor_contrato?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Date | string | null
+  data_fim_prev?: Date | string | null
+  data_fim_real?: Date | string | null
+  status?: string | null
+  aliq_simples?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string | null
+  atualizado_em?: Date | string | null
+  tipo_escopo?: string | null
+  numero_contrato?: string | null
+  numero_pedido?: string | null
+  meses_contrato?: number | null
+  valor_mensal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: boolean | null
+  aprovacao_status?: string
+  aprovado_em?: Date | string | null
+  aprovado_por_id?: string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  gp_custo?: Prisma.gp_custoCreateNestedManyWithoutGp_projetoInput
+  gp_marco?: Prisma.gp_marcoCreateNestedManyWithoutGp_projetoInput
+  gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
+  gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
+  gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoCreateNestedManyWithoutGp_projetoInput
+}
+
+export type gp_projetoUncheckedCreateWithoutGp_projeto_equipeInput = {
+  id?: number
+  proposta?: string | null
+  codigo?: string | null
+  nome: string
+  cliente?: string | null
+  cliente_local?: string | null
+  uf?: string | null
+  gerente?: string | null
+  valor_contrato?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Date | string | null
+  data_fim_prev?: Date | string | null
+  data_fim_real?: Date | string | null
+  status?: string | null
+  aliq_simples?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string | null
+  atualizado_em?: Date | string | null
+  tipo_escopo?: string | null
+  numero_contrato?: string | null
+  numero_pedido?: string | null
+  meses_contrato?: number | null
+  valor_mensal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: boolean | null
+  aprovacao_status?: string
+  aprovado_em?: Date | string | null
+  aprovado_por_id?: string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  gp_custo?: Prisma.gp_custoUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_marco?: Prisma.gp_marcoUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_risco?: Prisma.gp_riscoUncheckedCreateNestedManyWithoutGp_projetoInput
+}
+
+export type gp_projetoCreateOrConnectWithoutGp_projeto_equipeInput = {
+  where: Prisma.gp_projetoWhereUniqueInput
+  create: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_projeto_equipeInput, Prisma.gp_projetoUncheckedCreateWithoutGp_projeto_equipeInput>
+}
+
+export type gp_projetoUpsertWithoutGp_projeto_equipeInput = {
+  update: Prisma.XOR<Prisma.gp_projetoUpdateWithoutGp_projeto_equipeInput, Prisma.gp_projetoUncheckedUpdateWithoutGp_projeto_equipeInput>
+  create: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_projeto_equipeInput, Prisma.gp_projetoUncheckedCreateWithoutGp_projeto_equipeInput>
+  where?: Prisma.gp_projetoWhereInput
+}
+
+export type gp_projetoUpdateToOneWithWhereWithoutGp_projeto_equipeInput = {
+  where?: Prisma.gp_projetoWhereInput
+  data: Prisma.XOR<Prisma.gp_projetoUpdateWithoutGp_projeto_equipeInput, Prisma.gp_projetoUncheckedUpdateWithoutGp_projeto_equipeInput>
+}
+
+export type gp_projetoUpdateWithoutGp_projeto_equipeInput = {
+  proposta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gerente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_contrato?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_prev?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_real?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aliq_simples?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_escopo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meses_contrato?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  valor_mensal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  aprovacao_status?: Prisma.StringFieldUpdateOperationsInput | string
+  aprovado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  aprovado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gp_custo?: Prisma.gp_custoUpdateManyWithoutGp_projetoNestedInput
+  gp_marco?: Prisma.gp_marcoUpdateManyWithoutGp_projetoNestedInput
+  gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
+  gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
+  gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUpdateManyWithoutGp_projetoNestedInput
+}
+
+export type gp_projetoUncheckedUpdateWithoutGp_projeto_equipeInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gerente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_contrato?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_prev?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_real?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aliq_simples?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_escopo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meses_contrato?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  valor_mensal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  aprovacao_status?: Prisma.StringFieldUpdateOperationsInput | string
+  aprovado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  aprovado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gp_custo?: Prisma.gp_custoUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_marco?: Prisma.gp_marcoUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_risco?: Prisma.gp_riscoUncheckedUpdateManyWithoutGp_projetoNestedInput
+}
+
+export type gp_projetoCreateWithoutGp_riscoInput = {
+  proposta?: string | null
+  codigo?: string | null
+  nome: string
+  cliente?: string | null
+  cliente_local?: string | null
+  uf?: string | null
+  gerente?: string | null
+  valor_contrato?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Date | string | null
+  data_fim_prev?: Date | string | null
+  data_fim_real?: Date | string | null
+  status?: string | null
+  aliq_simples?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string | null
+  atualizado_em?: Date | string | null
+  tipo_escopo?: string | null
+  numero_contrato?: string | null
+  numero_pedido?: string | null
+  meses_contrato?: number | null
+  valor_mensal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: boolean | null
+  aprovacao_status?: string
+  aprovado_em?: Date | string | null
+  aprovado_por_id?: string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  gp_custo?: Prisma.gp_custoCreateNestedManyWithoutGp_projetoInput
+  gp_marco?: Prisma.gp_marcoCreateNestedManyWithoutGp_projetoInput
+  gp_material?: Prisma.gp_materialCreateNestedManyWithoutGp_projetoInput
+  gp_os?: Prisma.gp_osCreateNestedManyWithoutGp_projetoInput
+  gp_relatorio?: Prisma.gp_relatorioCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeCreateNestedManyWithoutGp_projetoInput
+}
+
+export type gp_projetoUncheckedCreateWithoutGp_riscoInput = {
+  id?: number
+  proposta?: string | null
+  codigo?: string | null
+  nome: string
+  cliente?: string | null
+  cliente_local?: string | null
+  uf?: string | null
+  gerente?: string | null
+  valor_contrato?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Date | string | null
+  data_fim_prev?: Date | string | null
+  data_fim_real?: Date | string | null
+  status?: string | null
+  aliq_simples?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string | null
+  atualizado_em?: Date | string | null
+  tipo_escopo?: string | null
+  numero_contrato?: string | null
+  numero_pedido?: string | null
+  meses_contrato?: number | null
+  valor_mensal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: boolean | null
+  aprovacao_status?: string
+  aprovado_em?: Date | string | null
+  aprovado_por_id?: string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  gp_custo?: Prisma.gp_custoUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_marco?: Prisma.gp_marcoUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_material?: Prisma.gp_materialUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_os?: Prisma.gp_osUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_relatorio?: Prisma.gp_relatorioUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_projetoInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedCreateNestedManyWithoutGp_projetoInput
+}
+
+export type gp_projetoCreateOrConnectWithoutGp_riscoInput = {
+  where: Prisma.gp_projetoWhereUniqueInput
+  create: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_riscoInput, Prisma.gp_projetoUncheckedCreateWithoutGp_riscoInput>
+}
+
+export type gp_projetoUpsertWithoutGp_riscoInput = {
+  update: Prisma.XOR<Prisma.gp_projetoUpdateWithoutGp_riscoInput, Prisma.gp_projetoUncheckedUpdateWithoutGp_riscoInput>
+  create: Prisma.XOR<Prisma.gp_projetoCreateWithoutGp_riscoInput, Prisma.gp_projetoUncheckedCreateWithoutGp_riscoInput>
+  where?: Prisma.gp_projetoWhereInput
+}
+
+export type gp_projetoUpdateToOneWithWhereWithoutGp_riscoInput = {
+  where?: Prisma.gp_projetoWhereInput
+  data: Prisma.XOR<Prisma.gp_projetoUpdateWithoutGp_riscoInput, Prisma.gp_projetoUncheckedUpdateWithoutGp_riscoInput>
+}
+
+export type gp_projetoUpdateWithoutGp_riscoInput = {
+  proposta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gerente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_contrato?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_prev?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_real?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aliq_simples?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_escopo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meses_contrato?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  valor_mensal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  aprovacao_status?: Prisma.StringFieldUpdateOperationsInput | string
+  aprovado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  aprovado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gp_custo?: Prisma.gp_custoUpdateManyWithoutGp_projetoNestedInput
+  gp_marco?: Prisma.gp_marcoUpdateManyWithoutGp_projetoNestedInput
+  gp_material?: Prisma.gp_materialUpdateManyWithoutGp_projetoNestedInput
+  gp_os?: Prisma.gp_osUpdateManyWithoutGp_projetoNestedInput
+  gp_relatorio?: Prisma.gp_relatorioUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUpdateManyWithoutGp_projetoNestedInput
+}
+
+export type gp_projetoUncheckedUpdateWithoutGp_riscoInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  codigo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cliente_local?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gerente?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_contrato?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_prev?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fim_real?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aliq_simples?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_iss?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  aliq_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  atualizado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_escopo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_contrato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  meses_contrato?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  valor_mensal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_residual?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  transfere_final?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  aprovacao_status?: Prisma.StringFieldUpdateOperationsInput | string
+  aprovado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  aprovado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gp_custo?: Prisma.gp_custoUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_marco?: Prisma.gp_marcoUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_material?: Prisma.gp_materialUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_os?: Prisma.gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_relatorio?: Prisma.gp_relatorioUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_projetoNestedInput
+  gp_projeto_equipe?: Prisma.gp_projeto_equipeUncheckedUpdateManyWithoutGp_projetoNestedInput
 }
 
 
@@ -2085,6 +2790,9 @@ export type Gp_projetoCountOutputType = {
   gp_material: number
   gp_os: number
   gp_relatorio: number
+  gp_visita: number
+  gp_projeto_equipe: number
+  gp_risco: number
 }
 
 export type Gp_projetoCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2093,6 +2801,9 @@ export type Gp_projetoCountOutputTypeSelect<ExtArgs extends runtime.Types.Extens
   gp_material?: boolean | Gp_projetoCountOutputTypeCountGp_materialArgs
   gp_os?: boolean | Gp_projetoCountOutputTypeCountGp_osArgs
   gp_relatorio?: boolean | Gp_projetoCountOutputTypeCountGp_relatorioArgs
+  gp_visita?: boolean | Gp_projetoCountOutputTypeCountGp_visitaArgs
+  gp_projeto_equipe?: boolean | Gp_projetoCountOutputTypeCountGp_projeto_equipeArgs
+  gp_risco?: boolean | Gp_projetoCountOutputTypeCountGp_riscoArgs
 }
 
 /**
@@ -2140,6 +2851,27 @@ export type Gp_projetoCountOutputTypeCountGp_relatorioArgs<ExtArgs extends runti
   where?: Prisma.gp_relatorioWhereInput
 }
 
+/**
+ * Gp_projetoCountOutputType without action
+ */
+export type Gp_projetoCountOutputTypeCountGp_visitaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.gp_visitaWhereInput
+}
+
+/**
+ * Gp_projetoCountOutputType without action
+ */
+export type Gp_projetoCountOutputTypeCountGp_projeto_equipeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.gp_projeto_equipeWhereInput
+}
+
+/**
+ * Gp_projetoCountOutputType without action
+ */
+export type Gp_projetoCountOutputTypeCountGp_riscoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.gp_riscoWhereInput
+}
+
 
 export type gp_projetoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2182,6 +2914,9 @@ export type gp_projetoSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   gp_material?: boolean | Prisma.gp_projeto$gp_materialArgs<ExtArgs>
   gp_os?: boolean | Prisma.gp_projeto$gp_osArgs<ExtArgs>
   gp_relatorio?: boolean | Prisma.gp_projeto$gp_relatorioArgs<ExtArgs>
+  gp_visita?: boolean | Prisma.gp_projeto$gp_visitaArgs<ExtArgs>
+  gp_projeto_equipe?: boolean | Prisma.gp_projeto$gp_projeto_equipeArgs<ExtArgs>
+  gp_risco?: boolean | Prisma.gp_projeto$gp_riscoArgs<ExtArgs>
   _count?: boolean | Prisma.Gp_projetoCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_projeto"]>
 
@@ -2306,6 +3041,9 @@ export type gp_projetoInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   gp_material?: boolean | Prisma.gp_projeto$gp_materialArgs<ExtArgs>
   gp_os?: boolean | Prisma.gp_projeto$gp_osArgs<ExtArgs>
   gp_relatorio?: boolean | Prisma.gp_projeto$gp_relatorioArgs<ExtArgs>
+  gp_visita?: boolean | Prisma.gp_projeto$gp_visitaArgs<ExtArgs>
+  gp_projeto_equipe?: boolean | Prisma.gp_projeto$gp_projeto_equipeArgs<ExtArgs>
+  gp_risco?: boolean | Prisma.gp_projeto$gp_riscoArgs<ExtArgs>
   _count?: boolean | Prisma.Gp_projetoCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type gp_projetoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2319,6 +3057,9 @@ export type $gp_projetoPayload<ExtArgs extends runtime.Types.Extensions.Internal
     gp_material: Prisma.$gp_materialPayload<ExtArgs>[]
     gp_os: Prisma.$gp_osPayload<ExtArgs>[]
     gp_relatorio: Prisma.$gp_relatorioPayload<ExtArgs>[]
+    gp_visita: Prisma.$gp_visitaPayload<ExtArgs>[]
+    gp_projeto_equipe: Prisma.$gp_projeto_equipePayload<ExtArgs>[]
+    gp_risco: Prisma.$gp_riscoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2755,6 +3496,9 @@ export interface Prisma__gp_projetoClient<T, Null = never, ExtArgs extends runti
   gp_material<T extends Prisma.gp_projeto$gp_materialArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projeto$gp_materialArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_materialPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gp_os<T extends Prisma.gp_projeto$gp_osArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projeto$gp_osArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_osPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gp_relatorio<T extends Prisma.gp_projeto$gp_relatorioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projeto$gp_relatorioArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_relatorioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gp_visita<T extends Prisma.gp_projeto$gp_visitaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projeto$gp_visitaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_visitaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gp_projeto_equipe<T extends Prisma.gp_projeto$gp_projeto_equipeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projeto$gp_projeto_equipeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_projeto_equipePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gp_risco<T extends Prisma.gp_projeto$gp_riscoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projeto$gp_riscoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_riscoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3329,6 +4073,78 @@ export type gp_projeto$gp_relatorioArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.Gp_relatorioScalarFieldEnum | Prisma.Gp_relatorioScalarFieldEnum[]
+}
+
+/**
+ * gp_projeto.gp_visita
+ */
+export type gp_projeto$gp_visitaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the gp_visita
+   */
+  select?: Prisma.gp_visitaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the gp_visita
+   */
+  omit?: Prisma.gp_visitaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.gp_visitaInclude<ExtArgs> | null
+  where?: Prisma.gp_visitaWhereInput
+  orderBy?: Prisma.gp_visitaOrderByWithRelationInput | Prisma.gp_visitaOrderByWithRelationInput[]
+  cursor?: Prisma.gp_visitaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Gp_visitaScalarFieldEnum | Prisma.Gp_visitaScalarFieldEnum[]
+}
+
+/**
+ * gp_projeto.gp_projeto_equipe
+ */
+export type gp_projeto$gp_projeto_equipeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the gp_projeto_equipe
+   */
+  select?: Prisma.gp_projeto_equipeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the gp_projeto_equipe
+   */
+  omit?: Prisma.gp_projeto_equipeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.gp_projeto_equipeInclude<ExtArgs> | null
+  where?: Prisma.gp_projeto_equipeWhereInput
+  orderBy?: Prisma.gp_projeto_equipeOrderByWithRelationInput | Prisma.gp_projeto_equipeOrderByWithRelationInput[]
+  cursor?: Prisma.gp_projeto_equipeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Gp_projeto_equipeScalarFieldEnum | Prisma.Gp_projeto_equipeScalarFieldEnum[]
+}
+
+/**
+ * gp_projeto.gp_risco
+ */
+export type gp_projeto$gp_riscoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the gp_risco
+   */
+  select?: Prisma.gp_riscoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the gp_risco
+   */
+  omit?: Prisma.gp_riscoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.gp_riscoInclude<ExtArgs> | null
+  where?: Prisma.gp_riscoWhereInput
+  orderBy?: Prisma.gp_riscoOrderByWithRelationInput | Prisma.gp_riscoOrderByWithRelationInput[]
+  cursor?: Prisma.gp_riscoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Gp_riscoScalarFieldEnum | Prisma.Gp_riscoScalarFieldEnum[]
 }
 
 /**

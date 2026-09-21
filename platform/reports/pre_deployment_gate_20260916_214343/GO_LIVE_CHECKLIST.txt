@@ -1,0 +1,27 @@
+======================================
+GO LIVE CHECKLIST
+======================================
+
+[ ] Healthcheck OK
+
+[ ] Runtime OK
+
+[ ] Compose OK
+
+[ ] Porta 3001 ativa
+
+[ ] Banco saudável
+
+[ ] Redis saudável
+
+[ ] Backup confirmado
+
+[ ] Release registrada
+
+[ ] Janela de mudança ativa
+
+[ ] Responsável presente
+
+PRODUÇÃO MODIFICADA:
+NÃO
+

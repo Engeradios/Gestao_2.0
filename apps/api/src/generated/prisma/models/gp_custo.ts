@@ -33,6 +33,10 @@ export type Gp_custoAvgAggregateOutputType = {
   valor_orcado: runtime.Decimal | null
   valor_realizado: runtime.Decimal | null
   versao: number | null
+  quantidade: runtime.Decimal | null
+  valor_unitario: runtime.Decimal | null
+  os_id: number | null
+  material_id: number | null
 }
 
 export type Gp_custoSumAggregateOutputType = {
@@ -42,6 +46,10 @@ export type Gp_custoSumAggregateOutputType = {
   valor_orcado: runtime.Decimal | null
   valor_realizado: runtime.Decimal | null
   versao: number | null
+  quantidade: runtime.Decimal | null
+  valor_unitario: runtime.Decimal | null
+  os_id: number | null
+  material_id: number | null
 }
 
 export type Gp_custoMinAggregateOutputType = {
@@ -64,6 +72,20 @@ export type Gp_custoMinAggregateOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  subcategoria: string | null
+  natureza: string | null
+  competencia: Date | null
+  quantidade: runtime.Decimal | null
+  valor_unitario: runtime.Decimal | null
+  recorrente: boolean | null
+  vigencia_inicio: Date | null
+  vigencia_fim: Date | null
+  periodicidade: string | null
+  os_id: number | null
+  material_id: number | null
+  funcionario_id: string | null
+  centro_custo: string | null
+  observacoes: string | null
 }
 
 export type Gp_custoMaxAggregateOutputType = {
@@ -86,6 +108,20 @@ export type Gp_custoMaxAggregateOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  subcategoria: string | null
+  natureza: string | null
+  competencia: Date | null
+  quantidade: runtime.Decimal | null
+  valor_unitario: runtime.Decimal | null
+  recorrente: boolean | null
+  vigencia_inicio: Date | null
+  vigencia_fim: Date | null
+  periodicidade: string | null
+  os_id: number | null
+  material_id: number | null
+  funcionario_id: string | null
+  centro_custo: string | null
+  observacoes: string | null
 }
 
 export type Gp_custoCountAggregateOutputType = {
@@ -108,6 +144,20 @@ export type Gp_custoCountAggregateOutputType = {
   excluido_em: number
   excluido_por_id: number
   motivo_exclusao: number
+  subcategoria: number
+  natureza: number
+  competencia: number
+  quantidade: number
+  valor_unitario: number
+  recorrente: number
+  vigencia_inicio: number
+  vigencia_fim: number
+  periodicidade: number
+  os_id: number
+  material_id: number
+  funcionario_id: number
+  centro_custo: number
+  observacoes: number
   _all: number
 }
 
@@ -119,6 +169,10 @@ export type Gp_custoAvgAggregateInputType = {
   valor_orcado?: true
   valor_realizado?: true
   versao?: true
+  quantidade?: true
+  valor_unitario?: true
+  os_id?: true
+  material_id?: true
 }
 
 export type Gp_custoSumAggregateInputType = {
@@ -128,6 +182,10 @@ export type Gp_custoSumAggregateInputType = {
   valor_orcado?: true
   valor_realizado?: true
   versao?: true
+  quantidade?: true
+  valor_unitario?: true
+  os_id?: true
+  material_id?: true
 }
 
 export type Gp_custoMinAggregateInputType = {
@@ -150,6 +208,20 @@ export type Gp_custoMinAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  subcategoria?: true
+  natureza?: true
+  competencia?: true
+  quantidade?: true
+  valor_unitario?: true
+  recorrente?: true
+  vigencia_inicio?: true
+  vigencia_fim?: true
+  periodicidade?: true
+  os_id?: true
+  material_id?: true
+  funcionario_id?: true
+  centro_custo?: true
+  observacoes?: true
 }
 
 export type Gp_custoMaxAggregateInputType = {
@@ -172,6 +244,20 @@ export type Gp_custoMaxAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  subcategoria?: true
+  natureza?: true
+  competencia?: true
+  quantidade?: true
+  valor_unitario?: true
+  recorrente?: true
+  vigencia_inicio?: true
+  vigencia_fim?: true
+  periodicidade?: true
+  os_id?: true
+  material_id?: true
+  funcionario_id?: true
+  centro_custo?: true
+  observacoes?: true
 }
 
 export type Gp_custoCountAggregateInputType = {
@@ -194,6 +280,20 @@ export type Gp_custoCountAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  subcategoria?: true
+  natureza?: true
+  competencia?: true
+  quantidade?: true
+  valor_unitario?: true
+  recorrente?: true
+  vigencia_inicio?: true
+  vigencia_fim?: true
+  periodicidade?: true
+  os_id?: true
+  material_id?: true
+  funcionario_id?: true
+  centro_custo?: true
+  observacoes?: true
   _all?: true
 }
 
@@ -303,6 +403,20 @@ export type Gp_custoGroupByOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  subcategoria: string | null
+  natureza: string | null
+  competencia: Date | null
+  quantidade: runtime.Decimal | null
+  valor_unitario: runtime.Decimal | null
+  recorrente: boolean | null
+  vigencia_inicio: Date | null
+  vigencia_fim: Date | null
+  periodicidade: string | null
+  os_id: number | null
+  material_id: number | null
+  funcionario_id: string | null
+  centro_custo: string | null
+  observacoes: string | null
   _count: Gp_custoCountAggregateOutputType | null
   _avg: Gp_custoAvgAggregateOutputType | null
   _sum: Gp_custoSumAggregateOutputType | null
@@ -348,6 +462,20 @@ export type gp_custoWhereInput = {
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_custo"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  subcategoria?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  natureza?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  competencia?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  quantidade?: Prisma.DecimalNullableFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.DecimalNullableFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.BoolNullableFilter<"gp_custo"> | boolean | null
+  vigencia_inicio?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  vigencia_fim?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  periodicidade?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  os_id?: Prisma.IntNullableFilter<"gp_custo"> | number | null
+  material_id?: Prisma.IntNullableFilter<"gp_custo"> | number | null
+  funcionario_id?: Prisma.UuidNullableFilter<"gp_custo"> | string | null
+  centro_custo?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  observacoes?: Prisma.StringNullableFilter<"gp_custo"> | string | null
   gp_projeto?: Prisma.XOR<Prisma.Gp_projetoScalarRelationFilter, Prisma.gp_projetoWhereInput>
 }
 
@@ -371,6 +499,20 @@ export type gp_custoOrderByWithRelationInput = {
   excluido_em?: Prisma.SortOrderInput | Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrderInput | Prisma.SortOrder
+  subcategoria?: Prisma.SortOrderInput | Prisma.SortOrder
+  natureza?: Prisma.SortOrderInput | Prisma.SortOrder
+  competencia?: Prisma.SortOrderInput | Prisma.SortOrder
+  quantidade?: Prisma.SortOrderInput | Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrderInput | Prisma.SortOrder
+  recorrente?: Prisma.SortOrderInput | Prisma.SortOrder
+  vigencia_inicio?: Prisma.SortOrderInput | Prisma.SortOrder
+  vigencia_fim?: Prisma.SortOrderInput | Prisma.SortOrder
+  periodicidade?: Prisma.SortOrderInput | Prisma.SortOrder
+  os_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  material_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  funcionario_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  centro_custo?: Prisma.SortOrderInput | Prisma.SortOrder
+  observacoes?: Prisma.SortOrderInput | Prisma.SortOrder
   gp_projeto?: Prisma.gp_projetoOrderByWithRelationInput
 }
 
@@ -397,6 +539,20 @@ export type gp_custoWhereUniqueInput = Prisma.AtLeast<{
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_custo"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  subcategoria?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  natureza?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  competencia?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  quantidade?: Prisma.DecimalNullableFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.DecimalNullableFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.BoolNullableFilter<"gp_custo"> | boolean | null
+  vigencia_inicio?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  vigencia_fim?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  periodicidade?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  os_id?: Prisma.IntNullableFilter<"gp_custo"> | number | null
+  material_id?: Prisma.IntNullableFilter<"gp_custo"> | number | null
+  funcionario_id?: Prisma.UuidNullableFilter<"gp_custo"> | string | null
+  centro_custo?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  observacoes?: Prisma.StringNullableFilter<"gp_custo"> | string | null
   gp_projeto?: Prisma.XOR<Prisma.Gp_projetoScalarRelationFilter, Prisma.gp_projetoWhereInput>
 }, "id">
 
@@ -420,6 +576,20 @@ export type gp_custoOrderByWithAggregationInput = {
   excluido_em?: Prisma.SortOrderInput | Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrderInput | Prisma.SortOrder
+  subcategoria?: Prisma.SortOrderInput | Prisma.SortOrder
+  natureza?: Prisma.SortOrderInput | Prisma.SortOrder
+  competencia?: Prisma.SortOrderInput | Prisma.SortOrder
+  quantidade?: Prisma.SortOrderInput | Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrderInput | Prisma.SortOrder
+  recorrente?: Prisma.SortOrderInput | Prisma.SortOrder
+  vigencia_inicio?: Prisma.SortOrderInput | Prisma.SortOrder
+  vigencia_fim?: Prisma.SortOrderInput | Prisma.SortOrder
+  periodicidade?: Prisma.SortOrderInput | Prisma.SortOrder
+  os_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  material_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  funcionario_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  centro_custo?: Prisma.SortOrderInput | Prisma.SortOrder
+  observacoes?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.gp_custoCountOrderByAggregateInput
   _avg?: Prisma.gp_custoAvgOrderByAggregateInput
   _max?: Prisma.gp_custoMaxOrderByAggregateInput
@@ -450,6 +620,20 @@ export type gp_custoScalarWhereWithAggregatesInput = {
   excluido_em?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_custo"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableWithAggregatesFilter<"gp_custo"> | string | null
   motivo_exclusao?: Prisma.StringNullableWithAggregatesFilter<"gp_custo"> | string | null
+  subcategoria?: Prisma.StringNullableWithAggregatesFilter<"gp_custo"> | string | null
+  natureza?: Prisma.StringNullableWithAggregatesFilter<"gp_custo"> | string | null
+  competencia?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_custo"> | Date | string | null
+  quantidade?: Prisma.DecimalNullableWithAggregatesFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.DecimalNullableWithAggregatesFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.BoolNullableWithAggregatesFilter<"gp_custo"> | boolean | null
+  vigencia_inicio?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_custo"> | Date | string | null
+  vigencia_fim?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_custo"> | Date | string | null
+  periodicidade?: Prisma.StringNullableWithAggregatesFilter<"gp_custo"> | string | null
+  os_id?: Prisma.IntNullableWithAggregatesFilter<"gp_custo"> | number | null
+  material_id?: Prisma.IntNullableWithAggregatesFilter<"gp_custo"> | number | null
+  funcionario_id?: Prisma.UuidNullableWithAggregatesFilter<"gp_custo"> | string | null
+  centro_custo?: Prisma.StringNullableWithAggregatesFilter<"gp_custo"> | string | null
+  observacoes?: Prisma.StringNullableWithAggregatesFilter<"gp_custo"> | string | null
 }
 
 export type gp_custoCreateInput = {
@@ -470,6 +654,20 @@ export type gp_custoCreateInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  subcategoria?: string | null
+  natureza?: string | null
+  competencia?: Date | string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: boolean | null
+  vigencia_inicio?: Date | string | null
+  vigencia_fim?: Date | string | null
+  periodicidade?: string | null
+  os_id?: number | null
+  material_id?: number | null
+  funcionario_id?: string | null
+  centro_custo?: string | null
+  observacoes?: string | null
   gp_projeto: Prisma.gp_projetoCreateNestedOneWithoutGp_custoInput
 }
 
@@ -493,6 +691,20 @@ export type gp_custoUncheckedCreateInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  subcategoria?: string | null
+  natureza?: string | null
+  competencia?: Date | string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: boolean | null
+  vigencia_inicio?: Date | string | null
+  vigencia_fim?: Date | string | null
+  periodicidade?: string | null
+  os_id?: number | null
+  material_id?: number | null
+  funcionario_id?: string | null
+  centro_custo?: string | null
+  observacoes?: string | null
 }
 
 export type gp_custoUpdateInput = {
@@ -513,6 +725,20 @@ export type gp_custoUpdateInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gp_projeto?: Prisma.gp_projetoUpdateOneRequiredWithoutGp_custoNestedInput
 }
 
@@ -536,6 +762,20 @@ export type gp_custoUncheckedUpdateInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_custoCreateManyInput = {
@@ -558,6 +798,20 @@ export type gp_custoCreateManyInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  subcategoria?: string | null
+  natureza?: string | null
+  competencia?: Date | string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: boolean | null
+  vigencia_inicio?: Date | string | null
+  vigencia_fim?: Date | string | null
+  periodicidade?: string | null
+  os_id?: number | null
+  material_id?: number | null
+  funcionario_id?: string | null
+  centro_custo?: string | null
+  observacoes?: string | null
 }
 
 export type gp_custoUpdateManyMutationInput = {
@@ -578,6 +832,20 @@ export type gp_custoUpdateManyMutationInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_custoUncheckedUpdateManyInput = {
@@ -600,6 +868,20 @@ export type gp_custoUncheckedUpdateManyInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_custoCountOrderByAggregateInput = {
@@ -622,6 +904,20 @@ export type gp_custoCountOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  subcategoria?: Prisma.SortOrder
+  natureza?: Prisma.SortOrder
+  competencia?: Prisma.SortOrder
+  quantidade?: Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrder
+  recorrente?: Prisma.SortOrder
+  vigencia_inicio?: Prisma.SortOrder
+  vigencia_fim?: Prisma.SortOrder
+  periodicidade?: Prisma.SortOrder
+  os_id?: Prisma.SortOrder
+  material_id?: Prisma.SortOrder
+  funcionario_id?: Prisma.SortOrder
+  centro_custo?: Prisma.SortOrder
+  observacoes?: Prisma.SortOrder
 }
 
 export type gp_custoAvgOrderByAggregateInput = {
@@ -631,6 +927,10 @@ export type gp_custoAvgOrderByAggregateInput = {
   valor_orcado?: Prisma.SortOrder
   valor_realizado?: Prisma.SortOrder
   versao?: Prisma.SortOrder
+  quantidade?: Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrder
+  os_id?: Prisma.SortOrder
+  material_id?: Prisma.SortOrder
 }
 
 export type gp_custoMaxOrderByAggregateInput = {
@@ -653,6 +953,20 @@ export type gp_custoMaxOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  subcategoria?: Prisma.SortOrder
+  natureza?: Prisma.SortOrder
+  competencia?: Prisma.SortOrder
+  quantidade?: Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrder
+  recorrente?: Prisma.SortOrder
+  vigencia_inicio?: Prisma.SortOrder
+  vigencia_fim?: Prisma.SortOrder
+  periodicidade?: Prisma.SortOrder
+  os_id?: Prisma.SortOrder
+  material_id?: Prisma.SortOrder
+  funcionario_id?: Prisma.SortOrder
+  centro_custo?: Prisma.SortOrder
+  observacoes?: Prisma.SortOrder
 }
 
 export type gp_custoMinOrderByAggregateInput = {
@@ -675,6 +989,20 @@ export type gp_custoMinOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  subcategoria?: Prisma.SortOrder
+  natureza?: Prisma.SortOrder
+  competencia?: Prisma.SortOrder
+  quantidade?: Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrder
+  recorrente?: Prisma.SortOrder
+  vigencia_inicio?: Prisma.SortOrder
+  vigencia_fim?: Prisma.SortOrder
+  periodicidade?: Prisma.SortOrder
+  os_id?: Prisma.SortOrder
+  material_id?: Prisma.SortOrder
+  funcionario_id?: Prisma.SortOrder
+  centro_custo?: Prisma.SortOrder
+  observacoes?: Prisma.SortOrder
 }
 
 export type gp_custoSumOrderByAggregateInput = {
@@ -684,6 +1012,10 @@ export type gp_custoSumOrderByAggregateInput = {
   valor_orcado?: Prisma.SortOrder
   valor_realizado?: Prisma.SortOrder
   versao?: Prisma.SortOrder
+  quantidade?: Prisma.SortOrder
+  valor_unitario?: Prisma.SortOrder
+  os_id?: Prisma.SortOrder
+  material_id?: Prisma.SortOrder
 }
 
 export type Gp_custoListRelationFilter = {
@@ -756,6 +1088,20 @@ export type gp_custoCreateWithoutGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  subcategoria?: string | null
+  natureza?: string | null
+  competencia?: Date | string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: boolean | null
+  vigencia_inicio?: Date | string | null
+  vigencia_fim?: Date | string | null
+  periodicidade?: string | null
+  os_id?: number | null
+  material_id?: number | null
+  funcionario_id?: string | null
+  centro_custo?: string | null
+  observacoes?: string | null
 }
 
 export type gp_custoUncheckedCreateWithoutGp_projetoInput = {
@@ -777,6 +1123,20 @@ export type gp_custoUncheckedCreateWithoutGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  subcategoria?: string | null
+  natureza?: string | null
+  competencia?: Date | string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: boolean | null
+  vigencia_inicio?: Date | string | null
+  vigencia_fim?: Date | string | null
+  periodicidade?: string | null
+  os_id?: number | null
+  material_id?: number | null
+  funcionario_id?: string | null
+  centro_custo?: string | null
+  observacoes?: string | null
 }
 
 export type gp_custoCreateOrConnectWithoutGp_projetoInput = {
@@ -828,6 +1188,20 @@ export type gp_custoScalarWhereInput = {
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_custo"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  subcategoria?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  natureza?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  competencia?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  quantidade?: Prisma.DecimalNullableFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.DecimalNullableFilter<"gp_custo"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.BoolNullableFilter<"gp_custo"> | boolean | null
+  vigencia_inicio?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  vigencia_fim?: Prisma.DateTimeNullableFilter<"gp_custo"> | Date | string | null
+  periodicidade?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  os_id?: Prisma.IntNullableFilter<"gp_custo"> | number | null
+  material_id?: Prisma.IntNullableFilter<"gp_custo"> | number | null
+  funcionario_id?: Prisma.UuidNullableFilter<"gp_custo"> | string | null
+  centro_custo?: Prisma.StringNullableFilter<"gp_custo"> | string | null
+  observacoes?: Prisma.StringNullableFilter<"gp_custo"> | string | null
 }
 
 export type gp_custoCreateManyGp_projetoInput = {
@@ -849,6 +1223,20 @@ export type gp_custoCreateManyGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  subcategoria?: string | null
+  natureza?: string | null
+  competencia?: Date | string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: boolean | null
+  vigencia_inicio?: Date | string | null
+  vigencia_fim?: Date | string | null
+  periodicidade?: string | null
+  os_id?: number | null
+  material_id?: number | null
+  funcionario_id?: string | null
+  centro_custo?: string | null
+  observacoes?: string | null
 }
 
 export type gp_custoUpdateWithoutGp_projetoInput = {
@@ -869,6 +1257,20 @@ export type gp_custoUpdateWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_custoUncheckedUpdateWithoutGp_projetoInput = {
@@ -890,6 +1292,20 @@ export type gp_custoUncheckedUpdateWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type gp_custoUncheckedUpdateManyWithoutGp_projetoInput = {
@@ -911,6 +1327,20 @@ export type gp_custoUncheckedUpdateManyWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  competencia?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unitario?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  recorrente?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  vigencia_inicio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  vigencia_fim?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodicidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  os_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  material_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  funcionario_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  centro_custo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -935,6 +1365,20 @@ export type gp_custoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  subcategoria?: boolean
+  natureza?: boolean
+  competencia?: boolean
+  quantidade?: boolean
+  valor_unitario?: boolean
+  recorrente?: boolean
+  vigencia_inicio?: boolean
+  vigencia_fim?: boolean
+  periodicidade?: boolean
+  os_id?: boolean
+  material_id?: boolean
+  funcionario_id?: boolean
+  centro_custo?: boolean
+  observacoes?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_custo"]>
 
@@ -958,6 +1402,20 @@ export type gp_custoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  subcategoria?: boolean
+  natureza?: boolean
+  competencia?: boolean
+  quantidade?: boolean
+  valor_unitario?: boolean
+  recorrente?: boolean
+  vigencia_inicio?: boolean
+  vigencia_fim?: boolean
+  periodicidade?: boolean
+  os_id?: boolean
+  material_id?: boolean
+  funcionario_id?: boolean
+  centro_custo?: boolean
+  observacoes?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_custo"]>
 
@@ -981,6 +1439,20 @@ export type gp_custoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  subcategoria?: boolean
+  natureza?: boolean
+  competencia?: boolean
+  quantidade?: boolean
+  valor_unitario?: boolean
+  recorrente?: boolean
+  vigencia_inicio?: boolean
+  vigencia_fim?: boolean
+  periodicidade?: boolean
+  os_id?: boolean
+  material_id?: boolean
+  funcionario_id?: boolean
+  centro_custo?: boolean
+  observacoes?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_custo"]>
 
@@ -1004,9 +1476,23 @@ export type gp_custoSelectScalar = {
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  subcategoria?: boolean
+  natureza?: boolean
+  competencia?: boolean
+  quantidade?: boolean
+  valor_unitario?: boolean
+  recorrente?: boolean
+  vigencia_inicio?: boolean
+  vigencia_fim?: boolean
+  periodicidade?: boolean
+  os_id?: boolean
+  material_id?: boolean
+  funcionario_id?: boolean
+  centro_custo?: boolean
+  observacoes?: boolean
 }
 
-export type gp_custoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projeto_id" | "categoria" | "tipo" | "descricao" | "fornecedor" | "documento" | "origem" | "ref_id" | "valor_orcado" | "valor_realizado" | "data_custo" | "situacao" | "criado_em" | "versao" | "atualizado_por_id" | "excluido_em" | "excluido_por_id" | "motivo_exclusao", ExtArgs["result"]["gp_custo"]>
+export type gp_custoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projeto_id" | "categoria" | "tipo" | "descricao" | "fornecedor" | "documento" | "origem" | "ref_id" | "valor_orcado" | "valor_realizado" | "data_custo" | "situacao" | "criado_em" | "versao" | "atualizado_por_id" | "excluido_em" | "excluido_por_id" | "motivo_exclusao" | "subcategoria" | "natureza" | "competencia" | "quantidade" | "valor_unitario" | "recorrente" | "vigencia_inicio" | "vigencia_fim" | "periodicidade" | "os_id" | "material_id" | "funcionario_id" | "centro_custo" | "observacoes", ExtArgs["result"]["gp_custo"]>
 export type gp_custoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }
@@ -1042,6 +1528,20 @@ export type $gp_custoPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     excluido_em: Date | null
     excluido_por_id: string | null
     motivo_exclusao: string | null
+    subcategoria: string | null
+    natureza: string | null
+    competencia: Date | null
+    quantidade: runtime.Decimal | null
+    valor_unitario: runtime.Decimal | null
+    recorrente: boolean | null
+    vigencia_inicio: Date | null
+    vigencia_fim: Date | null
+    periodicidade: string | null
+    os_id: number | null
+    material_id: number | null
+    funcionario_id: string | null
+    centro_custo: string | null
+    observacoes: string | null
   }, ExtArgs["result"]["gp_custo"]>
   composites: {}
 }
@@ -1485,6 +1985,20 @@ export interface gp_custoFieldRefs {
   readonly excluido_em: Prisma.FieldRef<"gp_custo", 'DateTime'>
   readonly excluido_por_id: Prisma.FieldRef<"gp_custo", 'String'>
   readonly motivo_exclusao: Prisma.FieldRef<"gp_custo", 'String'>
+  readonly subcategoria: Prisma.FieldRef<"gp_custo", 'String'>
+  readonly natureza: Prisma.FieldRef<"gp_custo", 'String'>
+  readonly competencia: Prisma.FieldRef<"gp_custo", 'DateTime'>
+  readonly quantidade: Prisma.FieldRef<"gp_custo", 'Decimal'>
+  readonly valor_unitario: Prisma.FieldRef<"gp_custo", 'Decimal'>
+  readonly recorrente: Prisma.FieldRef<"gp_custo", 'Boolean'>
+  readonly vigencia_inicio: Prisma.FieldRef<"gp_custo", 'DateTime'>
+  readonly vigencia_fim: Prisma.FieldRef<"gp_custo", 'DateTime'>
+  readonly periodicidade: Prisma.FieldRef<"gp_custo", 'String'>
+  readonly os_id: Prisma.FieldRef<"gp_custo", 'Int'>
+  readonly material_id: Prisma.FieldRef<"gp_custo", 'Int'>
+  readonly funcionario_id: Prisma.FieldRef<"gp_custo", 'String'>
+  readonly centro_custo: Prisma.FieldRef<"gp_custo", 'String'>
+  readonly observacoes: Prisma.FieldRef<"gp_custo", 'String'>
 }
     
 

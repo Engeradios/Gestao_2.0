@@ -1,0 +1,3 @@
+{
+  "/api/usuarios/me/notificacoes/[id]/lida/route": "app/api/usuarios/me/notificacoes/[id]/lida/route.js"
+}

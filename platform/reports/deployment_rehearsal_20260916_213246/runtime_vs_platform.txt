@@ -1,0 +1,17 @@
+Current Runtime:
+engeradios2-api-original
+
+Target Runtime:
+engeradios2-api
+
+Current Image:
+engeradios2-api:fast-app-r6-20260913_103019
+
+Compose Managed:
+YES
+
+Health:
+VALID
+
+Migration Candidate:
+YES

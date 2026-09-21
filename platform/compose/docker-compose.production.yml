@@ -1,0 +1,39 @@
+name: engeradios2
+
+services:
+
+  api:
+
+    image: engeradios2-api:gp-painel-v2-2026-09-18_15-53-20
+
+    container_name: engeradios2-api
+
+    restart: unless-stopped
+
+    env_file:
+      - ../env/.env.production
+
+    ports:
+      - "127.0.0.1:3001:3001"
+
+    networks:
+      - backend
+      - edge
+
+    volumes:
+      - /opt/engeradios2/storage/propostas:/opt/engeradios2/storage/propostas
+      - /opt/engeradios2/storage/servicos:/opt/engeradios2/storage/servicos
+      - /var/lib/engeradios2/contratos:/var/lib/engeradios2/contratos
+      - /var/lib/engeradios2/perfis:/var/lib/engeradios2/perfis
+      - /opt/engeradios2/storage/app-campo/evidencias:/opt/engeradios2/storage/app-campo/evidencias
+      - /opt/engeradios2/storage/orcamento/evidencias:/opt/engeradios2/storage/orcamento/evidencias
+
+networks:
+
+  backend:
+    external: true
+    name: engeradios2_backend
+
+  edge:
+    external: true
+    name: engeradios2_edge

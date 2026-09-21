@@ -76,3 +76,6 @@ storage/
 
 # Backups locais de build Next.js
 apps/web/.next.backup.*/
+
+# Artefatos locais e backups de build do Next.js
+/apps/web/.next*

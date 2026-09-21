@@ -1,0 +1,286 @@
+[
+    {
+        "Id": "bf19199628f821eecc34cc784596d065b4d8b59bf78bec0a0ec8b8a85d1b0058",
+        "Created": "2026-09-17T00:49:49.10479136Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "node",
+            "dist/src/main.js"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 47605,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-09-17T00:49:49.263723921Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:7c6a3ae6db27b7975155d83a622fc035a4693bf289d54bd1ee179fbd61d40110",
+        "ResolvConfPath": "/var/lib/docker/containers/bf19199628f821eecc34cc784596d065b4d8b59bf78bec0a0ec8b8a85d1b0058/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/bf19199628f821eecc34cc784596d065b4d8b59bf78bec0a0ec8b8a85d1b0058/hostname",
+        "HostsPath": "/var/lib/docker/containers/bf19199628f821eecc34cc784596d065b4d8b59bf78bec0a0ec8b8a85d1b0058/hosts",
+        "LogPath": "/var/lib/docker/containers/bf19199628f821eecc34cc784596d065b4d8b59bf78bec0a0ec8b8a85d1b0058/bf19199628f821eecc34cc784596d065b4d8b59bf78bec0a0ec8b8a85d1b0058-json.log",
+        "Name": "/engeradios2-api-debug",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/opt/engeradios2/storage/propostas:/opt/engeradios2/storage/propostas",
+                "/opt/engeradios2/storage/servicos:/opt/engeradios2/storage/servicos",
+                "/var/lib/engeradios2/contratos:/var/lib/engeradios2/contratos",
+                "/var/lib/engeradios2/perfis:/var/lib/engeradios2/perfis",
+                "/opt/engeradios2/storage/app-campo/evidencias:/opt/engeradios2/storage/app-campo/evidencias",
+                "/opt/engeradios2/storage/orcamento/evidencias:/opt/engeradios2/storage/orcamento/evidencias"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "5",
+                    "max-size": "20m"
+                }
+            },
+            "NetworkMode": "engeradios2_backend",
+            "PortBindings": {
+                "3001/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "3002"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                51,
+                102
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/opt/engeradios2/storage/propostas",
+                "Destination": "/opt/engeradios2/storage/propostas",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/opt/engeradios2/storage/servicos",
+                "Destination": "/opt/engeradios2/storage/servicos",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/var/lib/engeradios2/contratos",
+                "Destination": "/var/lib/engeradios2/contratos",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/var/lib/engeradios2/perfis",
+                "Destination": "/var/lib/engeradios2/perfis",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/opt/engeradios2/storage/app-campo/evidencias",
+                "Destination": "/opt/engeradios2/storage/app-campo/evidencias",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/opt/engeradios2/storage/orcamento/evidencias",
+                "Destination": "/opt/engeradios2/storage/orcamento/evidencias",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "bf19199628f8",
+            "Domainname": "",
+            "User": "10001:10001",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3001/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DATABASE_URL=postgresql://engeradios_app:ZDj%2BBSBuZFM9WDG7IPrQ1eCbarWlSNoDMVQUJzAqj8AMGBG8yiU2G%2Bs%2FIEwO9xUE@engeradios2-postgres:5432/engeradios2_novo?schema=public",
+                "HOST=0.0.0.0",
+                "PORT=3001",
+                "NODE_ENV=production",
+                "JWT_EXPIRES_IN=15m",
+                "JWT_SECRET=51cd8019cad7cdcdf6b4517266482cc73b0d58430db5908c2f81ee853e6cece944b13c7a5314d98efbc45db615ed6446f9c7d88fffa05a59f44f75eabadca2da",
+                "PUBLIC_APP_URL=https://gestao.engeradios.com.br",
+                "MAIL_ENCRYPTION_KEY=c150f931cc2891237d6349dcc2da6a1c205f68df391d1416577a07ab8dcc7a1b",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.23.2",
+                "YARN_VERSION=1.22.22"
+            ],
+            "Cmd": [
+                "node",
+                "dist/src/main.js"
+            ],
+            "Image": "engeradios2-api:fast-app-r6-20260913_103019",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "br.com.engeradios.context-manifest": "81a9be4c06dbbed4fd9b08b5b84a763efaf8cc47f802690b9e38bd8a5d807a40",
+                "br.com.engeradios.grandes-projetos-sha256": "aa441b0e1556da6adee852319c909f11ac6df0ed297f8315e17e2e4f0b0aaa4e",
+                "br.com.engeradios.main-sha256": "ff2c86ceb73d82bc9384d8defd7e9d1de32f985d79c692cec7b3f0ba9e03994c",
+                "br.com.engeradios.phase": "FAST-APP-R6-API-IMAGE-REBUILD-VALIDATE-R1",
+                "br.com.engeradios.rollback-image-id": "sha256:0c2074542ed2040113818725b0b00905f697430bd2650fb519cf61bcc8ff216b"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "97743e1a45ca0bd6aed7d09e1a3c3699ff8d661861ac9493ec5e7e362c736e8c",
+            "SandboxKey": "/var/run/docker/netns/97743e1a45ca",
+            "Ports": {
+                "3001/tcp": null
+            },
+            "Networks": {
+                "engeradios2_backend": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "19230f9be00cb086e70a8103fd8fabc89ed14d12c69e709a19e889eadd2369ca",
+                    "EndpointID": "376ed0625b47eef6eda27f25f7ccf71ddbbb16abff11edc866b1c60ebdae379a",
+                    "Gateway": "",
+                    "IPAddress": "172.18.0.5",
+                    "MacAddress": "8e:0a:4e:11:ec:f6",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "engeradios2-api-debug",
+                        "bf19199628f8"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:4ae76db6c1241a60c86b4257fa8a7995f24a134e73b3baa529e5d12116105cee",
+            "size": 2197,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

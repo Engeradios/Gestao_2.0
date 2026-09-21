@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/compras/[[...path]]": {},
+    "/api/compras/importacao": {},
+    "/api/estoque-logistica/importacao-pedidos/executar": {},
+    "/api/estoque-logistica/importacao-pedidos/previa": {},
+    "/api/operacional/roteiro/excel": {},
+    "/api/operacional/roteiro/pdf": {},
+    "/api/orcamentos/[[...path]]": {}
+  }
+}

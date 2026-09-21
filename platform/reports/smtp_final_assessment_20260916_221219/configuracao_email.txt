@@ -1,0 +1,5 @@
+ id | ativo |          host          | porta | seguranca |         usuario          |     remetente_email      |   remetente_nome    | senha_len | iv_len | tag_len | teste_sucesso | teste_detalhe |       testado_em        
+----+-------+------------------------+-------+-----------+--------------------------+--------------------------+---------------------+-----------+--------+---------+---------------+---------------+-------------------------
+  1 | t     | smtp.engeradios.com.br |   465 | SSL       | gestao@engeradios.com.br | gestao@engeradios.com.br | Gestão - Engeradios |        15 |     12 |      16 |               |               | 2026-09-17 00:03:14.598
+(1 row)
+

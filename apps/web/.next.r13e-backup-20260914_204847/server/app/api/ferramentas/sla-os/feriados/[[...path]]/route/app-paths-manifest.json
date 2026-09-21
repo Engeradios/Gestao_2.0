@@ -1,0 +1,3 @@
+{
+  "/api/ferramentas/sla-os/feriados/[[...path]]/route": "app/api/ferramentas/sla-os/feriados/[[...path]]/route.js"
+}

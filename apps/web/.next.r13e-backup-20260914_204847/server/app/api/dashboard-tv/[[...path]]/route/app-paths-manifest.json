@@ -1,0 +1,3 @@
+{
+  "/api/dashboard-tv/[[...path]]/route": "app/api/dashboard-tv/[[...path]]/route.js"
+}

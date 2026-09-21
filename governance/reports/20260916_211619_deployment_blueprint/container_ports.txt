@@ -1,0 +1,2 @@
+sh: 1: ss: not found
+sh: 1: netstat: not found

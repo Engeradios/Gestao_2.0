@@ -1,0 +1,4 @@
+NAMES                      IMAGE                                         STATUS                  PORTS
+engeradios2-postgres       a10c981235b4                                  Up 30 hours (healthy)   5432/tcp
+engeradios2-redis          redis:7.4.11-bookworm                         Up 31 hours (healthy)   6379/tcp
+engeradios2-api-original   engeradios2-api:fast-app-r6-20260913_103019   Up 58 minutes           127.0.0.1:3001->3001/tcp

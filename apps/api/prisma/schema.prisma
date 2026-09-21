@@ -1191,6 +1191,20 @@ model gp_custo {
   excluido_em       DateTime?  @db.Timestamp(6)
   excluido_por_id   String?    @db.Uuid
   motivo_exclusao   String?
+  subcategoria      String?    @db.VarChar(120)
+  natureza          String?    @default("VARIAVEL") @db.VarChar(30)
+  competencia       DateTime?  @db.Date
+  quantidade        Decimal?   @default(1) @db.Decimal(14, 4)
+  valor_unitario    Decimal?   @default(0) @db.Decimal(14, 2)
+  recorrente        Boolean?   @default(false)
+  vigencia_inicio   DateTime?  @db.Date
+  vigencia_fim      DateTime?  @db.Date
+  periodicidade     String?    @db.VarChar(30)
+  os_id             Int?
+  material_id       Int?
+  funcionario_id    String?    @db.Uuid
+  centro_custo      String?    @db.VarChar(120)
+  observacoes       String?
 
   @@index([categoria], map: "idx_gpc_cat")
   @@index([projeto_id], map: "idx_gpc_proj")
@@ -1237,6 +1251,14 @@ model gp_material {
   excluido_em       DateTime?  @db.Timestamp(6)
   excluido_por_id   String?    @db.Uuid
   motivo_exclusao   String?
+  codigo_interno    String?    @db.VarChar(120)
+  qtd_solicitada    Decimal?   @default(0) @db.Decimal(14, 4)
+  qtd_utilizada     Decimal?   @default(0) @db.Decimal(14, 4)
+  qtd_devolvida     Decimal?   @default(0) @db.Decimal(14, 4)
+  fornecedor        String?    @db.VarChar(200)
+  origem            String?    @default("MANUAL") @db.VarChar(40)
+  situacao          String?    @default("PREVISTO") @db.VarChar(40)
+  documento         String?    @db.VarChar(160)
 
   @@index([projeto_id], map: "idx_gpm_proj")
   @@index([excluido_em], map: "gp_material_excluido_em_idx")
@@ -1260,6 +1282,15 @@ model gp_os {
   excluido_em       DateTime?  @db.Timestamp(6)
   excluido_por_id   String?    @db.Uuid
   motivo_exclusao   String?
+  natureza_valor    String?    @default("NAO_CLASSIFICADO") @db.VarChar(30)
+  valor_venda       Decimal?   @db.Decimal(14, 2)
+  custo_apropriavel Decimal?   @default(0) @db.Decimal(14, 2)
+  prioridade        String?    @db.VarChar(30)
+  data_programada   DateTime?  @db.Timestamp(6)
+  ultima_visita_em  DateTime?  @db.Timestamp(6)
+  proxima_visita_em DateTime?  @db.Timestamp(6)
+
+  gp_visita gp_visita[]
 
   @@unique([projeto_id, numero_os], map: "uq_gpos")
   @@index([projeto_id], map: "idx_gpos_proj")
@@ -1267,46 +1298,49 @@ model gp_os {
 }
 
 model gp_projeto {
-  id                Int            @id @default(autoincrement())
-  proposta          String?        @db.VarChar(40)
-  codigo            String?        @db.VarChar(30)
-  nome              String         @db.VarChar(200)
-  cliente           String?        @db.VarChar(200)
-  cliente_local     String?        @db.VarChar(200)
-  uf                String?        @db.Char(2)
-  gerente           String?        @db.VarChar(120)
-  valor_contrato    Decimal?       @default(0) @db.Decimal(14, 2)
-  data_inicio       DateTime?      @db.Date
-  data_fim_prev     DateTime?      @db.Date
-  data_fim_real     DateTime?      @db.Date
-  status            String?        @default("Planejamento") @db.VarChar(30)
-  aliq_simples      Decimal?       @default(0.105) @db.Decimal(6, 4)
-  aliq_iss          Decimal?       @default(0.05) @db.Decimal(6, 4)
-  aliq_outros       Decimal?       @default(0) @db.Decimal(6, 4)
+  id                Int                 @id @default(autoincrement())
+  proposta          String?             @db.VarChar(40)
+  codigo            String?             @db.VarChar(30)
+  nome              String              @db.VarChar(200)
+  cliente           String?             @db.VarChar(200)
+  cliente_local     String?             @db.VarChar(200)
+  uf                String?             @db.Char(2)
+  gerente           String?             @db.VarChar(120)
+  valor_contrato    Decimal?            @default(0) @db.Decimal(14, 2)
+  data_inicio       DateTime?           @db.Date
+  data_fim_prev     DateTime?           @db.Date
+  data_fim_real     DateTime?           @db.Date
+  status            String?             @default("Planejamento") @db.VarChar(30)
+  aliq_simples      Decimal?            @default(0.105) @db.Decimal(6, 4)
+  aliq_iss          Decimal?            @default(0.05) @db.Decimal(6, 4)
+  aliq_outros       Decimal?            @default(0) @db.Decimal(6, 4)
   observacoes       String?
-  criado_por        String?        @db.VarChar(120)
-  criado_em         DateTime?      @default(now()) @db.Timestamp(6)
-  atualizado_em     DateTime?      @default(now()) @db.Timestamp(6)
-  tipo_escopo       String?        @default("INSTALACAO_ART") @db.VarChar(30)
-  numero_contrato   String?        @db.VarChar(40)
-  numero_pedido     String?        @db.VarChar(40)
+  criado_por        String?             @db.VarChar(120)
+  criado_em         DateTime?           @default(now()) @db.Timestamp(6)
+  atualizado_em     DateTime?           @default(now()) @db.Timestamp(6)
+  tipo_escopo       String?             @default("INSTALACAO_ART") @db.VarChar(30)
+  numero_contrato   String?             @db.VarChar(40)
+  numero_pedido     String?             @db.VarChar(40)
   meses_contrato    Int?
-  valor_mensal      Decimal?       @db.Decimal(14, 2)
-  valor_residual    Decimal?       @db.Decimal(14, 2)
-  transfere_final   Boolean?       @default(false)
-  aprovacao_status  String         @default("NAO_SUBMETIDO") @db.VarChar(30)
-  aprovado_em       DateTime?      @db.Timestamp(6)
-  aprovado_por_id   String?        @db.Uuid
+  valor_mensal      Decimal?            @db.Decimal(14, 2)
+  valor_residual    Decimal?            @db.Decimal(14, 2)
+  transfere_final   Boolean?            @default(false)
+  aprovacao_status  String              @default("NAO_SUBMETIDO") @db.VarChar(30)
+  aprovado_em       DateTime?           @db.Timestamp(6)
+  aprovado_por_id   String?             @db.Uuid
   gp_custo          gp_custo[]
   gp_marco          gp_marco[]
   gp_material       gp_material[]
   gp_os             gp_os[]
   gp_relatorio      gp_relatorio[]
-  versao            Int            @default(1)
-  atualizado_por_id String?        @db.Uuid
-  excluido_em       DateTime?      @db.Timestamp(6)
-  excluido_por_id   String?        @db.Uuid
+  versao            Int                 @default(1)
+  atualizado_por_id String?             @db.Uuid
+  excluido_em       DateTime?           @db.Timestamp(6)
+  excluido_por_id   String?             @db.Uuid
   motivo_exclusao   String?
+  gp_visita         gp_visita[]
+  gp_projeto_equipe gp_projeto_equipe[]
+  gp_risco          gp_risco[]
 
   @@index([numero_contrato], map: "idx_gp_contrato")
   @@index([numero_pedido], map: "idx_gp_pedido")
@@ -2673,6 +2707,7 @@ model RhSetor {
   criadoEm     DateTime        @default(now()) @map("criado_em") @db.Timestamptz(6)
   atualizadoEm DateTime        @updatedAt @map("atualizado_em") @db.Timestamptz(6)
   funcionarios RhFuncionario[]
+
   @@map("rh_setores")
 }
 
@@ -2683,6 +2718,7 @@ model RhCargo {
   criadoEm     DateTime        @default(now()) @map("criado_em") @db.Timestamptz(6)
   atualizadoEm DateTime        @updatedAt @map("atualizado_em") @db.Timestamptz(6)
   funcionarios RhFuncionario[]
+
   @@map("rh_cargos")
 }
 
@@ -2693,6 +2729,7 @@ model RhUnidade {
   criadoEm     DateTime        @default(now()) @map("criado_em") @db.Timestamptz(6)
   atualizadoEm DateTime        @updatedAt @map("atualizado_em") @db.Timestamptz(6)
   funcionarios RhFuncionario[]
+
   @@map("rh_unidades")
 }
 
@@ -2731,13 +2768,14 @@ model RhFuncionario {
 }
 
 model RhMovimentacao {
-  id            String              @id @default(uuid()) @db.Uuid
-  funcionarioId String              @map("funcionario_id") @db.Uuid
+  id            String             @id @default(uuid()) @db.Uuid
+  funcionarioId String             @map("funcionario_id") @db.Uuid
   tipo          RhTipoMovimentacao
-  data          DateTime            @db.Date
-  observacao    String?             @db.Text
-  criadoEm      DateTime            @default(now()) @map("criado_em") @db.Timestamptz(6)
-  funcionario   RhFuncionario       @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
+  data          DateTime           @db.Date
+  observacao    String?            @db.Text
+  criadoEm      DateTime           @default(now()) @map("criado_em") @db.Timestamptz(6)
+  funcionario   RhFuncionario      @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
+
   @@index([funcionarioId, data])
   @@map("rh_movimentacoes")
 }
@@ -2759,4 +2797,75 @@ model RhDesligamento {
   @@index([dataDesligamento])
   @@index([motivo])
   @@map("rh_desligamentos")
+}
+
+model gp_visita {
+  id                  BigInt     @id @default(autoincrement())
+  projeto_id          Int
+  os_id               Int?
+  tecnico             String?    @db.VarChar(200)
+  funcionario_id      String?    @db.Uuid
+  data_inicio         DateTime   @db.Timestamp(6)
+  data_fim            DateTime?  @db.Timestamp(6)
+  duracao_minutos     Int?
+  objetivo            String?
+  atividade_realizada String?
+  pendencias          String?
+  proxima_acao        String?
+  latitude            Decimal?   @db.Decimal(10, 7)
+  longitude           Decimal?   @db.Decimal(10, 7)
+  custo               Decimal?   @default(0) @db.Decimal(14, 2)
+  status              String?    @default("PROGRAMADA") @db.VarChar(40)
+  criado_em           DateTime?  @default(now()) @db.Timestamp(6)
+  versao              Int        @default(1)
+  excluido_em         DateTime?  @db.Timestamp(6)
+  excluido_por_id     String?    @db.Uuid
+  motivo_exclusao     String?
+  gp_projeto          gp_projeto @relation(fields: [projeto_id], references: [id], onDelete: Cascade)
+  gp_os               gp_os?     @relation(fields: [os_id], references: [id], onDelete: SetNull)
+
+  @@index([projeto_id, data_inicio], map: "idx_gp_visita_projeto_data")
+  @@index([os_id], map: "idx_gp_visita_os")
+}
+
+model gp_projeto_equipe {
+  id                     BigInt     @id @default(autoincrement())
+  projeto_id             Int
+  funcionario_id         String?    @db.Uuid
+  nome                   String     @db.VarChar(200)
+  funcao                 String?    @db.VarChar(120)
+  vigencia_inicio        DateTime?  @db.Date
+  vigencia_fim           DateTime?  @db.Date
+  custo_gerencial_mensal Decimal?   @default(0) @db.Decimal(14, 2)
+  ativo                  Boolean?   @default(true)
+  criado_em              DateTime?  @default(now()) @db.Timestamp(6)
+  versao                 Int        @default(1)
+  excluido_em            DateTime?  @db.Timestamp(6)
+  excluido_por_id        String?    @db.Uuid
+  motivo_exclusao        String?
+  gp_projeto             gp_projeto @relation(fields: [projeto_id], references: [id], onDelete: Cascade)
+
+  @@index([projeto_id, ativo], map: "idx_gp_equipe_projeto_ativo")
+}
+
+model gp_risco {
+  id              BigInt     @id @default(autoincrement())
+  projeto_id      Int
+  titulo          String     @db.VarChar(200)
+  descricao       String?
+  impacto         String?    @default("MODERADO") @db.VarChar(30)
+  probabilidade   String?    @default("MEDIA") @db.VarChar(30)
+  criticidade     String?    @default("MODERADA") @db.VarChar(30)
+  responsavel     String?    @db.VarChar(200)
+  prazo           DateTime?  @db.Date
+  status          String?    @default("ABERTO") @db.VarChar(40)
+  plano_acao      String?
+  criado_em       DateTime?  @default(now()) @db.Timestamp(6)
+  versao          Int        @default(1)
+  excluido_em     DateTime?  @db.Timestamp(6)
+  excluido_por_id String?    @db.Uuid
+  motivo_exclusao String?
+  gp_projeto      gp_projeto @relation(fields: [projeto_id], references: [id], onDelete: Cascade)
+
+  @@index([projeto_id, status], map: "idx_gp_risco_projeto_status")
 }

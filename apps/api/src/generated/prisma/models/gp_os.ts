@@ -31,6 +31,8 @@ export type Gp_osAvgAggregateOutputType = {
   projeto_id: number | null
   valor: runtime.Decimal | null
   versao: number | null
+  valor_venda: runtime.Decimal | null
+  custo_apropriavel: runtime.Decimal | null
 }
 
 export type Gp_osSumAggregateOutputType = {
@@ -38,6 +40,8 @@ export type Gp_osSumAggregateOutputType = {
   projeto_id: number | null
   valor: runtime.Decimal | null
   versao: number | null
+  valor_venda: runtime.Decimal | null
+  custo_apropriavel: runtime.Decimal | null
 }
 
 export type Gp_osMinAggregateOutputType = {
@@ -57,6 +61,13 @@ export type Gp_osMinAggregateOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  natureza_valor: string | null
+  valor_venda: runtime.Decimal | null
+  custo_apropriavel: runtime.Decimal | null
+  prioridade: string | null
+  data_programada: Date | null
+  ultima_visita_em: Date | null
+  proxima_visita_em: Date | null
 }
 
 export type Gp_osMaxAggregateOutputType = {
@@ -76,6 +87,13 @@ export type Gp_osMaxAggregateOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  natureza_valor: string | null
+  valor_venda: runtime.Decimal | null
+  custo_apropriavel: runtime.Decimal | null
+  prioridade: string | null
+  data_programada: Date | null
+  ultima_visita_em: Date | null
+  proxima_visita_em: Date | null
 }
 
 export type Gp_osCountAggregateOutputType = {
@@ -95,6 +113,13 @@ export type Gp_osCountAggregateOutputType = {
   excluido_em: number
   excluido_por_id: number
   motivo_exclusao: number
+  natureza_valor: number
+  valor_venda: number
+  custo_apropriavel: number
+  prioridade: number
+  data_programada: number
+  ultima_visita_em: number
+  proxima_visita_em: number
   _all: number
 }
 
@@ -104,6 +129,8 @@ export type Gp_osAvgAggregateInputType = {
   projeto_id?: true
   valor?: true
   versao?: true
+  valor_venda?: true
+  custo_apropriavel?: true
 }
 
 export type Gp_osSumAggregateInputType = {
@@ -111,6 +138,8 @@ export type Gp_osSumAggregateInputType = {
   projeto_id?: true
   valor?: true
   versao?: true
+  valor_venda?: true
+  custo_apropriavel?: true
 }
 
 export type Gp_osMinAggregateInputType = {
@@ -130,6 +159,13 @@ export type Gp_osMinAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  natureza_valor?: true
+  valor_venda?: true
+  custo_apropriavel?: true
+  prioridade?: true
+  data_programada?: true
+  ultima_visita_em?: true
+  proxima_visita_em?: true
 }
 
 export type Gp_osMaxAggregateInputType = {
@@ -149,6 +185,13 @@ export type Gp_osMaxAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  natureza_valor?: true
+  valor_venda?: true
+  custo_apropriavel?: true
+  prioridade?: true
+  data_programada?: true
+  ultima_visita_em?: true
+  proxima_visita_em?: true
 }
 
 export type Gp_osCountAggregateInputType = {
@@ -168,6 +211,13 @@ export type Gp_osCountAggregateInputType = {
   excluido_em?: true
   excluido_por_id?: true
   motivo_exclusao?: true
+  natureza_valor?: true
+  valor_venda?: true
+  custo_apropriavel?: true
+  prioridade?: true
+  data_programada?: true
+  ultima_visita_em?: true
+  proxima_visita_em?: true
   _all?: true
 }
 
@@ -274,6 +324,13 @@ export type Gp_osGroupByOutputType = {
   excluido_em: Date | null
   excluido_por_id: string | null
   motivo_exclusao: string | null
+  natureza_valor: string | null
+  valor_venda: runtime.Decimal | null
+  custo_apropriavel: runtime.Decimal | null
+  prioridade: string | null
+  data_programada: Date | null
+  ultima_visita_em: Date | null
+  proxima_visita_em: Date | null
   _count: Gp_osCountAggregateOutputType | null
   _avg: Gp_osAvgAggregateOutputType | null
   _sum: Gp_osSumAggregateOutputType | null
@@ -316,7 +373,15 @@ export type gp_osWhereInput = {
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_os"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  natureza_valor?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  valor_venda?: Prisma.DecimalNullableFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.DecimalNullableFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  data_programada?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+  ultima_visita_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+  proxima_visita_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
   gp_projeto?: Prisma.XOR<Prisma.Gp_projetoScalarRelationFilter, Prisma.gp_projetoWhereInput>
+  gp_visita?: Prisma.Gp_visitaListRelationFilter
 }
 
 export type gp_osOrderByWithRelationInput = {
@@ -336,7 +401,15 @@ export type gp_osOrderByWithRelationInput = {
   excluido_em?: Prisma.SortOrderInput | Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrderInput | Prisma.SortOrder
+  natureza_valor?: Prisma.SortOrderInput | Prisma.SortOrder
+  valor_venda?: Prisma.SortOrderInput | Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrderInput | Prisma.SortOrder
+  prioridade?: Prisma.SortOrderInput | Prisma.SortOrder
+  data_programada?: Prisma.SortOrderInput | Prisma.SortOrder
+  ultima_visita_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  proxima_visita_em?: Prisma.SortOrderInput | Prisma.SortOrder
   gp_projeto?: Prisma.gp_projetoOrderByWithRelationInput
+  gp_visita?: Prisma.gp_visitaOrderByRelationAggregateInput
 }
 
 export type gp_osWhereUniqueInput = Prisma.AtLeast<{
@@ -360,7 +433,15 @@ export type gp_osWhereUniqueInput = Prisma.AtLeast<{
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_os"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  natureza_valor?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  valor_venda?: Prisma.DecimalNullableFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.DecimalNullableFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  data_programada?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+  ultima_visita_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+  proxima_visita_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
   gp_projeto?: Prisma.XOR<Prisma.Gp_projetoScalarRelationFilter, Prisma.gp_projetoWhereInput>
+  gp_visita?: Prisma.Gp_visitaListRelationFilter
 }, "id" | "projeto_id_numero_os">
 
 export type gp_osOrderByWithAggregationInput = {
@@ -380,6 +461,13 @@ export type gp_osOrderByWithAggregationInput = {
   excluido_em?: Prisma.SortOrderInput | Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrderInput | Prisma.SortOrder
+  natureza_valor?: Prisma.SortOrderInput | Prisma.SortOrder
+  valor_venda?: Prisma.SortOrderInput | Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrderInput | Prisma.SortOrder
+  prioridade?: Prisma.SortOrderInput | Prisma.SortOrder
+  data_programada?: Prisma.SortOrderInput | Prisma.SortOrder
+  ultima_visita_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  proxima_visita_em?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.gp_osCountOrderByAggregateInput
   _avg?: Prisma.gp_osAvgOrderByAggregateInput
   _max?: Prisma.gp_osMaxOrderByAggregateInput
@@ -407,6 +495,13 @@ export type gp_osScalarWhereWithAggregatesInput = {
   excluido_em?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_os"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableWithAggregatesFilter<"gp_os"> | string | null
   motivo_exclusao?: Prisma.StringNullableWithAggregatesFilter<"gp_os"> | string | null
+  natureza_valor?: Prisma.StringNullableWithAggregatesFilter<"gp_os"> | string | null
+  valor_venda?: Prisma.DecimalNullableWithAggregatesFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.DecimalNullableWithAggregatesFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.StringNullableWithAggregatesFilter<"gp_os"> | string | null
+  data_programada?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_os"> | Date | string | null
+  ultima_visita_em?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_os"> | Date | string | null
+  proxima_visita_em?: Prisma.DateTimeNullableWithAggregatesFilter<"gp_os"> | Date | string | null
 }
 
 export type gp_osCreateInput = {
@@ -424,7 +519,15 @@ export type gp_osCreateInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
   gp_projeto: Prisma.gp_projetoCreateNestedOneWithoutGp_osInput
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_osInput
 }
 
 export type gp_osUncheckedCreateInput = {
@@ -444,6 +547,14 @@ export type gp_osUncheckedCreateInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_osInput
 }
 
 export type gp_osUpdateInput = {
@@ -461,7 +572,15 @@ export type gp_osUpdateInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gp_projeto?: Prisma.gp_projetoUpdateOneRequiredWithoutGp_osNestedInput
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_osNestedInput
 }
 
 export type gp_osUncheckedUpdateInput = {
@@ -481,6 +600,14 @@ export type gp_osUncheckedUpdateInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_osNestedInput
 }
 
 export type gp_osCreateManyInput = {
@@ -500,6 +627,13 @@ export type gp_osCreateManyInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
 }
 
 export type gp_osUpdateManyMutationInput = {
@@ -517,6 +651,13 @@ export type gp_osUpdateManyMutationInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type gp_osUncheckedUpdateManyInput = {
@@ -536,6 +677,13 @@ export type gp_osUncheckedUpdateManyInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type gp_osProjeto_idNumero_osCompoundUniqueInput = {
@@ -560,6 +708,13 @@ export type gp_osCountOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  natureza_valor?: Prisma.SortOrder
+  valor_venda?: Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrder
+  prioridade?: Prisma.SortOrder
+  data_programada?: Prisma.SortOrder
+  ultima_visita_em?: Prisma.SortOrder
+  proxima_visita_em?: Prisma.SortOrder
 }
 
 export type gp_osAvgOrderByAggregateInput = {
@@ -567,6 +722,8 @@ export type gp_osAvgOrderByAggregateInput = {
   projeto_id?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   versao?: Prisma.SortOrder
+  valor_venda?: Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrder
 }
 
 export type gp_osMaxOrderByAggregateInput = {
@@ -586,6 +743,13 @@ export type gp_osMaxOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  natureza_valor?: Prisma.SortOrder
+  valor_venda?: Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrder
+  prioridade?: Prisma.SortOrder
+  data_programada?: Prisma.SortOrder
+  ultima_visita_em?: Prisma.SortOrder
+  proxima_visita_em?: Prisma.SortOrder
 }
 
 export type gp_osMinOrderByAggregateInput = {
@@ -605,6 +769,13 @@ export type gp_osMinOrderByAggregateInput = {
   excluido_em?: Prisma.SortOrder
   excluido_por_id?: Prisma.SortOrder
   motivo_exclusao?: Prisma.SortOrder
+  natureza_valor?: Prisma.SortOrder
+  valor_venda?: Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrder
+  prioridade?: Prisma.SortOrder
+  data_programada?: Prisma.SortOrder
+  ultima_visita_em?: Prisma.SortOrder
+  proxima_visita_em?: Prisma.SortOrder
 }
 
 export type gp_osSumOrderByAggregateInput = {
@@ -612,6 +783,8 @@ export type gp_osSumOrderByAggregateInput = {
   projeto_id?: Prisma.SortOrder
   valor?: Prisma.SortOrder
   versao?: Prisma.SortOrder
+  valor_venda?: Prisma.SortOrder
+  custo_apropriavel?: Prisma.SortOrder
 }
 
 export type Gp_osListRelationFilter = {
@@ -622,6 +795,11 @@ export type Gp_osListRelationFilter = {
 
 export type gp_osOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type Gp_osNullableScalarRelationFilter = {
+  is?: Prisma.gp_osWhereInput | null
+  isNot?: Prisma.gp_osWhereInput | null
 }
 
 export type gp_osCreateNestedManyWithoutGp_projetoInput = {
@@ -666,6 +844,22 @@ export type gp_osUncheckedUpdateManyWithoutGp_projetoNestedInput = {
   deleteMany?: Prisma.gp_osScalarWhereInput | Prisma.gp_osScalarWhereInput[]
 }
 
+export type gp_osCreateNestedOneWithoutGp_visitaInput = {
+  create?: Prisma.XOR<Prisma.gp_osCreateWithoutGp_visitaInput, Prisma.gp_osUncheckedCreateWithoutGp_visitaInput>
+  connectOrCreate?: Prisma.gp_osCreateOrConnectWithoutGp_visitaInput
+  connect?: Prisma.gp_osWhereUniqueInput
+}
+
+export type gp_osUpdateOneWithoutGp_visitaNestedInput = {
+  create?: Prisma.XOR<Prisma.gp_osCreateWithoutGp_visitaInput, Prisma.gp_osUncheckedCreateWithoutGp_visitaInput>
+  connectOrCreate?: Prisma.gp_osCreateOrConnectWithoutGp_visitaInput
+  upsert?: Prisma.gp_osUpsertWithoutGp_visitaInput
+  disconnect?: Prisma.gp_osWhereInput | boolean
+  delete?: Prisma.gp_osWhereInput | boolean
+  connect?: Prisma.gp_osWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.gp_osUpdateToOneWithWhereWithoutGp_visitaInput, Prisma.gp_osUpdateWithoutGp_visitaInput>, Prisma.gp_osUncheckedUpdateWithoutGp_visitaInput>
+}
+
 export type gp_osCreateWithoutGp_projetoInput = {
   numero_os?: string | null
   tipo?: string | null
@@ -681,6 +875,14 @@ export type gp_osCreateWithoutGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
+  gp_visita?: Prisma.gp_visitaCreateNestedManyWithoutGp_osInput
 }
 
 export type gp_osUncheckedCreateWithoutGp_projetoInput = {
@@ -699,6 +901,14 @@ export type gp_osUncheckedCreateWithoutGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
+  gp_visita?: Prisma.gp_visitaUncheckedCreateNestedManyWithoutGp_osInput
 }
 
 export type gp_osCreateOrConnectWithoutGp_projetoInput = {
@@ -747,6 +957,131 @@ export type gp_osScalarWhereInput = {
   excluido_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
   excluido_por_id?: Prisma.UuidNullableFilter<"gp_os"> | string | null
   motivo_exclusao?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  natureza_valor?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  valor_venda?: Prisma.DecimalNullableFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.DecimalNullableFilter<"gp_os"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.StringNullableFilter<"gp_os"> | string | null
+  data_programada?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+  ultima_visita_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+  proxima_visita_em?: Prisma.DateTimeNullableFilter<"gp_os"> | Date | string | null
+}
+
+export type gp_osCreateWithoutGp_visitaInput = {
+  numero_os?: string | null
+  tipo?: string | null
+  situacao?: string | null
+  tecnico?: string | null
+  descricao?: string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_abertura?: Date | string | null
+  data_fechamento?: Date | string | null
+  importado_em?: Date | string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
+  gp_projeto: Prisma.gp_projetoCreateNestedOneWithoutGp_osInput
+}
+
+export type gp_osUncheckedCreateWithoutGp_visitaInput = {
+  id?: number
+  projeto_id: number
+  numero_os?: string | null
+  tipo?: string | null
+  situacao?: string | null
+  tecnico?: string | null
+  descricao?: string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_abertura?: Date | string | null
+  data_fechamento?: Date | string | null
+  importado_em?: Date | string | null
+  versao?: number
+  atualizado_por_id?: string | null
+  excluido_em?: Date | string | null
+  excluido_por_id?: string | null
+  motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
+}
+
+export type gp_osCreateOrConnectWithoutGp_visitaInput = {
+  where: Prisma.gp_osWhereUniqueInput
+  create: Prisma.XOR<Prisma.gp_osCreateWithoutGp_visitaInput, Prisma.gp_osUncheckedCreateWithoutGp_visitaInput>
+}
+
+export type gp_osUpsertWithoutGp_visitaInput = {
+  update: Prisma.XOR<Prisma.gp_osUpdateWithoutGp_visitaInput, Prisma.gp_osUncheckedUpdateWithoutGp_visitaInput>
+  create: Prisma.XOR<Prisma.gp_osCreateWithoutGp_visitaInput, Prisma.gp_osUncheckedCreateWithoutGp_visitaInput>
+  where?: Prisma.gp_osWhereInput
+}
+
+export type gp_osUpdateToOneWithWhereWithoutGp_visitaInput = {
+  where?: Prisma.gp_osWhereInput
+  data: Prisma.XOR<Prisma.gp_osUpdateWithoutGp_visitaInput, Prisma.gp_osUncheckedUpdateWithoutGp_visitaInput>
+}
+
+export type gp_osUpdateWithoutGp_visitaInput = {
+  numero_os?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tecnico?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_abertura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fechamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  importado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gp_projeto?: Prisma.gp_projetoUpdateOneRequiredWithoutGp_osNestedInput
+}
+
+export type gp_osUncheckedUpdateWithoutGp_visitaInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  projeto_id?: Prisma.IntFieldUpdateOperationsInput | number
+  numero_os?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tecnico?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  data_abertura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_fechamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  importado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  versao?: Prisma.IntFieldUpdateOperationsInput | number
+  atualizado_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type gp_osCreateManyGp_projetoInput = {
@@ -765,6 +1100,13 @@ export type gp_osCreateManyGp_projetoInput = {
   excluido_em?: Date | string | null
   excluido_por_id?: string | null
   motivo_exclusao?: string | null
+  natureza_valor?: string | null
+  valor_venda?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: string | null
+  data_programada?: Date | string | null
+  ultima_visita_em?: Date | string | null
+  proxima_visita_em?: Date | string | null
 }
 
 export type gp_osUpdateWithoutGp_projetoInput = {
@@ -782,6 +1124,14 @@ export type gp_osUpdateWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gp_visita?: Prisma.gp_visitaUpdateManyWithoutGp_osNestedInput
 }
 
 export type gp_osUncheckedUpdateWithoutGp_projetoInput = {
@@ -800,6 +1150,14 @@ export type gp_osUncheckedUpdateWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gp_visita?: Prisma.gp_visitaUncheckedUpdateManyWithoutGp_osNestedInput
 }
 
 export type gp_osUncheckedUpdateManyWithoutGp_projetoInput = {
@@ -818,8 +1176,44 @@ export type gp_osUncheckedUpdateManyWithoutGp_projetoInput = {
   excluido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   excluido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   motivo_exclusao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza_valor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_venda?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  custo_apropriavel?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  prioridade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_programada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ultima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proxima_visita_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
+
+/**
+ * Count Type Gp_osCountOutputType
+ */
+
+export type Gp_osCountOutputType = {
+  gp_visita: number
+}
+
+export type Gp_osCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  gp_visita?: boolean | Gp_osCountOutputTypeCountGp_visitaArgs
+}
+
+/**
+ * Gp_osCountOutputType without action
+ */
+export type Gp_osCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Gp_osCountOutputType
+   */
+  select?: Prisma.Gp_osCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Gp_osCountOutputType without action
+ */
+export type Gp_osCountOutputTypeCountGp_visitaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.gp_visitaWhereInput
+}
 
 
 export type gp_osSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -839,7 +1233,16 @@ export type gp_osSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  natureza_valor?: boolean
+  valor_venda?: boolean
+  custo_apropriavel?: boolean
+  prioridade?: boolean
+  data_programada?: boolean
+  ultima_visita_em?: boolean
+  proxima_visita_em?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
+  gp_visita?: boolean | Prisma.gp_os$gp_visitaArgs<ExtArgs>
+  _count?: boolean | Prisma.Gp_osCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_os"]>
 
 export type gp_osSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -859,6 +1262,13 @@ export type gp_osSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  natureza_valor?: boolean
+  valor_venda?: boolean
+  custo_apropriavel?: boolean
+  prioridade?: boolean
+  data_programada?: boolean
+  ultima_visita_em?: boolean
+  proxima_visita_em?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_os"]>
 
@@ -879,6 +1289,13 @@ export type gp_osSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  natureza_valor?: boolean
+  valor_venda?: boolean
+  custo_apropriavel?: boolean
+  prioridade?: boolean
+  data_programada?: boolean
+  ultima_visita_em?: boolean
+  proxima_visita_em?: boolean
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gp_os"]>
 
@@ -899,11 +1316,20 @@ export type gp_osSelectScalar = {
   excluido_em?: boolean
   excluido_por_id?: boolean
   motivo_exclusao?: boolean
+  natureza_valor?: boolean
+  valor_venda?: boolean
+  custo_apropriavel?: boolean
+  prioridade?: boolean
+  data_programada?: boolean
+  ultima_visita_em?: boolean
+  proxima_visita_em?: boolean
 }
 
-export type gp_osOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projeto_id" | "numero_os" | "tipo" | "situacao" | "tecnico" | "descricao" | "valor" | "data_abertura" | "data_fechamento" | "importado_em" | "versao" | "atualizado_por_id" | "excluido_em" | "excluido_por_id" | "motivo_exclusao", ExtArgs["result"]["gp_os"]>
+export type gp_osOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projeto_id" | "numero_os" | "tipo" | "situacao" | "tecnico" | "descricao" | "valor" | "data_abertura" | "data_fechamento" | "importado_em" | "versao" | "atualizado_por_id" | "excluido_em" | "excluido_por_id" | "motivo_exclusao" | "natureza_valor" | "valor_venda" | "custo_apropriavel" | "prioridade" | "data_programada" | "ultima_visita_em" | "proxima_visita_em", ExtArgs["result"]["gp_os"]>
 export type gp_osInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
+  gp_visita?: boolean | Prisma.gp_os$gp_visitaArgs<ExtArgs>
+  _count?: boolean | Prisma.Gp_osCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type gp_osIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   gp_projeto?: boolean | Prisma.gp_projetoDefaultArgs<ExtArgs>
@@ -916,6 +1342,7 @@ export type $gp_osPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name: "gp_os"
   objects: {
     gp_projeto: Prisma.$gp_projetoPayload<ExtArgs>
+    gp_visita: Prisma.$gp_visitaPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -934,6 +1361,13 @@ export type $gp_osPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     excluido_em: Date | null
     excluido_por_id: string | null
     motivo_exclusao: string | null
+    natureza_valor: string | null
+    valor_venda: runtime.Decimal | null
+    custo_apropriavel: runtime.Decimal | null
+    prioridade: string | null
+    data_programada: Date | null
+    ultima_visita_em: Date | null
+    proxima_visita_em: Date | null
   }, ExtArgs["result"]["gp_os"]>
   composites: {}
 }
@@ -1329,6 +1763,7 @@ readonly fields: gp_osFieldRefs;
 export interface Prisma__gp_osClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   gp_projeto<T extends Prisma.gp_projetoDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_projetoDefaultArgs<ExtArgs>>): Prisma.Prisma__gp_projetoClient<runtime.Types.Result.GetResult<Prisma.$gp_projetoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  gp_visita<T extends Prisma.gp_os$gp_visitaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.gp_os$gp_visitaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$gp_visitaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1374,6 +1809,13 @@ export interface gp_osFieldRefs {
   readonly excluido_em: Prisma.FieldRef<"gp_os", 'DateTime'>
   readonly excluido_por_id: Prisma.FieldRef<"gp_os", 'String'>
   readonly motivo_exclusao: Prisma.FieldRef<"gp_os", 'String'>
+  readonly natureza_valor: Prisma.FieldRef<"gp_os", 'String'>
+  readonly valor_venda: Prisma.FieldRef<"gp_os", 'Decimal'>
+  readonly custo_apropriavel: Prisma.FieldRef<"gp_os", 'Decimal'>
+  readonly prioridade: Prisma.FieldRef<"gp_os", 'String'>
+  readonly data_programada: Prisma.FieldRef<"gp_os", 'DateTime'>
+  readonly ultima_visita_em: Prisma.FieldRef<"gp_os", 'DateTime'>
+  readonly proxima_visita_em: Prisma.FieldRef<"gp_os", 'DateTime'>
 }
     
 
@@ -1772,6 +2214,30 @@ export type gp_osDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Limit how many gp_os to delete.
    */
   limit?: number
+}
+
+/**
+ * gp_os.gp_visita
+ */
+export type gp_os$gp_visitaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the gp_visita
+   */
+  select?: Prisma.gp_visitaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the gp_visita
+   */
+  omit?: Prisma.gp_visitaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.gp_visitaInclude<ExtArgs> | null
+  where?: Prisma.gp_visitaWhereInput
+  orderBy?: Prisma.gp_visitaOrderByWithRelationInput | Prisma.gp_visitaOrderByWithRelationInput[]
+  cursor?: Prisma.gp_visitaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Gp_visitaScalarFieldEnum | Prisma.Gp_visitaScalarFieldEnum[]
 }
 
 /**

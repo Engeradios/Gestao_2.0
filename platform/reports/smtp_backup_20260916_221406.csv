@@ -1,0 +1,2 @@
+id,host,porta,seguranca,usuario,senha_criptografada,senha_iv,senha_tag,remetente_email,remetente_nome,responder_para,ativo,timeout_segundos,testado_em,teste_sucesso,teste_detalhe,atualizado_por,criado_em,atualizado_em
+1,smtp.engeradios.com.br,465,SSL,gestao@engeradios.com.br,\xb46b0ee2943cd9026a5e85cbbce442,\xca2fe5c4067aafb0f3851dd4,\x4488c355e6579cb06ab5833dae0d4c83,gestao@engeradios.com.br,Gestão - Engeradios,,t,30,2026-09-17 00:03:14.598,,,43156e13-9077-4385-93e8-77fb6db5d815,2026-08-23 18:05:42.913943,2026-09-17 00:05:14.942

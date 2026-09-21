@@ -1,0 +1,7 @@
+/opt/engeradios2/apps/api/node_modules/bcrypt/build-all.sh
+/opt/engeradios2/apps/api/node_modules/exit-x/test/fixtures/create-files.sh
+/opt/engeradios2/apps/web/node_modules/damerau-levenshtein/scripts/update-changelog.sh
+/opt/engeradios2/apps/web/validar_servicos_operacionais.sh
+/opt/engeradios2/apps/web/validar_servicos_operacionais_v2.sh
+/opt/engeradios2/governance/audit/run_full_audit_phase1.sh
+/opt/engeradios2-infra/postgres/init/010_create_application_role.sh

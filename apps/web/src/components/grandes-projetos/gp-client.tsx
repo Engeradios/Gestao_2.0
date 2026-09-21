@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Badge,
   Button,
@@ -48,6 +48,91 @@ type Dashboard = {
   lucroLiquido: number;
   porStatus: Record<string, number>;
 };
+
+type ExecutiveIndicator =
+  | "VERDE"
+  | "AMARELO"
+  | "VERMELHO"
+  | "CINZA"
+  | string;
+
+type ExecutiveSummaryV2 = {
+  total_projetos: number;
+  projetos_em_execucao: number;
+  projetos_atrasados: number;
+  projetos_vencendo_hoje: number;
+  projetos_vencendo_30_dias: number;
+  projetos_sem_gerente: number;
+  projetos_sem_marcos: number;
+  projetos_sem_materiais: number;
+  projetos_realizado_sem_orcamento: number;
+  projetos_com_divergencia_os: number;
+  valor_total_contratos: number;
+  valor_total_orcado: number;
+  valor_total_realizado: number;
+  saldo_total_orcamento: number;
+  total_os: number;
+  total_os_encerradas: number;
+  total_os_abertas: number;
+  total_os_encerradas_sem_data: number;
+  total_relatorios: number;
+  total_relatorios_rascunho: number;
+};
+
+type ExecutivePanelV2 = {
+  projeto_id: number;
+  codigo?: string | null;
+  nome: string;
+  cliente?: string | null;
+  cliente_local?: string | null;
+  uf?: string | null;
+  gerente?: string | null;
+  status?: string | null;
+  aprovacao_status?: string | null;
+  tipo_escopo?: string | null;
+  numero_contrato?: string | null;
+  numero_pedido?: string | null;
+  valor_contrato: number;
+  data_inicio?: string | null;
+  data_fim_prev?: string | null;
+  data_fim_real?: string | null;
+  total_custos: number;
+  valor_orcado: number;
+  valor_realizado: number;
+  saldo_orcamento: number;
+  percentual_orcamento_consumido: number;
+  total_marcos: number;
+  progresso_medio: number;
+  menor_percentual_marco: number;
+  maior_percentual_marco: number;
+  total_materiais: number;
+  quantidade_prevista: number;
+  quantidade_entregue: number;
+  valor_previsto_material: number;
+  percentual_material_entregue: number;
+  total_os: number;
+  os_encerradas: number;
+  os_abertas: number;
+  os_encerradas_sem_data: number;
+  os_abertas_com_data: number;
+  percentual_os_encerradas: number;
+  total_relatorios: number;
+  relatorios_inicio: number;
+  relatorios_fim: number;
+  relatorios_rascunho: number;
+  indicador_financeiro?: ExecutiveIndicator | null;
+  indicador_progresso?: ExecutiveIndicator | null;
+  indicador_material?: ExecutiveIndicator | null;
+  indicador_os?: ExecutiveIndicator | null;
+  indicador_prazo?: ExecutiveIndicator | null;
+  alerta_sem_gerente: boolean | number;
+  alerta_realizado_sem_orcamento: boolean | number;
+  alerta_sem_marcos: boolean | number;
+  alerta_sem_materiais: boolean | number;
+  alerta_divergencia_os: boolean | number;
+  alertas?: string[] | string | null;
+  quantidade_alertas: number;
+};
 const money = (v: number) =>
   Number(v || 0).toLocaleString("pt-BR", {
     style: "currency",
@@ -79,64 +164,606 @@ function tone(
   return "neutral";
 }
 export function GpDashboard() {
-  const [d, setD] = useState<Dashboard | null>(null),
-    [e, setE] = useState("");
-  useEffect(() => {
-    api<Dashboard>("dashboard")
-      .then(setD)
-      .catch((x) => setE(x.message));
+  const [legacy, setLegacy] = useState<Dashboard | null>(null);
+  const [summary, setSummary] = useState<ExecutiveSummaryV2 | null>(null);
+  const [projects, setProjects] = useState<ExecutivePanelV2[]>([]);
+  const [legacyError, setLegacyError] = useState("");
+  const [summaryError, setSummaryError] = useState("");
+  const [projectsError, setProjectsError] = useState("");
+  const [loadingSummary, setLoadingSummary] = useState(true);
+  const [loadingProjects, setLoadingProjects] = useState(true);
+
+  const loadDashboard = useCallback(async () => {
+    setLegacyError("");
+    setSummaryError("");
+    setProjectsError("");
+    setLoadingSummary(true);
+    setLoadingProjects(true);
+
+    const [legacyResult, summaryResult, projectsResult] =
+      await Promise.allSettled([
+        api<Dashboard>("dashboard"),
+        api<ExecutiveSummaryV2 | null>("painel-resumo-v2"),
+        api<ExecutivePanelV2[]>("painel-executivo-v2"),
+      ]);
+
+    if (legacyResult.status === "fulfilled") {
+      setLegacy(legacyResult.value);
+    } else {
+      setLegacyError(
+        legacyResult.reason instanceof Error
+          ? legacyResult.reason.message
+          : "Falha ao carregar o dashboard anterior.",
+      );
+    }
+
+    if (summaryResult.status === "fulfilled") {
+      setSummary(summaryResult.value);
+    } else {
+      setSummaryError(
+        summaryResult.reason instanceof Error
+          ? summaryResult.reason.message
+          : "Falha ao carregar o resumo executivo.",
+      );
+    }
+
+    if (projectsResult.status === "fulfilled") {
+      setProjects(
+        Array.isArray(projectsResult.value)
+          ? projectsResult.value
+          : [],
+      );
+    } else {
+      setProjectsError(
+        projectsResult.reason instanceof Error
+          ? projectsResult.reason.message
+          : "Falha ao carregar o painel executivo.",
+      );
+    }
+
+    setLoadingSummary(false);
+    setLoadingProjects(false);
   }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void loadDashboard();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [loadDashboard]);
+
+  const totalProjects =
+    summary?.total_projetos ??
+    legacy?.projetos;
+
+  const runningProjects =
+    summary?.projetos_em_execucao ??
+    legacy?.emExecucao;
+
+  const totalContracts =
+    summary?.valor_total_contratos ??
+    legacy?.carteira;
+
+  const budgetBalance =
+    summary?.saldo_total_orcamento;
+
+  const alerts = projects.reduce(
+    (total, project) =>
+      total + Number(project.quantidade_alertas || 0),
+    0,
+  );
+
   return (
     <>
       <PageHeader
         section="Grandes Projetos"
-        title="Dashboard"
-        description="Visão consolidada da carteira e resultado financeiro."
+        title="Painel Executivo"
+        description="Visão executiva de contratos, orçamento, progresso, materiais, ordens de serviço, prazos e alertas."
         actions={
-          <Link href="/grandes-projetos/projetos">
-            <Button>Ver projetos</Button>
-          </Link>
+          <>
+            <Button
+              variant="secondary"
+              onClick={() => void loadDashboard()}
+              disabled={loadingSummary || loadingProjects}
+            >
+              {loadingSummary || loadingProjects
+                ? "Atualizando..."
+                : "Atualizar"}
+            </Button>
+            <Link href="/grandes-projetos/projetos">
+              <Button>Ver projetos</Button>
+            </Link>
+          </>
         }
       />
-      {e && <p className="mb-4 text-red-600">{e}</p>}
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+
+      {legacyError && !summary && (
+        <p
+          role="alert"
+          className="mb-4 rounded-xl bg-amber-50 p-3 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300"
+        >
+          Dashboard anterior indisponível: {legacyError}
+        </p>
+      )}
+
+      {summaryError && (
+        <p
+          role="alert"
+          className="mb-4 rounded-xl bg-red-50 p-3 text-red-700 dark:bg-red-950/40 dark:text-red-300"
+        >
+          Resumo executivo indisponível: {summaryError}
+        </p>
+      )}
+
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
         {[
-          ["Projetos", d?.projetos],
-          ["Em execução", d?.emExecucao],
-          ["Carteira", d ? money(d.carteira) : null],
-          ["Lucro líquido", d ? money(d.lucroLiquido) : null],
-        ].map(([l, v]) => (
-          <Card key={String(l)}>
+          [
+            "Projetos",
+            totalProjects,
+            "Total da carteira",
+          ],
+          [
+            "Em execução",
+            runningProjects,
+            "Projetos ativos",
+          ],
+          [
+            "Contratos",
+            totalContracts == null
+              ? null
+              : money(totalContracts),
+            "Valor total",
+          ],
+          [
+            "Saldo orçamentário",
+            budgetBalance == null
+              ? null
+              : money(budgetBalance),
+            "Orçado menos realizado",
+          ],
+          [
+            "Projetos atrasados",
+            summary?.projetos_atrasados,
+            "Prazo vencido",
+          ],
+          [
+            "Alertas",
+            loadingProjects ? null : alerts,
+            "Ocorrências no painel",
+          ],
+        ].map(([label, value, description]) => (
+          <Card key={String(label)}>
             <CardBody>
-              <p className="text-xs font-semibold uppercase text-slate-500">
-                {l}
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                {label}
               </p>
-              <p className="mt-2 text-2xl font-bold">{v ?? "..."}</p>
+              <p className="mt-2 text-2xl font-bold">
+                {value ?? "..."}
+              </p>
+              <p className="mt-1 text-xs text-slate-500">
+                {description}
+              </p>
             </CardBody>
           </Card>
         ))}
       </div>
+
+      {summary && (
+        <>
+          <Card className="mt-5">
+            <CardHeader>
+              <div>
+                <h2 className="font-bold">
+                  Atenções executivas
+                </h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Pendências estruturais, financeiras e operacionais.
+                </p>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                {[
+                  ["Vencendo hoje", summary.projetos_vencendo_hoje],
+                  [
+                    "Vencendo em 30 dias",
+                    summary.projetos_vencendo_30_dias,
+                  ],
+                  ["Sem gerente", summary.projetos_sem_gerente],
+                  ["Sem marcos", summary.projetos_sem_marcos],
+                  ["Sem materiais", summary.projetos_sem_materiais],
+                  [
+                    "Realizado sem orçamento",
+                    summary.projetos_realizado_sem_orcamento,
+                  ],
+                  [
+                    "Divergência de OS",
+                    summary.projetos_com_divergencia_os,
+                  ],
+                  ["OS abertas", summary.total_os_abertas],
+                  [
+                    "OS encerradas sem data",
+                    summary.total_os_encerradas_sem_data,
+                  ],
+                  [
+                    "Relatórios em rascunho",
+                    summary.total_relatorios_rascunho,
+                  ],
+                ].map(([label, value]) => (
+                  <div
+                    key={String(label)}
+                    className="rounded-xl border border-slate-200 p-4 dark:border-slate-800"
+                  >
+                    <p className="text-xs font-semibold uppercase text-slate-500">
+                      {label}
+                    </p>
+                    <p
+                      className={`mt-2 text-2xl font-bold ${
+                        Number(value || 0) > 0
+                          ? "text-amber-600"
+                          : "text-emerald-600"
+                      }`}
+                    >
+                      {Number(value || 0).toLocaleString("pt-BR")}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </CardBody>
+          </Card>
+
+          <Card className="mt-5">
+            <CardHeader>
+              <div>
+                <h2 className="font-bold">
+                  Consolidação financeira e operacional
+                </h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Valores e volumes consolidados dos Grandes Projetos.
+                </p>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  [
+                    "Valor orçado",
+                    money(summary.valor_total_orcado),
+                  ],
+                  [
+                    "Valor realizado",
+                    money(summary.valor_total_realizado),
+                  ],
+                  [
+                    "Saldo orçamentário",
+                    money(summary.saldo_total_orcamento),
+                  ],
+                  [
+                    "Total de OS",
+                    summary.total_os.toLocaleString("pt-BR"),
+                  ],
+                  [
+                    "OS encerradas",
+                    summary.total_os_encerradas.toLocaleString(
+                      "pt-BR",
+                    ),
+                  ],
+                  [
+                    "OS abertas",
+                    summary.total_os_abertas.toLocaleString(
+                      "pt-BR",
+                    ),
+                  ],
+                  [
+                    "Relatórios",
+                    summary.total_relatorios.toLocaleString(
+                      "pt-BR",
+                    ),
+                  ],
+                  [
+                    "Rascunhos",
+                    summary.total_relatorios_rascunho.toLocaleString(
+                      "pt-BR",
+                    ),
+                  ],
+                ].map(([label, value]) => (
+                  <div
+                    key={String(label)}
+                    className="rounded-xl bg-slate-50 p-4 dark:bg-slate-950"
+                  >
+                    <p className="text-xs font-semibold uppercase text-slate-500">
+                      {label}
+                    </p>
+                    <p className="mt-2 text-xl font-bold">
+                      {value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </CardBody>
+          </Card>
+        </>
+      )}
+
       <Card className="mt-5">
         <CardHeader>
-          <h2 className="font-bold">Projetos por status</h2>
-        </CardHeader>
-        <CardBody>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {Object.entries(d?.porStatus || {}).map(([s, n]) => (
-              <div
-                key={s}
-                className="rounded-xl bg-slate-50 p-4 dark:bg-slate-950"
-              >
-                <Badge tone={tone(s)}>{s}</Badge>
-                <p className="mt-3 text-2xl font-bold">{n}</p>
-              </div>
-            ))}
+          <div>
+            <h2 className="font-bold">
+              Projetos por criticidade
+            </h2>
+            <p className="mt-1 text-sm text-slate-500">
+              Ordenação fornecida pelo serviço executivo, priorizando projetos com mais alertas.
+            </p>
           </div>
-        </CardBody>
+        </CardHeader>
+
+        {projectsError && (
+          <CardBody>
+            <p
+              role="alert"
+              className="rounded-xl bg-red-50 p-3 text-red-700 dark:bg-red-950/40 dark:text-red-300"
+            >
+              Painel executivo indisponível: {projectsError}
+            </p>
+          </CardBody>
+        )}
+
+        {!projectsError && loadingProjects && (
+          <CardBody>
+            <p className="text-sm text-slate-500">
+              Carregando painel executivo...
+            </p>
+          </CardBody>
+        )}
+
+        {!projectsError &&
+          !loadingProjects &&
+          projects.length === 0 && (
+            <EmptyState
+              title="Nenhum projeto disponível"
+              description="O endpoint executivo não retornou projetos."
+            />
+          )}
+
+        {!projectsError &&
+          !loadingProjects &&
+          projects.length > 0 && (
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm">
+                <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500 dark:bg-slate-900">
+                  <tr>
+                    <th className="px-4 py-3">Projeto</th>
+                    <th className="px-4 py-3">Responsável</th>
+                    <th className="px-4 py-3">Financeiro</th>
+                    <th className="px-4 py-3">Progresso</th>
+                    <th className="px-4 py-3">Materiais</th>
+                    <th className="px-4 py-3">OS</th>
+                    <th className="px-4 py-3">Prazo</th>
+                    <th className="px-4 py-3 text-right">
+                      Alertas
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y dark:divide-slate-800">
+                  {projects.map((project) => (
+                    <tr key={project.projeto_id}>
+                      <td className="min-w-72 px-4 py-4">
+                        <Link
+                          href={`/grandes-projetos/projetos/${project.projeto_id}`}>
+                          {project.nome}
+                        </Link>
+                        <p className="mt-1 text-xs text-slate-500">
+                          {[
+                            project.codigo,
+                            project.cliente,
+                            project.uf,
+                          ]
+                            .filter(Boolean)
+                            .join(" · ") || "Sem identificação adicional"}
+                        </p>
+                        <p className="mt-2 text-xs">
+                          Contrato: {money(project.valor_contrato)}
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4">
+                        <p>{project.gerente || "Não informado"}</p>
+                        <p className="mt-1 text-xs text-slate-500">
+                          {project.status || "Sem status"}
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4">
+                        <ExecutiveBadge
+                          value={project.indicador_financeiro}
+                        />
+                        <p className="mt-2 whitespace-nowrap text-xs text-slate-500">
+                          Realizado: {money(project.valor_realizado)}
+                        </p>
+                        <p className="text-xs text-slate-500">
+                          Orçado: {money(project.valor_orcado)}
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4">
+                        <ExecutiveBadge
+                          value={project.indicador_progresso}
+                        />
+                        <p className="mt-2 text-xs text-slate-500">
+                          {Number(
+                            project.progresso_medio || 0,
+                          ).toLocaleString("pt-BR", {
+                            maximumFractionDigits: 1,
+                          })}
+                          %
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4">
+                        <ExecutiveBadge
+                          value={project.indicador_material}
+                        />
+                        <p className="mt-2 text-xs text-slate-500">
+                          {Number(
+                            project.percentual_material_entregue || 0,
+                          ).toLocaleString("pt-BR", {
+                            maximumFractionDigits: 1,
+                          })}
+                          % entregue
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4">
+                        <ExecutiveBadge
+                          value={project.indicador_os}
+                        />
+                        <p className="mt-2 text-xs text-slate-500">
+                          {project.os_encerradas || 0} encerradas
+                        </p>
+                        <p className="text-xs text-slate-500">
+                          {project.os_abertas || 0} abertas
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4">
+                        <ExecutiveBadge
+                          value={project.indicador_prazo}
+                        />
+                        <p className="mt-2 whitespace-nowrap text-xs text-slate-500">
+                          {formatExecutiveDate(
+                            project.data_fim_prev,
+                          )}
+                        </p>
+                      </td>
+
+                      <td className="px-4 py-4 text-right">
+                        <span
+                          className={`inline-flex min-w-10 justify-center rounded-full px-3 py-1 font-bold ${
+                            Number(project.quantidade_alertas || 0) >
+                            0
+                              ? "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300"
+                              : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300"
+                          }`}
+                        >
+                          {Number(
+                            project.quantidade_alertas || 0,
+                          )}
+                        </span>
+                        <ExecutiveAlerts
+                          alerts={project.alertas}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
       </Card>
+
+      {legacy && Object.keys(legacy.porStatus || {}).length > 0 && (
+        <Card className="mt-5">
+          <CardHeader>
+            <div>
+              <h2 className="font-bold">
+                Distribuição por status
+              </h2>
+              <p className="mt-1 text-sm text-slate-500">
+                Indicador preservado do dashboard anterior.
+              </p>
+            </div>
+          </CardHeader>
+          <CardBody>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              {Object.entries(legacy.porStatus).map(
+                ([status, total]) => (
+                  <div
+                    key={status}
+                    className="rounded-xl bg-slate-50 p-4 dark:bg-slate-950"
+                  >
+                    <Badge tone={tone(status)}>
+                      {status}
+                    </Badge>
+                    <p className="mt-3 text-2xl font-bold">
+                      {total}
+                    </p>
+                  </div>
+                ),
+              )}
+            </div>
+          </CardBody>
+        </Card>
+      )}
     </>
   );
 }
+
+function ExecutiveBadge({
+  value,
+}: {
+  value?: ExecutiveIndicator | null;
+}) {
+  const normalized = String(value || "CINZA").toUpperCase();
+
+  const style =
+    normalized === "VERDE"
+      ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300"
+      : normalized === "AMARELO"
+        ? "bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300"
+        : normalized === "VERMELHO"
+          ? "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-300"
+          : "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300";
+
+  return (
+    <span
+      className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${style}`}
+    >
+      {value || "Não disponível"}
+    </span>
+  );
+}
+
+function ExecutiveAlerts({
+  alerts,
+}: {
+  alerts?: string[] | string | null;
+}) {
+  const items = Array.isArray(alerts)
+    ? alerts
+    : typeof alerts === "string"
+      ? alerts
+          .split(/[;,|]/)
+          .map((item) => item.trim())
+          .filter(Boolean)
+      : [];
+
+  if (items.length === 0) return null;
+
+  return (
+    <details className="mt-2 text-left">
+      <summary className="cursor-pointer text-xs font-semibold text-red-600">
+        Ver alertas
+      </summary>
+      <ul className="mt-2 min-w-56 list-disc space-y-1 pl-4 text-xs text-slate-600 dark:text-slate-300">
+        {items.map((item, index) => (
+          <li key={`${item}-${index}`}>{item}</li>
+        ))}
+      </ul>
+    </details>
+  );
+}
+
+function formatExecutiveDate(value?: string | null) {
+  if (!value) return "Sem previsão";
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) return value;
+
+  return date.toLocaleDateString("pt-BR");
+}
+
 export function GpProjects({
   canManage: _canManage,
   canDelete: _canDelete,
@@ -264,6 +891,19 @@ type Detail = Project & {
   gp_marco: any[];
   gp_relatorio: any[];
 };
+
+type OrderSyncResult = {
+  projetoId: number;
+  proposta: string | null;
+  contrato: string | null;
+  localizadas: number;
+  existentes: number;
+  incluidas: number;
+  ignoradas: number;
+  ambiguidades: number;
+  sincronizadoEm: string;
+  motivo?: string;
+};
 export function GpDetail({
   id,
   canManage: _canManage,
@@ -287,18 +927,82 @@ export function GpDetail({
     [tab, setTab] = useState("resumo"),
     [error, setError] = useState(""),
     [message, setMessage] = useState(""),
+    [syncWarning, setSyncWarning] = useState(""),
+    [syncResult, setSyncResult] = useState<OrderSyncResult | null>(null),
     [approvalAction, setApprovalAction] = useState<"submeter" | "aprovar" | "rejeitar" | "">(""),
     [rejectionReason, setRejectionReason] = useState("");
-  const load = useCallback(
-    () =>
-      api<Detail>(String(id))
-        .then(setP)
-        .catch((x) => setError(x.message)),
-    [id],
-  );
+
+  const autoSyncProjectRef = useRef<number | null>(null);
+  const syncInFlightRef = useRef(false);
+
+  const load = useCallback(async (): Promise<Detail | null> => {
+    try {
+      const detail = await api<Detail>(String(id));
+      setP(detail);
+      return detail;
+    } catch (x) {
+      setError(
+        x instanceof Error
+          ? x.message
+          : "Falha ao carregar o projeto.",
+      );
+      return null;
+    }
+  }, [id]);
+
   useEffect(() => {
-    load();
-  }, [load]);
+    let cancelled = false;
+
+    const loadAndSync = async () => {
+      const detail = await load();
+
+      if (
+        cancelled ||
+        !detail ||
+        !canManageOs ||
+        !detail.numero_contrato ||
+        autoSyncProjectRef.current === id ||
+        syncInFlightRef.current
+      ) {
+        return;
+      }
+
+      autoSyncProjectRef.current = id;
+      syncInFlightRef.current = true;
+      setSyncWarning("");
+
+      try {
+        const result = await api<OrderSyncResult>(
+          `${id}/os/sincronizar`,
+          {
+            method: "POST",
+          },
+        );
+
+        if (cancelled) return;
+
+        setSyncResult(result);
+        await load();
+      } catch (x) {
+        if (!cancelled) {
+          setSyncWarning(
+            x instanceof Error
+              ? x.message
+              : "O projeto foi carregado, mas não foi possível sincronizar as OS.",
+          );
+        }
+      } finally {
+        syncInFlightRef.current = false;
+
+      }
+    };
+
+    void loadAndSync();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [canManageOs, id, load]);
   async function transitionApproval(action: "submeter" | "aprovar" | "rejeitar") {
     if (action === "rejeitar" && !rejectionReason.trim()) {
       setError("Informe o motivo da rejeição.");
@@ -332,14 +1036,6 @@ export function GpDetail({
     }
   }
 
-  async function importOs() {
-    try {
-      await api(`${id}/os/importar-contrato`, { method: "POST" });
-      await load();
-    } catch (x) {
-      setError(x instanceof Error ? x.message : "Falha");
-    }
-  }
   if (error && !p) return <p className="text-red-600">{error}</p>;
   if (!p) return <p>Carregando...</p>;
   const tabs = [
@@ -375,15 +1071,30 @@ export function GpDetail({
                 <Button variant="secondary" disabled={Boolean(approvalAction)} onClick={() => (document.getElementById("gp-reject-dialog") as HTMLDialogElement | null)?.showModal()}>Rejeitar</Button>
               </>
             )}
-            {p.numero_contrato && canManageOs && (
-              <Button variant="secondary" onClick={importOs}>
-                Importar OS do contrato
-              </Button>
-            )}
           </>
         }
       />
       {error && <p role="alert" className="mb-4 rounded-xl bg-red-50 p-3 text-red-700 dark:bg-red-950/40 dark:text-red-300">{error}</p>}
+      {syncWarning && (
+        <p
+          role="status"
+          className="mb-4 rounded-xl bg-amber-50 p-3 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300"
+        >
+          O projeto foi carregado, mas a sincronização automática das OS
+          não foi concluída: {syncWarning}
+        </p>
+      )}
+      {syncResult && (
+        <p
+          role="status"
+          className="mb-4 rounded-xl bg-blue-50 p-3 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300"
+        >
+          OS sincronizadas: {syncResult.incluidas} novas,{" "}
+          {syncResult.existentes} existentes e{" "}
+          {syncResult.ambiguidades} ambiguidades. Atualizado em{" "}
+          {new Date(syncResult.sincronizadoEm).toLocaleString("pt-BR")}.
+        </p>
+      )}
       {message && <p role="status" className="mb-4 rounded-xl bg-emerald-50 p-3 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">{message}</p>}
       {p.aprovacao_status === "APROVADO" && p.aprovado_em && (
         <p className="mb-4 text-sm text-slate-500">Aprovado em {new Date(p.aprovado_em).toLocaleString("pt-BR")}.</p>

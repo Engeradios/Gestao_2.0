@@ -1,0 +1,26 @@
+====================================
+CONTAINER ENV
+====================================
+
+DATABASE_URL=postgresql://engeradios_app:ZDj%2BBSBuZFM9WDG7IPrQ1eCbarWlSNoDMVQUJzAqj8AMGBG8yiU2G%2Bs%2FIEwO9xUE@engeradios2-postgres:5432/engeradios2_novo?schema=public
+HOST=0.0.0.0
+JWT_EXPIRES_IN=15m
+JWT_SECRET=51cd8019cad7cdcdf6b4517266482cc73b0d58430db5908c2f81ee853e6cece944b13c7a5314d98efbc45db615ed6446f9c7d88fffa05a59f44f75eabadca2da
+NODE_ENV=production
+NODE_VERSION=22.23.2
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PORT=3001
+PUBLIC_APP_URL=https://gestao.engeradios.com.br
+YARN_VERSION=1.22.22
+
+====================================
+APP ENV
+====================================
+DATABASE_URL="postgresql://engeradios_app:ea30efa51c33ef5026f3b022cd25fedcdce9923262fe6c316e0d8b45befd19ed@127.0.0.1:5434/engeradios2_novo?schema=public"
+PORT=3001
+HOST=127.0.0.1
+JWT_SECRET=51cd8019cad7cdcdf6b4517266482cc73b0d58430db5908c2f81ee853e6cece944b13c7a5314d98efbc45db615ed6446f9c7d88fffa05a59f44f75eabadca2da
+JWT_EXPIRES_IN=15m
+PUBLIC_APP_URL=https://gestao.engeradios.com.br
+
+MAIL_ENCRYPTION_KEY=c150f931cc2891237d6349dcc2da6a1c205f68df391d1416577a07ab8dcc7a1b

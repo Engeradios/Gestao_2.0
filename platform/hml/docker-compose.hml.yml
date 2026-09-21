@@ -1,0 +1,39 @@
+name: engeradios2-hml
+
+services:
+
+  api:
+
+    image: engeradios2-api:fast-app-r6-20260913_103019
+
+    container_name: engeradios2-api-hml
+
+    restart: unless-stopped
+
+    env_file:
+      - ../env/.env.hml
+
+    ports:
+      - "127.0.0.1:3002:3001"
+
+    networks:
+      - backend
+      - edge
+
+    volumes:
+      - /opt/engeradios2/storage/propostas:/opt/engeradios2/storage/propostas
+      - /opt/engeradios2/storage/servicos:/opt/engeradios2/storage/servicos
+      - /var/lib/engeradios2/contratos:/var/lib/engeradios2/contratos
+      - /var/lib/engeradios2/perfis:/var/lib/engeradios2/perfis
+      - /opt/engeradios2/storage/app-campo/evidencias:/opt/engeradios2/storage/app-campo/evidencias
+      - /opt/engeradios2/storage/orcamento/evidencias:/opt/engeradios2/storage/orcamento/evidencias
+
+networks:
+
+  backend:
+    external: true
+    name: engeradios2_backend
+
+  edge:
+    external: true
+    name: engeradios2_edge

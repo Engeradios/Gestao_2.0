@@ -1,0 +1,14 @@
+ Static hostname: engeradios.vps-kinghost.net
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 018fe3ac6f459ea00b445fca30a93aaa
+         Boot ID: 990f0f59b82b4584a44d8ffb6e3dbfda
+  Virtualization: xen
+Operating System: Ubuntu 24.04.5 LTS
+          Kernel: Linux 6.8.0-139-generic
+    Architecture: x86-64
+ Hardware Vendor: Xen
+  Hardware Model: HVM domU
+Firmware Version: 4.17
+   Firmware Date: Mon 2025-12-08
+    Firmware Age: 9month 1w 2d

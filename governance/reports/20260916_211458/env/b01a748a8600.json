@@ -1,0 +1,1 @@
+["POSTGRES_DB=engeradios2_novo","POSTGRES_USER=engeradios_app","POSTGRES_PASSWORD=ea30efa51c33ef5026f3b022cd25fedcdce9923262fe6c316e0d8b45befd19ed","REDIS_PASSWORD=b5b09c4d43748023d18c479dde1f4d2e0dc2c2030dfe94d5399561197c3702e3","PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","REDIS_VERSION=7.4.11"]

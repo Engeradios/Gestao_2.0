@@ -1,0 +1,6 @@
+[PASS] /opt/engeradios2/storage/propostas
+[PASS] /opt/engeradios2/storage/servicos
+[PASS] /var/lib/engeradios2/contratos
+[PASS] /var/lib/engeradios2/perfis
+[PASS] /opt/engeradios2/storage/app-campo/evidencias
+[PASS] /opt/engeradios2/storage/orcamento/evidencias

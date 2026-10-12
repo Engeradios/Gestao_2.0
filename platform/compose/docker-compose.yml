@@ -3,7 +3,7 @@ name: engeradios2
 services:
 
   api:
-    image: engeradios2-api:nfe-distdfe-d15c-20261012_123654
+    image: engeradios2-api:nfe-tipos-evento-d18d-20261012_155300
     container_name: engeradios2-api
 
     restart: unless-stopped

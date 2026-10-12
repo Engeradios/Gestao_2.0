@@ -32,6 +32,7 @@ import { GeolocationModule } from './geolocation/geolocation.module';
 import { OrcamentoModule } from './orcamento/orcamento.module';
 import { DpRhModule } from './dp-rh/dp-rh.module';
 import { FinancialReceivedInvoicesModule } from './financial-received-invoices/financial-received-invoices.module';
+import { DocumentosFiscaisModule } from './financeiro/documentos-fiscais/documentos-fiscais.module';
 @Module({
   imports: [
     FinancialReceivedInvoicesModule,
@@ -65,6 +66,7 @@ import { FinancialReceivedInvoicesModule } from './financial-received-invoices/f
     AuditModule,
     ProfilesModule,
     UsersModule,
+    DocumentosFiscaisModule,
   ],
   controllers: [AppController],
   providers: [AppService],

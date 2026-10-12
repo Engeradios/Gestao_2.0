@@ -21,6 +21,7 @@ const nav = [
   ["DRE", "/financeiro/dre"],
   ["Plano de contas", "/financeiro/plano-contas"],
   ["NF recebidas", "/financeiro/notas-recebidas"],
+  ["Documentos fiscais", "/financeiro/documentos-fiscais"],
   ["Importações", "/financeiro/importacoes"],
 ];
 const label: Record<string, string> = {

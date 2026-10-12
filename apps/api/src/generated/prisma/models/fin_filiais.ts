@@ -335,6 +335,7 @@ export type fin_filiaisWhereInput = {
   historico?: Prisma.Fin_filiais_historicoListRelationFilter
   p5_nfe_dist_controle?: Prisma.XOR<Prisma.Fin_nfe_dist_controleNullableScalarRelationFilter, Prisma.fin_nfe_dist_controleWhereInput> | null
   p5_est_locais?: Prisma.Est_locaisListRelationFilter
+  fin_documentos_fiscais?: Prisma.Fin_documentos_fiscaisListRelationFilter
 }
 
 export type fin_filiaisOrderByWithRelationInput = {
@@ -364,6 +365,7 @@ export type fin_filiaisOrderByWithRelationInput = {
   historico?: Prisma.fin_filiais_historicoOrderByRelationAggregateInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleOrderByWithRelationInput
   p5_est_locais?: Prisma.est_locaisOrderByRelationAggregateInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisOrderByRelationAggregateInput
 }
 
 export type fin_filiaisWhereUniqueInput = Prisma.AtLeast<{
@@ -396,6 +398,7 @@ export type fin_filiaisWhereUniqueInput = Prisma.AtLeast<{
   historico?: Prisma.Fin_filiais_historicoListRelationFilter
   p5_nfe_dist_controle?: Prisma.XOR<Prisma.Fin_nfe_dist_controleNullableScalarRelationFilter, Prisma.fin_nfe_dist_controleWhereInput> | null
   p5_est_locais?: Prisma.Est_locaisListRelationFilter
+  fin_documentos_fiscais?: Prisma.Fin_documentos_fiscaisListRelationFilter
 }, "id" | "codigo" | "cnpj">
 
 export type fin_filiaisOrderByWithAggregationInput = {
@@ -477,6 +480,7 @@ export type fin_filiaisCreateInput = {
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateInput = {
@@ -506,6 +510,7 @@ export type fin_filiaisUncheckedCreateInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUpdateInput = {
@@ -535,6 +540,7 @@ export type fin_filiaisUpdateInput = {
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateInput = {
@@ -564,6 +570,7 @@ export type fin_filiaisUncheckedUpdateInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateManyInput = {
@@ -824,6 +831,22 @@ export type fin_filiaisUpdateOneWithoutP5_est_locaisNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.fin_filiaisUpdateToOneWithWhereWithoutP5_est_locaisInput, Prisma.fin_filiaisUpdateWithoutP5_est_locaisInput>, Prisma.fin_filiaisUncheckedUpdateWithoutP5_est_locaisInput>
 }
 
+export type fin_filiaisCreateNestedOneWithoutFin_documentos_fiscaisInput = {
+  create?: Prisma.XOR<Prisma.fin_filiaisCreateWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUncheckedCreateWithoutFin_documentos_fiscaisInput>
+  connectOrCreate?: Prisma.fin_filiaisCreateOrConnectWithoutFin_documentos_fiscaisInput
+  connect?: Prisma.fin_filiaisWhereUniqueInput
+}
+
+export type fin_filiaisUpdateOneWithoutFin_documentos_fiscaisNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_filiaisCreateWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUncheckedCreateWithoutFin_documentos_fiscaisInput>
+  connectOrCreate?: Prisma.fin_filiaisCreateOrConnectWithoutFin_documentos_fiscaisInput
+  upsert?: Prisma.fin_filiaisUpsertWithoutFin_documentos_fiscaisInput
+  disconnect?: Prisma.fin_filiaisWhereInput | boolean
+  delete?: Prisma.fin_filiaisWhereInput | boolean
+  connect?: Prisma.fin_filiaisWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.fin_filiaisUpdateToOneWithWhereWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUpdateWithoutFin_documentos_fiscaisInput>, Prisma.fin_filiaisUncheckedUpdateWithoutFin_documentos_fiscaisInput>
+}
+
 export type fin_filiaisCreateWithoutFin_contas_pagarInput = {
   id?: bigint | number
   codigo: string
@@ -850,6 +873,7 @@ export type fin_filiaisCreateWithoutFin_contas_pagarInput = {
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutFin_contas_pagarInput = {
@@ -878,6 +902,7 @@ export type fin_filiaisUncheckedCreateWithoutFin_contas_pagarInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutFin_contas_pagarInput = {
@@ -922,6 +947,7 @@ export type fin_filiaisUpdateWithoutFin_contas_pagarInput = {
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutFin_contas_pagarInput = {
@@ -950,6 +976,7 @@ export type fin_filiaisUncheckedUpdateWithoutFin_contas_pagarInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateWithoutFin_contas_receberInput = {
@@ -978,6 +1005,7 @@ export type fin_filiaisCreateWithoutFin_contas_receberInput = {
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutFin_contas_receberInput = {
@@ -1006,6 +1034,7 @@ export type fin_filiaisUncheckedCreateWithoutFin_contas_receberInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutFin_contas_receberInput = {
@@ -1050,6 +1079,7 @@ export type fin_filiaisUpdateWithoutFin_contas_receberInput = {
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutFin_contas_receberInput = {
@@ -1078,6 +1108,7 @@ export type fin_filiaisUncheckedUpdateWithoutFin_contas_receberInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateWithoutFin_fluxos_saldoInput = {
@@ -1106,6 +1137,7 @@ export type fin_filiaisCreateWithoutFin_fluxos_saldoInput = {
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutFin_fluxos_saldoInput = {
@@ -1134,6 +1166,7 @@ export type fin_filiaisUncheckedCreateWithoutFin_fluxos_saldoInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutFin_fluxos_saldoInput = {
@@ -1178,6 +1211,7 @@ export type fin_filiaisUpdateWithoutFin_fluxos_saldoInput = {
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutFin_fluxos_saldoInput = {
@@ -1206,6 +1240,7 @@ export type fin_filiaisUncheckedUpdateWithoutFin_fluxos_saldoInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateWithoutFin_notas_recebidasInput = {
@@ -1234,6 +1269,7 @@ export type fin_filiaisCreateWithoutFin_notas_recebidasInput = {
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutFin_notas_recebidasInput = {
@@ -1262,6 +1298,7 @@ export type fin_filiaisUncheckedCreateWithoutFin_notas_recebidasInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutFin_notas_recebidasInput = {
@@ -1306,6 +1343,7 @@ export type fin_filiaisUpdateWithoutFin_notas_recebidasInput = {
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutFin_notas_recebidasInput = {
@@ -1334,6 +1372,7 @@ export type fin_filiaisUncheckedUpdateWithoutFin_notas_recebidasInput = {
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateWithoutHistoricoInput = {
@@ -1362,6 +1401,7 @@ export type fin_filiaisCreateWithoutHistoricoInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedManyWithoutFin_filiaisInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutHistoricoInput = {
@@ -1390,6 +1430,7 @@ export type fin_filiaisUncheckedCreateWithoutHistoricoInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedCreateNestedManyWithoutFin_filiaisInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutHistoricoInput = {
@@ -1434,6 +1475,7 @@ export type fin_filiaisUpdateWithoutHistoricoInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateManyWithoutFin_filiaisNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutHistoricoInput = {
@@ -1462,6 +1504,7 @@ export type fin_filiaisUncheckedUpdateWithoutHistoricoInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateWithoutP5_nfe_dist_controleInput = {
@@ -1490,6 +1533,7 @@ export type fin_filiaisCreateWithoutP5_nfe_dist_controleInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedManyWithoutFin_filiaisInput
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutP5_nfe_dist_controleInput = {
@@ -1518,6 +1562,7 @@ export type fin_filiaisUncheckedCreateWithoutP5_nfe_dist_controleInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedCreateNestedManyWithoutFin_filiaisInput
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutP5_nfe_dist_controleInput = {
@@ -1562,6 +1607,7 @@ export type fin_filiaisUpdateWithoutP5_nfe_dist_controleInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateManyWithoutFin_filiaisNestedInput
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutP5_nfe_dist_controleInput = {
@@ -1590,6 +1636,7 @@ export type fin_filiaisUncheckedUpdateWithoutP5_nfe_dist_controleInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisNestedInput
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisCreateWithoutP5_est_locaisInput = {
@@ -1618,6 +1665,7 @@ export type fin_filiaisCreateWithoutP5_est_locaisInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedManyWithoutFin_filiaisInput
   historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisUncheckedCreateWithoutP5_est_locaisInput = {
@@ -1646,6 +1694,7 @@ export type fin_filiaisUncheckedCreateWithoutP5_est_locaisInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedCreateNestedManyWithoutFin_filiaisInput
   historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedCreateNestedManyWithoutFin_filiaisInput
 }
 
 export type fin_filiaisCreateOrConnectWithoutP5_est_locaisInput = {
@@ -1690,6 +1739,7 @@ export type fin_filiaisUpdateWithoutP5_est_locaisInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateManyWithoutFin_filiaisNestedInput
   historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUpdateManyWithoutFin_filiaisNestedInput
 }
 
 export type fin_filiaisUncheckedUpdateWithoutP5_est_locaisInput = {
@@ -1718,6 +1768,139 @@ export type fin_filiaisUncheckedUpdateWithoutP5_est_locaisInput = {
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisNestedInput
   historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
   p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisUncheckedUpdateManyWithoutFin_filiaisNestedInput
+}
+
+export type fin_filiaisCreateWithoutFin_documentos_fiscaisInput = {
+  id?: bigint | number
+  codigo: string
+  nome: string
+  cnpj?: string | null
+  ativo?: boolean
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  razao_social?: string | null
+  nome_fantasia?: string | null
+  tipo_estabelecimento?: string
+  inscricao_estadual?: string | null
+  inscricao_municipal?: string | null
+  cep?: string | null
+  logradouro?: string | null
+  numero?: string | null
+  complemento?: string | null
+  bairro?: string | null
+  cidade?: string | null
+  uf?: string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_filiaisInput
+  fin_contas_receber?: Prisma.fin_contas_receberCreateNestedManyWithoutFin_filiaisInput
+  fin_fluxos_saldo?: Prisma.fin_fluxos_saldoCreateNestedManyWithoutFin_filiaisInput
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedManyWithoutFin_filiaisInput
+  historico?: Prisma.fin_filiais_historicoCreateNestedManyWithoutFilialInput
+  p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleCreateNestedOneWithoutFilialInput
+  p5_est_locais?: Prisma.est_locaisCreateNestedManyWithoutFilialInput
+}
+
+export type fin_filiaisUncheckedCreateWithoutFin_documentos_fiscaisInput = {
+  id?: bigint | number
+  codigo: string
+  nome: string
+  cnpj?: string | null
+  ativo?: boolean
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  razao_social?: string | null
+  nome_fantasia?: string | null
+  tipo_estabelecimento?: string
+  inscricao_estadual?: string | null
+  inscricao_municipal?: string | null
+  cep?: string | null
+  logradouro?: string | null
+  numero?: string | null
+  complemento?: string | null
+  bairro?: string | null
+  cidade?: string | null
+  uf?: string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_filiaisInput
+  fin_contas_receber?: Prisma.fin_contas_receberUncheckedCreateNestedManyWithoutFin_filiaisInput
+  fin_fluxos_saldo?: Prisma.fin_fluxos_saldoUncheckedCreateNestedManyWithoutFin_filiaisInput
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedCreateNestedManyWithoutFin_filiaisInput
+  historico?: Prisma.fin_filiais_historicoUncheckedCreateNestedManyWithoutFilialInput
+  p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedCreateNestedOneWithoutFilialInput
+  p5_est_locais?: Prisma.est_locaisUncheckedCreateNestedManyWithoutFilialInput
+}
+
+export type fin_filiaisCreateOrConnectWithoutFin_documentos_fiscaisInput = {
+  where: Prisma.fin_filiaisWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_filiaisCreateWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUncheckedCreateWithoutFin_documentos_fiscaisInput>
+}
+
+export type fin_filiaisUpsertWithoutFin_documentos_fiscaisInput = {
+  update: Prisma.XOR<Prisma.fin_filiaisUpdateWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUncheckedUpdateWithoutFin_documentos_fiscaisInput>
+  create: Prisma.XOR<Prisma.fin_filiaisCreateWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUncheckedCreateWithoutFin_documentos_fiscaisInput>
+  where?: Prisma.fin_filiaisWhereInput
+}
+
+export type fin_filiaisUpdateToOneWithWhereWithoutFin_documentos_fiscaisInput = {
+  where?: Prisma.fin_filiaisWhereInput
+  data: Prisma.XOR<Prisma.fin_filiaisUpdateWithoutFin_documentos_fiscaisInput, Prisma.fin_filiaisUncheckedUpdateWithoutFin_documentos_fiscaisInput>
+}
+
+export type fin_filiaisUpdateWithoutFin_documentos_fiscaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  codigo?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  razao_social?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo_estabelecimento?: Prisma.StringFieldUpdateOperationsInput | string
+  inscricao_estadual?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  inscricao_municipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  complemento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_filiaisNestedInput
+  fin_contas_receber?: Prisma.fin_contas_receberUpdateManyWithoutFin_filiaisNestedInput
+  fin_fluxos_saldo?: Prisma.fin_fluxos_saldoUpdateManyWithoutFin_filiaisNestedInput
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateManyWithoutFin_filiaisNestedInput
+  historico?: Prisma.fin_filiais_historicoUpdateManyWithoutFilialNestedInput
+  p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUpdateOneWithoutFilialNestedInput
+  p5_est_locais?: Prisma.est_locaisUpdateManyWithoutFilialNestedInput
+}
+
+export type fin_filiaisUncheckedUpdateWithoutFin_documentos_fiscaisInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  codigo?: Prisma.StringFieldUpdateOperationsInput | string
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ativo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  razao_social?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nome_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipo_estabelecimento?: Prisma.StringFieldUpdateOperationsInput | string
+  inscricao_estadual?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  inscricao_municipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cep?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logradouro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  complemento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bairro?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_filiaisNestedInput
+  fin_contas_receber?: Prisma.fin_contas_receberUncheckedUpdateManyWithoutFin_filiaisNestedInput
+  fin_fluxos_saldo?: Prisma.fin_fluxos_saldoUncheckedUpdateManyWithoutFin_filiaisNestedInput
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisNestedInput
+  historico?: Prisma.fin_filiais_historicoUncheckedUpdateManyWithoutFilialNestedInput
+  p5_nfe_dist_controle?: Prisma.fin_nfe_dist_controleUncheckedUpdateOneWithoutFilialNestedInput
+  p5_est_locais?: Prisma.est_locaisUncheckedUpdateManyWithoutFilialNestedInput
 }
 
 
@@ -1732,6 +1915,7 @@ export type Fin_filiaisCountOutputType = {
   fin_notas_recebidas: number
   historico: number
   p5_est_locais: number
+  fin_documentos_fiscais: number
 }
 
 export type Fin_filiaisCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1741,6 +1925,7 @@ export type Fin_filiaisCountOutputTypeSelect<ExtArgs extends runtime.Types.Exten
   fin_notas_recebidas?: boolean | Fin_filiaisCountOutputTypeCountFin_notas_recebidasArgs
   historico?: boolean | Fin_filiaisCountOutputTypeCountHistoricoArgs
   p5_est_locais?: boolean | Fin_filiaisCountOutputTypeCountP5_est_locaisArgs
+  fin_documentos_fiscais?: boolean | Fin_filiaisCountOutputTypeCountFin_documentos_fiscaisArgs
 }
 
 /**
@@ -1795,6 +1980,13 @@ export type Fin_filiaisCountOutputTypeCountP5_est_locaisArgs<ExtArgs extends run
   where?: Prisma.est_locaisWhereInput
 }
 
+/**
+ * Fin_filiaisCountOutputType without action
+ */
+export type Fin_filiaisCountOutputTypeCountFin_documentos_fiscaisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.fin_documentos_fiscaisWhereInput
+}
+
 
 export type fin_filiaisSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1823,6 +2015,7 @@ export type fin_filiaisSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   historico?: boolean | Prisma.fin_filiais$historicoArgs<ExtArgs>
   p5_nfe_dist_controle?: boolean | Prisma.fin_filiais$p5_nfe_dist_controleArgs<ExtArgs>
   p5_est_locais?: boolean | Prisma.fin_filiais$p5_est_locaisArgs<ExtArgs>
+  fin_documentos_fiscais?: boolean | Prisma.fin_filiais$fin_documentos_fiscaisArgs<ExtArgs>
   _count?: boolean | Prisma.Fin_filiaisCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fin_filiais"]>
 
@@ -1901,6 +2094,7 @@ export type fin_filiaisInclude<ExtArgs extends runtime.Types.Extensions.Internal
   historico?: boolean | Prisma.fin_filiais$historicoArgs<ExtArgs>
   p5_nfe_dist_controle?: boolean | Prisma.fin_filiais$p5_nfe_dist_controleArgs<ExtArgs>
   p5_est_locais?: boolean | Prisma.fin_filiais$p5_est_locaisArgs<ExtArgs>
+  fin_documentos_fiscais?: boolean | Prisma.fin_filiais$fin_documentos_fiscaisArgs<ExtArgs>
   _count?: boolean | Prisma.Fin_filiaisCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type fin_filiaisIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1916,6 +2110,7 @@ export type $fin_filiaisPayload<ExtArgs extends runtime.Types.Extensions.Interna
     historico: Prisma.$fin_filiais_historicoPayload<ExtArgs>[]
     p5_nfe_dist_controle: Prisma.$fin_nfe_dist_controlePayload<ExtArgs> | null
     p5_est_locais: Prisma.$est_locaisPayload<ExtArgs>[]
+    fin_documentos_fiscais: Prisma.$fin_documentos_fiscaisPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -2338,6 +2533,7 @@ export interface Prisma__fin_filiaisClient<T, Null = never, ExtArgs extends runt
   historico<T extends Prisma.fin_filiais$historicoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_filiais$historicoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_filiais_historicoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   p5_nfe_dist_controle<T extends Prisma.fin_filiais$p5_nfe_dist_controleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_filiais$p5_nfe_dist_controleArgs<ExtArgs>>): Prisma.Prisma__fin_nfe_dist_controleClient<runtime.Types.Result.GetResult<Prisma.$fin_nfe_dist_controlePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   p5_est_locais<T extends Prisma.fin_filiais$p5_est_locaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_filiais$p5_est_locaisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$est_locaisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fin_documentos_fiscais<T extends Prisma.fin_filiais$fin_documentos_fiscaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_filiais$fin_documentos_fiscaisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_documentos_fiscaisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2939,6 +3135,30 @@ export type fin_filiais$p5_est_locaisArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.Est_locaisScalarFieldEnum | Prisma.Est_locaisScalarFieldEnum[]
+}
+
+/**
+ * fin_filiais.fin_documentos_fiscais
+ */
+export type fin_filiais$fin_documentos_fiscaisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_documentos_fiscais
+   */
+  select?: Prisma.fin_documentos_fiscaisSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_documentos_fiscais
+   */
+  omit?: Prisma.fin_documentos_fiscaisOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_documentos_fiscaisInclude<ExtArgs> | null
+  where?: Prisma.fin_documentos_fiscaisWhereInput
+  orderBy?: Prisma.fin_documentos_fiscaisOrderByWithRelationInput | Prisma.fin_documentos_fiscaisOrderByWithRelationInput[]
+  cursor?: Prisma.fin_documentos_fiscaisWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Fin_documentos_fiscaisScalarFieldEnum | Prisma.Fin_documentos_fiscaisScalarFieldEnum[]
 }
 
 /**

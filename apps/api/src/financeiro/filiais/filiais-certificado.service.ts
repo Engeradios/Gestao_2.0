@@ -67,9 +67,32 @@ GEOhq/oKhVJQAdvAFW5Odp7mF3Tk9nivjjsctJSxY26LFiV5GRV+07SSse4ti0aO
 jO5PLg5SWjfcOtBG2rz02EIvQAmLcb0kGBtfdj0lW/w=
 -----END CERTIFICATE-----`;
 
-type Meta = {
-  situacao: 'NAO_CONFIGURADO' | 'VALIDO' | 'EXPIRADO' | 'INVALIDO';
+export type FiscalCertificateSituation =
+  | 'NAO_CONFIGURADO'
+  | 'VALIDO'
+  | 'PROXIMO_VENCIMENTO'
+  | 'EXPIRADO'
+  | 'INVALIDO'
+  | 'ARQUIVO_AUSENTE'
+  | 'SEGREDO_AUSENTE';
+
+export type FiscalCertificateCapability =
+  | 'NFE_RECEBIDAS'
+  | 'NFE_EMITIDAS'
+  | 'SEFAZ';
+
+export type Meta = {
+  situacao: FiscalCertificateSituation;
   instalado: boolean;
+  arquivoPersistido?: boolean;
+  segredoPersistido?: boolean;
+  prontoParaUsoFiscal?: boolean;
+  diasParaVencer?: number;
+  cnpjCertificado?: string;
+  capacidadeNfeRecebidas?: boolean;
+  capacidadeNfeEmitidas?: boolean;
+  capacidadeSefaz?: boolean;
+  atualizadoEm?: string;
   validoAte?: string;
   validoDesde?: string;
   emissor?: string;
@@ -425,6 +448,7 @@ export class FiliaisCertificadoService {
       return {
         situacao: notAfter.getTime() <= Date.now() ? 'EXPIRADO' : 'VALIDO',
         instalado: true,
+        cnpjCertificado: certificateCnpj,
         validoAte: notAfter.toISOString(),
         validoDesde: notBefore?.toISOString(),
         emissor: value('issuer'),
@@ -467,44 +491,179 @@ export class FiliaisCertificadoService {
       },
     });
   }
-  async status(id: bigint): Promise<Meta> {
+  
+async status(id: bigint): Promise<Meta> {
     const filial = await this.filial(id);
     const p = this.paths(filial.codigo);
-    try {
+
+    const exists = async (path: string) => {
       try {
-        await Promise.all([stat(p.cert), stat(p.secret)]);
+        await stat(path);
+        return true;
       } catch (error) {
-        if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-          return { situacao: 'NAO_CONFIGURADO', instalado: false };
-        }
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') return false;
         throw error;
       }
+    };
+
+    const [arquivoPersistido, segredoPersistido] = await Promise.all([
+      exists(p.cert),
+      exists(p.secret),
+    ]);
+
+    const base = {
+      arquivoPersistido,
+      segredoPersistido,
+      atualizadoEm: new Date().toISOString(),
+      capacidadeNfeRecebidas: false,
+      capacidadeNfeEmitidas: false,
+      capacidadeSefaz: false,
+      prontoParaUsoFiscal: false,
+    };
+
+    if (!arquivoPersistido && !segredoPersistido) {
+      return {
+        ...base,
+        situacao: 'NAO_CONFIGURADO',
+        instalado: false,
+      };
+    }
+
+    if (!arquivoPersistido) {
+      return {
+        ...base,
+        situacao: 'ARQUIVO_AUSENTE',
+        instalado: false,
+        mensagem:
+          'A senha protegida está presente, mas o arquivo do certificado está ausente.',
+      };
+    }
+
+    if (!segredoPersistido) {
+      return {
+        ...base,
+        situacao: 'SEGREDO_AUSENTE',
+        instalado: false,
+        mensagem:
+          'O certificado está presente, mas a senha protegida está ausente.',
+      };
+    }
+
+    try {
       const [buffer, password, info] = await Promise.all([
         readFile(p.cert),
         readFile(p.secret, 'utf8'),
         stat(p.cert),
       ]);
-      const meta = this.inspect(buffer, password, filial.cnpj!);
-      return { ...meta, arquivoBytes: info.size };
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-        return { situacao: 'NAO_CONFIGURADO', instalado: false };
+
+      const inspected = this.inspect(buffer, password, filial.cnpj!);
+      const validoAte = parseDate(inspected.validoAte);
+      const diasParaVencer = validoAte
+        ? Math.ceil((validoAte.getTime() - Date.now()) / 86400000)
+        : undefined;
+
+      let situacao = inspected.situacao;
+
+      if (
+        situacao === 'VALIDO' &&
+        diasParaVencer !== undefined &&
+        diasParaVencer <= 30
+      ) {
+        situacao = 'PROXIMO_VENCIMENTO';
       }
-      if (error instanceof BadRequestException) {
-        return {
-          situacao: 'INVALIDO',
-          instalado: true,
-          mensagem: error.message,
-        };
-      }
+
+      const cnpjCertificado =
+        (inspected as Meta & { cnpjCertificado?: string }).cnpjCertificado ??
+        undefined;
+
+      const prontoParaUsoFiscal =
+        (situacao === 'VALIDO' || situacao === 'PROXIMO_VENCIMENTO') &&
+        Boolean(cnpjCertificado);
+
       return {
+        ...inspected,
+        ...base,
+        situacao,
+        instalado: true,
+        arquivoBytes: info.size,
+        diasParaVencer,
+        cnpjCertificado,
+        prontoParaUsoFiscal,
+        capacidadeNfeRecebidas: prontoParaUsoFiscal,
+        capacidadeNfeEmitidas: prontoParaUsoFiscal,
+        capacidadeSefaz: prontoParaUsoFiscal,
+      };
+    } catch (error) {
+      return {
+        ...base,
         situacao: 'INVALIDO',
         instalado: true,
-        mensagem: 'Certificado configurado, mas não pôde ser validado.',
+        mensagem:
+          error instanceof BadRequestException
+            ? error.message
+            : 'Certificado configurado, mas não pôde ser validado.',
       };
     }
   }
-  async install(
+  
+  async requireReady(
+    id: bigint,
+    capability: FiscalCertificateCapability,
+  ): Promise<void> {
+    const current = await this.status(id);
+
+    const allowed =
+      capability === 'NFE_RECEBIDAS'
+        ? current.capacidadeNfeRecebidas
+        : capability === 'NFE_EMITIDAS'
+          ? current.capacidadeNfeEmitidas
+          : current.capacidadeSefaz;
+
+    if (!current.prontoParaUsoFiscal || !allowed) {
+      throw new ServiceUnavailableException(
+        current.mensagem ??
+          `O certificado fiscal da filial não está pronto para ${capability}.`,
+      );
+    }
+  }
+
+  async withCredential<T>(
+    id: bigint,
+    capability: FiscalCertificateCapability,
+    operation: (credential: {
+      pfx: Buffer;
+      password: string;
+      certificateCnpj?: string;
+      validFrom?: Date;
+      validTo?: Date;
+    }) => Promise<T>,
+  ): Promise<T> {
+    await this.requireReady(id, capability);
+
+    const filial = await this.filial(id);
+    const p = this.paths(filial.codigo);
+
+    const [pfx, password] = await Promise.all([
+      readFile(p.cert),
+      readFile(p.secret, 'utf8'),
+    ]);
+
+    const meta = this.inspect(pfx, password, filial.cnpj!);
+
+    try {
+      return await operation({
+        pfx,
+        password,
+        certificateCnpj: meta.cnpjCertificado,
+        validFrom: parseDate(meta.validoDesde),
+        validTo: parseDate(meta.validoAte),
+      });
+    } finally {
+      pfx.fill(0);
+    }
+  }
+
+async install(
     id: bigint,
     file: Express.Multer.File | undefined,
     password: string,
@@ -536,8 +695,48 @@ export class FiliaisCertificadoService {
       await writeFile(tmpSecret, password, { mode: 0o640, flag: 'wx' });
       await chmod(tmpCert, 0o640);
       await chmod(tmpSecret, 0o640);
-      await rename(tmpCert, p.cert);
-      await rename(tmpSecret, p.secret);
+      const previousCert = `${p.cert}.${nonce}.previous`;
+      const previousSecret = `${p.secret}.${nonce}.previous`;
+
+      let certPreserved = false;
+      let secretPreserved = false;
+      let newCertPromoted = false;
+      let newSecretPromoted = false;
+
+      try {
+        try {
+          await rename(p.cert, previousCert);
+          certPreserved = true;
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+        }
+
+        try {
+          await rename(p.secret, previousSecret);
+          secretPreserved = true;
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+        }
+
+        await rename(tmpCert, p.cert);
+        newCertPromoted = true;
+
+        await rename(tmpSecret, p.secret);
+        newSecretPromoted = true;
+
+        await Promise.allSettled([
+          rm(previousCert, { force: true }),
+          rm(previousSecret, { force: true }),
+        ]);
+      } catch (promotionError) {
+        if (newCertPromoted) await rm(p.cert, { force: true });
+        if (newSecretPromoted) await rm(p.secret, { force: true });
+
+        if (certPreserved) await rename(previousCert, p.cert);
+        if (secretPreserved) await rename(previousSecret, p.secret);
+
+        throw promotionError;
+      }
       await this.audit(id, userId, 'CERT_A1_INSTALAR', {
         situacao: meta.situacao,
         validoAte: meta.validoAte,
@@ -561,20 +760,64 @@ export class FiliaisCertificadoService {
       );
     }
   }
-  async remove(id: bigint, userId?: string) {
+  
+async remove(id: bigint, userId?: string) {
     const filial = await this.filial(id);
     const p = this.paths(filial.codigo);
     const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const nonce = `${process.pid}.${Date.now()}`;
+
+    const removedCert = join(
+      p.dir,
+      `certificado.${stamp}.${nonce}.removido`,
+    );
+    const removedSecret = join(
+      SECRET_ROOT,
+      `${basename(p.secret)}.${stamp}.${nonce}.removido`,
+    );
+
+    let certMoved = false;
+    let secretMoved = false;
+
     try {
-      await rename(p.cert, join(p.dir, `certificado.${stamp}.removido`));
-    } catch {
-      // Falha ignorada intencionalmente neste fallback.
+      try {
+        await rename(p.cert, removedCert);
+        certMoved = true;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+      }
+
+      try {
+        await rename(p.secret, removedSecret);
+        secretMoved = true;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+      }
+
+      await this.audit(id, userId, 'CERT_A1_REMOVER', {
+        removidoEm: new Date().toISOString(),
+        certificadoMovido: certMoved,
+        segredoMovido: secretMoved,
+      });
+
+      return {
+        removido: true,
+        certificadoMovido: certMoved,
+        segredoMovido: secretMoved,
+      };
+    } catch (error) {
+      if (certMoved) {
+        await rename(removedCert, p.cert).catch(() => undefined);
+      }
+
+      if (secretMoved) {
+        await rename(removedSecret, p.secret).catch(() => undefined);
+      }
+
+      throw new InternalServerErrorException(
+        'Não foi possível remover o certificado de forma consistente.',
+      );
     }
-    await rm(p.secret, { force: true });
-    await this.audit(id, userId, 'CERT_A1_REMOVER', {
-      removidoEm: new Date().toISOString(),
-    });
-    return { success: true };
   }
   async sefazStatus(id: bigint) {
     const filial = await this.filial(id);

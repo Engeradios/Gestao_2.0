@@ -648,3 +648,43 @@ export type est_saldos = Prisma.est_saldosModel
  * 
  */
 export type est_movimentos = Prisma.est_movimentosModel
+/**
+ * Model fin_documentos_fiscais
+ * 
+ */
+export type fin_documentos_fiscais = Prisma.fin_documentos_fiscaisModel
+/**
+ * Model fin_documentos_fiscais_arquivos
+ * 
+ */
+export type fin_documentos_fiscais_arquivos = Prisma.fin_documentos_fiscais_arquivosModel
+/**
+ * Model fin_documentos_fiscais_eventos
+ * 
+ */
+export type fin_documentos_fiscais_eventos = Prisma.fin_documentos_fiscais_eventosModel
+/**
+ * Model fin_documentos_fiscais_historico
+ * 
+ */
+export type fin_documentos_fiscais_historico = Prisma.fin_documentos_fiscais_historicoModel
+/**
+ * Model fin_documentos_fiscais_itens
+ * 
+ */
+export type fin_documentos_fiscais_itens = Prisma.fin_documentos_fiscais_itensModel
+/**
+ * Model fin_documentos_fiscais_parcelas
+ * 
+ */
+export type fin_documentos_fiscais_parcelas = Prisma.fin_documentos_fiscais_parcelasModel
+/**
+ * Model fin_documentos_fiscais_participantes
+ * 
+ */
+export type fin_documentos_fiscais_participantes = Prisma.fin_documentos_fiscais_participantesModel
+/**
+ * Model fin_documentos_fiscais_vinculos
+ * 
+ */
+export type fin_documentos_fiscais_vinculos = Prisma.fin_documentos_fiscais_vinculosModel

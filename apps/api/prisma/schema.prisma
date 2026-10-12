@@ -2491,8 +2491,9 @@ model fin_filiais {
   uf                   String?                 @db.VarChar(2)
   historico            fin_filiais_historico[]
 
-  p5_nfe_dist_controle fin_nfe_dist_controle?
-  p5_est_locais        est_locais[]
+  p5_nfe_dist_controle   fin_nfe_dist_controle?
+  p5_est_locais          est_locais[]
+  fin_documentos_fiscais fin_documentos_fiscais[]
 
   @@index([ativo])
 }
@@ -3065,3 +3066,182 @@ model est_movimentos {
   @@index([origem_nota_id], map: "est_movimentos_origem_nota_idx")
   @@index([origem_nota_item_id], map: "est_movimentos_origem_item_idx")
 }
+
+// F5C2_DOCUMENTOS_FISCAIS_INICIO
+model fin_documentos_fiscais {
+  id                                   BigInt                                 @id @default(autoincrement())
+  direcao                              String                                 @db.VarChar(12)
+  tipo                                 String                                 @db.VarChar(20)
+  modelo                               String?                                @db.VarChar(10)
+  chave                                String?                                @db.VarChar(80)
+  numero                               String?                                @db.VarChar(40)
+  serie                                String?                                @db.VarChar(20)
+  filial_id                            BigInt?
+  natureza                             String?                                @db.VarChar(200)
+  data_emissao                         DateTime?                              @db.Date
+  data_entrada_saida                   DateTime?                              @db.Date
+  emitente_documento                   String?                                @db.VarChar(30)
+  emitente_nome                        String?                                @db.VarChar(255)
+  destinatario_documento               String?                                @db.VarChar(30)
+  destinatario_nome                    String?                                @db.VarChar(255)
+  valor_produtos                       Decimal                                @default(0) @db.Decimal(18, 2)
+  valor_frete                          Decimal                                @default(0) @db.Decimal(18, 2)
+  valor_desconto                       Decimal                                @default(0) @db.Decimal(18, 2)
+  valor_total                          Decimal                                @default(0) @db.Decimal(18, 2)
+  status_fiscal                        String?                                @db.VarChar(80)
+  status_processamento                 String                                 @default("CAPTURADO") @db.VarChar(40)
+  status_conferencia                   String?                                @db.VarChar(40)
+  origem                               String?                                @db.VarChar(40)
+  protocolo                            String?                                @db.VarChar(100)
+  nsu                                  String?                                @db.VarChar(20)
+  schema_xml                           String?                                @db.VarChar(120)
+  capturado_em                         DateTime?                              @db.Timestamp(6)
+  documento_origem_tipo                String                                 @db.VarChar(60)
+  documento_origem_id                  BigInt
+  criado_em                            DateTime                               @default(now()) @db.Timestamp(6)
+  atualizado_em                        DateTime                               @default(now()) @db.Timestamp(6)
+  fin_filiais                          fin_filiais?                           @relation(fields: [filial_id], references: [id], onDelete: Restrict, map: "fin_df_filial_fk")
+  fin_documentos_fiscais_arquivos      fin_documentos_fiscais_arquivos[]
+  fin_documentos_fiscais_eventos       fin_documentos_fiscais_eventos[]
+  fin_documentos_fiscais_historico     fin_documentos_fiscais_historico[]
+  fin_documentos_fiscais_itens         fin_documentos_fiscais_itens[]
+  fin_documentos_fiscais_parcelas      fin_documentos_fiscais_parcelas[]
+  fin_documentos_fiscais_participantes fin_documentos_fiscais_participantes[]
+  fin_documentos_fiscais_vinculos      fin_documentos_fiscais_vinculos[]
+
+  @@unique([direcao, chave], map: "fin_df_chave_direcao_uq", where: raw("((chave IS NOT NULL) AND (btrim((chave)::text) <> ''::text))"))
+  @@unique([documento_origem_tipo, documento_origem_id], map: "fin_df_origem_uq")
+  @@index([data_emissao(sort: Desc)], map: "fin_df_emissao_idx")
+  @@index([filial_id], map: "fin_df_filial_idx")
+  @@index([status_processamento], map: "fin_df_processamento_idx")
+  @@index([tipo, direcao], map: "fin_df_tipo_direcao_idx")
+}
+
+model fin_documentos_fiscais_arquivos {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  tipo                   String                 @db.VarChar(30)
+  caminho                String?                @db.VarChar(500)
+  nome_original          String?                @db.VarChar(255)
+  mime_type              String?                @db.VarChar(120)
+  tamanho_bytes          BigInt?
+  sha256                 String?                @db.Char(64)
+  versao                 String?                @db.VarChar(30)
+  principal              Boolean                @default(false)
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_arq_doc_fk")
+
+  @@index([sha256], map: "fin_df_arq_sha_idx", where: raw("(sha256 IS NOT NULL)"))
+}
+
+model fin_documentos_fiscais_eventos {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  evento_origem_id       BigInt?
+  tipo                   String                 @db.VarChar(60)
+  status_anterior        String?                @db.VarChar(40)
+  status_novo            String?                @db.VarChar(40)
+  descricao              String?
+  protocolo              String?                @db.VarChar(100)
+  dados                  Json?
+  usuario_id             String?                @db.Uuid
+  usuario_nome           String?                @db.VarChar(160)
+  ocorrido_em            DateTime               @default(now()) @db.Timestamp(6)
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_evento_doc_fk")
+
+  @@unique([documento_id, evento_origem_id], map: "fin_df_evento_origem_uq")
+  @@index([documento_id, ocorrido_em(sort: Desc)], map: "fin_df_evento_doc_data_idx")
+  @@index([tipo], map: "fin_df_evento_tipo_idx")
+}
+
+model fin_documentos_fiscais_historico {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  acao                   String                 @db.VarChar(60)
+  status_anterior        String?                @db.VarChar(40)
+  status_novo            String?                @db.VarChar(40)
+  detalhes               Json?
+  usuario_id             String?                @db.Uuid
+  usuario_nome           String?                @db.VarChar(160)
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_hist_doc_fk")
+
+  @@index([documento_id, criado_em(sort: Desc)], map: "fin_df_hist_doc_data_idx")
+}
+
+model fin_documentos_fiscais_itens {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  item_origem_id         BigInt?
+  numero_item            Int?
+  codigo                 String?                @db.VarChar(80)
+  descricao              String?                @db.VarChar(500)
+  ncm                    String?                @db.VarChar(20)
+  cfop                   String?                @db.VarChar(20)
+  unidade                String?                @db.VarChar(20)
+  quantidade             Decimal?               @db.Decimal(18, 4)
+  valor_unitario         Decimal?               @db.Decimal(18, 6)
+  valor_produto          Decimal?               @db.Decimal(18, 2)
+  valor_total            Decimal?               @db.Decimal(18, 2)
+  produto_id             BigInt?
+  pedido_compra_item_id  String?                @db.Uuid
+  dados_fiscais          Json?
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_item_doc_fk")
+
+  @@unique([documento_id, item_origem_id], map: "fin_df_item_origem_uq")
+  @@index([pedido_compra_item_id], map: "fin_df_item_pedido_idx")
+  @@index([produto_id], map: "fin_df_item_produto_idx")
+}
+
+model fin_documentos_fiscais_parcelas {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  parcela_origem_id      BigInt?
+  numero                 String?                @db.VarChar(40)
+  vencimento             DateTime?              @db.Date
+  valor                  Decimal?               @db.Decimal(18, 2)
+  situacao               String                 @default("PENDENTE") @db.VarChar(30)
+  data_pagamento         DateTime?              @db.Date
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_parcela_doc_fk")
+
+  @@unique([documento_id, parcela_origem_id], map: "fin_df_parcela_origem_uq")
+  @@index([vencimento], map: "fin_df_parcela_vencimento_idx")
+}
+
+model fin_documentos_fiscais_participantes {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  papel                  String                 @db.VarChar(30)
+  tipo_pessoa            String?                @db.VarChar(10)
+  documento              String?                @db.VarChar(30)
+  nome                   String?                @db.VarChar(255)
+  nome_fantasia          String?                @db.VarChar(255)
+  inscricao              String?                @db.VarChar(40)
+  uf                     String?                @db.Char(2)
+  dados                  Json?
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_part_doc_fk")
+
+  @@unique([documento_id, papel], map: "fin_df_part_doc_papel_uq")
+  @@index([documento], map: "fin_df_part_documento_idx")
+}
+
+model fin_documentos_fiscais_vinculos {
+  id                     BigInt                 @id @default(autoincrement())
+  documento_id           BigInt
+  entidade_tipo          String                 @db.VarChar(60)
+  entidade_id_texto      String                 @db.VarChar(120)
+  papel                  String?                @db.VarChar(40)
+  origem                 String                 @default("MIGRACAO") @db.VarChar(40)
+  metadados              Json?
+  criado_em              DateTime               @default(now()) @db.Timestamp(6)
+  fin_documentos_fiscais fin_documentos_fiscais @relation(fields: [documento_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fin_df_vinc_doc_fk")
+
+  @@unique([documento_id, entidade_tipo, entidade_id_texto, papel], map: "fin_df_vinculo_uq")
+  @@index([entidade_tipo, entidade_id_texto], map: "fin_df_vinc_entidade_idx")
+}
+
+// F5C2_DOCUMENTOS_FISCAIS_FIM

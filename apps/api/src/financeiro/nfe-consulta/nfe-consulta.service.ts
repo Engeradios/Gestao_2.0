@@ -14,6 +14,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
+import { FiliaisCertificadoService } from '../filiais/filiais-certificado.service';
 
 const execFileAsync = promisify(execFile);
 const CERT_ROOT = '/etc/engeradios2/fiscal/nfe/certificados';
@@ -74,7 +75,10 @@ function safeCode(value: string) {
 export class NfeConsultaService {
   private readonly cooldown = new Map<string, number>();
 
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly certificateProvider: FiliaisCertificadoService,
+  ) {}
 
   async consultarPorChave(
     filialId: bigint,
@@ -82,6 +86,11 @@ export class NfeConsultaService {
     usuarioId: string,
     incluirXmlInterno = false,
   ) {
+    await this.certificateProvider.requireReady(
+      filialId,
+      'NFE_RECEBIDAS',
+    );
+
     const normalizedKey = chave.replace(/\D/g, '');
     if (!validateAccessKey(normalizedKey)) {
       throw new BadRequestException(

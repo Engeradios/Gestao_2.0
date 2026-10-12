@@ -176,7 +176,15 @@ export const ModelName = {
   est_produtos: 'est_produtos',
   est_produtos_fornecedor: 'est_produtos_fornecedor',
   est_saldos: 'est_saldos',
-  est_movimentos: 'est_movimentos'
+  est_movimentos: 'est_movimentos',
+  fin_documentos_fiscais: 'fin_documentos_fiscais',
+  fin_documentos_fiscais_arquivos: 'fin_documentos_fiscais_arquivos',
+  fin_documentos_fiscais_eventos: 'fin_documentos_fiscais_eventos',
+  fin_documentos_fiscais_historico: 'fin_documentos_fiscais_historico',
+  fin_documentos_fiscais_itens: 'fin_documentos_fiscais_itens',
+  fin_documentos_fiscais_parcelas: 'fin_documentos_fiscais_parcelas',
+  fin_documentos_fiscais_participantes: 'fin_documentos_fiscais_participantes',
+  fin_documentos_fiscais_vinculos: 'fin_documentos_fiscais_vinculos'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2732,6 +2740,163 @@ export const Est_movimentosScalarFieldEnum = {
 } as const
 
 export type Est_movimentosScalarFieldEnum = (typeof Est_movimentosScalarFieldEnum)[keyof typeof Est_movimentosScalarFieldEnum]
+
+
+export const Fin_documentos_fiscaisScalarFieldEnum = {
+  id: 'id',
+  direcao: 'direcao',
+  tipo: 'tipo',
+  modelo: 'modelo',
+  chave: 'chave',
+  numero: 'numero',
+  serie: 'serie',
+  filial_id: 'filial_id',
+  natureza: 'natureza',
+  data_emissao: 'data_emissao',
+  data_entrada_saida: 'data_entrada_saida',
+  emitente_documento: 'emitente_documento',
+  emitente_nome: 'emitente_nome',
+  destinatario_documento: 'destinatario_documento',
+  destinatario_nome: 'destinatario_nome',
+  valor_produtos: 'valor_produtos',
+  valor_frete: 'valor_frete',
+  valor_desconto: 'valor_desconto',
+  valor_total: 'valor_total',
+  status_fiscal: 'status_fiscal',
+  status_processamento: 'status_processamento',
+  status_conferencia: 'status_conferencia',
+  origem: 'origem',
+  protocolo: 'protocolo',
+  nsu: 'nsu',
+  schema_xml: 'schema_xml',
+  capturado_em: 'capturado_em',
+  documento_origem_tipo: 'documento_origem_tipo',
+  documento_origem_id: 'documento_origem_id',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Fin_documentos_fiscaisScalarFieldEnum = (typeof Fin_documentos_fiscaisScalarFieldEnum)[keyof typeof Fin_documentos_fiscaisScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_arquivosScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  tipo: 'tipo',
+  caminho: 'caminho',
+  nome_original: 'nome_original',
+  mime_type: 'mime_type',
+  tamanho_bytes: 'tamanho_bytes',
+  sha256: 'sha256',
+  versao: 'versao',
+  principal: 'principal',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_arquivosScalarFieldEnum = (typeof Fin_documentos_fiscais_arquivosScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_arquivosScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_eventosScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  evento_origem_id: 'evento_origem_id',
+  tipo: 'tipo',
+  status_anterior: 'status_anterior',
+  status_novo: 'status_novo',
+  descricao: 'descricao',
+  protocolo: 'protocolo',
+  dados: 'dados',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  ocorrido_em: 'ocorrido_em',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_eventosScalarFieldEnum = (typeof Fin_documentos_fiscais_eventosScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_eventosScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_historicoScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  acao: 'acao',
+  status_anterior: 'status_anterior',
+  status_novo: 'status_novo',
+  detalhes: 'detalhes',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_historicoScalarFieldEnum = (typeof Fin_documentos_fiscais_historicoScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_historicoScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_itensScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  item_origem_id: 'item_origem_id',
+  numero_item: 'numero_item',
+  codigo: 'codigo',
+  descricao: 'descricao',
+  ncm: 'ncm',
+  cfop: 'cfop',
+  unidade: 'unidade',
+  quantidade: 'quantidade',
+  valor_unitario: 'valor_unitario',
+  valor_produto: 'valor_produto',
+  valor_total: 'valor_total',
+  produto_id: 'produto_id',
+  pedido_compra_item_id: 'pedido_compra_item_id',
+  dados_fiscais: 'dados_fiscais',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_itensScalarFieldEnum = (typeof Fin_documentos_fiscais_itensScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_itensScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_parcelasScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  parcela_origem_id: 'parcela_origem_id',
+  numero: 'numero',
+  vencimento: 'vencimento',
+  valor: 'valor',
+  situacao: 'situacao',
+  data_pagamento: 'data_pagamento',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_parcelasScalarFieldEnum = (typeof Fin_documentos_fiscais_parcelasScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_parcelasScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_participantesScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  papel: 'papel',
+  tipo_pessoa: 'tipo_pessoa',
+  documento: 'documento',
+  nome: 'nome',
+  nome_fantasia: 'nome_fantasia',
+  inscricao: 'inscricao',
+  uf: 'uf',
+  dados: 'dados',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_participantesScalarFieldEnum = (typeof Fin_documentos_fiscais_participantesScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_participantesScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_vinculosScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  entidade_tipo: 'entidade_tipo',
+  entidade_id_texto: 'entidade_id_texto',
+  papel: 'papel',
+  origem: 'origem',
+  metadados: 'metadados',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_vinculosScalarFieldEnum = (typeof Fin_documentos_fiscais_vinculosScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_vinculosScalarFieldEnum]
 
 
 export const SortOrder = {

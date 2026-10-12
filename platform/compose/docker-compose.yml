@@ -3,8 +3,7 @@ name: engeradios2
 services:
 
   api:
-    image: engeradios2-api:nf-recebidas-segura-20261009_220126
-
+    image: engeradios2-api:danfe-nfe-d13b-r2-20261011_221336
     container_name: engeradios2-api
 
     restart: unless-stopped
@@ -27,6 +26,12 @@ services:
       - /opt/engeradios2/storage/app-campo/evidencias:/opt/engeradios2/storage/app-campo/evidencias
       - /opt/engeradios2/storage/orcamento/evidencias:/opt/engeradios2/storage/orcamento/evidencias
 
+      - type: bind
+        source: /var/lib/engeradios2/fiscal/certificados
+        target: /etc/engeradios2/fiscal/nfe/certificados
+      - type: bind
+        source: /var/lib/engeradios2/fiscal/secrets
+        target: /etc/engeradios2/fiscal/secrets
 networks:
 
   backend:

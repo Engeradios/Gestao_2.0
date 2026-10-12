@@ -33,6 +33,7 @@ const permissoes = [
   ['GRANDES_PROJETOS', 'PROJETOS', 'GERENCIAR'],
   ['VISTORIA', 'VISTORIAS', 'VISUALIZAR'],
   ['VISTORIA', 'VISTORIAS', 'GERENCIAR'],
+  ['FINANCEIRO', 'DOCUMENTOS_FISCAIS', 'VISUALIZAR'],
 ] as const;
 
 async function main(): Promise<void> {

@@ -1,4 +1,5 @@
-import { FiliaisManager } from '@/components/financeiro/filiais-manager';
-import { FiliaisCertificadosPanel } from '@/components/financeiro/filiais-certificados-panel';
+import { FiliaisModulo } from "@/components/financeiro/filiais-modulo";
 
-export default function Page(){return <div className="space-y-6"><FiliaisManager /><FiliaisCertificadosPanel /></div>}
+export default function Page() {
+  return <FiliaisModulo />;
+}

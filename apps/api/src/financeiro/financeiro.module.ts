@@ -27,5 +27,6 @@ import { NfeImportacaoService } from './nfe-consulta/nfe-importacao.service';
     FiliaisBrasilApiService,
     FinanceiroService,
   ],
+  exports: [FiliaisCertificadoService],
 })
 export class FinanceiroModule {}

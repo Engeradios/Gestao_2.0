@@ -173,7 +173,7 @@ const navigation: NavigationItem[] = [
       { label: "Filiais", href: "/financeiro/filiais" },
       { label: "DRE", href: "/financeiro/dre" },
       { label: "Plano de Contas", href: "/financeiro/plano-contas" },
-      { label: "NF Recebidas", href: "/financeiro/notas-recebidas" },
+      { label: "Documentos Fiscais", href: "/financeiro/documentos-fiscais" },
       { label: "Importações", href: "/financeiro/importacoes" },
     ],
   },

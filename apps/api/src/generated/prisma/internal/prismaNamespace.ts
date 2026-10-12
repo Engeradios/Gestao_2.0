@@ -522,7 +522,15 @@ export const ModelName = {
   est_produtos: 'est_produtos',
   est_produtos_fornecedor: 'est_produtos_fornecedor',
   est_saldos: 'est_saldos',
-  est_movimentos: 'est_movimentos'
+  est_movimentos: 'est_movimentos',
+  fin_documentos_fiscais: 'fin_documentos_fiscais',
+  fin_documentos_fiscais_arquivos: 'fin_documentos_fiscais_arquivos',
+  fin_documentos_fiscais_eventos: 'fin_documentos_fiscais_eventos',
+  fin_documentos_fiscais_historico: 'fin_documentos_fiscais_historico',
+  fin_documentos_fiscais_itens: 'fin_documentos_fiscais_itens',
+  fin_documentos_fiscais_parcelas: 'fin_documentos_fiscais_parcelas',
+  fin_documentos_fiscais_participantes: 'fin_documentos_fiscais_participantes',
+  fin_documentos_fiscais_vinculos: 'fin_documentos_fiscais_vinculos'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -538,7 +546,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoResponsabilidade" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico" | "rhSetor" | "rhCargo" | "rhUnidade" | "rhFuncionario" | "rhMovimentacao" | "rhDesligamento" | "gp_visita" | "gp_projeto_equipe" | "gp_risco" | "fin_nfe_dist_controle" | "fin_notas_recebidas_eventos" | "est_locais" | "est_produtos" | "est_produtos_fornecedor" | "est_saldos" | "est_movimentos"
+    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoResponsabilidade" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico" | "rhSetor" | "rhCargo" | "rhUnidade" | "rhFuncionario" | "rhMovimentacao" | "rhDesligamento" | "gp_visita" | "gp_projeto_equipe" | "gp_risco" | "fin_nfe_dist_controle" | "fin_notas_recebidas_eventos" | "est_locais" | "est_produtos" | "est_produtos_fornecedor" | "est_saldos" | "est_movimentos" | "fin_documentos_fiscais" | "fin_documentos_fiscais_arquivos" | "fin_documentos_fiscais_eventos" | "fin_documentos_fiscais_historico" | "fin_documentos_fiscais_itens" | "fin_documentos_fiscais_parcelas" | "fin_documentos_fiscais_participantes" | "fin_documentos_fiscais_vinculos"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -9866,6 +9874,598 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    fin_documentos_fiscais: {
+      payload: Prisma.$fin_documentos_fiscaisPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscaisFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscaisFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscaisFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscaisFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscaisFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscaisFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscaisCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscaisCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscaisCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscaisDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscaisUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscaisDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscaisUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscaisUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscaisUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscaisPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscaisAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscaisGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscaisGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscaisCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscaisCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_arquivos: {
+      payload: Prisma.$fin_documentos_fiscais_arquivosPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_arquivosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_arquivosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_arquivosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_arquivosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_arquivosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_arquivosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_arquivosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_arquivosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_arquivosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_arquivosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_arquivosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_arquivosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_arquivosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_arquivosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_arquivosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_arquivosPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_arquivosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_arquivos>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_arquivosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_arquivosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_arquivosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_arquivosCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_eventos: {
+      payload: Prisma.$fin_documentos_fiscais_eventosPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_eventosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_eventosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_eventosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_eventosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_eventosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_eventosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_eventosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_eventosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_eventosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_eventosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_eventosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_eventosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_eventosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_eventosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_eventosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_eventosPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_eventosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_eventos>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_eventosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_eventosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_eventosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_eventosCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_historico: {
+      payload: Prisma.$fin_documentos_fiscais_historicoPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_historicoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_historicoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_historicoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_historicoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_historicoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_historicoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_historicoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_historicoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_historicoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_historicoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_historicoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_historicoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_historicoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_historicoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_historicoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_historicoPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_historicoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_historico>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_historicoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_historicoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_historicoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_historicoCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_itens: {
+      payload: Prisma.$fin_documentos_fiscais_itensPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_itensFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_itensFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_itensFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_itensFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_itensFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_itensFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_itensCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_itensCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_itensCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_itensDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_itensUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_itensDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_itensUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_itensUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_itensUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_itensPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_itensAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_itens>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_itensGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_itensGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_itensCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_itensCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_parcelas: {
+      payload: Prisma.$fin_documentos_fiscais_parcelasPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_parcelasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_parcelasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_parcelasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_parcelasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_parcelasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_parcelasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_parcelasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_parcelasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_parcelasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_parcelasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_parcelasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_parcelasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_parcelasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_parcelasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_parcelasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_parcelasPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_parcelasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_parcelas>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_parcelasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_parcelasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_parcelasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_parcelasCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_participantes: {
+      payload: Prisma.$fin_documentos_fiscais_participantesPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_participantesFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_participantesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_participantesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_participantesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_participantesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_participantesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_participantesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_participantesCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_participantesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_participantesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_participantesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_participantesDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_participantesUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_participantesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_participantesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_participantesPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_participantesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_participantes>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_participantesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_participantesGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_participantesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_participantesCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_documentos_fiscais_vinculos: {
+      payload: Prisma.$fin_documentos_fiscais_vinculosPayload<ExtArgs>
+      fields: Prisma.fin_documentos_fiscais_vinculosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_documentos_fiscais_vinculosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_documentos_fiscais_vinculosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_documentos_fiscais_vinculosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_documentos_fiscais_vinculosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>
+        }
+        findMany: {
+          args: Prisma.fin_documentos_fiscais_vinculosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>[]
+        }
+        create: {
+          args: Prisma.fin_documentos_fiscais_vinculosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>
+        }
+        createMany: {
+          args: Prisma.fin_documentos_fiscais_vinculosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_vinculosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_documentos_fiscais_vinculosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>
+        }
+        update: {
+          args: Prisma.fin_documentos_fiscais_vinculosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_documentos_fiscais_vinculosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_documentos_fiscais_vinculosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_documentos_fiscais_vinculosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_documentos_fiscais_vinculosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_documentos_fiscais_vinculosPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_documentos_fiscais_vinculosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_documentos_fiscais_vinculos>
+        }
+        groupBy: {
+          args: Prisma.fin_documentos_fiscais_vinculosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_vinculosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_documentos_fiscais_vinculosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_documentos_fiscais_vinculosCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -12444,6 +13044,163 @@ export const Est_movimentosScalarFieldEnum = {
 export type Est_movimentosScalarFieldEnum = (typeof Est_movimentosScalarFieldEnum)[keyof typeof Est_movimentosScalarFieldEnum]
 
 
+export const Fin_documentos_fiscaisScalarFieldEnum = {
+  id: 'id',
+  direcao: 'direcao',
+  tipo: 'tipo',
+  modelo: 'modelo',
+  chave: 'chave',
+  numero: 'numero',
+  serie: 'serie',
+  filial_id: 'filial_id',
+  natureza: 'natureza',
+  data_emissao: 'data_emissao',
+  data_entrada_saida: 'data_entrada_saida',
+  emitente_documento: 'emitente_documento',
+  emitente_nome: 'emitente_nome',
+  destinatario_documento: 'destinatario_documento',
+  destinatario_nome: 'destinatario_nome',
+  valor_produtos: 'valor_produtos',
+  valor_frete: 'valor_frete',
+  valor_desconto: 'valor_desconto',
+  valor_total: 'valor_total',
+  status_fiscal: 'status_fiscal',
+  status_processamento: 'status_processamento',
+  status_conferencia: 'status_conferencia',
+  origem: 'origem',
+  protocolo: 'protocolo',
+  nsu: 'nsu',
+  schema_xml: 'schema_xml',
+  capturado_em: 'capturado_em',
+  documento_origem_tipo: 'documento_origem_tipo',
+  documento_origem_id: 'documento_origem_id',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Fin_documentos_fiscaisScalarFieldEnum = (typeof Fin_documentos_fiscaisScalarFieldEnum)[keyof typeof Fin_documentos_fiscaisScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_arquivosScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  tipo: 'tipo',
+  caminho: 'caminho',
+  nome_original: 'nome_original',
+  mime_type: 'mime_type',
+  tamanho_bytes: 'tamanho_bytes',
+  sha256: 'sha256',
+  versao: 'versao',
+  principal: 'principal',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_arquivosScalarFieldEnum = (typeof Fin_documentos_fiscais_arquivosScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_arquivosScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_eventosScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  evento_origem_id: 'evento_origem_id',
+  tipo: 'tipo',
+  status_anterior: 'status_anterior',
+  status_novo: 'status_novo',
+  descricao: 'descricao',
+  protocolo: 'protocolo',
+  dados: 'dados',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  ocorrido_em: 'ocorrido_em',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_eventosScalarFieldEnum = (typeof Fin_documentos_fiscais_eventosScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_eventosScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_historicoScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  acao: 'acao',
+  status_anterior: 'status_anterior',
+  status_novo: 'status_novo',
+  detalhes: 'detalhes',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_historicoScalarFieldEnum = (typeof Fin_documentos_fiscais_historicoScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_historicoScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_itensScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  item_origem_id: 'item_origem_id',
+  numero_item: 'numero_item',
+  codigo: 'codigo',
+  descricao: 'descricao',
+  ncm: 'ncm',
+  cfop: 'cfop',
+  unidade: 'unidade',
+  quantidade: 'quantidade',
+  valor_unitario: 'valor_unitario',
+  valor_produto: 'valor_produto',
+  valor_total: 'valor_total',
+  produto_id: 'produto_id',
+  pedido_compra_item_id: 'pedido_compra_item_id',
+  dados_fiscais: 'dados_fiscais',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_itensScalarFieldEnum = (typeof Fin_documentos_fiscais_itensScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_itensScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_parcelasScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  parcela_origem_id: 'parcela_origem_id',
+  numero: 'numero',
+  vencimento: 'vencimento',
+  valor: 'valor',
+  situacao: 'situacao',
+  data_pagamento: 'data_pagamento',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_parcelasScalarFieldEnum = (typeof Fin_documentos_fiscais_parcelasScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_parcelasScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_participantesScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  papel: 'papel',
+  tipo_pessoa: 'tipo_pessoa',
+  documento: 'documento',
+  nome: 'nome',
+  nome_fantasia: 'nome_fantasia',
+  inscricao: 'inscricao',
+  uf: 'uf',
+  dados: 'dados',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_participantesScalarFieldEnum = (typeof Fin_documentos_fiscais_participantesScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_participantesScalarFieldEnum]
+
+
+export const Fin_documentos_fiscais_vinculosScalarFieldEnum = {
+  id: 'id',
+  documento_id: 'documento_id',
+  entidade_tipo: 'entidade_tipo',
+  entidade_id_texto: 'entidade_id_texto',
+  papel: 'papel',
+  origem: 'origem',
+  metadados: 'metadados',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_documentos_fiscais_vinculosScalarFieldEnum = (typeof Fin_documentos_fiscais_vinculosScalarFieldEnum)[keyof typeof Fin_documentos_fiscais_vinculosScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -12991,6 +13748,14 @@ export type GlobalOmitConfig = {
   est_produtos_fornecedor?: Prisma.est_produtos_fornecedorOmit
   est_saldos?: Prisma.est_saldosOmit
   est_movimentos?: Prisma.est_movimentosOmit
+  fin_documentos_fiscais?: Prisma.fin_documentos_fiscaisOmit
+  fin_documentos_fiscais_arquivos?: Prisma.fin_documentos_fiscais_arquivosOmit
+  fin_documentos_fiscais_eventos?: Prisma.fin_documentos_fiscais_eventosOmit
+  fin_documentos_fiscais_historico?: Prisma.fin_documentos_fiscais_historicoOmit
+  fin_documentos_fiscais_itens?: Prisma.fin_documentos_fiscais_itensOmit
+  fin_documentos_fiscais_parcelas?: Prisma.fin_documentos_fiscais_parcelasOmit
+  fin_documentos_fiscais_participantes?: Prisma.fin_documentos_fiscais_participantesOmit
+  fin_documentos_fiscais_vinculos?: Prisma.fin_documentos_fiscais_vinculosOmit
 }
 
 /* Types for Logging */

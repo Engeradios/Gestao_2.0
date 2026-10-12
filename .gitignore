@@ -79,3 +79,20 @@ apps/web/.next.backup.*/
 
 # Artefatos locais e backups de build do Next.js
 /apps/web/.next*
+
+# >>> S1 seguranca: nao versionar segredos e artefatos
+governance/reports/
+platform/reports/
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*.bak
+*.bak.*
+*.orig
+*.f5b2-candidato
+*.antes-*
+# <<< S1

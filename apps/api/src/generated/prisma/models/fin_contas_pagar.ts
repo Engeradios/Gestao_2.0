@@ -37,6 +37,7 @@ export type Fin_contas_pagarAvgAggregateOutputType = {
   origem_nf_id: number | null
   origem_nf_parcela_legado_id: number | null
   filial_id: number | null
+  origem_nf_parcela_id: number | null
 }
 
 export type Fin_contas_pagarSumAggregateOutputType = {
@@ -50,6 +51,7 @@ export type Fin_contas_pagarSumAggregateOutputType = {
   origem_nf_id: bigint | null
   origem_nf_parcela_legado_id: number | null
   filial_id: bigint | null
+  origem_nf_parcela_id: bigint | null
 }
 
 export type Fin_contas_pagarMinAggregateOutputType = {
@@ -77,6 +79,7 @@ export type Fin_contas_pagarMinAggregateOutputType = {
   origem_nf_id: bigint | null
   origem_nf_parcela_legado_id: number | null
   filial_id: bigint | null
+  origem_nf_parcela_id: bigint | null
 }
 
 export type Fin_contas_pagarMaxAggregateOutputType = {
@@ -104,6 +107,7 @@ export type Fin_contas_pagarMaxAggregateOutputType = {
   origem_nf_id: bigint | null
   origem_nf_parcela_legado_id: number | null
   filial_id: bigint | null
+  origem_nf_parcela_id: bigint | null
 }
 
 export type Fin_contas_pagarCountAggregateOutputType = {
@@ -131,6 +135,7 @@ export type Fin_contas_pagarCountAggregateOutputType = {
   origem_nf_id: number
   origem_nf_parcela_legado_id: number
   filial_id: number
+  origem_nf_parcela_id: number
   _all: number
 }
 
@@ -146,6 +151,7 @@ export type Fin_contas_pagarAvgAggregateInputType = {
   origem_nf_id?: true
   origem_nf_parcela_legado_id?: true
   filial_id?: true
+  origem_nf_parcela_id?: true
 }
 
 export type Fin_contas_pagarSumAggregateInputType = {
@@ -159,6 +165,7 @@ export type Fin_contas_pagarSumAggregateInputType = {
   origem_nf_id?: true
   origem_nf_parcela_legado_id?: true
   filial_id?: true
+  origem_nf_parcela_id?: true
 }
 
 export type Fin_contas_pagarMinAggregateInputType = {
@@ -186,6 +193,7 @@ export type Fin_contas_pagarMinAggregateInputType = {
   origem_nf_id?: true
   origem_nf_parcela_legado_id?: true
   filial_id?: true
+  origem_nf_parcela_id?: true
 }
 
 export type Fin_contas_pagarMaxAggregateInputType = {
@@ -213,6 +221,7 @@ export type Fin_contas_pagarMaxAggregateInputType = {
   origem_nf_id?: true
   origem_nf_parcela_legado_id?: true
   filial_id?: true
+  origem_nf_parcela_id?: true
 }
 
 export type Fin_contas_pagarCountAggregateInputType = {
@@ -240,6 +249,7 @@ export type Fin_contas_pagarCountAggregateInputType = {
   origem_nf_id?: true
   origem_nf_parcela_legado_id?: true
   filial_id?: true
+  origem_nf_parcela_id?: true
   _all?: true
 }
 
@@ -354,6 +364,7 @@ export type Fin_contas_pagarGroupByOutputType = {
   origem_nf_id: bigint | null
   origem_nf_parcela_legado_id: number | null
   filial_id: bigint | null
+  origem_nf_parcela_id: bigint | null
   _count: Fin_contas_pagarCountAggregateOutputType | null
   _avg: Fin_contas_pagarAvgAggregateOutputType | null
   _sum: Fin_contas_pagarSumAggregateOutputType | null
@@ -404,9 +415,11 @@ export type fin_contas_pagarWhereInput = {
   origem_nf_id?: Prisma.BigIntNullableFilter<"fin_contas_pagar"> | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.IntNullableFilter<"fin_contas_pagar"> | number | null
   filial_id?: Prisma.BigIntNullableFilter<"fin_contas_pagar"> | bigint | number | null
+  origem_nf_parcela_id?: Prisma.BigIntNullableFilter<"fin_contas_pagar"> | bigint | number | null
   fin_dre_contas?: Prisma.XOR<Prisma.Fin_dre_contasNullableScalarRelationFilter, Prisma.fin_dre_contasWhereInput> | null
   fin_notas_recebidas?: Prisma.XOR<Prisma.Fin_notas_recebidasNullableScalarRelationFilter, Prisma.fin_notas_recebidasWhereInput> | null
   fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
+  p5_origem_nf_parcela?: Prisma.XOR<Prisma.Fin_notas_recebidas_parcelasNullableScalarRelationFilter, Prisma.fin_notas_recebidas_parcelasWhereInput> | null
 }
 
 export type fin_contas_pagarOrderByWithRelationInput = {
@@ -434,14 +447,17 @@ export type fin_contas_pagarOrderByWithRelationInput = {
   origem_nf_id?: Prisma.SortOrderInput | Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrderInput | Prisma.SortOrder
   filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrderInput | Prisma.SortOrder
   fin_dre_contas?: Prisma.fin_dre_contasOrderByWithRelationInput
   fin_notas_recebidas?: Prisma.fin_notas_recebidasOrderByWithRelationInput
   fin_filiais?: Prisma.fin_filiaisOrderByWithRelationInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasOrderByWithRelationInput
 }
 
 export type fin_contas_pagarWhereUniqueInput = Prisma.AtLeast<{
   id?: bigint | number
   legado_id?: number
+  origem_nf_parcela_id?: bigint | number
   AND?: Prisma.fin_contas_pagarWhereInput | Prisma.fin_contas_pagarWhereInput[]
   OR?: Prisma.fin_contas_pagarWhereInput[]
   NOT?: Prisma.fin_contas_pagarWhereInput | Prisma.fin_contas_pagarWhereInput[]
@@ -470,7 +486,8 @@ export type fin_contas_pagarWhereUniqueInput = Prisma.AtLeast<{
   fin_dre_contas?: Prisma.XOR<Prisma.Fin_dre_contasNullableScalarRelationFilter, Prisma.fin_dre_contasWhereInput> | null
   fin_notas_recebidas?: Prisma.XOR<Prisma.Fin_notas_recebidasNullableScalarRelationFilter, Prisma.fin_notas_recebidasWhereInput> | null
   fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
-}, "id" | "legado_id">
+  p5_origem_nf_parcela?: Prisma.XOR<Prisma.Fin_notas_recebidas_parcelasNullableScalarRelationFilter, Prisma.fin_notas_recebidas_parcelasWhereInput> | null
+}, "id" | "legado_id" | "origem_nf_parcela_id">
 
 export type fin_contas_pagarOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -497,6 +514,7 @@ export type fin_contas_pagarOrderByWithAggregationInput = {
   origem_nf_id?: Prisma.SortOrderInput | Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrderInput | Prisma.SortOrder
   filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.fin_contas_pagarCountOrderByAggregateInput
   _avg?: Prisma.fin_contas_pagarAvgOrderByAggregateInput
   _max?: Prisma.fin_contas_pagarMaxOrderByAggregateInput
@@ -532,6 +550,7 @@ export type fin_contas_pagarScalarWhereWithAggregatesInput = {
   origem_nf_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_contas_pagar"> | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.IntNullableWithAggregatesFilter<"fin_contas_pagar"> | number | null
   filial_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_contas_pagar"> | bigint | number | null
+  origem_nf_parcela_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_contas_pagar"> | bigint | number | null
 }
 
 export type fin_contas_pagarCreateInput = {
@@ -559,6 +578,7 @@ export type fin_contas_pagarCreateInput = {
   fin_dre_contas?: Prisma.fin_dre_contasCreateNestedOneWithoutFin_contas_pagarInput
   fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_contas_pagarInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_contas_pagarInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasCreateNestedOneWithoutP5_contas_pagarInput
 }
 
 export type fin_contas_pagarUncheckedCreateInput = {
@@ -586,6 +606,7 @@ export type fin_contas_pagarUncheckedCreateInput = {
   origem_nf_id?: bigint | number | null
   origem_nf_parcela_legado_id?: number | null
   filial_id?: bigint | number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarUpdateInput = {
@@ -613,6 +634,7 @@ export type fin_contas_pagarUpdateInput = {
   fin_dre_contas?: Prisma.fin_dre_contasUpdateOneWithoutFin_contas_pagarNestedInput
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneWithoutFin_contas_pagarNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_contas_pagarNestedInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasUpdateOneWithoutP5_contas_pagarNestedInput
 }
 
 export type fin_contas_pagarUncheckedUpdateInput = {
@@ -640,6 +662,7 @@ export type fin_contas_pagarUncheckedUpdateInput = {
   origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_pagarCreateManyInput = {
@@ -667,6 +690,7 @@ export type fin_contas_pagarCreateManyInput = {
   origem_nf_id?: bigint | number | null
   origem_nf_parcela_legado_id?: number | null
   filial_id?: bigint | number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarUpdateManyMutationInput = {
@@ -718,6 +742,7 @@ export type fin_contas_pagarUncheckedUpdateManyInput = {
   origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_pagarCountOrderByAggregateInput = {
@@ -745,6 +770,7 @@ export type fin_contas_pagarCountOrderByAggregateInput = {
   origem_nf_id?: Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrder
 }
 
 export type fin_contas_pagarAvgOrderByAggregateInput = {
@@ -758,6 +784,7 @@ export type fin_contas_pagarAvgOrderByAggregateInput = {
   origem_nf_id?: Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrder
 }
 
 export type fin_contas_pagarMaxOrderByAggregateInput = {
@@ -785,6 +812,7 @@ export type fin_contas_pagarMaxOrderByAggregateInput = {
   origem_nf_id?: Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrder
 }
 
 export type fin_contas_pagarMinOrderByAggregateInput = {
@@ -812,6 +840,7 @@ export type fin_contas_pagarMinOrderByAggregateInput = {
   origem_nf_id?: Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrder
 }
 
 export type fin_contas_pagarSumOrderByAggregateInput = {
@@ -825,6 +854,7 @@ export type fin_contas_pagarSumOrderByAggregateInput = {
   origem_nf_id?: Prisma.SortOrder
   origem_nf_parcela_legado_id?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  origem_nf_parcela_id?: Prisma.SortOrder
 }
 
 export type Fin_contas_pagarListRelationFilter = {
@@ -921,6 +951,48 @@ export type fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedI
   deleteMany?: Prisma.fin_contas_pagarScalarWhereInput | Prisma.fin_contas_pagarScalarWhereInput[]
 }
 
+export type fin_contas_pagarCreateNestedManyWithoutP5_origem_nf_parcelaInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput> | Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput[] | Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput[]
+  connectOrCreate?: Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput[]
+  createMany?: Prisma.fin_contas_pagarCreateManyP5_origem_nf_parcelaInputEnvelope
+  connect?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+}
+
+export type fin_contas_pagarUncheckedCreateNestedManyWithoutP5_origem_nf_parcelaInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput> | Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput[] | Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput[]
+  connectOrCreate?: Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput[]
+  createMany?: Prisma.fin_contas_pagarCreateManyP5_origem_nf_parcelaInputEnvelope
+  connect?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+}
+
+export type fin_contas_pagarUpdateManyWithoutP5_origem_nf_parcelaNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput> | Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput[] | Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput[]
+  connectOrCreate?: Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput[]
+  upsert?: Prisma.fin_contas_pagarUpsertWithWhereUniqueWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarUpsertWithWhereUniqueWithoutP5_origem_nf_parcelaInput[]
+  createMany?: Prisma.fin_contas_pagarCreateManyP5_origem_nf_parcelaInputEnvelope
+  set?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  disconnect?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  delete?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  connect?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  update?: Prisma.fin_contas_pagarUpdateWithWhereUniqueWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarUpdateWithWhereUniqueWithoutP5_origem_nf_parcelaInput[]
+  updateMany?: Prisma.fin_contas_pagarUpdateManyWithWhereWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarUpdateManyWithWhereWithoutP5_origem_nf_parcelaInput[]
+  deleteMany?: Prisma.fin_contas_pagarScalarWhereInput | Prisma.fin_contas_pagarScalarWhereInput[]
+}
+
+export type fin_contas_pagarUncheckedUpdateManyWithoutP5_origem_nf_parcelaNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput> | Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput[] | Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput[]
+  connectOrCreate?: Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput[]
+  upsert?: Prisma.fin_contas_pagarUpsertWithWhereUniqueWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarUpsertWithWhereUniqueWithoutP5_origem_nf_parcelaInput[]
+  createMany?: Prisma.fin_contas_pagarCreateManyP5_origem_nf_parcelaInputEnvelope
+  set?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  disconnect?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  delete?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  connect?: Prisma.fin_contas_pagarWhereUniqueInput | Prisma.fin_contas_pagarWhereUniqueInput[]
+  update?: Prisma.fin_contas_pagarUpdateWithWhereUniqueWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarUpdateWithWhereUniqueWithoutP5_origem_nf_parcelaInput[]
+  updateMany?: Prisma.fin_contas_pagarUpdateManyWithWhereWithoutP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarUpdateManyWithWhereWithoutP5_origem_nf_parcelaInput[]
+  deleteMany?: Prisma.fin_contas_pagarScalarWhereInput | Prisma.fin_contas_pagarScalarWhereInput[]
+}
+
 export type fin_contas_pagarCreateNestedManyWithoutFin_filiaisInput = {
   create?: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutFin_filiaisInput, Prisma.fin_contas_pagarUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_contas_pagarCreateWithoutFin_filiaisInput[] | Prisma.fin_contas_pagarUncheckedCreateWithoutFin_filiaisInput[]
   connectOrCreate?: Prisma.fin_contas_pagarCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_contas_pagarCreateOrConnectWithoutFin_filiaisInput[]
@@ -987,6 +1059,7 @@ export type fin_contas_pagarCreateWithoutFin_dre_contasInput = {
   origem_nf_parcela_legado_id?: number | null
   fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_contas_pagarInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_contas_pagarInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasCreateNestedOneWithoutP5_contas_pagarInput
 }
 
 export type fin_contas_pagarUncheckedCreateWithoutFin_dre_contasInput = {
@@ -1013,6 +1086,7 @@ export type fin_contas_pagarUncheckedCreateWithoutFin_dre_contasInput = {
   origem_nf_id?: bigint | number | null
   origem_nf_parcela_legado_id?: number | null
   filial_id?: bigint | number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarCreateOrConnectWithoutFin_dre_contasInput = {
@@ -1069,6 +1143,7 @@ export type fin_contas_pagarScalarWhereInput = {
   origem_nf_id?: Prisma.BigIntNullableFilter<"fin_contas_pagar"> | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.IntNullableFilter<"fin_contas_pagar"> | number | null
   filial_id?: Prisma.BigIntNullableFilter<"fin_contas_pagar"> | bigint | number | null
+  origem_nf_parcela_id?: Prisma.BigIntNullableFilter<"fin_contas_pagar"> | bigint | number | null
 }
 
 export type fin_contas_pagarCreateWithoutFin_notas_recebidasInput = {
@@ -1095,6 +1170,7 @@ export type fin_contas_pagarCreateWithoutFin_notas_recebidasInput = {
   origem_nf_parcela_legado_id?: number | null
   fin_dre_contas?: Prisma.fin_dre_contasCreateNestedOneWithoutFin_contas_pagarInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_contas_pagarInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasCreateNestedOneWithoutP5_contas_pagarInput
 }
 
 export type fin_contas_pagarUncheckedCreateWithoutFin_notas_recebidasInput = {
@@ -1121,6 +1197,7 @@ export type fin_contas_pagarUncheckedCreateWithoutFin_notas_recebidasInput = {
   atualizado_em?: Date | string
   origem_nf_parcela_legado_id?: number | null
   filial_id?: bigint | number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarCreateOrConnectWithoutFin_notas_recebidasInput = {
@@ -1149,6 +1226,86 @@ export type fin_contas_pagarUpdateManyWithWhereWithoutFin_notas_recebidasInput =
   data: Prisma.XOR<Prisma.fin_contas_pagarUpdateManyMutationInput, Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasInput>
 }
 
+export type fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  descricao: string
+  fornecedor?: string | null
+  documento?: string | null
+  filial?: string | null
+  forma_pgto?: string | null
+  data_emissao?: Date | string | null
+  data_vencimento?: Date | string | null
+  data_pagamento?: Date | string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pago?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  juros_multa?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: string | null
+  recorrente?: boolean
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  origem_nf_parcela_legado_id?: number | null
+  fin_dre_contas?: Prisma.fin_dre_contasCreateNestedOneWithoutFin_contas_pagarInput
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_contas_pagarInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_contas_pagarInput
+}
+
+export type fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  descricao: string
+  fornecedor?: string | null
+  documento?: string | null
+  dre_conta_id?: bigint | number | null
+  filial?: string | null
+  forma_pgto?: string | null
+  data_emissao?: Date | string | null
+  data_vencimento?: Date | string | null
+  data_pagamento?: Date | string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pago?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  juros_multa?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: string | null
+  recorrente?: boolean
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  origem_nf_id?: bigint | number | null
+  origem_nf_parcela_legado_id?: number | null
+  filial_id?: bigint | number | null
+}
+
+export type fin_contas_pagarCreateOrConnectWithoutP5_origem_nf_parcelaInput = {
+  where: Prisma.fin_contas_pagarWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput>
+}
+
+export type fin_contas_pagarCreateManyP5_origem_nf_parcelaInputEnvelope = {
+  data: Prisma.fin_contas_pagarCreateManyP5_origem_nf_parcelaInput | Prisma.fin_contas_pagarCreateManyP5_origem_nf_parcelaInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_contas_pagarUpsertWithWhereUniqueWithoutP5_origem_nf_parcelaInput = {
+  where: Prisma.fin_contas_pagarWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_contas_pagarUpdateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedUpdateWithoutP5_origem_nf_parcelaInput>
+  create: Prisma.XOR<Prisma.fin_contas_pagarCreateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedCreateWithoutP5_origem_nf_parcelaInput>
+}
+
+export type fin_contas_pagarUpdateWithWhereUniqueWithoutP5_origem_nf_parcelaInput = {
+  where: Prisma.fin_contas_pagarWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_contas_pagarUpdateWithoutP5_origem_nf_parcelaInput, Prisma.fin_contas_pagarUncheckedUpdateWithoutP5_origem_nf_parcelaInput>
+}
+
+export type fin_contas_pagarUpdateManyWithWhereWithoutP5_origem_nf_parcelaInput = {
+  where: Prisma.fin_contas_pagarScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_contas_pagarUpdateManyMutationInput, Prisma.fin_contas_pagarUncheckedUpdateManyWithoutP5_origem_nf_parcelaInput>
+}
+
 export type fin_contas_pagarCreateWithoutFin_filiaisInput = {
   id?: bigint | number
   legado_id?: number | null
@@ -1173,6 +1330,7 @@ export type fin_contas_pagarCreateWithoutFin_filiaisInput = {
   origem_nf_parcela_legado_id?: number | null
   fin_dre_contas?: Prisma.fin_dre_contasCreateNestedOneWithoutFin_contas_pagarInput
   fin_notas_recebidas?: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_contas_pagarInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasCreateNestedOneWithoutP5_contas_pagarInput
 }
 
 export type fin_contas_pagarUncheckedCreateWithoutFin_filiaisInput = {
@@ -1199,6 +1357,7 @@ export type fin_contas_pagarUncheckedCreateWithoutFin_filiaisInput = {
   atualizado_em?: Date | string
   origem_nf_id?: bigint | number | null
   origem_nf_parcela_legado_id?: number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarCreateOrConnectWithoutFin_filiaisInput = {
@@ -1251,6 +1410,7 @@ export type fin_contas_pagarCreateManyFin_dre_contasInput = {
   origem_nf_id?: bigint | number | null
   origem_nf_parcela_legado_id?: number | null
   filial_id?: bigint | number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarUpdateWithoutFin_dre_contasInput = {
@@ -1277,6 +1437,7 @@ export type fin_contas_pagarUpdateWithoutFin_dre_contasInput = {
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneWithoutFin_contas_pagarNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_contas_pagarNestedInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasUpdateOneWithoutP5_contas_pagarNestedInput
 }
 
 export type fin_contas_pagarUncheckedUpdateWithoutFin_dre_contasInput = {
@@ -1303,6 +1464,7 @@ export type fin_contas_pagarUncheckedUpdateWithoutFin_dre_contasInput = {
   origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_pagarUncheckedUpdateManyWithoutFin_dre_contasInput = {
@@ -1329,6 +1491,7 @@ export type fin_contas_pagarUncheckedUpdateManyWithoutFin_dre_contasInput = {
   origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_pagarCreateManyFin_notas_recebidasInput = {
@@ -1355,6 +1518,7 @@ export type fin_contas_pagarCreateManyFin_notas_recebidasInput = {
   atualizado_em?: Date | string
   origem_nf_parcela_legado_id?: number | null
   filial_id?: bigint | number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarUpdateWithoutFin_notas_recebidasInput = {
@@ -1381,6 +1545,7 @@ export type fin_contas_pagarUpdateWithoutFin_notas_recebidasInput = {
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   fin_dre_contas?: Prisma.fin_dre_contasUpdateOneWithoutFin_contas_pagarNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_contas_pagarNestedInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasUpdateOneWithoutP5_contas_pagarNestedInput
 }
 
 export type fin_contas_pagarUncheckedUpdateWithoutFin_notas_recebidasInput = {
@@ -1407,6 +1572,7 @@ export type fin_contas_pagarUncheckedUpdateWithoutFin_notas_recebidasInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasInput = {
@@ -1431,6 +1597,115 @@ export type fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasInput =
   criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+}
+
+export type fin_contas_pagarCreateManyP5_origem_nf_parcelaInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  descricao: string
+  fornecedor?: string | null
+  documento?: string | null
+  dre_conta_id?: bigint | number | null
+  filial?: string | null
+  forma_pgto?: string | null
+  data_emissao?: Date | string | null
+  data_vencimento?: Date | string | null
+  data_pagamento?: Date | string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pago?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  juros_multa?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: string | null
+  recorrente?: boolean
+  observacoes?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  origem_nf_id?: bigint | number | null
+  origem_nf_parcela_legado_id?: number | null
+  filial_id?: bigint | number | null
+}
+
+export type fin_contas_pagarUpdateWithoutP5_origem_nf_parcelaInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_vencimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pago?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  juros_multa?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recorrente?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fin_dre_contas?: Prisma.fin_dre_contasUpdateOneWithoutFin_contas_pagarNestedInput
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneWithoutFin_contas_pagarNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_contas_pagarNestedInput
+}
+
+export type fin_contas_pagarUncheckedUpdateWithoutP5_origem_nf_parcelaInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dre_conta_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_vencimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pago?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  juros_multa?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recorrente?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+}
+
+export type fin_contas_pagarUncheckedUpdateManyWithoutP5_origem_nf_parcelaInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  fornecedor?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documento?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dre_conta_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  filial?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_vencimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pago?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  juros_multa?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recorrente?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
@@ -1459,6 +1734,7 @@ export type fin_contas_pagarCreateManyFin_filiaisInput = {
   atualizado_em?: Date | string
   origem_nf_id?: bigint | number | null
   origem_nf_parcela_legado_id?: number | null
+  origem_nf_parcela_id?: bigint | number | null
 }
 
 export type fin_contas_pagarUpdateWithoutFin_filiaisInput = {
@@ -1485,6 +1761,7 @@ export type fin_contas_pagarUpdateWithoutFin_filiaisInput = {
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   fin_dre_contas?: Prisma.fin_dre_contasUpdateOneWithoutFin_contas_pagarNestedInput
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneWithoutFin_contas_pagarNestedInput
+  p5_origem_nf_parcela?: Prisma.fin_notas_recebidas_parcelasUpdateOneWithoutP5_contas_pagarNestedInput
 }
 
 export type fin_contas_pagarUncheckedUpdateWithoutFin_filiaisInput = {
@@ -1511,6 +1788,7 @@ export type fin_contas_pagarUncheckedUpdateWithoutFin_filiaisInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 export type fin_contas_pagarUncheckedUpdateManyWithoutFin_filiaisInput = {
@@ -1537,6 +1815,7 @@ export type fin_contas_pagarUncheckedUpdateManyWithoutFin_filiaisInput = {
   atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   origem_nf_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   origem_nf_parcela_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  origem_nf_parcela_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
 }
 
 
@@ -1566,9 +1845,11 @@ export type fin_contas_pagarSelect<ExtArgs extends runtime.Types.Extensions.Inte
   origem_nf_id?: boolean
   origem_nf_parcela_legado_id?: boolean
   filial_id?: boolean
+  origem_nf_parcela_id?: boolean
   fin_dre_contas?: boolean | Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>
   fin_notas_recebidas?: boolean | Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>
+  p5_origem_nf_parcela?: boolean | Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>
 }, ExtArgs["result"]["fin_contas_pagar"]>
 
 export type fin_contas_pagarSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1596,9 +1877,11 @@ export type fin_contas_pagarSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   origem_nf_id?: boolean
   origem_nf_parcela_legado_id?: boolean
   filial_id?: boolean
+  origem_nf_parcela_id?: boolean
   fin_dre_contas?: boolean | Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>
   fin_notas_recebidas?: boolean | Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>
+  p5_origem_nf_parcela?: boolean | Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>
 }, ExtArgs["result"]["fin_contas_pagar"]>
 
 export type fin_contas_pagarSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1626,9 +1909,11 @@ export type fin_contas_pagarSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   origem_nf_id?: boolean
   origem_nf_parcela_legado_id?: boolean
   filial_id?: boolean
+  origem_nf_parcela_id?: boolean
   fin_dre_contas?: boolean | Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>
   fin_notas_recebidas?: boolean | Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>
+  p5_origem_nf_parcela?: boolean | Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>
 }, ExtArgs["result"]["fin_contas_pagar"]>
 
 export type fin_contas_pagarSelectScalar = {
@@ -1656,23 +1941,27 @@ export type fin_contas_pagarSelectScalar = {
   origem_nf_id?: boolean
   origem_nf_parcela_legado_id?: boolean
   filial_id?: boolean
+  origem_nf_parcela_id?: boolean
 }
 
-export type fin_contas_pagarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "descricao" | "fornecedor" | "documento" | "dre_conta_id" | "filial" | "forma_pgto" | "data_emissao" | "data_vencimento" | "data_pagamento" | "valor" | "valor_pago" | "juros_multa" | "desconto" | "situacao" | "recorrente" | "observacoes" | "criado_por" | "criado_em" | "atualizado_em" | "origem_nf_id" | "origem_nf_parcela_legado_id" | "filial_id", ExtArgs["result"]["fin_contas_pagar"]>
+export type fin_contas_pagarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "descricao" | "fornecedor" | "documento" | "dre_conta_id" | "filial" | "forma_pgto" | "data_emissao" | "data_vencimento" | "data_pagamento" | "valor" | "valor_pago" | "juros_multa" | "desconto" | "situacao" | "recorrente" | "observacoes" | "criado_por" | "criado_em" | "atualizado_em" | "origem_nf_id" | "origem_nf_parcela_legado_id" | "filial_id" | "origem_nf_parcela_id", ExtArgs["result"]["fin_contas_pagar"]>
 export type fin_contas_pagarInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_dre_contas?: boolean | Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>
   fin_notas_recebidas?: boolean | Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>
+  p5_origem_nf_parcela?: boolean | Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>
 }
 export type fin_contas_pagarIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_dre_contas?: boolean | Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>
   fin_notas_recebidas?: boolean | Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>
+  p5_origem_nf_parcela?: boolean | Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>
 }
 export type fin_contas_pagarIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_dre_contas?: boolean | Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>
   fin_notas_recebidas?: boolean | Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>
+  p5_origem_nf_parcela?: boolean | Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>
 }
 
 export type $fin_contas_pagarPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1681,6 +1970,7 @@ export type $fin_contas_pagarPayload<ExtArgs extends runtime.Types.Extensions.In
     fin_dre_contas: Prisma.$fin_dre_contasPayload<ExtArgs> | null
     fin_notas_recebidas: Prisma.$fin_notas_recebidasPayload<ExtArgs> | null
     fin_filiais: Prisma.$fin_filiaisPayload<ExtArgs> | null
+    p5_origem_nf_parcela: Prisma.$fin_notas_recebidas_parcelasPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -1707,6 +1997,7 @@ export type $fin_contas_pagarPayload<ExtArgs extends runtime.Types.Extensions.In
     origem_nf_id: bigint | null
     origem_nf_parcela_legado_id: number | null
     filial_id: bigint | null
+    origem_nf_parcela_id: bigint | null
   }, ExtArgs["result"]["fin_contas_pagar"]>
   composites: {}
 }
@@ -2104,6 +2395,7 @@ export interface Prisma__fin_contas_pagarClient<T, Null = never, ExtArgs extends
   fin_dre_contas<T extends Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_contas_pagar$fin_dre_contasArgs<ExtArgs>>): Prisma.Prisma__fin_dre_contasClient<runtime.Types.Result.GetResult<Prisma.$fin_dre_contasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   fin_notas_recebidas<T extends Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_contas_pagar$fin_notas_recebidasArgs<ExtArgs>>): Prisma.Prisma__fin_notas_recebidasClient<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   fin_filiais<T extends Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_contas_pagar$fin_filiaisArgs<ExtArgs>>): Prisma.Prisma__fin_filiaisClient<runtime.Types.Result.GetResult<Prisma.$fin_filiaisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  p5_origem_nf_parcela<T extends Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs>>): Prisma.Prisma__fin_notas_recebidas_parcelasClient<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_parcelasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2157,6 +2449,7 @@ export interface fin_contas_pagarFieldRefs {
   readonly origem_nf_id: Prisma.FieldRef<"fin_contas_pagar", 'BigInt'>
   readonly origem_nf_parcela_legado_id: Prisma.FieldRef<"fin_contas_pagar", 'Int'>
   readonly filial_id: Prisma.FieldRef<"fin_contas_pagar", 'BigInt'>
+  readonly origem_nf_parcela_id: Prisma.FieldRef<"fin_contas_pagar", 'BigInt'>
 }
     
 
@@ -2612,6 +2905,25 @@ export type fin_contas_pagar$fin_filiaisArgs<ExtArgs extends runtime.Types.Exten
    */
   include?: Prisma.fin_filiaisInclude<ExtArgs> | null
   where?: Prisma.fin_filiaisWhereInput
+}
+
+/**
+ * fin_contas_pagar.p5_origem_nf_parcela
+ */
+export type fin_contas_pagar$p5_origem_nf_parcelaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_notas_recebidas_parcelas
+   */
+  select?: Prisma.fin_notas_recebidas_parcelasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_notas_recebidas_parcelas
+   */
+  omit?: Prisma.fin_notas_recebidas_parcelasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_notas_recebidas_parcelasInclude<ExtArgs> | null
+  where?: Prisma.fin_notas_recebidas_parcelasWhereInput
 }
 
 /**

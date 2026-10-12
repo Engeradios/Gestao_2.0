@@ -169,7 +169,14 @@ export const ModelName = {
   RhDesligamento: 'RhDesligamento',
   gp_visita: 'gp_visita',
   gp_projeto_equipe: 'gp_projeto_equipe',
-  gp_risco: 'gp_risco'
+  gp_risco: 'gp_risco',
+  fin_nfe_dist_controle: 'fin_nfe_dist_controle',
+  fin_notas_recebidas_eventos: 'fin_notas_recebidas_eventos',
+  est_locais: 'est_locais',
+  est_produtos: 'est_produtos',
+  est_produtos_fornecedor: 'est_produtos_fornecedor',
+  est_saldos: 'est_saldos',
+  est_movimentos: 'est_movimentos'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -932,7 +939,8 @@ export const Fin_contas_pagarScalarFieldEnum = {
   atualizado_em: 'atualizado_em',
   origem_nf_id: 'origem_nf_id',
   origem_nf_parcela_legado_id: 'origem_nf_parcela_legado_id',
-  filial_id: 'filial_id'
+  filial_id: 'filial_id',
+  origem_nf_parcela_id: 'origem_nf_parcela_id'
 } as const
 
 export type Fin_contas_pagarScalarFieldEnum = (typeof Fin_contas_pagarScalarFieldEnum)[keyof typeof Fin_contas_pagarScalarFieldEnum]
@@ -1083,7 +1091,28 @@ export const Fin_notas_recebidasScalarFieldEnum = {
   nsu: 'nsu',
   schema_xml: 'schema_xml',
   capturado_em: 'capturado_em',
-  filial_id: 'filial_id'
+  filial_id: 'filial_id',
+  tipo_documento: 'tipo_documento',
+  status_conferencia: 'status_conferencia',
+  conferido_por_id: 'conferido_por_id',
+  conferido_por_nome: 'conferido_por_nome',
+  conferido_em: 'conferido_em',
+  motivo_recusa: 'motivo_recusa',
+  divergencia_obs: 'divergencia_obs',
+  resumo_apenas: 'resumo_apenas',
+  dest_cnpj: 'dest_cnpj',
+  manifestacao_tipo: 'manifestacao_tipo',
+  manifestacao_status: 'manifestacao_status',
+  manifestacao_protocolo: 'manifestacao_protocolo',
+  manifestacao_em: 'manifestacao_em',
+  danfe_arquivo: 'danfe_arquivo',
+  danfe_sha256: 'danfe_sha256',
+  nfse_codigo_verificacao: 'nfse_codigo_verificacao',
+  nfse_municipio_ibge: 'nfse_municipio_ibge',
+  fornecedor_id: 'fornecedor_id',
+  compras_pedido_id: 'compras_pedido_id',
+  estoque_status: 'estoque_status',
+  estoque_movimentado_em: 'estoque_movimentado_em'
 } as const
 
 export type Fin_notas_recebidasScalarFieldEnum = (typeof Fin_notas_recebidasScalarFieldEnum)[keyof typeof Fin_notas_recebidasScalarFieldEnum]
@@ -1103,7 +1132,15 @@ export const Fin_notas_recebidas_itensScalarFieldEnum = {
   valor_unit: 'valor_unit',
   valor_produto: 'valor_produto',
   valor_total: 'valor_total',
-  pedido: 'pedido'
+  pedido: 'pedido',
+  produto_id: 'produto_id',
+  compras_pedido_item_id: 'compras_pedido_item_id',
+  quantidade_conferida: 'quantidade_conferida',
+  unidade_estoque: 'unidade_estoque',
+  fator_conversao: 'fator_conversao',
+  movimenta_estoque: 'movimenta_estoque',
+  estoque_movimentado: 'estoque_movimentado',
+  divergencia: 'divergencia'
 } as const
 
 export type Fin_notas_recebidas_itensScalarFieldEnum = (typeof Fin_notas_recebidas_itensScalarFieldEnum)[keyof typeof Fin_notas_recebidas_itensScalarFieldEnum]
@@ -2575,6 +2612,126 @@ export const Gp_riscoScalarFieldEnum = {
 } as const
 
 export type Gp_riscoScalarFieldEnum = (typeof Gp_riscoScalarFieldEnum)[keyof typeof Gp_riscoScalarFieldEnum]
+
+
+export const Fin_nfe_dist_controleScalarFieldEnum = {
+  id: 'id',
+  filial_id: 'filial_id',
+  ambiente: 'ambiente',
+  ult_nsu: 'ult_nsu',
+  max_nsu: 'max_nsu',
+  ultima_consulta_em: 'ultima_consulta_em',
+  proxima_consulta_em: 'proxima_consulta_em',
+  ultimo_cstat: 'ultimo_cstat',
+  ultimo_xmotivo: 'ultimo_xmotivo',
+  consultas_total: 'consultas_total',
+  documentos_total: 'documentos_total',
+  erros_consecutivos: 'erros_consecutivos',
+  ultima_falha_em: 'ultima_falha_em',
+  ultima_falha: 'ultima_falha',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Fin_nfe_dist_controleScalarFieldEnum = (typeof Fin_nfe_dist_controleScalarFieldEnum)[keyof typeof Fin_nfe_dist_controleScalarFieldEnum]
+
+
+export const Fin_notas_recebidas_eventosScalarFieldEnum = {
+  id: 'id',
+  nota_id: 'nota_id',
+  tipo: 'tipo',
+  status_anterior: 'status_anterior',
+  status_novo: 'status_novo',
+  descricao: 'descricao',
+  protocolo: 'protocolo',
+  dados: 'dados',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_notas_recebidas_eventosScalarFieldEnum = (typeof Fin_notas_recebidas_eventosScalarFieldEnum)[keyof typeof Fin_notas_recebidas_eventosScalarFieldEnum]
+
+
+export const Est_locaisScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome',
+  filial_id: 'filial_id',
+  tipo: 'tipo',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_locaisScalarFieldEnum = (typeof Est_locaisScalarFieldEnum)[keyof typeof Est_locaisScalarFieldEnum]
+
+
+export const Est_produtosScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  descricao: 'descricao',
+  unidade: 'unidade',
+  ncm: 'ncm',
+  cest: 'cest',
+  gtin: 'gtin',
+  controla_estoque: 'controla_estoque',
+  estoque_minimo: 'estoque_minimo',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_produtosScalarFieldEnum = (typeof Est_produtosScalarFieldEnum)[keyof typeof Est_produtosScalarFieldEnum]
+
+
+export const Est_produtos_fornecedorScalarFieldEnum = {
+  id: 'id',
+  produto_id: 'produto_id',
+  emit_cnpj: 'emit_cnpj',
+  cod_produto_fornecedor: 'cod_produto_fornecedor',
+  descricao_fornecedor: 'descricao_fornecedor',
+  unidade_fornecedor: 'unidade_fornecedor',
+  fator_conversao: 'fator_conversao',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_produtos_fornecedorScalarFieldEnum = (typeof Est_produtos_fornecedorScalarFieldEnum)[keyof typeof Est_produtos_fornecedorScalarFieldEnum]
+
+
+export const Est_saldosScalarFieldEnum = {
+  produto_id: 'produto_id',
+  local_id: 'local_id',
+  quantidade: 'quantidade',
+  custo_medio: 'custo_medio',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_saldosScalarFieldEnum = (typeof Est_saldosScalarFieldEnum)[keyof typeof Est_saldosScalarFieldEnum]
+
+
+export const Est_movimentosScalarFieldEnum = {
+  id: 'id',
+  produto_id: 'produto_id',
+  local_id: 'local_id',
+  tipo: 'tipo',
+  quantidade: 'quantidade',
+  custo_unitario: 'custo_unitario',
+  valor_total: 'valor_total',
+  origem: 'origem',
+  origem_nota_id: 'origem_nota_id',
+  origem_nota_item_id: 'origem_nota_item_id',
+  estorno_de_id: 'estorno_de_id',
+  documento: 'documento',
+  observacao: 'observacao',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  criado_em: 'criado_em'
+} as const
+
+export type Est_movimentosScalarFieldEnum = (typeof Est_movimentosScalarFieldEnum)[keyof typeof Est_movimentosScalarFieldEnum]
 
 
 export const SortOrder = {

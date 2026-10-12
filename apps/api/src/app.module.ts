@@ -31,8 +31,10 @@ import { GeolocationModule } from './geolocation/geolocation.module';
 
 import { OrcamentoModule } from './orcamento/orcamento.module';
 import { DpRhModule } from './dp-rh/dp-rh.module';
+import { FinancialReceivedInvoicesModule } from './financial-received-invoices/financial-received-invoices.module';
 @Module({
   imports: [
+    FinancialReceivedInvoicesModule,
     DpRhModule,
     OrcamentoModule,
     GeolocationModule,

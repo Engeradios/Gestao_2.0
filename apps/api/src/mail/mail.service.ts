@@ -20,7 +20,8 @@ export interface SendEmailInput {
   usuarioId?: string;
   attachments?: Array<{
     filename: string;
-    path: string;
+    path?: string;
+    content?: Buffer;
     cid?: string;
     contentDisposition?: 'inline' | 'attachment';
   }>;
@@ -195,6 +196,15 @@ export class MailService {
     const validAttachments: NonNullable<SendEmailInput['attachments']> = [];
 
     for (const attachment of input.attachments ?? []) {
+      if (attachment.content !== undefined) {
+        validAttachments.push(attachment);
+        continue;
+      }
+
+      if (!attachment.path) {
+        continue;
+      }
+
       try {
         await access(attachment.path);
         validAttachments.push(attachment);

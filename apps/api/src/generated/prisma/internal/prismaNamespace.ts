@@ -515,7 +515,14 @@ export const ModelName = {
   RhDesligamento: 'RhDesligamento',
   gp_visita: 'gp_visita',
   gp_projeto_equipe: 'gp_projeto_equipe',
-  gp_risco: 'gp_risco'
+  gp_risco: 'gp_risco',
+  fin_nfe_dist_controle: 'fin_nfe_dist_controle',
+  fin_notas_recebidas_eventos: 'fin_notas_recebidas_eventos',
+  est_locais: 'est_locais',
+  est_produtos: 'est_produtos',
+  est_produtos_fornecedor: 'est_produtos_fornecedor',
+  est_saldos: 'est_saldos',
+  est_movimentos: 'est_movimentos'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -531,7 +538,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoResponsabilidade" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico" | "rhSetor" | "rhCargo" | "rhUnidade" | "rhFuncionario" | "rhMovimentacao" | "rhDesligamento" | "gp_visita" | "gp_projeto_equipe" | "gp_risco"
+    modelProps: "usuario" | "perfil" | "permissao" | "usuarioPerfil" | "perfilPermissao" | "auditoria" | "clienteOperacional" | "ordemServico" | "ordemServicoEquipamento" | "sincronizacaoOperacional" | "opCliente" | "opServico" | "opServicoResponsavel" | "opServicoAnexo" | "opServicoAndamento" | "opServicoHistorico" | "opLista" | "opFeriado" | "opNotificacaoResponsabilidade" | "opNotificacaoEmail" | "opEmailLog" | "opPreventiva" | "opRoteiroVisita" | "opProposta" | "opPropostaEvolucao" | "opPropostaImportacao" | "opPropostaConfiguracao" | "opEntregador" | "opVeiculo" | "opRoteiroEntregaCabecalho" | "opRoteiroEntrega" | "opRoteiroEntregaEvidencia" | "opRoteiroEntregaHistorico" | "fin_contas_pagar" | "fin_contas_receber" | "fin_dre_contas" | "fin_fluxos_saldo" | "fin_importacoes" | "fin_notas_recebidas" | "fin_notas_recebidas_itens" | "fin_notas_recebidas_parcelas" | "fin_pedidos_venda" | "gp_custo" | "gp_marco" | "gp_material" | "gp_os" | "gp_projeto" | "gp_relatorio" | "gp_relatorio_foto" | "appCampoDispositivo" | "appCampoTermo" | "appCampoTermoAceite" | "appCampoExpediente" | "appCampoPausa" | "appCampoTelemetria" | "appCampoEvidencia" | "appCampoEventoOffline" | "appCampoAcessoLocalizacao" | "pessoa" | "pessoaFuncao" | "pessoaOrigem" | "preferenciaNotificacaoUsuario" | "configuracaoEmail" | "solicitacao" | "solicitacaoHistorico" | "emailLog" | "dashboardTv" | "dashboardTvCena" | "dashboardTvWidget" | "tokenAutenticacao" | "opTipoPropostaArea" | "notificacaoUsuario" | "opPropostaLogistica" | "dashboardTvDispositivo" | "osSlaConfiguracao" | "osSlaHorario" | "osSlaFeriado" | "osImportacaoAuditoria" | "osHistoricoAlteracao" | "contratoAdministrativo" | "contratoProposta" | "contratoAndamento" | "contratoDocumento" | "contratoConsultaCnpj" | "contratoSocioSnapshot" | "comprasImportacao" | "comprasImportacaoErro" | "comprasProposta" | "comprasPropostaItem" | "comprasHistorico" | "comprasFornecedor" | "comprasPedido" | "comprasPedidoItem" | "comprasPedidoRateio" | "comprasRecebimento" | "comprasRecebimentoItem" | "fin_filiais" | "fin_filiais_historico" | "orcChecklistModelo" | "orcChecklistGrupo" | "orcChecklistPergunta" | "orcChecklistOpcao" | "orcRegraCondicional" | "orcMaterialBasico" | "orcPerguntaMaterial" | "orcOrcamento" | "orcOrcamentoResposta" | "orcOrcamentoItem" | "orcOrcamentoEvidencia" | "orcOrcamentoHistorico" | "rhSetor" | "rhCargo" | "rhUnidade" | "rhFuncionario" | "rhMovimentacao" | "rhDesligamento" | "gp_visita" | "gp_projeto_equipe" | "gp_risco" | "fin_nfe_dist_controle" | "fin_notas_recebidas_eventos" | "est_locais" | "est_produtos" | "est_produtos_fornecedor" | "est_saldos" | "est_movimentos"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -9341,6 +9348,524 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    fin_nfe_dist_controle: {
+      payload: Prisma.$fin_nfe_dist_controlePayload<ExtArgs>
+      fields: Prisma.fin_nfe_dist_controleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_nfe_dist_controleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_nfe_dist_controleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>
+        }
+        findFirst: {
+          args: Prisma.fin_nfe_dist_controleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_nfe_dist_controleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>
+        }
+        findMany: {
+          args: Prisma.fin_nfe_dist_controleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>[]
+        }
+        create: {
+          args: Prisma.fin_nfe_dist_controleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>
+        }
+        createMany: {
+          args: Prisma.fin_nfe_dist_controleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_nfe_dist_controleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>[]
+        }
+        delete: {
+          args: Prisma.fin_nfe_dist_controleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>
+        }
+        update: {
+          args: Prisma.fin_nfe_dist_controleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_nfe_dist_controleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_nfe_dist_controleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_nfe_dist_controleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_nfe_dist_controleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_nfe_dist_controlePayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_nfe_dist_controleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_nfe_dist_controle>
+        }
+        groupBy: {
+          args: Prisma.fin_nfe_dist_controleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_nfe_dist_controleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_nfe_dist_controleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_nfe_dist_controleCountAggregateOutputType> | number
+        }
+      }
+    }
+    fin_notas_recebidas_eventos: {
+      payload: Prisma.$fin_notas_recebidas_eventosPayload<ExtArgs>
+      fields: Prisma.fin_notas_recebidas_eventosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.fin_notas_recebidas_eventosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.fin_notas_recebidas_eventosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>
+        }
+        findFirst: {
+          args: Prisma.fin_notas_recebidas_eventosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.fin_notas_recebidas_eventosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>
+        }
+        findMany: {
+          args: Prisma.fin_notas_recebidas_eventosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>[]
+        }
+        create: {
+          args: Prisma.fin_notas_recebidas_eventosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>
+        }
+        createMany: {
+          args: Prisma.fin_notas_recebidas_eventosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.fin_notas_recebidas_eventosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>[]
+        }
+        delete: {
+          args: Prisma.fin_notas_recebidas_eventosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>
+        }
+        update: {
+          args: Prisma.fin_notas_recebidas_eventosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>
+        }
+        deleteMany: {
+          args: Prisma.fin_notas_recebidas_eventosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.fin_notas_recebidas_eventosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.fin_notas_recebidas_eventosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>[]
+        }
+        upsert: {
+          args: Prisma.fin_notas_recebidas_eventosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$fin_notas_recebidas_eventosPayload>
+        }
+        aggregate: {
+          args: Prisma.Fin_notas_recebidas_eventosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFin_notas_recebidas_eventos>
+        }
+        groupBy: {
+          args: Prisma.fin_notas_recebidas_eventosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_notas_recebidas_eventosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.fin_notas_recebidas_eventosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Fin_notas_recebidas_eventosCountAggregateOutputType> | number
+        }
+      }
+    }
+    est_locais: {
+      payload: Prisma.$est_locaisPayload<ExtArgs>
+      fields: Prisma.est_locaisFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.est_locaisFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.est_locaisFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>
+        }
+        findFirst: {
+          args: Prisma.est_locaisFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.est_locaisFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>
+        }
+        findMany: {
+          args: Prisma.est_locaisFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>[]
+        }
+        create: {
+          args: Prisma.est_locaisCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>
+        }
+        createMany: {
+          args: Prisma.est_locaisCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.est_locaisCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>[]
+        }
+        delete: {
+          args: Prisma.est_locaisDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>
+        }
+        update: {
+          args: Prisma.est_locaisUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>
+        }
+        deleteMany: {
+          args: Prisma.est_locaisDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.est_locaisUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.est_locaisUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>[]
+        }
+        upsert: {
+          args: Prisma.est_locaisUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_locaisPayload>
+        }
+        aggregate: {
+          args: Prisma.Est_locaisAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEst_locais>
+        }
+        groupBy: {
+          args: Prisma.est_locaisGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_locaisGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.est_locaisCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_locaisCountAggregateOutputType> | number
+        }
+      }
+    }
+    est_produtos: {
+      payload: Prisma.$est_produtosPayload<ExtArgs>
+      fields: Prisma.est_produtosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.est_produtosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.est_produtosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>
+        }
+        findFirst: {
+          args: Prisma.est_produtosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.est_produtosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>
+        }
+        findMany: {
+          args: Prisma.est_produtosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>[]
+        }
+        create: {
+          args: Prisma.est_produtosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>
+        }
+        createMany: {
+          args: Prisma.est_produtosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.est_produtosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>[]
+        }
+        delete: {
+          args: Prisma.est_produtosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>
+        }
+        update: {
+          args: Prisma.est_produtosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>
+        }
+        deleteMany: {
+          args: Prisma.est_produtosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.est_produtosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.est_produtosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>[]
+        }
+        upsert: {
+          args: Prisma.est_produtosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtosPayload>
+        }
+        aggregate: {
+          args: Prisma.Est_produtosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEst_produtos>
+        }
+        groupBy: {
+          args: Prisma.est_produtosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_produtosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.est_produtosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_produtosCountAggregateOutputType> | number
+        }
+      }
+    }
+    est_produtos_fornecedor: {
+      payload: Prisma.$est_produtos_fornecedorPayload<ExtArgs>
+      fields: Prisma.est_produtos_fornecedorFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.est_produtos_fornecedorFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.est_produtos_fornecedorFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>
+        }
+        findFirst: {
+          args: Prisma.est_produtos_fornecedorFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.est_produtos_fornecedorFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>
+        }
+        findMany: {
+          args: Prisma.est_produtos_fornecedorFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>[]
+        }
+        create: {
+          args: Prisma.est_produtos_fornecedorCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>
+        }
+        createMany: {
+          args: Prisma.est_produtos_fornecedorCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.est_produtos_fornecedorCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>[]
+        }
+        delete: {
+          args: Prisma.est_produtos_fornecedorDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>
+        }
+        update: {
+          args: Prisma.est_produtos_fornecedorUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>
+        }
+        deleteMany: {
+          args: Prisma.est_produtos_fornecedorDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.est_produtos_fornecedorUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.est_produtos_fornecedorUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>[]
+        }
+        upsert: {
+          args: Prisma.est_produtos_fornecedorUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_produtos_fornecedorPayload>
+        }
+        aggregate: {
+          args: Prisma.Est_produtos_fornecedorAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEst_produtos_fornecedor>
+        }
+        groupBy: {
+          args: Prisma.est_produtos_fornecedorGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_produtos_fornecedorGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.est_produtos_fornecedorCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_produtos_fornecedorCountAggregateOutputType> | number
+        }
+      }
+    }
+    est_saldos: {
+      payload: Prisma.$est_saldosPayload<ExtArgs>
+      fields: Prisma.est_saldosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.est_saldosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.est_saldosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>
+        }
+        findFirst: {
+          args: Prisma.est_saldosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.est_saldosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>
+        }
+        findMany: {
+          args: Prisma.est_saldosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>[]
+        }
+        create: {
+          args: Prisma.est_saldosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>
+        }
+        createMany: {
+          args: Prisma.est_saldosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.est_saldosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>[]
+        }
+        delete: {
+          args: Prisma.est_saldosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>
+        }
+        update: {
+          args: Prisma.est_saldosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>
+        }
+        deleteMany: {
+          args: Prisma.est_saldosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.est_saldosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.est_saldosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>[]
+        }
+        upsert: {
+          args: Prisma.est_saldosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_saldosPayload>
+        }
+        aggregate: {
+          args: Prisma.Est_saldosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEst_saldos>
+        }
+        groupBy: {
+          args: Prisma.est_saldosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_saldosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.est_saldosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_saldosCountAggregateOutputType> | number
+        }
+      }
+    }
+    est_movimentos: {
+      payload: Prisma.$est_movimentosPayload<ExtArgs>
+      fields: Prisma.est_movimentosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.est_movimentosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.est_movimentosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>
+        }
+        findFirst: {
+          args: Prisma.est_movimentosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.est_movimentosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>
+        }
+        findMany: {
+          args: Prisma.est_movimentosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>[]
+        }
+        create: {
+          args: Prisma.est_movimentosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>
+        }
+        createMany: {
+          args: Prisma.est_movimentosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.est_movimentosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>[]
+        }
+        delete: {
+          args: Prisma.est_movimentosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>
+        }
+        update: {
+          args: Prisma.est_movimentosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>
+        }
+        deleteMany: {
+          args: Prisma.est_movimentosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.est_movimentosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.est_movimentosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>[]
+        }
+        upsert: {
+          args: Prisma.est_movimentosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$est_movimentosPayload>
+        }
+        aggregate: {
+          args: Prisma.Est_movimentosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEst_movimentos>
+        }
+        groupBy: {
+          args: Prisma.est_movimentosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_movimentosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.est_movimentosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Est_movimentosCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -10124,7 +10649,8 @@ export const Fin_contas_pagarScalarFieldEnum = {
   atualizado_em: 'atualizado_em',
   origem_nf_id: 'origem_nf_id',
   origem_nf_parcela_legado_id: 'origem_nf_parcela_legado_id',
-  filial_id: 'filial_id'
+  filial_id: 'filial_id',
+  origem_nf_parcela_id: 'origem_nf_parcela_id'
 } as const
 
 export type Fin_contas_pagarScalarFieldEnum = (typeof Fin_contas_pagarScalarFieldEnum)[keyof typeof Fin_contas_pagarScalarFieldEnum]
@@ -10275,7 +10801,28 @@ export const Fin_notas_recebidasScalarFieldEnum = {
   nsu: 'nsu',
   schema_xml: 'schema_xml',
   capturado_em: 'capturado_em',
-  filial_id: 'filial_id'
+  filial_id: 'filial_id',
+  tipo_documento: 'tipo_documento',
+  status_conferencia: 'status_conferencia',
+  conferido_por_id: 'conferido_por_id',
+  conferido_por_nome: 'conferido_por_nome',
+  conferido_em: 'conferido_em',
+  motivo_recusa: 'motivo_recusa',
+  divergencia_obs: 'divergencia_obs',
+  resumo_apenas: 'resumo_apenas',
+  dest_cnpj: 'dest_cnpj',
+  manifestacao_tipo: 'manifestacao_tipo',
+  manifestacao_status: 'manifestacao_status',
+  manifestacao_protocolo: 'manifestacao_protocolo',
+  manifestacao_em: 'manifestacao_em',
+  danfe_arquivo: 'danfe_arquivo',
+  danfe_sha256: 'danfe_sha256',
+  nfse_codigo_verificacao: 'nfse_codigo_verificacao',
+  nfse_municipio_ibge: 'nfse_municipio_ibge',
+  fornecedor_id: 'fornecedor_id',
+  compras_pedido_id: 'compras_pedido_id',
+  estoque_status: 'estoque_status',
+  estoque_movimentado_em: 'estoque_movimentado_em'
 } as const
 
 export type Fin_notas_recebidasScalarFieldEnum = (typeof Fin_notas_recebidasScalarFieldEnum)[keyof typeof Fin_notas_recebidasScalarFieldEnum]
@@ -10295,7 +10842,15 @@ export const Fin_notas_recebidas_itensScalarFieldEnum = {
   valor_unit: 'valor_unit',
   valor_produto: 'valor_produto',
   valor_total: 'valor_total',
-  pedido: 'pedido'
+  pedido: 'pedido',
+  produto_id: 'produto_id',
+  compras_pedido_item_id: 'compras_pedido_item_id',
+  quantidade_conferida: 'quantidade_conferida',
+  unidade_estoque: 'unidade_estoque',
+  fator_conversao: 'fator_conversao',
+  movimenta_estoque: 'movimenta_estoque',
+  estoque_movimentado: 'estoque_movimentado',
+  divergencia: 'divergencia'
 } as const
 
 export type Fin_notas_recebidas_itensScalarFieldEnum = (typeof Fin_notas_recebidas_itensScalarFieldEnum)[keyof typeof Fin_notas_recebidas_itensScalarFieldEnum]
@@ -11769,6 +12324,126 @@ export const Gp_riscoScalarFieldEnum = {
 export type Gp_riscoScalarFieldEnum = (typeof Gp_riscoScalarFieldEnum)[keyof typeof Gp_riscoScalarFieldEnum]
 
 
+export const Fin_nfe_dist_controleScalarFieldEnum = {
+  id: 'id',
+  filial_id: 'filial_id',
+  ambiente: 'ambiente',
+  ult_nsu: 'ult_nsu',
+  max_nsu: 'max_nsu',
+  ultima_consulta_em: 'ultima_consulta_em',
+  proxima_consulta_em: 'proxima_consulta_em',
+  ultimo_cstat: 'ultimo_cstat',
+  ultimo_xmotivo: 'ultimo_xmotivo',
+  consultas_total: 'consultas_total',
+  documentos_total: 'documentos_total',
+  erros_consecutivos: 'erros_consecutivos',
+  ultima_falha_em: 'ultima_falha_em',
+  ultima_falha: 'ultima_falha',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Fin_nfe_dist_controleScalarFieldEnum = (typeof Fin_nfe_dist_controleScalarFieldEnum)[keyof typeof Fin_nfe_dist_controleScalarFieldEnum]
+
+
+export const Fin_notas_recebidas_eventosScalarFieldEnum = {
+  id: 'id',
+  nota_id: 'nota_id',
+  tipo: 'tipo',
+  status_anterior: 'status_anterior',
+  status_novo: 'status_novo',
+  descricao: 'descricao',
+  protocolo: 'protocolo',
+  dados: 'dados',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  criado_em: 'criado_em'
+} as const
+
+export type Fin_notas_recebidas_eventosScalarFieldEnum = (typeof Fin_notas_recebidas_eventosScalarFieldEnum)[keyof typeof Fin_notas_recebidas_eventosScalarFieldEnum]
+
+
+export const Est_locaisScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nome: 'nome',
+  filial_id: 'filial_id',
+  tipo: 'tipo',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_locaisScalarFieldEnum = (typeof Est_locaisScalarFieldEnum)[keyof typeof Est_locaisScalarFieldEnum]
+
+
+export const Est_produtosScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  descricao: 'descricao',
+  unidade: 'unidade',
+  ncm: 'ncm',
+  cest: 'cest',
+  gtin: 'gtin',
+  controla_estoque: 'controla_estoque',
+  estoque_minimo: 'estoque_minimo',
+  ativo: 'ativo',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_produtosScalarFieldEnum = (typeof Est_produtosScalarFieldEnum)[keyof typeof Est_produtosScalarFieldEnum]
+
+
+export const Est_produtos_fornecedorScalarFieldEnum = {
+  id: 'id',
+  produto_id: 'produto_id',
+  emit_cnpj: 'emit_cnpj',
+  cod_produto_fornecedor: 'cod_produto_fornecedor',
+  descricao_fornecedor: 'descricao_fornecedor',
+  unidade_fornecedor: 'unidade_fornecedor',
+  fator_conversao: 'fator_conversao',
+  criado_em: 'criado_em',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_produtos_fornecedorScalarFieldEnum = (typeof Est_produtos_fornecedorScalarFieldEnum)[keyof typeof Est_produtos_fornecedorScalarFieldEnum]
+
+
+export const Est_saldosScalarFieldEnum = {
+  produto_id: 'produto_id',
+  local_id: 'local_id',
+  quantidade: 'quantidade',
+  custo_medio: 'custo_medio',
+  atualizado_em: 'atualizado_em'
+} as const
+
+export type Est_saldosScalarFieldEnum = (typeof Est_saldosScalarFieldEnum)[keyof typeof Est_saldosScalarFieldEnum]
+
+
+export const Est_movimentosScalarFieldEnum = {
+  id: 'id',
+  produto_id: 'produto_id',
+  local_id: 'local_id',
+  tipo: 'tipo',
+  quantidade: 'quantidade',
+  custo_unitario: 'custo_unitario',
+  valor_total: 'valor_total',
+  origem: 'origem',
+  origem_nota_id: 'origem_nota_id',
+  origem_nota_item_id: 'origem_nota_item_id',
+  estorno_de_id: 'estorno_de_id',
+  documento: 'documento',
+  observacao: 'observacao',
+  usuario_id: 'usuario_id',
+  usuario_nome: 'usuario_nome',
+  criado_em: 'criado_em'
+} as const
+
+export type Est_movimentosScalarFieldEnum = (typeof Est_movimentosScalarFieldEnum)[keyof typeof Est_movimentosScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -12309,6 +12984,13 @@ export type GlobalOmitConfig = {
   gp_visita?: Prisma.gp_visitaOmit
   gp_projeto_equipe?: Prisma.gp_projeto_equipeOmit
   gp_risco?: Prisma.gp_riscoOmit
+  fin_nfe_dist_controle?: Prisma.fin_nfe_dist_controleOmit
+  fin_notas_recebidas_eventos?: Prisma.fin_notas_recebidas_eventosOmit
+  est_locais?: Prisma.est_locaisOmit
+  est_produtos?: Prisma.est_produtosOmit
+  est_produtos_fornecedor?: Prisma.est_produtos_fornecedorOmit
+  est_saldos?: Prisma.est_saldosOmit
+  est_movimentos?: Prisma.est_movimentosOmit
 }
 
 /* Types for Logging */

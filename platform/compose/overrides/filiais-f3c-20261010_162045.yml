@@ -1,0 +1,3 @@
+services:
+  api:
+    image: engeradios2-api:filiais-f3c-20261010_162045

@@ -291,6 +291,7 @@ export type ComprasPedidoItemWhereInput = {
   pedido?: Prisma.XOR<Prisma.ComprasPedidoScalarRelationFilter, Prisma.ComprasPedidoWhereInput>
   rateios?: Prisma.ComprasPedidoRateioListRelationFilter
   recebimentoItens?: Prisma.ComprasRecebimentoItemListRelationFilter
+  p5_itens_notas_recebidas?: Prisma.Fin_notas_recebidas_itensListRelationFilter
 }
 
 export type ComprasPedidoItemOrderByWithRelationInput = {
@@ -309,6 +310,7 @@ export type ComprasPedidoItemOrderByWithRelationInput = {
   pedido?: Prisma.ComprasPedidoOrderByWithRelationInput
   rateios?: Prisma.ComprasPedidoRateioOrderByRelationAggregateInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemOrderByRelationAggregateInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensOrderByRelationAggregateInput
 }
 
 export type ComprasPedidoItemWhereUniqueInput = Prisma.AtLeast<{
@@ -331,6 +333,7 @@ export type ComprasPedidoItemWhereUniqueInput = Prisma.AtLeast<{
   pedido?: Prisma.XOR<Prisma.ComprasPedidoScalarRelationFilter, Prisma.ComprasPedidoWhereInput>
   rateios?: Prisma.ComprasPedidoRateioListRelationFilter
   recebimentoItens?: Prisma.ComprasRecebimentoItemListRelationFilter
+  p5_itens_notas_recebidas?: Prisma.Fin_notas_recebidas_itensListRelationFilter
 }, "id" | "pedidoId_produtoCodigo">
 
 export type ComprasPedidoItemOrderByWithAggregationInput = {
@@ -386,6 +389,7 @@ export type ComprasPedidoItemCreateInput = {
   pedido: Prisma.ComprasPedidoCreateNestedOneWithoutItensInput
   rateios?: Prisma.ComprasPedidoRateioCreateNestedManyWithoutPedidoItemInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemUncheckedCreateInput = {
@@ -403,6 +407,7 @@ export type ComprasPedidoItemUncheckedCreateInput = {
   atualizadoEm?: Date | string
   rateios?: Prisma.ComprasPedidoRateioUncheckedCreateNestedManyWithoutPedidoItemInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemUpdateInput = {
@@ -420,6 +425,7 @@ export type ComprasPedidoItemUpdateInput = {
   pedido?: Prisma.ComprasPedidoUpdateOneRequiredWithoutItensNestedInput
   rateios?: Prisma.ComprasPedidoRateioUpdateManyWithoutPedidoItemNestedInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemUncheckedUpdateInput = {
@@ -437,6 +443,7 @@ export type ComprasPedidoItemUncheckedUpdateInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rateios?: Prisma.ComprasPedidoRateioUncheckedUpdateManyWithoutPedidoItemNestedInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemCreateManyInput = {
@@ -481,6 +488,11 @@ export type ComprasPedidoItemUncheckedUpdateManyInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ComprasPedidoItemNullableScalarRelationFilter = {
+  is?: Prisma.ComprasPedidoItemWhereInput | null
+  isNot?: Prisma.ComprasPedidoItemWhereInput | null
 }
 
 export type ComprasPedidoItemListRelationFilter = {
@@ -564,6 +576,22 @@ export type ComprasPedidoItemScalarRelationFilter = {
   isNot?: Prisma.ComprasPedidoItemWhereInput
 }
 
+export type ComprasPedidoItemCreateNestedOneWithoutP5_itens_notas_recebidasInput = {
+  create?: Prisma.XOR<Prisma.ComprasPedidoItemCreateWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUncheckedCreateWithoutP5_itens_notas_recebidasInput>
+  connectOrCreate?: Prisma.ComprasPedidoItemCreateOrConnectWithoutP5_itens_notas_recebidasInput
+  connect?: Prisma.ComprasPedidoItemWhereUniqueInput
+}
+
+export type ComprasPedidoItemUpdateOneWithoutP5_itens_notas_recebidasNestedInput = {
+  create?: Prisma.XOR<Prisma.ComprasPedidoItemCreateWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUncheckedCreateWithoutP5_itens_notas_recebidasInput>
+  connectOrCreate?: Prisma.ComprasPedidoItemCreateOrConnectWithoutP5_itens_notas_recebidasInput
+  upsert?: Prisma.ComprasPedidoItemUpsertWithoutP5_itens_notas_recebidasInput
+  disconnect?: Prisma.ComprasPedidoItemWhereInput | boolean
+  delete?: Prisma.ComprasPedidoItemWhereInput | boolean
+  connect?: Prisma.ComprasPedidoItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ComprasPedidoItemUpdateToOneWithWhereWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUpdateWithoutP5_itens_notas_recebidasInput>, Prisma.ComprasPedidoItemUncheckedUpdateWithoutP5_itens_notas_recebidasInput>
+}
+
 export type ComprasPedidoItemCreateNestedManyWithoutPedidoInput = {
   create?: Prisma.XOR<Prisma.ComprasPedidoItemCreateWithoutPedidoInput, Prisma.ComprasPedidoItemUncheckedCreateWithoutPedidoInput> | Prisma.ComprasPedidoItemCreateWithoutPedidoInput[] | Prisma.ComprasPedidoItemUncheckedCreateWithoutPedidoInput[]
   connectOrCreate?: Prisma.ComprasPedidoItemCreateOrConnectWithoutPedidoInput | Prisma.ComprasPedidoItemCreateOrConnectWithoutPedidoInput[]
@@ -634,6 +662,90 @@ export type ComprasPedidoItemUpdateOneRequiredWithoutRecebimentoItensNestedInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.ComprasPedidoItemUpdateToOneWithWhereWithoutRecebimentoItensInput, Prisma.ComprasPedidoItemUpdateWithoutRecebimentoItensInput>, Prisma.ComprasPedidoItemUncheckedUpdateWithoutRecebimentoItensInput>
 }
 
+export type ComprasPedidoItemCreateWithoutP5_itens_notas_recebidasInput = {
+  id?: string
+  produtoCodigo: string
+  produtoDescricao: string
+  quantidade: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quantidadeRecebida?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorUnitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: string
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  pedido: Prisma.ComprasPedidoCreateNestedOneWithoutItensInput
+  rateios?: Prisma.ComprasPedidoRateioCreateNestedManyWithoutPedidoItemInput
+  recebimentoItens?: Prisma.ComprasRecebimentoItemCreateNestedManyWithoutPedidoItemInput
+}
+
+export type ComprasPedidoItemUncheckedCreateWithoutP5_itens_notas_recebidasInput = {
+  id?: string
+  pedidoId: string
+  produtoCodigo: string
+  produtoDescricao: string
+  quantidade: runtime.Decimal | runtime.DecimalJsLike | number | string
+  quantidadeRecebida?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorUnitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: string
+  criadoEm?: Date | string
+  atualizadoEm?: Date | string
+  rateios?: Prisma.ComprasPedidoRateioUncheckedCreateNestedManyWithoutPedidoItemInput
+  recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedCreateNestedManyWithoutPedidoItemInput
+}
+
+export type ComprasPedidoItemCreateOrConnectWithoutP5_itens_notas_recebidasInput = {
+  where: Prisma.ComprasPedidoItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.ComprasPedidoItemCreateWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUncheckedCreateWithoutP5_itens_notas_recebidasInput>
+}
+
+export type ComprasPedidoItemUpsertWithoutP5_itens_notas_recebidasInput = {
+  update: Prisma.XOR<Prisma.ComprasPedidoItemUpdateWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUncheckedUpdateWithoutP5_itens_notas_recebidasInput>
+  create: Prisma.XOR<Prisma.ComprasPedidoItemCreateWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUncheckedCreateWithoutP5_itens_notas_recebidasInput>
+  where?: Prisma.ComprasPedidoItemWhereInput
+}
+
+export type ComprasPedidoItemUpdateToOneWithWhereWithoutP5_itens_notas_recebidasInput = {
+  where?: Prisma.ComprasPedidoItemWhereInput
+  data: Prisma.XOR<Prisma.ComprasPedidoItemUpdateWithoutP5_itens_notas_recebidasInput, Prisma.ComprasPedidoItemUncheckedUpdateWithoutP5_itens_notas_recebidasInput>
+}
+
+export type ComprasPedidoItemUpdateWithoutP5_itens_notas_recebidasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  produtoCodigo?: Prisma.StringFieldUpdateOperationsInput | string
+  produtoDescricao?: Prisma.StringFieldUpdateOperationsInput | string
+  quantidade?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quantidadeRecebida?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorUnitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  desconto?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pedido?: Prisma.ComprasPedidoUpdateOneRequiredWithoutItensNestedInput
+  rateios?: Prisma.ComprasPedidoRateioUpdateManyWithoutPedidoItemNestedInput
+  recebimentoItens?: Prisma.ComprasRecebimentoItemUpdateManyWithoutPedidoItemNestedInput
+}
+
+export type ComprasPedidoItemUncheckedUpdateWithoutP5_itens_notas_recebidasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  pedidoId?: Prisma.StringFieldUpdateOperationsInput | string
+  produtoCodigo?: Prisma.StringFieldUpdateOperationsInput | string
+  produtoDescricao?: Prisma.StringFieldUpdateOperationsInput | string
+  quantidade?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  quantidadeRecebida?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorUnitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  desconto?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rateios?: Prisma.ComprasPedidoRateioUncheckedUpdateManyWithoutPedidoItemNestedInput
+  recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedUpdateManyWithoutPedidoItemNestedInput
+}
+
 export type ComprasPedidoItemCreateWithoutPedidoInput = {
   id?: string
   produtoCodigo: string
@@ -648,6 +760,7 @@ export type ComprasPedidoItemCreateWithoutPedidoInput = {
   atualizadoEm?: Date | string
   rateios?: Prisma.ComprasPedidoRateioCreateNestedManyWithoutPedidoItemInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemUncheckedCreateWithoutPedidoInput = {
@@ -664,6 +777,7 @@ export type ComprasPedidoItemUncheckedCreateWithoutPedidoInput = {
   atualizadoEm?: Date | string
   rateios?: Prisma.ComprasPedidoRateioUncheckedCreateNestedManyWithoutPedidoItemInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemCreateOrConnectWithoutPedidoInput = {
@@ -724,6 +838,7 @@ export type ComprasPedidoItemCreateWithoutRateiosInput = {
   atualizadoEm?: Date | string
   pedido: Prisma.ComprasPedidoCreateNestedOneWithoutItensInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemUncheckedCreateWithoutRateiosInput = {
@@ -740,6 +855,7 @@ export type ComprasPedidoItemUncheckedCreateWithoutRateiosInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemCreateOrConnectWithoutRateiosInput = {
@@ -772,6 +888,7 @@ export type ComprasPedidoItemUpdateWithoutRateiosInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedido?: Prisma.ComprasPedidoUpdateOneRequiredWithoutItensNestedInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemUncheckedUpdateWithoutRateiosInput = {
@@ -788,6 +905,7 @@ export type ComprasPedidoItemUncheckedUpdateWithoutRateiosInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemCreateWithoutRecebimentoItensInput = {
@@ -804,6 +922,7 @@ export type ComprasPedidoItemCreateWithoutRecebimentoItensInput = {
   atualizadoEm?: Date | string
   pedido: Prisma.ComprasPedidoCreateNestedOneWithoutItensInput
   rateios?: Prisma.ComprasPedidoRateioCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemUncheckedCreateWithoutRecebimentoItensInput = {
@@ -820,6 +939,7 @@ export type ComprasPedidoItemUncheckedCreateWithoutRecebimentoItensInput = {
   criadoEm?: Date | string
   atualizadoEm?: Date | string
   rateios?: Prisma.ComprasPedidoRateioUncheckedCreateNestedManyWithoutPedidoItemInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutP5_pedido_itemInput
 }
 
 export type ComprasPedidoItemCreateOrConnectWithoutRecebimentoItensInput = {
@@ -852,6 +972,7 @@ export type ComprasPedidoItemUpdateWithoutRecebimentoItensInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedido?: Prisma.ComprasPedidoUpdateOneRequiredWithoutItensNestedInput
   rateios?: Prisma.ComprasPedidoRateioUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemUncheckedUpdateWithoutRecebimentoItensInput = {
@@ -868,6 +989,7 @@ export type ComprasPedidoItemUncheckedUpdateWithoutRecebimentoItensInput = {
   criadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rateios?: Prisma.ComprasPedidoRateioUncheckedUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemCreateManyPedidoInput = {
@@ -898,6 +1020,7 @@ export type ComprasPedidoItemUpdateWithoutPedidoInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rateios?: Prisma.ComprasPedidoRateioUpdateManyWithoutPedidoItemNestedInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemUncheckedUpdateWithoutPedidoInput = {
@@ -914,6 +1037,7 @@ export type ComprasPedidoItemUncheckedUpdateWithoutPedidoInput = {
   atualizadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rateios?: Prisma.ComprasPedidoRateioUncheckedUpdateManyWithoutPedidoItemNestedInput
   recebimentoItens?: Prisma.ComprasRecebimentoItemUncheckedUpdateManyWithoutPedidoItemNestedInput
+  p5_itens_notas_recebidas?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemNestedInput
 }
 
 export type ComprasPedidoItemUncheckedUpdateManyWithoutPedidoInput = {
@@ -938,11 +1062,13 @@ export type ComprasPedidoItemUncheckedUpdateManyWithoutPedidoInput = {
 export type ComprasPedidoItemCountOutputType = {
   rateios: number
   recebimentoItens: number
+  p5_itens_notas_recebidas: number
 }
 
 export type ComprasPedidoItemCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   rateios?: boolean | ComprasPedidoItemCountOutputTypeCountRateiosArgs
   recebimentoItens?: boolean | ComprasPedidoItemCountOutputTypeCountRecebimentoItensArgs
+  p5_itens_notas_recebidas?: boolean | ComprasPedidoItemCountOutputTypeCountP5_itens_notas_recebidasArgs
 }
 
 /**
@@ -969,6 +1095,13 @@ export type ComprasPedidoItemCountOutputTypeCountRecebimentoItensArgs<ExtArgs ex
   where?: Prisma.ComprasRecebimentoItemWhereInput
 }
 
+/**
+ * ComprasPedidoItemCountOutputType without action
+ */
+export type ComprasPedidoItemCountOutputTypeCountP5_itens_notas_recebidasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.fin_notas_recebidas_itensWhereInput
+}
+
 
 export type ComprasPedidoItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -986,6 +1119,7 @@ export type ComprasPedidoItemSelect<ExtArgs extends runtime.Types.Extensions.Int
   pedido?: boolean | Prisma.ComprasPedidoDefaultArgs<ExtArgs>
   rateios?: boolean | Prisma.ComprasPedidoItem$rateiosArgs<ExtArgs>
   recebimentoItens?: boolean | Prisma.ComprasPedidoItem$recebimentoItensArgs<ExtArgs>
+  p5_itens_notas_recebidas?: boolean | Prisma.ComprasPedidoItem$p5_itens_notas_recebidasArgs<ExtArgs>
   _count?: boolean | Prisma.ComprasPedidoItemCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["comprasPedidoItem"]>
 
@@ -1041,6 +1175,7 @@ export type ComprasPedidoItemInclude<ExtArgs extends runtime.Types.Extensions.In
   pedido?: boolean | Prisma.ComprasPedidoDefaultArgs<ExtArgs>
   rateios?: boolean | Prisma.ComprasPedidoItem$rateiosArgs<ExtArgs>
   recebimentoItens?: boolean | Prisma.ComprasPedidoItem$recebimentoItensArgs<ExtArgs>
+  p5_itens_notas_recebidas?: boolean | Prisma.ComprasPedidoItem$p5_itens_notas_recebidasArgs<ExtArgs>
   _count?: boolean | Prisma.ComprasPedidoItemCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ComprasPedidoItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1056,6 +1191,7 @@ export type $ComprasPedidoItemPayload<ExtArgs extends runtime.Types.Extensions.I
     pedido: Prisma.$ComprasPedidoPayload<ExtArgs>
     rateios: Prisma.$ComprasPedidoRateioPayload<ExtArgs>[]
     recebimentoItens: Prisma.$ComprasRecebimentoItemPayload<ExtArgs>[]
+    p5_itens_notas_recebidas: Prisma.$fin_notas_recebidas_itensPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1467,6 +1603,7 @@ export interface Prisma__ComprasPedidoItemClient<T, Null = never, ExtArgs extend
   pedido<T extends Prisma.ComprasPedidoDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ComprasPedidoDefaultArgs<ExtArgs>>): Prisma.Prisma__ComprasPedidoClient<runtime.Types.Result.GetResult<Prisma.$ComprasPedidoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   rateios<T extends Prisma.ComprasPedidoItem$rateiosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ComprasPedidoItem$rateiosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComprasPedidoRateioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   recebimentoItens<T extends Prisma.ComprasPedidoItem$recebimentoItensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ComprasPedidoItem$recebimentoItensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComprasRecebimentoItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  p5_itens_notas_recebidas<T extends Prisma.ComprasPedidoItem$p5_itens_notas_recebidasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ComprasPedidoItem$p5_itens_notas_recebidasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_itensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1954,6 +2091,30 @@ export type ComprasPedidoItem$recebimentoItensArgs<ExtArgs extends runtime.Types
   take?: number
   skip?: number
   distinct?: Prisma.ComprasRecebimentoItemScalarFieldEnum | Prisma.ComprasRecebimentoItemScalarFieldEnum[]
+}
+
+/**
+ * ComprasPedidoItem.p5_itens_notas_recebidas
+ */
+export type ComprasPedidoItem$p5_itens_notas_recebidasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_notas_recebidas_itens
+   */
+  select?: Prisma.fin_notas_recebidas_itensSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_notas_recebidas_itens
+   */
+  omit?: Prisma.fin_notas_recebidas_itensOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_notas_recebidas_itensInclude<ExtArgs> | null
+  where?: Prisma.fin_notas_recebidas_itensWhereInput
+  orderBy?: Prisma.fin_notas_recebidas_itensOrderByWithRelationInput | Prisma.fin_notas_recebidas_itensOrderByWithRelationInput[]
+  cursor?: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Fin_notas_recebidas_itensScalarFieldEnum | Prisma.Fin_notas_recebidas_itensScalarFieldEnum[]
 }
 
 /**

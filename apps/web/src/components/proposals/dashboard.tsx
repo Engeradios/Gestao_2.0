@@ -417,7 +417,7 @@ export function ProposalsDashboard() {
             <Card title="Ticket médio mês a mês">
               <TicketAverageChart rows={data.serieTicketMedio} />
             </Card>
-            <div className="grid gap-5 xl:grid-cols-2">
+            <div className="grid items-start gap-5 xl:grid-cols-2">
               <Card title="Aprovação por tipo de proposta">
                 <ApprovalByType rows={data.aprovacaoPorTipo || []} />
               </Card>
@@ -923,7 +923,7 @@ function SeriesChart({ rows }: { rows: Data["serie"] }) {
             </defs>
             {[0,1,2,3,4].map((line) => { const y=chartTop+((chartBottom-chartTop)/4)*line; return <line key={line} x1="0" y1={y} x2={width} y2={y} stroke="currentColor" strokeOpacity="0.07" vectorEffect="non-scaling-stroke" />; })}
             {area && <polygon points={area} fill="url(#approvedArea)" />}
-            {rows.map((item,index) => { const h=(Number(item.quantidade)/maxQ)*(chartBottom-chartTop); const x=slot*index+slot/2; const bw=Math.min(42,slot*.52); return <rect key={`bar-${item.mes}`} x={x-bw/2} y={chartBottom-h} width={bw} height={Math.max(4,h)} rx="8" fill="url(#proposalBars)"><title>{item.mes}: {integer(item.quantidade)} propostas</title></rect>; })}
+            {rows.map((item,index) => { const h=(Number(item.quantidade)/maxQ)*(chartBottom-chartTop); const x=slot*index+slot/2; const bw=Math.min(42,slot*.52); return <g key={`bar-${item.mes}`}><rect x={x-bw/2} y={chartBottom-h} width={bw} height={Math.max(4,h)} rx="8" fill="url(#proposalBars)"><title>{item.mes}: {integer(item.quantidade)} propostas</title></rect><text data-propostas-bar-label x={x} y={Math.max(16,chartBottom-h-8)} textAnchor="middle" fill="currentColor" fontSize="11" fontWeight="700" pointerEvents="none" aria-hidden="true">{integer(item.quantidade)}</text></g>; })}
             <polyline points={points} fill="none" stroke="#059669" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
             {rows.map((item,index) => { const x=slot*index+slot/2; const y=chartBottom-(Number(item.valor_aprovado)/maxV)*(chartBottom-chartTop); return <g key={`point-${item.mes}`}><circle cx={x} cy={y} r="9" fill="transparent"><title>{item.mes}: {integer(item.quantidade)} propostas · {money(item.valor_aprovado)}</title></circle><circle cx={x} cy={y} r="5.5" fill="#059669" stroke="white" strokeWidth="2.5" vectorEffect="non-scaling-stroke" /></g>; })}
             {rows.map((item,index) => <text key={`label-${item.mes}`} x={slot*index+slot/2} y="226" textAnchor="middle" fill="currentColor" opacity="0.72" fontSize="12" fontWeight="600">{item.mes}</text>)}

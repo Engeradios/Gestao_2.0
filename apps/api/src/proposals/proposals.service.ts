@@ -534,6 +534,15 @@ export class ProposalsService {
             AND ${dataCriacao} < date_trunc('month',current_date)+interval '1 month'
           )
           SELECT to_char(m.mes,'MM/YYYY') mes, count(b.*)::int quantidade,
+            count(b.*) FILTER (WHERE b.status='APROVADO')::int aprovadas,
+            coalesce(
+              round(
+                100.0 * count(b.*) FILTER (WHERE b.status='APROVADO')
+                / nullif(count(b.*),0),
+                1
+              ),
+              0
+            )::numeric taxa_aprovacao,
             coalesce(sum(b.val_proposta) FILTER (WHERE b.status='APROVADO'),0)::numeric valor_aprovado,
             coalesce(avg(b.val_proposta),0)::numeric ticket_medio
           FROM generate_series(date_trunc('month',current_date)-interval '11 months',

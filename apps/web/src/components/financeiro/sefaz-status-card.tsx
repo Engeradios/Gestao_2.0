@@ -34,7 +34,7 @@ export function SefazStatusCard({ filialId }: { filialId: string | number }) {
           "message" in body &&
           typeof body.message === "string"
             ? body.message
-            : "Não foi possível consultar a SEFAZ.";
+            : "Não foi possível consultar a SEFAZ. Verifique primeiro se a filial possui certificado válido.";
         throw new Error(message);
       }
       setStatus(body as SefazStatus);

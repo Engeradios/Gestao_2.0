@@ -912,6 +912,10 @@ model fin_contas_pagar {
   filial_id                   BigInt?
   fin_filiais                 fin_filiais?         @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
+  origem_nf_parcela_id BigInt?
+  p5_origem_nf_parcela fin_notas_recebidas_parcelas? @relation(fields: [origem_nf_parcela_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@unique([origem_nf_parcela_id], map: "fin_contas_pagar_origem_nf_parcela_id_key")
   @@index([data_pagamento])
   @@index([dre_conta_id], map: "fin_contas_pagar_dre_conta_idx")
   @@index([origem_nf_id], map: "fin_contas_pagar_origem_nf_idx")
@@ -1076,10 +1080,40 @@ model fin_notas_recebidas {
   filial_id                    BigInt?
   fin_filiais                  fin_filiais?                   @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
+  tipo_documento          String    @default("NFE") @db.VarChar(10)
+  status_conferencia      String    @default("PENDENTE_CONFERENCIA") @db.VarChar(30)
+  conferido_por_id        String?   @db.Uuid
+  conferido_por_nome      String?   @db.VarChar(160)
+  conferido_em            DateTime? @db.Timestamp(6)
+  motivo_recusa           String?
+  divergencia_obs         String?
+  resumo_apenas           Boolean   @default(false)
+  dest_cnpj               String?   @db.VarChar(14)
+  manifestacao_tipo       String?   @db.VarChar(30)
+  manifestacao_status     String?   @db.VarChar(30)
+  manifestacao_protocolo  String?   @db.VarChar(60)
+  manifestacao_em         DateTime? @db.Timestamp(6)
+  danfe_arquivo           String?   @db.VarChar(500)
+  danfe_sha256            String?   @db.Char(64)
+  nfse_codigo_verificacao String?   @db.VarChar(100)
+  nfse_municipio_ibge     String?   @db.VarChar(7)
+  fornecedor_id           String?   @db.Uuid
+  compras_pedido_id       String?   @db.Uuid
+  estoque_status          String    @default("NAO_APLICAVEL") @db.VarChar(30)
+  estoque_movimentado_em  DateTime? @db.Timestamp(6)
+
+  p5_fornecedor     ComprasFornecedor?            @relation(fields: [fornecedor_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  p5_compras_pedido ComprasPedido?                @relation(fields: [compras_pedido_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  p5_eventos        fin_notas_recebidas_eventos[]
+  p5_movimentos     est_movimentos[]
+
   @@index([data_emissao], map: "fin_notas_recebidas_emissao_idx")
   @@index([emit_cnpj])
   @@index([situacao])
   @@index([xml_sha256], map: "fin_notas_recebidas_xml_sha256_idx")
+  @@index([status_conferencia], map: "fin_notas_recebidas_status_conferencia_idx")
+  @@index([fornecedor_id], map: "fin_notas_recebidas_fornecedor_idx")
+  @@index([compras_pedido_id], map: "fin_notas_recebidas_compras_pedido_idx")
 }
 
 model fin_notas_recebidas_itens {
@@ -1099,7 +1133,22 @@ model fin_notas_recebidas_itens {
   pedido              String?             @db.VarChar(80)
   fin_notas_recebidas fin_notas_recebidas @relation(fields: [nota_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
+  produto_id             BigInt?
+  compras_pedido_item_id String?  @db.Uuid
+  quantidade_conferida   Decimal? @db.Decimal(18, 4)
+  unidade_estoque        String?  @db.VarChar(20)
+  fator_conversao        Decimal  @default(1) @db.Decimal(18, 6)
+  movimenta_estoque      Boolean  @default(true)
+  estoque_movimentado    Boolean  @default(false)
+  divergencia            String?
+
+  p5_produto     est_produtos?      @relation(fields: [produto_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  p5_pedido_item ComprasPedidoItem? @relation(fields: [compras_pedido_item_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  p5_movimentos  est_movimentos[]
+
   @@index([nota_id], map: "fin_nf_itens_nota_idx")
+  @@index([produto_id], map: "fin_nf_itens_produto_idx")
+  @@index([compras_pedido_item_id], map: "fin_nf_itens_pedido_item_idx")
 }
 
 model fin_notas_recebidas_parcelas {
@@ -1112,6 +1161,8 @@ model fin_notas_recebidas_parcelas {
   pago                Boolean             @default(false)
   data_pagamento      DateTime?           @db.Date
   fin_notas_recebidas fin_notas_recebidas @relation(fields: [nota_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  p5_contas_pagar fin_contas_pagar[]
 
   @@index([nota_id], map: "fin_nf_parcelas_nota_idx")
   @@index([vencimento], map: "fin_nf_parcelas_vencimento_idx")
@@ -2301,6 +2352,8 @@ model ComprasFornecedor {
   atualizadoEm DateTime        @default(now()) @updatedAt @map("atualizado_em") @db.Timestamp(6)
   pedidos      ComprasPedido[]
 
+  p5_notas_recebidas fin_notas_recebidas[]
+
   @@index([razaoSocial])
   @@index([ativo])
   @@map("compras_fornecedores")
@@ -2328,6 +2381,8 @@ model ComprasPedido {
   itens             ComprasPedidoItem[]
   recebimentos      ComprasRecebimento[]
 
+  p5_notas_recebidas fin_notas_recebidas[]
+
   @@index([fornecedorId, status])
   @@index([status, previsaoEntrega])
   @@map("compras_pedidos")
@@ -2349,6 +2404,8 @@ model ComprasPedidoItem {
   pedido             ComprasPedido            @relation(fields: [pedidoId], references: [id], onDelete: Restrict)
   rateios            ComprasPedidoRateio[]
   recebimentoItens   ComprasRecebimentoItem[]
+
+  p5_itens_notas_recebidas fin_notas_recebidas_itens[]
 
   @@unique([pedidoId, produtoCodigo])
   @@index([produtoCodigo])
@@ -2433,6 +2490,9 @@ model fin_filiais {
   cidade               String?                 @db.VarChar(100)
   uf                   String?                 @db.VarChar(2)
   historico            fin_filiais_historico[]
+
+  p5_nfe_dist_controle fin_nfe_dist_controle?
+  p5_est_locais        est_locais[]
 
   @@index([ativo])
 }
@@ -2868,4 +2928,140 @@ model gp_risco {
   gp_projeto      gp_projeto @relation(fields: [projeto_id], references: [id], onDelete: Cascade)
 
   @@index([projeto_id, status], map: "idx_gp_risco_projeto_status")
+}
+
+model fin_nfe_dist_controle {
+  id                  BigInt      @id @default(autoincrement())
+  filial_id           BigInt      @unique
+  ambiente            Int         @default(1) @db.SmallInt
+  ult_nsu             String      @default("000000000000000") @db.VarChar(15)
+  max_nsu             String      @default("000000000000000") @db.VarChar(15)
+  ultima_consulta_em  DateTime?   @db.Timestamp(6)
+  proxima_consulta_em DateTime?   @db.Timestamp(6)
+  ultimo_cstat        String?     @db.VarChar(5)
+  ultimo_xmotivo      String?     @db.VarChar(255)
+  consultas_total     Int         @default(0)
+  documentos_total    Int         @default(0)
+  erros_consecutivos  Int         @default(0)
+  ultima_falha_em     DateTime?   @db.Timestamp(6)
+  ultima_falha        String?
+  ativo               Boolean     @default(true)
+  criado_em           DateTime    @default(now()) @db.Timestamp(6)
+  atualizado_em       DateTime    @default(now()) @db.Timestamp(6)
+  filial              fin_filiais @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
+model fin_notas_recebidas_eventos {
+  id              BigInt              @id @default(autoincrement())
+  nota_id         BigInt
+  tipo            String              @db.VarChar(40)
+  status_anterior String?             @db.VarChar(30)
+  status_novo     String?             @db.VarChar(30)
+  descricao       String?
+  protocolo       String?             @db.VarChar(100)
+  dados           Json?
+  usuario_id      String?             @db.Uuid
+  usuario_nome    String?             @db.VarChar(160)
+  criado_em       DateTime            @default(now()) @db.Timestamp(6)
+  nota            fin_notas_recebidas @relation(fields: [nota_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([nota_id, criado_em(sort: Desc)], map: "fin_nr_eventos_nota_data_idx")
+  @@index([tipo], map: "fin_nr_eventos_tipo_idx")
+}
+
+model est_locais {
+  id            BigInt           @id @default(autoincrement())
+  codigo        String           @unique @db.VarChar(40)
+  nome          String           @db.VarChar(160)
+  filial_id     BigInt?
+  tipo          String           @default("ALMOXARIFADO") @db.VarChar(30)
+  ativo         Boolean          @default(true)
+  criado_em     DateTime         @default(now()) @db.Timestamp(6)
+  atualizado_em DateTime         @default(now()) @db.Timestamp(6)
+  filial        fin_filiais?     @relation(fields: [filial_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  saldos        est_saldos[]
+  movimentos    est_movimentos[]
+
+  @@index([filial_id], map: "est_locais_filial_id_idx")
+}
+
+model est_produtos {
+  id                    BigInt                      @id @default(autoincrement())
+  codigo                String                      @unique @db.VarChar(120)
+  descricao             String                      @db.VarChar(500)
+  unidade               String                      @default("UN") @db.VarChar(20)
+  ncm                   String?                     @db.VarChar(20)
+  cest                  String?                     @db.VarChar(20)
+  gtin                  String?                     @db.VarChar(20)
+  controla_estoque      Boolean                     @default(true)
+  estoque_minimo        Decimal                     @default(0) @db.Decimal(18, 4)
+  ativo                 Boolean                     @default(true)
+  criado_em             DateTime                    @default(now()) @db.Timestamp(6)
+  atualizado_em         DateTime                    @default(now()) @db.Timestamp(6)
+  produtos_fornecedor   est_produtos_fornecedor[]
+  saldos                est_saldos[]
+  movimentos            est_movimentos[]
+  itens_notas_recebidas fin_notas_recebidas_itens[]
+
+  @@index([descricao], map: "est_produtos_descricao_idx")
+  @@index([ncm], map: "est_produtos_ncm_idx")
+  @@index([gtin], map: "est_produtos_gtin_idx")
+}
+
+model est_produtos_fornecedor {
+  id                     BigInt       @id @default(autoincrement())
+  produto_id             BigInt
+  emit_cnpj              String       @db.VarChar(14)
+  cod_produto_fornecedor String       @db.VarChar(120)
+  descricao_fornecedor   String?      @db.VarChar(500)
+  unidade_fornecedor     String?      @db.VarChar(20)
+  fator_conversao        Decimal      @default(1) @db.Decimal(18, 6)
+  criado_em              DateTime     @default(now()) @db.Timestamp(6)
+  atualizado_em          DateTime     @default(now()) @db.Timestamp(6)
+  produto                est_produtos @relation(fields: [produto_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([emit_cnpj, cod_produto_fornecedor], map: "est_prod_forn_cnpj_codigo_uq")
+  @@index([produto_id], map: "est_produtos_fornecedor_produto_id_idx")
+}
+
+model est_saldos {
+  produto_id    BigInt
+  local_id      BigInt
+  quantidade    Decimal      @default(0) @db.Decimal(18, 4)
+  custo_medio   Decimal      @default(0) @db.Decimal(18, 6)
+  atualizado_em DateTime     @default(now()) @db.Timestamp(6)
+  produto       est_produtos @relation(fields: [produto_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  local         est_locais   @relation(fields: [local_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@id([produto_id, local_id])
+  @@index([local_id], map: "est_saldos_local_idx")
+}
+
+model est_movimentos {
+  id                  BigInt                     @id @default(autoincrement())
+  produto_id          BigInt
+  local_id            BigInt
+  tipo                String                     @db.VarChar(30)
+  quantidade          Decimal                    @db.Decimal(18, 4)
+  custo_unitario      Decimal                    @default(0) @db.Decimal(18, 6)
+  valor_total         Decimal                    @default(0) @db.Decimal(18, 2)
+  origem              String                     @default("MANUAL") @db.VarChar(30)
+  origem_nota_id      BigInt?
+  origem_nota_item_id BigInt?
+  estorno_de_id       BigInt?                    @unique
+  documento           String?                    @db.VarChar(120)
+  observacao          String?
+  usuario_id          String?                    @db.Uuid
+  usuario_nome        String?                    @db.VarChar(160)
+  criado_em           DateTime                   @default(now()) @db.Timestamp(6)
+  produto             est_produtos               @relation(fields: [produto_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  local               est_locais                 @relation(fields: [local_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  nota                fin_notas_recebidas?       @relation(fields: [origem_nota_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  item_nota           fin_notas_recebidas_itens? @relation(fields: [origem_nota_item_id], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  estorno_de          est_movimentos?            @relation("EstMovimentoEstorno", fields: [estorno_de_id], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  estornado_por       est_movimentos?            @relation("EstMovimentoEstorno")
+
+  @@index([produto_id, local_id, criado_em(sort: Desc)], map: "est_movimentos_produto_local_data_idx")
+  @@index([origem_nota_id], map: "est_movimentos_origem_nota_idx")
+  @@index([origem_nota_item_id], map: "est_movimentos_origem_item_idx")
 }

@@ -54,8 +54,28 @@ describe('Grandes Projetos - sincronizacao automatica de OS', () => {
       'tx.gp_os.create',
     );
 
-    expect(block).not.toContain(
-      'gp_os.update',
+    expect(block).toContain(
+      'await tx.gp_os.update({',
+    );
+
+    expect(block).toContain(
+      'where: { id: found.id }',
+    );
+
+    expect(block).toContain(
+      'versao: { increment: 1 }',
+    );
+
+    expect(block).toContain(
+      'atualizadas += 1',
+    );
+
+    expect(block).toContain(
+      'atualizadas: 0',
+    );
+
+    expect(block).toContain(
+      'existentes += 1',
     );
 
     expect(block).not.toContain(

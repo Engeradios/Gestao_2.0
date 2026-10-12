@@ -332,7 +332,7 @@ export class FiliaisCertificadoService {
         }
         if (!isLegacyFailure(error.details)) {
           throw new BadRequestException(
-            'Arquivo PFX/P12 inválido, corrompido ou incompatível.',
+            'O arquivo não foi reconhecido como um certificado PKCS#12 válido. Selecione o arquivo original .pfx ou .p12 e confirme a senha.',
           );
         }
         try {
@@ -364,12 +364,12 @@ export class FiliaisCertificadoService {
           throw new BadRequestException('Senha do certificado inválida.');
         }
         throw new BadRequestException(
-          'Não foi possível extrair o certificado e a chave privada.',
+          'Não foi possível extrair o certificado e a chave privada. Confirme se o arquivo foi exportado com a chave privada.',
         );
       }
       if (!certPem.includes('BEGIN CERTIFICATE')) {
         throw new BadRequestException(
-          'O arquivo não contém certificado digital.',
+          'O arquivo não contém um certificado digital utilizável.',
         );
       }
       if (!keyPem.includes('PRIVATE KEY')) {
@@ -382,12 +382,12 @@ export class FiliaisCertificadoService {
       } catch (error) {
         if (error instanceof BadRequestException) throw error;
         throw new BadRequestException(
-          'Não foi possível decodificar a identidade ICP-Brasil do certificado.',
+          'Não foi possível identificar os dados ICP-Brasil do certificado.',
         );
       }
       if (!identity.oidFound) {
         throw new BadRequestException(
-          'O certificado não possui o CNPJ no OID ICP-Brasil 2.16.76.1.3.3.',
+          'O certificado não possui CNPJ identificável no padrão ICP-Brasil.',
         );
       }
       const expected = cnpj.replace(/\D/g, '');
@@ -403,12 +403,12 @@ export class FiliaisCertificadoService {
       ];
       if (matchingCandidates.length === 0) {
         throw new BadRequestException(
-          'Nenhum CNPJ do certificado pertence à raiz desta filial.',
+          'O CNPJ do certificado não pertence à mesma raiz do CNPJ da filial selecionada.',
         );
       }
       if (matchingCandidates.length > 1) {
         throw new BadRequestException(
-          'O certificado contém mais de um CNPJ correspondente à raiz desta filial.',
+          'O certificado contém mais de uma identidade compatível com a filial. Utilize um certificado empresarial inequívoco.',
         );
       }
       const certificateCnpj = matchingCandidates[0];
@@ -420,7 +420,7 @@ export class FiliaisCertificadoService {
       const notBefore = parseDate(value('notBefore'));
       if (!notAfter)
         throw new BadRequestException(
-          'Não foi possível identificar a validade do certificado.',
+          'Não foi possível determinar a validade do certificado digital.',
         );
       return {
         situacao: notAfter.getTime() <= Date.now() ? 'EXPIRADO' : 'VALIDO',
@@ -553,7 +553,7 @@ export class FiliaisCertificadoService {
       const code = (error as NodeJS.ErrnoException).code;
       if (['EACCES', 'EPERM', 'EROFS'].includes(code ?? '')) {
         throw new ServiceUnavailableException(
-          'O servidor não conseguiu gravar o certificado com segurança.',
+          'O certificado foi validado, mas o servidor não conseguiu armazená-lo com segurança.',
         );
       }
       throw new InternalServerErrorException(

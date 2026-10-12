@@ -613,3 +613,38 @@ export type gp_projeto_equipe = Prisma.gp_projeto_equipeModel
  * 
  */
 export type gp_risco = Prisma.gp_riscoModel
+/**
+ * Model fin_nfe_dist_controle
+ * 
+ */
+export type fin_nfe_dist_controle = Prisma.fin_nfe_dist_controleModel
+/**
+ * Model fin_notas_recebidas_eventos
+ * 
+ */
+export type fin_notas_recebidas_eventos = Prisma.fin_notas_recebidas_eventosModel
+/**
+ * Model est_locais
+ * 
+ */
+export type est_locais = Prisma.est_locaisModel
+/**
+ * Model est_produtos
+ * 
+ */
+export type est_produtos = Prisma.est_produtosModel
+/**
+ * Model est_produtos_fornecedor
+ * 
+ */
+export type est_produtos_fornecedor = Prisma.est_produtos_fornecedorModel
+/**
+ * Model est_saldos
+ * 
+ */
+export type est_saldos = Prisma.est_saldosModel
+/**
+ * Model est_movimentos
+ * 
+ */
+export type est_movimentos = Prisma.est_movimentosModel

@@ -1,0 +1,10 @@
+services:
+  api:
+    image: engeradios2-api:filiais-f3c-20261010_162045
+    volumes:
+      - type: bind
+        source: /var/lib/engeradios2/fiscal/certificados
+        target: /etc/engeradios2/fiscal/nfe/certificados
+      - type: bind
+        source: /var/lib/engeradios2/fiscal/secrets
+        target: /etc/engeradios2/fiscal/secrets

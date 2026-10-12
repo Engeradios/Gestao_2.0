@@ -25,6 +25,8 @@ import {
   ProjectQueryDto,
   RejectProjectDto,
   ReportDto,
+  ProjectTaxesDto,
+  ProjectOrderFinanceDto,
 } from './dto/grandes-projetos.dto';
 import { GrandesProjetosService } from './grandes-projetos.service';
 type R = Request & { user?: JwtPayload };
@@ -85,6 +87,20 @@ export class GrandesProjetosController {
   ) {
     return this.service.save(id, b, this.actor(r));
   }
+  @Patch(':id/impostos')
+  @RequirePermissions('GRANDES_PROJETOS.PROJETOS.GERENCIAR')
+  updateTaxes(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: ProjectTaxesDto,
+    @Req() request: R,
+  ) {
+    return this.service.updateTaxes(
+      id,
+      body,
+      this.actor(request),
+    );
+  }
+
   @Post(':id/submeter')
   @RequirePermissions('GRANDES_PROJETOS.PROJETOS.GERENCIAR')
   submit(
@@ -195,6 +211,22 @@ export class GrandesProjetosController {
   syncOrders(@Param('id', ParseIntPipe) id: number, @Req() r: R) {
     return this.service.syncOrdersForProject(id, this.actor(r));
   }
+  @Patch(':id/os/:child/financeiro')
+  @RequirePermissions('GRANDES_PROJETOS.OS.GERENCIAR')
+  updateOrderFinance(
+    @Param('id', ParseIntPipe) id: number,
+    @Param('child', ParseIntPipe) child: number,
+    @Body() body: ProjectOrderFinanceDto,
+    @Req() request: R,
+  ) {
+    return this.service.updateOrderFinance(
+      id,
+      child,
+      body,
+      this.actor(request),
+    );
+  }
+
   @Delete(':id/os/:child')
   @RequirePermissions('GRANDES_PROJETOS.OS.GERENCIAR')
   delOrder(

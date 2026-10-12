@@ -253,6 +253,7 @@ export type fin_notas_recebidas_parcelasWhereInput = {
   pago?: Prisma.BoolFilter<"fin_notas_recebidas_parcelas"> | boolean
   data_pagamento?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas_parcelas"> | Date | string | null
   fin_notas_recebidas?: Prisma.XOR<Prisma.Fin_notas_recebidasScalarRelationFilter, Prisma.fin_notas_recebidasWhereInput>
+  p5_contas_pagar?: Prisma.Fin_contas_pagarListRelationFilter
 }
 
 export type fin_notas_recebidas_parcelasOrderByWithRelationInput = {
@@ -265,6 +266,7 @@ export type fin_notas_recebidas_parcelasOrderByWithRelationInput = {
   pago?: Prisma.SortOrder
   data_pagamento?: Prisma.SortOrderInput | Prisma.SortOrder
   fin_notas_recebidas?: Prisma.fin_notas_recebidasOrderByWithRelationInput
+  p5_contas_pagar?: Prisma.fin_contas_pagarOrderByRelationAggregateInput
 }
 
 export type fin_notas_recebidas_parcelasWhereUniqueInput = Prisma.AtLeast<{
@@ -280,6 +282,7 @@ export type fin_notas_recebidas_parcelasWhereUniqueInput = Prisma.AtLeast<{
   pago?: Prisma.BoolFilter<"fin_notas_recebidas_parcelas"> | boolean
   data_pagamento?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas_parcelas"> | Date | string | null
   fin_notas_recebidas?: Prisma.XOR<Prisma.Fin_notas_recebidasScalarRelationFilter, Prisma.fin_notas_recebidasWhereInput>
+  p5_contas_pagar?: Prisma.Fin_contas_pagarListRelationFilter
 }, "id" | "legado_id">
 
 export type fin_notas_recebidas_parcelasOrderByWithAggregationInput = {
@@ -321,6 +324,7 @@ export type fin_notas_recebidas_parcelasCreateInput = {
   pago?: boolean
   data_pagamento?: Date | string | null
   fin_notas_recebidas: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_notas_recebidas_parcelasInput
+  p5_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutP5_origem_nf_parcelaInput
 }
 
 export type fin_notas_recebidas_parcelasUncheckedCreateInput = {
@@ -332,6 +336,7 @@ export type fin_notas_recebidas_parcelasUncheckedCreateInput = {
   valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: boolean
   data_pagamento?: Date | string | null
+  p5_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutP5_origem_nf_parcelaInput
 }
 
 export type fin_notas_recebidas_parcelasUpdateInput = {
@@ -343,6 +348,7 @@ export type fin_notas_recebidas_parcelasUpdateInput = {
   pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
   data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_parcelasNestedInput
+  p5_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutP5_origem_nf_parcelaNestedInput
 }
 
 export type fin_notas_recebidas_parcelasUncheckedUpdateInput = {
@@ -354,6 +360,7 @@ export type fin_notas_recebidas_parcelasUncheckedUpdateInput = {
   valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
   data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  p5_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutP5_origem_nf_parcelaNestedInput
 }
 
 export type fin_notas_recebidas_parcelasCreateManyInput = {
@@ -386,6 +393,11 @@ export type fin_notas_recebidas_parcelasUncheckedUpdateManyInput = {
   valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
   data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type Fin_notas_recebidas_parcelasNullableScalarRelationFilter = {
+  is?: Prisma.fin_notas_recebidas_parcelasWhereInput | null
+  isNot?: Prisma.fin_notas_recebidas_parcelasWhereInput | null
 }
 
 export type Fin_notas_recebidas_parcelasListRelationFilter = {
@@ -445,6 +457,22 @@ export type fin_notas_recebidas_parcelasSumOrderByAggregateInput = {
   valor?: Prisma.SortOrder
 }
 
+export type fin_notas_recebidas_parcelasCreateNestedOneWithoutP5_contas_pagarInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasCreateWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUncheckedCreateWithoutP5_contas_pagarInput>
+  connectOrCreate?: Prisma.fin_notas_recebidas_parcelasCreateOrConnectWithoutP5_contas_pagarInput
+  connect?: Prisma.fin_notas_recebidas_parcelasWhereUniqueInput
+}
+
+export type fin_notas_recebidas_parcelasUpdateOneWithoutP5_contas_pagarNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasCreateWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUncheckedCreateWithoutP5_contas_pagarInput>
+  connectOrCreate?: Prisma.fin_notas_recebidas_parcelasCreateOrConnectWithoutP5_contas_pagarInput
+  upsert?: Prisma.fin_notas_recebidas_parcelasUpsertWithoutP5_contas_pagarInput
+  disconnect?: Prisma.fin_notas_recebidas_parcelasWhereInput | boolean
+  delete?: Prisma.fin_notas_recebidas_parcelasWhereInput | boolean
+  connect?: Prisma.fin_notas_recebidas_parcelasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.fin_notas_recebidas_parcelasUpdateToOneWithWhereWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUpdateWithoutP5_contas_pagarInput>, Prisma.fin_notas_recebidas_parcelasUncheckedUpdateWithoutP5_contas_pagarInput>
+}
+
 export type fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput = {
   create?: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasCreateWithoutFin_notas_recebidasInput, Prisma.fin_notas_recebidas_parcelasUncheckedCreateWithoutFin_notas_recebidasInput> | Prisma.fin_notas_recebidas_parcelasCreateWithoutFin_notas_recebidasInput[] | Prisma.fin_notas_recebidas_parcelasUncheckedCreateWithoutFin_notas_recebidasInput[]
   connectOrCreate?: Prisma.fin_notas_recebidas_parcelasCreateOrConnectWithoutFin_notas_recebidasInput | Prisma.fin_notas_recebidas_parcelasCreateOrConnectWithoutFin_notas_recebidasInput[]
@@ -487,6 +515,66 @@ export type fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_rece
   deleteMany?: Prisma.fin_notas_recebidas_parcelasScalarWhereInput | Prisma.fin_notas_recebidas_parcelasScalarWhereInput[]
 }
 
+export type fin_notas_recebidas_parcelasCreateWithoutP5_contas_pagarInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  numero?: string | null
+  vencimento?: Date | string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pago?: boolean
+  data_pagamento?: Date | string | null
+  fin_notas_recebidas: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_notas_recebidas_parcelasInput
+}
+
+export type fin_notas_recebidas_parcelasUncheckedCreateWithoutP5_contas_pagarInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  nota_id: bigint | number
+  numero?: string | null
+  vencimento?: Date | string | null
+  valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pago?: boolean
+  data_pagamento?: Date | string | null
+}
+
+export type fin_notas_recebidas_parcelasCreateOrConnectWithoutP5_contas_pagarInput = {
+  where: Prisma.fin_notas_recebidas_parcelasWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasCreateWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUncheckedCreateWithoutP5_contas_pagarInput>
+}
+
+export type fin_notas_recebidas_parcelasUpsertWithoutP5_contas_pagarInput = {
+  update: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasUpdateWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUncheckedUpdateWithoutP5_contas_pagarInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasCreateWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUncheckedCreateWithoutP5_contas_pagarInput>
+  where?: Prisma.fin_notas_recebidas_parcelasWhereInput
+}
+
+export type fin_notas_recebidas_parcelasUpdateToOneWithWhereWithoutP5_contas_pagarInput = {
+  where?: Prisma.fin_notas_recebidas_parcelasWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidas_parcelasUpdateWithoutP5_contas_pagarInput, Prisma.fin_notas_recebidas_parcelasUncheckedUpdateWithoutP5_contas_pagarInput>
+}
+
+export type fin_notas_recebidas_parcelasUpdateWithoutP5_contas_pagarInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vencimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_parcelasNestedInput
+}
+
+export type fin_notas_recebidas_parcelasUncheckedUpdateWithoutP5_contas_pagarInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  nota_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  vencimento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
 export type fin_notas_recebidas_parcelasCreateWithoutFin_notas_recebidasInput = {
   id?: bigint | number
   legado_id?: number | null
@@ -495,6 +583,7 @@ export type fin_notas_recebidas_parcelasCreateWithoutFin_notas_recebidasInput = 
   valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: boolean
   data_pagamento?: Date | string | null
+  p5_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutP5_origem_nf_parcelaInput
 }
 
 export type fin_notas_recebidas_parcelasUncheckedCreateWithoutFin_notas_recebidasInput = {
@@ -505,6 +594,7 @@ export type fin_notas_recebidas_parcelasUncheckedCreateWithoutFin_notas_recebida
   valor?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: boolean
   data_pagamento?: Date | string | null
+  p5_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutP5_origem_nf_parcelaInput
 }
 
 export type fin_notas_recebidas_parcelasCreateOrConnectWithoutFin_notas_recebidasInput = {
@@ -565,6 +655,7 @@ export type fin_notas_recebidas_parcelasUpdateWithoutFin_notas_recebidasInput = 
   valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
   data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  p5_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutP5_origem_nf_parcelaNestedInput
 }
 
 export type fin_notas_recebidas_parcelasUncheckedUpdateWithoutFin_notas_recebidasInput = {
@@ -575,6 +666,7 @@ export type fin_notas_recebidas_parcelasUncheckedUpdateWithoutFin_notas_recebida
   valor?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pago?: Prisma.BoolFieldUpdateOperationsInput | boolean
   data_pagamento?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  p5_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutP5_origem_nf_parcelaNestedInput
 }
 
 export type fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasInput = {
@@ -588,6 +680,35 @@ export type fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_rece
 }
 
 
+/**
+ * Count Type Fin_notas_recebidas_parcelasCountOutputType
+ */
+
+export type Fin_notas_recebidas_parcelasCountOutputType = {
+  p5_contas_pagar: number
+}
+
+export type Fin_notas_recebidas_parcelasCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  p5_contas_pagar?: boolean | Fin_notas_recebidas_parcelasCountOutputTypeCountP5_contas_pagarArgs
+}
+
+/**
+ * Fin_notas_recebidas_parcelasCountOutputType without action
+ */
+export type Fin_notas_recebidas_parcelasCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Fin_notas_recebidas_parcelasCountOutputType
+   */
+  select?: Prisma.Fin_notas_recebidas_parcelasCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Fin_notas_recebidas_parcelasCountOutputType without action
+ */
+export type Fin_notas_recebidas_parcelasCountOutputTypeCountP5_contas_pagarArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.fin_contas_pagarWhereInput
+}
+
 
 export type fin_notas_recebidas_parcelasSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -599,6 +720,8 @@ export type fin_notas_recebidas_parcelasSelect<ExtArgs extends runtime.Types.Ext
   pago?: boolean
   data_pagamento?: boolean
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_contas_pagar?: boolean | Prisma.fin_notas_recebidas_parcelas$p5_contas_pagarArgs<ExtArgs>
+  _count?: boolean | Prisma.Fin_notas_recebidas_parcelasCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas_parcelas"]>
 
 export type fin_notas_recebidas_parcelasSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -639,6 +762,8 @@ export type fin_notas_recebidas_parcelasSelectScalar = {
 export type fin_notas_recebidas_parcelasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "nota_id" | "numero" | "vencimento" | "valor" | "pago" | "data_pagamento", ExtArgs["result"]["fin_notas_recebidas_parcelas"]>
 export type fin_notas_recebidas_parcelasInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_contas_pagar?: boolean | Prisma.fin_notas_recebidas_parcelas$p5_contas_pagarArgs<ExtArgs>
+  _count?: boolean | Prisma.Fin_notas_recebidas_parcelasCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type fin_notas_recebidas_parcelasIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
@@ -651,6 +776,7 @@ export type $fin_notas_recebidas_parcelasPayload<ExtArgs extends runtime.Types.E
   name: "fin_notas_recebidas_parcelas"
   objects: {
     fin_notas_recebidas: Prisma.$fin_notas_recebidasPayload<ExtArgs>
+    p5_contas_pagar: Prisma.$fin_contas_pagarPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -1056,6 +1182,7 @@ readonly fields: fin_notas_recebidas_parcelasFieldRefs;
 export interface Prisma__fin_notas_recebidas_parcelasClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   fin_notas_recebidas<T extends Prisma.fin_notas_recebidasDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>>): Prisma.Prisma__fin_notas_recebidasClient<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  p5_contas_pagar<T extends Prisma.fin_notas_recebidas_parcelas$p5_contas_pagarArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas_parcelas$p5_contas_pagarArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_contas_pagarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1491,6 +1618,30 @@ export type fin_notas_recebidas_parcelasDeleteManyArgs<ExtArgs extends runtime.T
    * Limit how many fin_notas_recebidas_parcelas to delete.
    */
   limit?: number
+}
+
+/**
+ * fin_notas_recebidas_parcelas.p5_contas_pagar
+ */
+export type fin_notas_recebidas_parcelas$p5_contas_pagarArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_contas_pagar
+   */
+  select?: Prisma.fin_contas_pagarSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_contas_pagar
+   */
+  omit?: Prisma.fin_contas_pagarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_contas_pagarInclude<ExtArgs> | null
+  where?: Prisma.fin_contas_pagarWhereInput
+  orderBy?: Prisma.fin_contas_pagarOrderByWithRelationInput | Prisma.fin_contas_pagarOrderByWithRelationInput[]
+  cursor?: Prisma.fin_contas_pagarWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Fin_contas_pagarScalarFieldEnum | Prisma.Fin_contas_pagarScalarFieldEnum[]
 }
 
 /**

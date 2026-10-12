@@ -35,6 +35,9 @@ export type Fin_notas_recebidas_itensAvgAggregateOutputType = {
   valor_unit: runtime.Decimal | null
   valor_produto: runtime.Decimal | null
   valor_total: runtime.Decimal | null
+  produto_id: number | null
+  quantidade_conferida: runtime.Decimal | null
+  fator_conversao: runtime.Decimal | null
 }
 
 export type Fin_notas_recebidas_itensSumAggregateOutputType = {
@@ -46,6 +49,9 @@ export type Fin_notas_recebidas_itensSumAggregateOutputType = {
   valor_unit: runtime.Decimal | null
   valor_produto: runtime.Decimal | null
   valor_total: runtime.Decimal | null
+  produto_id: bigint | null
+  quantidade_conferida: runtime.Decimal | null
+  fator_conversao: runtime.Decimal | null
 }
 
 export type Fin_notas_recebidas_itensMinAggregateOutputType = {
@@ -63,6 +69,14 @@ export type Fin_notas_recebidas_itensMinAggregateOutputType = {
   valor_produto: runtime.Decimal | null
   valor_total: runtime.Decimal | null
   pedido: string | null
+  produto_id: bigint | null
+  compras_pedido_item_id: string | null
+  quantidade_conferida: runtime.Decimal | null
+  unidade_estoque: string | null
+  fator_conversao: runtime.Decimal | null
+  movimenta_estoque: boolean | null
+  estoque_movimentado: boolean | null
+  divergencia: string | null
 }
 
 export type Fin_notas_recebidas_itensMaxAggregateOutputType = {
@@ -80,6 +94,14 @@ export type Fin_notas_recebidas_itensMaxAggregateOutputType = {
   valor_produto: runtime.Decimal | null
   valor_total: runtime.Decimal | null
   pedido: string | null
+  produto_id: bigint | null
+  compras_pedido_item_id: string | null
+  quantidade_conferida: runtime.Decimal | null
+  unidade_estoque: string | null
+  fator_conversao: runtime.Decimal | null
+  movimenta_estoque: boolean | null
+  estoque_movimentado: boolean | null
+  divergencia: string | null
 }
 
 export type Fin_notas_recebidas_itensCountAggregateOutputType = {
@@ -97,6 +119,14 @@ export type Fin_notas_recebidas_itensCountAggregateOutputType = {
   valor_produto: number
   valor_total: number
   pedido: number
+  produto_id: number
+  compras_pedido_item_id: number
+  quantidade_conferida: number
+  unidade_estoque: number
+  fator_conversao: number
+  movimenta_estoque: number
+  estoque_movimentado: number
+  divergencia: number
   _all: number
 }
 
@@ -110,6 +140,9 @@ export type Fin_notas_recebidas_itensAvgAggregateInputType = {
   valor_unit?: true
   valor_produto?: true
   valor_total?: true
+  produto_id?: true
+  quantidade_conferida?: true
+  fator_conversao?: true
 }
 
 export type Fin_notas_recebidas_itensSumAggregateInputType = {
@@ -121,6 +154,9 @@ export type Fin_notas_recebidas_itensSumAggregateInputType = {
   valor_unit?: true
   valor_produto?: true
   valor_total?: true
+  produto_id?: true
+  quantidade_conferida?: true
+  fator_conversao?: true
 }
 
 export type Fin_notas_recebidas_itensMinAggregateInputType = {
@@ -138,6 +174,14 @@ export type Fin_notas_recebidas_itensMinAggregateInputType = {
   valor_produto?: true
   valor_total?: true
   pedido?: true
+  produto_id?: true
+  compras_pedido_item_id?: true
+  quantidade_conferida?: true
+  unidade_estoque?: true
+  fator_conversao?: true
+  movimenta_estoque?: true
+  estoque_movimentado?: true
+  divergencia?: true
 }
 
 export type Fin_notas_recebidas_itensMaxAggregateInputType = {
@@ -155,6 +199,14 @@ export type Fin_notas_recebidas_itensMaxAggregateInputType = {
   valor_produto?: true
   valor_total?: true
   pedido?: true
+  produto_id?: true
+  compras_pedido_item_id?: true
+  quantidade_conferida?: true
+  unidade_estoque?: true
+  fator_conversao?: true
+  movimenta_estoque?: true
+  estoque_movimentado?: true
+  divergencia?: true
 }
 
 export type Fin_notas_recebidas_itensCountAggregateInputType = {
@@ -172,6 +224,14 @@ export type Fin_notas_recebidas_itensCountAggregateInputType = {
   valor_produto?: true
   valor_total?: true
   pedido?: true
+  produto_id?: true
+  compras_pedido_item_id?: true
+  quantidade_conferida?: true
+  unidade_estoque?: true
+  fator_conversao?: true
+  movimenta_estoque?: true
+  estoque_movimentado?: true
+  divergencia?: true
   _all?: true
 }
 
@@ -276,6 +336,14 @@ export type Fin_notas_recebidas_itensGroupByOutputType = {
   valor_produto: runtime.Decimal | null
   valor_total: runtime.Decimal | null
   pedido: string | null
+  produto_id: bigint | null
+  compras_pedido_item_id: string | null
+  quantidade_conferida: runtime.Decimal | null
+  unidade_estoque: string | null
+  fator_conversao: runtime.Decimal
+  movimenta_estoque: boolean
+  estoque_movimentado: boolean
+  divergencia: string | null
   _count: Fin_notas_recebidas_itensCountAggregateOutputType | null
   _avg: Fin_notas_recebidas_itensAvgAggregateOutputType | null
   _sum: Fin_notas_recebidas_itensSumAggregateOutputType | null
@@ -316,7 +384,18 @@ export type fin_notas_recebidas_itensWhereInput = {
   valor_produto?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  produto_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas_itens"> | bigint | number | null
+  compras_pedido_item_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  quantidade_conferida?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  fator_conversao?: Prisma.DecimalFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFilter<"fin_notas_recebidas_itens"> | boolean
+  estoque_movimentado?: Prisma.BoolFilter<"fin_notas_recebidas_itens"> | boolean
+  divergencia?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
   fin_notas_recebidas?: Prisma.XOR<Prisma.Fin_notas_recebidasScalarRelationFilter, Prisma.fin_notas_recebidasWhereInput>
+  p5_produto?: Prisma.XOR<Prisma.Est_produtosNullableScalarRelationFilter, Prisma.est_produtosWhereInput> | null
+  p5_pedido_item?: Prisma.XOR<Prisma.ComprasPedidoItemNullableScalarRelationFilter, Prisma.ComprasPedidoItemWhereInput> | null
+  p5_movimentos?: Prisma.Est_movimentosListRelationFilter
 }
 
 export type fin_notas_recebidas_itensOrderByWithRelationInput = {
@@ -334,7 +413,18 @@ export type fin_notas_recebidas_itensOrderByWithRelationInput = {
   valor_produto?: Prisma.SortOrderInput | Prisma.SortOrder
   valor_total?: Prisma.SortOrderInput | Prisma.SortOrder
   pedido?: Prisma.SortOrderInput | Prisma.SortOrder
+  produto_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  compras_pedido_item_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrderInput | Prisma.SortOrder
+  unidade_estoque?: Prisma.SortOrderInput | Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
+  movimenta_estoque?: Prisma.SortOrder
+  estoque_movimentado?: Prisma.SortOrder
+  divergencia?: Prisma.SortOrderInput | Prisma.SortOrder
   fin_notas_recebidas?: Prisma.fin_notas_recebidasOrderByWithRelationInput
+  p5_produto?: Prisma.est_produtosOrderByWithRelationInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemOrderByWithRelationInput
+  p5_movimentos?: Prisma.est_movimentosOrderByRelationAggregateInput
 }
 
 export type fin_notas_recebidas_itensWhereUniqueInput = Prisma.AtLeast<{
@@ -355,7 +445,18 @@ export type fin_notas_recebidas_itensWhereUniqueInput = Prisma.AtLeast<{
   valor_produto?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  produto_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas_itens"> | bigint | number | null
+  compras_pedido_item_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  quantidade_conferida?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  fator_conversao?: Prisma.DecimalFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFilter<"fin_notas_recebidas_itens"> | boolean
+  estoque_movimentado?: Prisma.BoolFilter<"fin_notas_recebidas_itens"> | boolean
+  divergencia?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
   fin_notas_recebidas?: Prisma.XOR<Prisma.Fin_notas_recebidasScalarRelationFilter, Prisma.fin_notas_recebidasWhereInput>
+  p5_produto?: Prisma.XOR<Prisma.Est_produtosNullableScalarRelationFilter, Prisma.est_produtosWhereInput> | null
+  p5_pedido_item?: Prisma.XOR<Prisma.ComprasPedidoItemNullableScalarRelationFilter, Prisma.ComprasPedidoItemWhereInput> | null
+  p5_movimentos?: Prisma.Est_movimentosListRelationFilter
 }, "id" | "legado_id">
 
 export type fin_notas_recebidas_itensOrderByWithAggregationInput = {
@@ -373,6 +474,14 @@ export type fin_notas_recebidas_itensOrderByWithAggregationInput = {
   valor_produto?: Prisma.SortOrderInput | Prisma.SortOrder
   valor_total?: Prisma.SortOrderInput | Prisma.SortOrder
   pedido?: Prisma.SortOrderInput | Prisma.SortOrder
+  produto_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  compras_pedido_item_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrderInput | Prisma.SortOrder
+  unidade_estoque?: Prisma.SortOrderInput | Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
+  movimenta_estoque?: Prisma.SortOrder
+  estoque_movimentado?: Prisma.SortOrder
+  divergencia?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.fin_notas_recebidas_itensCountOrderByAggregateInput
   _avg?: Prisma.fin_notas_recebidas_itensAvgOrderByAggregateInput
   _max?: Prisma.fin_notas_recebidas_itensMaxOrderByAggregateInput
@@ -398,6 +507,14 @@ export type fin_notas_recebidas_itensScalarWhereWithAggregatesInput = {
   valor_produto?: Prisma.DecimalNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.DecimalNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | string | null
+  produto_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | bigint | number | null
+  compras_pedido_item_id?: Prisma.UuidNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | string | null
+  quantidade_conferida?: Prisma.DecimalNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | string | null
+  fator_conversao?: Prisma.DecimalWithAggregatesFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolWithAggregatesFilter<"fin_notas_recebidas_itens"> | boolean
+  estoque_movimentado?: Prisma.BoolWithAggregatesFilter<"fin_notas_recebidas_itens"> | boolean
+  divergencia?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas_itens"> | string | null
 }
 
 export type fin_notas_recebidas_itensCreateInput = {
@@ -414,7 +531,16 @@ export type fin_notas_recebidas_itensCreateInput = {
   valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
   fin_notas_recebidas: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_notas_recebidas_itensInput
+  p5_produto?: Prisma.est_produtosCreateNestedOneWithoutItens_notas_recebidasInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemCreateNestedOneWithoutP5_itens_notas_recebidasInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutItem_notaInput
 }
 
 export type fin_notas_recebidas_itensUncheckedCreateInput = {
@@ -432,6 +558,15 @@ export type fin_notas_recebidas_itensUncheckedCreateInput = {
   valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: string | null
+  produto_id?: bigint | number | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutItem_notaInput
 }
 
 export type fin_notas_recebidas_itensUpdateInput = {
@@ -448,7 +583,16 @@ export type fin_notas_recebidas_itensUpdateInput = {
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_itensNestedInput
+  p5_produto?: Prisma.est_produtosUpdateOneWithoutItens_notas_recebidasNestedInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemUpdateOneWithoutP5_itens_notas_recebidasNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutItem_notaNestedInput
 }
 
 export type fin_notas_recebidas_itensUncheckedUpdateInput = {
@@ -466,6 +610,15 @@ export type fin_notas_recebidas_itensUncheckedUpdateInput = {
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutItem_notaNestedInput
 }
 
 export type fin_notas_recebidas_itensCreateManyInput = {
@@ -483,6 +636,14 @@ export type fin_notas_recebidas_itensCreateManyInput = {
   valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: string | null
+  produto_id?: bigint | number | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
 }
 
 export type fin_notas_recebidas_itensUpdateManyMutationInput = {
@@ -499,6 +660,12 @@ export type fin_notas_recebidas_itensUpdateManyMutationInput = {
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type fin_notas_recebidas_itensUncheckedUpdateManyInput = {
@@ -516,6 +683,14 @@ export type fin_notas_recebidas_itensUncheckedUpdateManyInput = {
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Fin_notas_recebidas_itensListRelationFilter = {
@@ -543,6 +718,14 @@ export type fin_notas_recebidas_itensCountOrderByAggregateInput = {
   valor_produto?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
   pedido?: Prisma.SortOrder
+  produto_id?: Prisma.SortOrder
+  compras_pedido_item_id?: Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrder
+  unidade_estoque?: Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
+  movimenta_estoque?: Prisma.SortOrder
+  estoque_movimentado?: Prisma.SortOrder
+  divergencia?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidas_itensAvgOrderByAggregateInput = {
@@ -554,6 +737,9 @@ export type fin_notas_recebidas_itensAvgOrderByAggregateInput = {
   valor_unit?: Prisma.SortOrder
   valor_produto?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
+  produto_id?: Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidas_itensMaxOrderByAggregateInput = {
@@ -571,6 +757,14 @@ export type fin_notas_recebidas_itensMaxOrderByAggregateInput = {
   valor_produto?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
   pedido?: Prisma.SortOrder
+  produto_id?: Prisma.SortOrder
+  compras_pedido_item_id?: Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrder
+  unidade_estoque?: Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
+  movimenta_estoque?: Prisma.SortOrder
+  estoque_movimentado?: Prisma.SortOrder
+  divergencia?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidas_itensMinOrderByAggregateInput = {
@@ -588,6 +782,14 @@ export type fin_notas_recebidas_itensMinOrderByAggregateInput = {
   valor_produto?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
   pedido?: Prisma.SortOrder
+  produto_id?: Prisma.SortOrder
+  compras_pedido_item_id?: Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrder
+  unidade_estoque?: Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
+  movimenta_estoque?: Prisma.SortOrder
+  estoque_movimentado?: Prisma.SortOrder
+  divergencia?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidas_itensSumOrderByAggregateInput = {
@@ -599,6 +801,14 @@ export type fin_notas_recebidas_itensSumOrderByAggregateInput = {
   valor_unit?: Prisma.SortOrder
   valor_produto?: Prisma.SortOrder
   valor_total?: Prisma.SortOrder
+  produto_id?: Prisma.SortOrder
+  quantidade_conferida?: Prisma.SortOrder
+  fator_conversao?: Prisma.SortOrder
+}
+
+export type Fin_notas_recebidas_itensNullableScalarRelationFilter = {
+  is?: Prisma.fin_notas_recebidas_itensWhereInput | null
+  isNot?: Prisma.fin_notas_recebidas_itensWhereInput | null
 }
 
 export type fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput = {
@@ -643,6 +853,106 @@ export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebid
   deleteMany?: Prisma.fin_notas_recebidas_itensScalarWhereInput | Prisma.fin_notas_recebidas_itensScalarWhereInput[]
 }
 
+export type fin_notas_recebidas_itensCreateNestedManyWithoutP5_pedido_itemInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_pedido_itemInputEnvelope
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+}
+
+export type fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutP5_pedido_itemInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_pedido_itemInputEnvelope
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+}
+
+export type fin_notas_recebidas_itensUpdateManyWithoutP5_pedido_itemNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput[]
+  upsert?: Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_pedido_itemInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_pedido_itemInputEnvelope
+  set?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_pedido_itemInput[]
+  updateMany?: Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_pedido_itemInput[]
+  deleteMany?: Prisma.fin_notas_recebidas_itensScalarWhereInput | Prisma.fin_notas_recebidas_itensScalarWhereInput[]
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput[]
+  upsert?: Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_pedido_itemInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_pedido_itemInputEnvelope
+  set?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_pedido_itemInput[]
+  updateMany?: Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_pedido_itemInput[]
+  deleteMany?: Prisma.fin_notas_recebidas_itensScalarWhereInput | Prisma.fin_notas_recebidas_itensScalarWhereInput[]
+}
+
+export type fin_notas_recebidas_itensCreateNestedManyWithoutP5_produtoInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_produtoInputEnvelope
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+}
+
+export type fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutP5_produtoInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_produtoInputEnvelope
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+}
+
+export type fin_notas_recebidas_itensUpdateManyWithoutP5_produtoNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput[]
+  upsert?: Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_produtoInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_produtoInputEnvelope
+  set?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_produtoInput[]
+  updateMany?: Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_produtoInput[]
+  deleteMany?: Prisma.fin_notas_recebidas_itensScalarWhereInput | Prisma.fin_notas_recebidas_itensScalarWhereInput[]
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_produtoNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput> | Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput[] | Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput[]
+  upsert?: Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_produtoInput[]
+  createMany?: Prisma.fin_notas_recebidas_itensCreateManyP5_produtoInputEnvelope
+  set?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput | Prisma.fin_notas_recebidas_itensWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_produtoInput[]
+  updateMany?: Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_produtoInput | Prisma.fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_produtoInput[]
+  deleteMany?: Prisma.fin_notas_recebidas_itensScalarWhereInput | Prisma.fin_notas_recebidas_itensScalarWhereInput[]
+}
+
+export type fin_notas_recebidas_itensCreateNestedOneWithoutP5_movimentosInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_movimentosInput>
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_movimentosInput
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+}
+
+export type fin_notas_recebidas_itensUpdateOneWithoutP5_movimentosNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_movimentosInput>
+  connectOrCreate?: Prisma.fin_notas_recebidas_itensCreateOrConnectWithoutP5_movimentosInput
+  upsert?: Prisma.fin_notas_recebidas_itensUpsertWithoutP5_movimentosInput
+  disconnect?: Prisma.fin_notas_recebidas_itensWhereInput | boolean
+  delete?: Prisma.fin_notas_recebidas_itensWhereInput | boolean
+  connect?: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateToOneWithWhereWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUpdateWithoutP5_movimentosInput>, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_movimentosInput>
+}
+
 export type fin_notas_recebidas_itensCreateWithoutFin_notas_recebidasInput = {
   id?: bigint | number
   legado_id?: number | null
@@ -657,6 +967,15 @@ export type fin_notas_recebidas_itensCreateWithoutFin_notas_recebidasInput = {
   valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  p5_produto?: Prisma.est_produtosCreateNestedOneWithoutItens_notas_recebidasInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemCreateNestedOneWithoutP5_itens_notas_recebidasInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutItem_notaInput
 }
 
 export type fin_notas_recebidas_itensUncheckedCreateWithoutFin_notas_recebidasInput = {
@@ -673,6 +992,15 @@ export type fin_notas_recebidas_itensUncheckedCreateWithoutFin_notas_recebidasIn
   valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: string | null
+  produto_id?: bigint | number | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutItem_notaInput
 }
 
 export type fin_notas_recebidas_itensCreateOrConnectWithoutFin_notas_recebidasInput = {
@@ -719,6 +1047,282 @@ export type fin_notas_recebidas_itensScalarWhereInput = {
   valor_produto?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  produto_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas_itens"> | bigint | number | null
+  compras_pedido_item_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  quantidade_conferida?: Prisma.DecimalNullableFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+  fator_conversao?: Prisma.DecimalFilter<"fin_notas_recebidas_itens"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFilter<"fin_notas_recebidas_itens"> | boolean
+  estoque_movimentado?: Prisma.BoolFilter<"fin_notas_recebidas_itens"> | boolean
+  divergencia?: Prisma.StringNullableFilter<"fin_notas_recebidas_itens"> | string | null
+}
+
+export type fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  fin_notas_recebidas: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_notas_recebidas_itensInput
+  p5_produto?: Prisma.est_produtosCreateNestedOneWithoutItens_notas_recebidasInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutItem_notaInput
+}
+
+export type fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  nota_id: bigint | number
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  produto_id?: bigint | number | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutItem_notaInput
+}
+
+export type fin_notas_recebidas_itensCreateOrConnectWithoutP5_pedido_itemInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput>
+}
+
+export type fin_notas_recebidas_itensCreateManyP5_pedido_itemInputEnvelope = {
+  data: Prisma.fin_notas_recebidas_itensCreateManyP5_pedido_itemInput | Prisma.fin_notas_recebidas_itensCreateManyP5_pedido_itemInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_pedido_itemInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_pedido_itemInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_pedido_itemInput>
+}
+
+export type fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_pedido_itemInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateWithoutP5_pedido_itemInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_pedido_itemInput>
+}
+
+export type fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_pedido_itemInput = {
+  where: Prisma.fin_notas_recebidas_itensScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateManyMutationInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemInput>
+}
+
+export type fin_notas_recebidas_itensCreateWithoutP5_produtoInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  fin_notas_recebidas: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_notas_recebidas_itensInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemCreateNestedOneWithoutP5_itens_notas_recebidasInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutItem_notaInput
+}
+
+export type fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  nota_id: bigint | number
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutItem_notaInput
+}
+
+export type fin_notas_recebidas_itensCreateOrConnectWithoutP5_produtoInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput>
+}
+
+export type fin_notas_recebidas_itensCreateManyP5_produtoInputEnvelope = {
+  data: Prisma.fin_notas_recebidas_itensCreateManyP5_produtoInput | Prisma.fin_notas_recebidas_itensCreateManyP5_produtoInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_notas_recebidas_itensUpsertWithWhereUniqueWithoutP5_produtoInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_produtoInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_produtoInput>
+}
+
+export type fin_notas_recebidas_itensUpdateWithWhereUniqueWithoutP5_produtoInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateWithoutP5_produtoInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_produtoInput>
+}
+
+export type fin_notas_recebidas_itensUpdateManyWithWhereWithoutP5_produtoInput = {
+  where: Prisma.fin_notas_recebidas_itensScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateManyMutationInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_produtoInput>
+}
+
+export type fin_notas_recebidas_itensCreateWithoutP5_movimentosInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+  fin_notas_recebidas: Prisma.fin_notas_recebidasCreateNestedOneWithoutFin_notas_recebidas_itensInput
+  p5_produto?: Prisma.est_produtosCreateNestedOneWithoutItens_notas_recebidasInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemCreateNestedOneWithoutP5_itens_notas_recebidasInput
+}
+
+export type fin_notas_recebidas_itensUncheckedCreateWithoutP5_movimentosInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  nota_id: bigint | number
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  produto_id?: bigint | number | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+}
+
+export type fin_notas_recebidas_itensCreateOrConnectWithoutP5_movimentosInput = {
+  where: Prisma.fin_notas_recebidas_itensWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_movimentosInput>
+}
+
+export type fin_notas_recebidas_itensUpsertWithoutP5_movimentosInput = {
+  update: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_movimentosInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidas_itensCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUncheckedCreateWithoutP5_movimentosInput>
+  where?: Prisma.fin_notas_recebidas_itensWhereInput
+}
+
+export type fin_notas_recebidas_itensUpdateToOneWithWhereWithoutP5_movimentosInput = {
+  where?: Prisma.fin_notas_recebidas_itensWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidas_itensUpdateWithoutP5_movimentosInput, Prisma.fin_notas_recebidas_itensUncheckedUpdateWithoutP5_movimentosInput>
+}
+
+export type fin_notas_recebidas_itensUpdateWithoutP5_movimentosInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_itensNestedInput
+  p5_produto?: Prisma.est_produtosUpdateOneWithoutItens_notas_recebidasNestedInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemUpdateOneWithoutP5_itens_notas_recebidasNestedInput
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateWithoutP5_movimentosInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  nota_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type fin_notas_recebidas_itensCreateManyFin_notas_recebidasInput = {
@@ -735,6 +1339,14 @@ export type fin_notas_recebidas_itensCreateManyFin_notas_recebidasInput = {
   valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: string | null
+  produto_id?: bigint | number | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
 }
 
 export type fin_notas_recebidas_itensUpdateWithoutFin_notas_recebidasInput = {
@@ -751,6 +1363,15 @@ export type fin_notas_recebidas_itensUpdateWithoutFin_notas_recebidasInput = {
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  p5_produto?: Prisma.est_produtosUpdateOneWithoutItens_notas_recebidasNestedInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemUpdateOneWithoutP5_itens_notas_recebidasNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutItem_notaNestedInput
 }
 
 export type fin_notas_recebidas_itensUncheckedUpdateWithoutFin_notas_recebidasInput = {
@@ -767,6 +1388,15 @@ export type fin_notas_recebidas_itensUncheckedUpdateWithoutFin_notas_recebidasIn
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutItem_notaNestedInput
 }
 
 export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasInput = {
@@ -783,8 +1413,241 @@ export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebid
   valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
+export type fin_notas_recebidas_itensCreateManyP5_pedido_itemInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  nota_id: bigint | number
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  produto_id?: bigint | number | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+}
+
+export type fin_notas_recebidas_itensUpdateWithoutP5_pedido_itemInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_itensNestedInput
+  p5_produto?: Prisma.est_produtosUpdateOneWithoutItens_notas_recebidasNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutItem_notaNestedInput
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateWithoutP5_pedido_itemInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  nota_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutItem_notaNestedInput
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_pedido_itemInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  nota_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  produto_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type fin_notas_recebidas_itensCreateManyP5_produtoInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  nota_id: bigint | number
+  n_item?: number | null
+  cod_produto?: string | null
+  descricao?: string | null
+  ncm?: string | null
+  cfop?: string | null
+  unidade?: string | null
+  quantidade?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: string | null
+  compras_pedido_item_id?: string | null
+  quantidade_conferida?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: string | null
+  fator_conversao?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: string | null
+}
+
+export type fin_notas_recebidas_itensUpdateWithoutP5_produtoInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fin_notas_recebidas?: Prisma.fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_itensNestedInput
+  p5_pedido_item?: Prisma.ComprasPedidoItemUpdateOneWithoutP5_itens_notas_recebidasNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutItem_notaNestedInput
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateWithoutP5_produtoInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  nota_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutItem_notaNestedInput
+}
+
+export type fin_notas_recebidas_itensUncheckedUpdateManyWithoutP5_produtoInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  nota_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  n_item?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  cod_produto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ncm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cfop?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unidade?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_unit?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_produto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_item_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantidade_conferida?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  unidade_estoque?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fator_conversao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  movimenta_estoque?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estoque_movimentado?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  divergencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+
+/**
+ * Count Type Fin_notas_recebidas_itensCountOutputType
+ */
+
+export type Fin_notas_recebidas_itensCountOutputType = {
+  p5_movimentos: number
+}
+
+export type Fin_notas_recebidas_itensCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  p5_movimentos?: boolean | Fin_notas_recebidas_itensCountOutputTypeCountP5_movimentosArgs
+}
+
+/**
+ * Fin_notas_recebidas_itensCountOutputType without action
+ */
+export type Fin_notas_recebidas_itensCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Fin_notas_recebidas_itensCountOutputType
+   */
+  select?: Prisma.Fin_notas_recebidas_itensCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Fin_notas_recebidas_itensCountOutputType without action
+ */
+export type Fin_notas_recebidas_itensCountOutputTypeCountP5_movimentosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.est_movimentosWhereInput
+}
 
 
 export type fin_notas_recebidas_itensSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -802,7 +1665,19 @@ export type fin_notas_recebidas_itensSelect<ExtArgs extends runtime.Types.Extens
   valor_produto?: boolean
   valor_total?: boolean
   pedido?: boolean
+  produto_id?: boolean
+  compras_pedido_item_id?: boolean
+  quantidade_conferida?: boolean
+  unidade_estoque?: boolean
+  fator_conversao?: boolean
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: boolean
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_produto?: boolean | Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>
+  p5_pedido_item?: boolean | Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>
+  p5_movimentos?: boolean | Prisma.fin_notas_recebidas_itens$p5_movimentosArgs<ExtArgs>
+  _count?: boolean | Prisma.Fin_notas_recebidas_itensCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas_itens"]>
 
 export type fin_notas_recebidas_itensSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -820,7 +1695,17 @@ export type fin_notas_recebidas_itensSelectCreateManyAndReturn<ExtArgs extends r
   valor_produto?: boolean
   valor_total?: boolean
   pedido?: boolean
+  produto_id?: boolean
+  compras_pedido_item_id?: boolean
+  quantidade_conferida?: boolean
+  unidade_estoque?: boolean
+  fator_conversao?: boolean
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: boolean
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_produto?: boolean | Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>
+  p5_pedido_item?: boolean | Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas_itens"]>
 
 export type fin_notas_recebidas_itensSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -838,7 +1723,17 @@ export type fin_notas_recebidas_itensSelectUpdateManyAndReturn<ExtArgs extends r
   valor_produto?: boolean
   valor_total?: boolean
   pedido?: boolean
+  produto_id?: boolean
+  compras_pedido_item_id?: boolean
+  quantidade_conferida?: boolean
+  unidade_estoque?: boolean
+  fator_conversao?: boolean
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: boolean
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_produto?: boolean | Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>
+  p5_pedido_item?: boolean | Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas_itens"]>
 
 export type fin_notas_recebidas_itensSelectScalar = {
@@ -856,23 +1751,42 @@ export type fin_notas_recebidas_itensSelectScalar = {
   valor_produto?: boolean
   valor_total?: boolean
   pedido?: boolean
+  produto_id?: boolean
+  compras_pedido_item_id?: boolean
+  quantidade_conferida?: boolean
+  unidade_estoque?: boolean
+  fator_conversao?: boolean
+  movimenta_estoque?: boolean
+  estoque_movimentado?: boolean
+  divergencia?: boolean
 }
 
-export type fin_notas_recebidas_itensOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "nota_id" | "n_item" | "cod_produto" | "descricao" | "ncm" | "cfop" | "unidade" | "quantidade" | "valor_unit" | "valor_produto" | "valor_total" | "pedido", ExtArgs["result"]["fin_notas_recebidas_itens"]>
+export type fin_notas_recebidas_itensOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "nota_id" | "n_item" | "cod_produto" | "descricao" | "ncm" | "cfop" | "unidade" | "quantidade" | "valor_unit" | "valor_produto" | "valor_total" | "pedido" | "produto_id" | "compras_pedido_item_id" | "quantidade_conferida" | "unidade_estoque" | "fator_conversao" | "movimenta_estoque" | "estoque_movimentado" | "divergencia", ExtArgs["result"]["fin_notas_recebidas_itens"]>
 export type fin_notas_recebidas_itensInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_produto?: boolean | Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>
+  p5_pedido_item?: boolean | Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>
+  p5_movimentos?: boolean | Prisma.fin_notas_recebidas_itens$p5_movimentosArgs<ExtArgs>
+  _count?: boolean | Prisma.Fin_notas_recebidas_itensCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type fin_notas_recebidas_itensIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_produto?: boolean | Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>
+  p5_pedido_item?: boolean | Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>
 }
 export type fin_notas_recebidas_itensIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_notas_recebidas?: boolean | Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>
+  p5_produto?: boolean | Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>
+  p5_pedido_item?: boolean | Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>
 }
 
 export type $fin_notas_recebidas_itensPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "fin_notas_recebidas_itens"
   objects: {
     fin_notas_recebidas: Prisma.$fin_notas_recebidasPayload<ExtArgs>
+    p5_produto: Prisma.$est_produtosPayload<ExtArgs> | null
+    p5_pedido_item: Prisma.$ComprasPedidoItemPayload<ExtArgs> | null
+    p5_movimentos: Prisma.$est_movimentosPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -889,6 +1803,14 @@ export type $fin_notas_recebidas_itensPayload<ExtArgs extends runtime.Types.Exte
     valor_produto: runtime.Decimal | null
     valor_total: runtime.Decimal | null
     pedido: string | null
+    produto_id: bigint | null
+    compras_pedido_item_id: string | null
+    quantidade_conferida: runtime.Decimal | null
+    unidade_estoque: string | null
+    fator_conversao: runtime.Decimal
+    movimenta_estoque: boolean
+    estoque_movimentado: boolean
+    divergencia: string | null
   }, ExtArgs["result"]["fin_notas_recebidas_itens"]>
   composites: {}
 }
@@ -1284,6 +2206,9 @@ readonly fields: fin_notas_recebidas_itensFieldRefs;
 export interface Prisma__fin_notas_recebidas_itensClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   fin_notas_recebidas<T extends Prisma.fin_notas_recebidasDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidasDefaultArgs<ExtArgs>>): Prisma.Prisma__fin_notas_recebidasClient<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  p5_produto<T extends Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs>>): Prisma.Prisma__est_produtosClient<runtime.Types.Result.GetResult<Prisma.$est_produtosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  p5_pedido_item<T extends Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs>>): Prisma.Prisma__ComprasPedidoItemClient<runtime.Types.Result.GetResult<Prisma.$ComprasPedidoItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  p5_movimentos<T extends Prisma.fin_notas_recebidas_itens$p5_movimentosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas_itens$p5_movimentosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$est_movimentosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1327,6 +2252,14 @@ export interface fin_notas_recebidas_itensFieldRefs {
   readonly valor_produto: Prisma.FieldRef<"fin_notas_recebidas_itens", 'Decimal'>
   readonly valor_total: Prisma.FieldRef<"fin_notas_recebidas_itens", 'Decimal'>
   readonly pedido: Prisma.FieldRef<"fin_notas_recebidas_itens", 'String'>
+  readonly produto_id: Prisma.FieldRef<"fin_notas_recebidas_itens", 'BigInt'>
+  readonly compras_pedido_item_id: Prisma.FieldRef<"fin_notas_recebidas_itens", 'String'>
+  readonly quantidade_conferida: Prisma.FieldRef<"fin_notas_recebidas_itens", 'Decimal'>
+  readonly unidade_estoque: Prisma.FieldRef<"fin_notas_recebidas_itens", 'String'>
+  readonly fator_conversao: Prisma.FieldRef<"fin_notas_recebidas_itens", 'Decimal'>
+  readonly movimenta_estoque: Prisma.FieldRef<"fin_notas_recebidas_itens", 'Boolean'>
+  readonly estoque_movimentado: Prisma.FieldRef<"fin_notas_recebidas_itens", 'Boolean'>
+  readonly divergencia: Prisma.FieldRef<"fin_notas_recebidas_itens", 'String'>
 }
     
 
@@ -1725,6 +2658,68 @@ export type fin_notas_recebidas_itensDeleteManyArgs<ExtArgs extends runtime.Type
    * Limit how many fin_notas_recebidas_itens to delete.
    */
   limit?: number
+}
+
+/**
+ * fin_notas_recebidas_itens.p5_produto
+ */
+export type fin_notas_recebidas_itens$p5_produtoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the est_produtos
+   */
+  select?: Prisma.est_produtosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the est_produtos
+   */
+  omit?: Prisma.est_produtosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.est_produtosInclude<ExtArgs> | null
+  where?: Prisma.est_produtosWhereInput
+}
+
+/**
+ * fin_notas_recebidas_itens.p5_pedido_item
+ */
+export type fin_notas_recebidas_itens$p5_pedido_itemArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ComprasPedidoItem
+   */
+  select?: Prisma.ComprasPedidoItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ComprasPedidoItem
+   */
+  omit?: Prisma.ComprasPedidoItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ComprasPedidoItemInclude<ExtArgs> | null
+  where?: Prisma.ComprasPedidoItemWhereInput
+}
+
+/**
+ * fin_notas_recebidas_itens.p5_movimentos
+ */
+export type fin_notas_recebidas_itens$p5_movimentosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the est_movimentos
+   */
+  select?: Prisma.est_movimentosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the est_movimentos
+   */
+  omit?: Prisma.est_movimentosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.est_movimentosInclude<ExtArgs> | null
+  where?: Prisma.est_movimentosWhereInput
+  orderBy?: Prisma.est_movimentosOrderByWithRelationInput | Prisma.est_movimentosOrderByWithRelationInput[]
+  cursor?: Prisma.est_movimentosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Est_movimentosScalarFieldEnum | Prisma.Est_movimentosScalarFieldEnum[]
 }
 
 /**

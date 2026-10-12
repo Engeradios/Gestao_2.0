@@ -359,6 +359,107 @@ export class GrandesProjetosService {
       return p;
     });
   }
+  async updateTaxes(id: number, body: any, actor: Actor) {
+    const aliqSimples = Number(body.aliqSimples);
+    const aliqIss = Number(body.aliqIss);
+    const aliqOutros = Number(body.aliqOutros);
+    const total = aliqSimples + aliqIss + aliqOutros;
+
+    if (
+      !Number.isFinite(aliqSimples) ||
+      !Number.isFinite(aliqIss) ||
+      !Number.isFinite(aliqOutros)
+    ) {
+      throw new BadRequestException(
+        'As alíquotas devem ser números válidos.',
+      );
+    }
+
+    if (total > 100) {
+      throw new BadRequestException(
+        'A soma das alíquotas não pode ultrapassar 100%.',
+      );
+    }
+
+    return this.db.$transaction(async (tx) => {
+      const before = await tx.gp_projeto.findFirst({
+        where: {
+          id,
+          excluido_em: null,
+        },
+      });
+
+      if (!before) {
+        throw new NotFoundException(
+          'Projeto não encontrado',
+        );
+      }
+
+      const result = await tx.gp_projeto.updateMany({
+        where: {
+          id,
+          versao: Number(body.versao),
+          excluido_em: null,
+        },
+        data: {
+          aliq_simples: this.dec(aliqSimples / 100),
+          aliq_iss: this.dec(aliqIss / 100),
+          aliq_outros: this.dec(aliqOutros / 100),
+          atualizado_por_id: actor.id || null,
+          atualizado_em: new Date(),
+          versao: { increment: 1 },
+        },
+      });
+
+      if (result.count !== 1) {
+        throw new BadRequestException(
+          'O projeto foi alterado por outro usuário. Atualize a tela e tente novamente.',
+        );
+      }
+
+      const after = await tx.gp_projeto.findUniqueOrThrow({
+        where: { id },
+      });
+
+      await this.audit(
+        tx,
+        actor,
+        'gp_projeto',
+        id,
+        'ATUALIZAR_IMPOSTOS',
+        {
+          aliq_simples: before.aliq_simples,
+          aliq_iss: before.aliq_iss,
+          aliq_outros: before.aliq_outros,
+          versao: before.versao,
+        },
+        {
+          aliq_simples: after.aliq_simples,
+          aliq_iss: after.aliq_iss,
+          aliq_outros: after.aliq_outros,
+          versao: after.versao,
+        },
+      );
+
+      return {
+        id: after.id,
+        aliqSimples:
+          Number(after.aliq_simples || 0) * 100,
+        aliqIss:
+          Number(after.aliq_iss || 0) * 100,
+        aliqOutros:
+          Number(after.aliq_outros || 0) * 100,
+        total:
+          (
+            Number(after.aliq_simples || 0) +
+            Number(after.aliq_iss || 0) +
+            Number(after.aliq_outros || 0)
+          ) * 100,
+        versao: after.versao,
+      };
+    });
+  }
+
   async transitionApproval(
     id: number,
     target: 'PENDENTE' | 'APROVADO' | 'REJEITADO',
@@ -591,6 +692,254 @@ export class GrandesProjetosService {
       return x;
     });
   }
+  async updateOrderFinance(
+    projectId: number,
+    orderId: number,
+    body: any,
+    actor: Actor,
+  ) {
+    await this.exists(projectId);
+
+    const allowed = [
+      'NAO_CLASSIFICADO',
+      'VALOR_VENDA',
+      'CUSTO',
+    ];
+
+    const naturezaValor = String(
+      body.naturezaValor || '',
+    ).trim();
+
+    const valorVenda = Number(
+      body.valorVenda || 0,
+    );
+
+    const custoApropriavel = Number(
+      body.custoApropriavel || 0,
+    );
+
+    if (!allowed.includes(naturezaValor)) {
+      throw new BadRequestException(
+        'Natureza financeira inválida.',
+      );
+    }
+
+    if (
+      !Number.isFinite(valorVenda) ||
+      valorVenda < 0 ||
+      !Number.isFinite(custoApropriavel) ||
+      custoApropriavel < 0
+    ) {
+      throw new BadRequestException(
+        'Os valores financeiros devem ser válidos e não negativos.',
+      );
+    }
+
+    if (
+      naturezaValor === 'CUSTO' &&
+      custoApropriavel <= 0
+    ) {
+      throw new BadRequestException(
+        'Informe um custo apropriável maior que zero.',
+      );
+    }
+
+    if (
+      naturezaValor !== 'CUSTO' &&
+      custoApropriavel > 0
+    ) {
+      throw new BadRequestException(
+        'Custo apropriável somente pode ser informado para natureza CUSTO.',
+      );
+    }
+
+    return this.db.$transaction(async (tx) => {
+      const before = await tx.gp_os.findFirst({
+        where: {
+          id: orderId,
+          projeto_id: projectId,
+          excluido_em: null,
+        },
+      });
+
+      if (!before) {
+        throw new NotFoundException(
+          'OS não encontrada no projeto.',
+        );
+      }
+
+      if (before.versao !== Number(body.versao)) {
+        throw new BadRequestException(
+          'A OS foi alterada por outro usuário. Atualize a tela e tente novamente.',
+        );
+      }
+
+      const legacyCost =
+        await tx.gp_custo.findFirst({
+          where: {
+            projeto_id: projectId,
+            origem: 'os',
+            os_id: null,
+            excluido_em: null,
+          },
+        });
+
+      if (
+        naturezaValor === 'CUSTO' &&
+        legacyCost
+      ) {
+        throw new BadRequestException(
+          'Existe custo agregado legado de OS neste projeto. Revise o custo legado antes de apropriar custos individualmente.',
+        );
+      }
+
+      const linkedCosts =
+        await tx.gp_custo.findMany({
+          where: {
+            projeto_id: projectId,
+            os_id: orderId,
+            excluido_em: null,
+          },
+          orderBy: {
+            id: 'asc',
+          },
+        });
+
+      if (linkedCosts.length > 1) {
+        throw new BadRequestException(
+          'Existem custos ativos duplicados vinculados a esta OS.',
+        );
+      }
+
+      const order = await tx.gp_os.update({
+        where: {
+          id: orderId,
+        },
+        data: {
+          natureza_valor: naturezaValor,
+          valor_venda:
+            naturezaValor === 'VALOR_VENDA'
+              ? this.dec(valorVenda)
+              : this.dec(0),
+          custo_apropriavel:
+            naturezaValor === 'CUSTO'
+              ? this.dec(custoApropriavel)
+              : this.dec(0),
+          atualizado_por_id: actor.id || null,
+          versao: {
+            increment: 1,
+          },
+        },
+      });
+
+      let cost: any = linkedCosts[0] || null;
+
+      if (naturezaValor === 'CUSTO') {
+        if (cost) {
+          cost = await tx.gp_custo.update({
+            where: {
+              id: cost.id,
+            },
+            data: {
+              categoria: 'CUSTO_OS',
+              tipo: 'direto',
+              descricao:
+                `Custo apropriado da OS ${before.numero_os || orderId}`,
+              origem: 'os',
+              valor_realizado:
+                this.dec(custoApropriavel),
+              valor_unitario:
+                this.dec(custoApropriavel),
+              quantidade: this.dec(1),
+              situacao: 'Realizado',
+              data_custo: new Date(),
+              atualizado_por_id:
+                actor.id || null,
+              versao: {
+                increment: 1,
+              },
+            },
+          });
+        } else {
+          cost = await tx.gp_custo.create({
+            data: {
+              projeto_id: projectId,
+              categoria: 'CUSTO_OS',
+              tipo: 'direto',
+              descricao:
+                `Custo apropriado da OS ${before.numero_os || orderId}`,
+              origem: 'os',
+              valor_orcado: this.dec(0),
+              valor_realizado:
+                this.dec(custoApropriavel),
+              valor_unitario:
+                this.dec(custoApropriavel),
+              quantidade: this.dec(1),
+              data_custo: new Date(),
+              competencia: new Date(),
+              situacao: 'Realizado',
+              os_id: orderId,
+              atualizado_por_id:
+                actor.id || null,
+            },
+          });
+        }
+      } else if (cost) {
+        cost = await tx.gp_custo.update({
+          where: {
+            id: cost.id,
+          },
+          data: {
+            excluido_em: new Date(),
+            excluido_por_id:
+              actor.id || null,
+            motivo_exclusao:
+              'OS reclassificada sem apropriação de custo',
+            atualizado_por_id:
+              actor.id || null,
+            versao: {
+              increment: 1,
+            },
+          },
+        });
+      }
+
+      await this.audit(
+        tx,
+        actor,
+        'gp_os',
+        orderId,
+        'ATUALIZAR_FINANCEIRO_OS',
+        {
+          natureza_valor:
+            before.natureza_valor,
+          valor_venda:
+            before.valor_venda,
+          custo_apropriavel:
+            before.custo_apropriavel,
+          versao: before.versao,
+        },
+        {
+          natureza_valor:
+            order.natureza_valor,
+          valor_venda:
+            order.valor_venda,
+          custo_apropriavel:
+            order.custo_apropriavel,
+          versao: order.versao,
+          gp_custo_id:
+            cost?.id || null,
+        },
+      );
+
+      return {
+        ordemServico: order,
+        custo: cost,
+        bloqueioLegado: false,
+      };
+    });
+  }
+
   async removeChild(k: Kind, pid: number, id: number, a: Actor) {
     await this.exists(pid);
     const map: any = {
@@ -659,6 +1008,7 @@ export class GrandesProjetosService {
       contrato,
       localizadas: 0,
       existentes: 0,
+      atualizadas: 0,
       incluidas: 0,
       ignoradas: 0,
       ambiguidades: 0,
@@ -725,6 +1075,7 @@ export class GrandesProjetosService {
 
     return this.db.$transaction(async (tx) => {
       let existentes = 0;
+      let atualizadas = 0;
       let incluidas = 0;
 
       for (const order of orders) {
@@ -738,7 +1089,26 @@ export class GrandesProjetosService {
         });
 
         if (found) {
+          await tx.gp_os.update({
+            where: { id: found.id },
+            data: {
+              tipo: order.tipo,
+              situacao: order.status || order.situacao,
+              tecnico: order.tecnico,
+              descricao:
+                order.titulo ||
+                order.solicitacao ||
+                `OS ${order.numero}`,
+              valor: order.valor,
+              data_abertura: order.abertura,
+              data_fechamento: order.fechamento,
+              importado_em: new Date(),
+              versao: { increment: 1 },
+            },
+          });
+
           existentes += 1;
+          atualizadas += 1;
           continue;
         }
 
@@ -769,6 +1139,7 @@ export class GrandesProjetosService {
         ...base,
         localizadas: orders.length,
         existentes,
+        atualizadas,
         incluidas,
         sincronizadoEm: new Date().toISOString(),
       };

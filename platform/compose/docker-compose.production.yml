@@ -4,7 +4,7 @@ services:
 
   api:
 
-    image: engeradios2-api:gp-painel-v2-2026-09-18_15-53-20
+    image: engeradios2-api:financeiro-fin1b-candidate-20260930_084514
 
     container_name: engeradios2-api
 

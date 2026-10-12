@@ -108,6 +108,27 @@ export type Fin_notas_recebidasMinAggregateOutputType = {
   schema_xml: string | null
   capturado_em: Date | null
   filial_id: bigint | null
+  tipo_documento: string | null
+  status_conferencia: string | null
+  conferido_por_id: string | null
+  conferido_por_nome: string | null
+  conferido_em: Date | null
+  motivo_recusa: string | null
+  divergencia_obs: string | null
+  resumo_apenas: boolean | null
+  dest_cnpj: string | null
+  manifestacao_tipo: string | null
+  manifestacao_status: string | null
+  manifestacao_protocolo: string | null
+  manifestacao_em: Date | null
+  danfe_arquivo: string | null
+  danfe_sha256: string | null
+  nfse_codigo_verificacao: string | null
+  nfse_municipio_ibge: string | null
+  fornecedor_id: string | null
+  compras_pedido_id: string | null
+  estoque_status: string | null
+  estoque_movimentado_em: Date | null
 }
 
 export type Fin_notas_recebidasMaxAggregateOutputType = {
@@ -156,6 +177,27 @@ export type Fin_notas_recebidasMaxAggregateOutputType = {
   schema_xml: string | null
   capturado_em: Date | null
   filial_id: bigint | null
+  tipo_documento: string | null
+  status_conferencia: string | null
+  conferido_por_id: string | null
+  conferido_por_nome: string | null
+  conferido_em: Date | null
+  motivo_recusa: string | null
+  divergencia_obs: string | null
+  resumo_apenas: boolean | null
+  dest_cnpj: string | null
+  manifestacao_tipo: string | null
+  manifestacao_status: string | null
+  manifestacao_protocolo: string | null
+  manifestacao_em: Date | null
+  danfe_arquivo: string | null
+  danfe_sha256: string | null
+  nfse_codigo_verificacao: string | null
+  nfse_municipio_ibge: string | null
+  fornecedor_id: string | null
+  compras_pedido_id: string | null
+  estoque_status: string | null
+  estoque_movimentado_em: Date | null
 }
 
 export type Fin_notas_recebidasCountAggregateOutputType = {
@@ -204,6 +246,27 @@ export type Fin_notas_recebidasCountAggregateOutputType = {
   schema_xml: number
   capturado_em: number
   filial_id: number
+  tipo_documento: number
+  status_conferencia: number
+  conferido_por_id: number
+  conferido_por_nome: number
+  conferido_em: number
+  motivo_recusa: number
+  divergencia_obs: number
+  resumo_apenas: number
+  dest_cnpj: number
+  manifestacao_tipo: number
+  manifestacao_status: number
+  manifestacao_protocolo: number
+  manifestacao_em: number
+  danfe_arquivo: number
+  danfe_sha256: number
+  nfse_codigo_verificacao: number
+  nfse_municipio_ibge: number
+  fornecedor_id: number
+  compras_pedido_id: number
+  estoque_status: number
+  estoque_movimentado_em: number
   _all: number
 }
 
@@ -290,6 +353,27 @@ export type Fin_notas_recebidasMinAggregateInputType = {
   schema_xml?: true
   capturado_em?: true
   filial_id?: true
+  tipo_documento?: true
+  status_conferencia?: true
+  conferido_por_id?: true
+  conferido_por_nome?: true
+  conferido_em?: true
+  motivo_recusa?: true
+  divergencia_obs?: true
+  resumo_apenas?: true
+  dest_cnpj?: true
+  manifestacao_tipo?: true
+  manifestacao_status?: true
+  manifestacao_protocolo?: true
+  manifestacao_em?: true
+  danfe_arquivo?: true
+  danfe_sha256?: true
+  nfse_codigo_verificacao?: true
+  nfse_municipio_ibge?: true
+  fornecedor_id?: true
+  compras_pedido_id?: true
+  estoque_status?: true
+  estoque_movimentado_em?: true
 }
 
 export type Fin_notas_recebidasMaxAggregateInputType = {
@@ -338,6 +422,27 @@ export type Fin_notas_recebidasMaxAggregateInputType = {
   schema_xml?: true
   capturado_em?: true
   filial_id?: true
+  tipo_documento?: true
+  status_conferencia?: true
+  conferido_por_id?: true
+  conferido_por_nome?: true
+  conferido_em?: true
+  motivo_recusa?: true
+  divergencia_obs?: true
+  resumo_apenas?: true
+  dest_cnpj?: true
+  manifestacao_tipo?: true
+  manifestacao_status?: true
+  manifestacao_protocolo?: true
+  manifestacao_em?: true
+  danfe_arquivo?: true
+  danfe_sha256?: true
+  nfse_codigo_verificacao?: true
+  nfse_municipio_ibge?: true
+  fornecedor_id?: true
+  compras_pedido_id?: true
+  estoque_status?: true
+  estoque_movimentado_em?: true
 }
 
 export type Fin_notas_recebidasCountAggregateInputType = {
@@ -386,6 +491,27 @@ export type Fin_notas_recebidasCountAggregateInputType = {
   schema_xml?: true
   capturado_em?: true
   filial_id?: true
+  tipo_documento?: true
+  status_conferencia?: true
+  conferido_por_id?: true
+  conferido_por_nome?: true
+  conferido_em?: true
+  motivo_recusa?: true
+  divergencia_obs?: true
+  resumo_apenas?: true
+  dest_cnpj?: true
+  manifestacao_tipo?: true
+  manifestacao_status?: true
+  manifestacao_protocolo?: true
+  manifestacao_em?: true
+  danfe_arquivo?: true
+  danfe_sha256?: true
+  nfse_codigo_verificacao?: true
+  nfse_municipio_ibge?: true
+  fornecedor_id?: true
+  compras_pedido_id?: true
+  estoque_status?: true
+  estoque_movimentado_em?: true
   _all?: true
 }
 
@@ -521,6 +647,27 @@ export type Fin_notas_recebidasGroupByOutputType = {
   schema_xml: string | null
   capturado_em: Date | null
   filial_id: bigint | null
+  tipo_documento: string
+  status_conferencia: string
+  conferido_por_id: string | null
+  conferido_por_nome: string | null
+  conferido_em: Date | null
+  motivo_recusa: string | null
+  divergencia_obs: string | null
+  resumo_apenas: boolean
+  dest_cnpj: string | null
+  manifestacao_tipo: string | null
+  manifestacao_status: string | null
+  manifestacao_protocolo: string | null
+  manifestacao_em: Date | null
+  danfe_arquivo: string | null
+  danfe_sha256: string | null
+  nfse_codigo_verificacao: string | null
+  nfse_municipio_ibge: string | null
+  fornecedor_id: string | null
+  compras_pedido_id: string | null
+  estoque_status: string
+  estoque_movimentado_em: Date | null
   _count: Fin_notas_recebidasCountAggregateOutputType | null
   _avg: Fin_notas_recebidasAvgAggregateOutputType | null
   _sum: Fin_notas_recebidasSumAggregateOutputType | null
@@ -592,10 +739,35 @@ export type fin_notas_recebidasWhereInput = {
   schema_xml?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
   capturado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
   filial_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas"> | bigint | number | null
+  tipo_documento?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  status_conferencia?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  conferido_por_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  conferido_por_nome?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  conferido_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  motivo_recusa?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  divergencia_obs?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  resumo_apenas?: Prisma.BoolFilter<"fin_notas_recebidas"> | boolean
+  dest_cnpj?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_tipo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_status?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_protocolo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  danfe_arquivo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  danfe_sha256?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nfse_codigo_verificacao?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nfse_municipio_ibge?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  fornecedor_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  compras_pedido_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  estoque_status?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  estoque_movimentado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
   fin_contas_pagar?: Prisma.Fin_contas_pagarListRelationFilter
   fin_notas_recebidas_itens?: Prisma.Fin_notas_recebidas_itensListRelationFilter
   fin_notas_recebidas_parcelas?: Prisma.Fin_notas_recebidas_parcelasListRelationFilter
   fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
+  p5_fornecedor?: Prisma.XOR<Prisma.ComprasFornecedorNullableScalarRelationFilter, Prisma.ComprasFornecedorWhereInput> | null
+  p5_compras_pedido?: Prisma.XOR<Prisma.ComprasPedidoNullableScalarRelationFilter, Prisma.ComprasPedidoWhereInput> | null
+  p5_eventos?: Prisma.Fin_notas_recebidas_eventosListRelationFilter
+  p5_movimentos?: Prisma.Est_movimentosListRelationFilter
 }
 
 export type fin_notas_recebidasOrderByWithRelationInput = {
@@ -644,10 +816,35 @@ export type fin_notas_recebidasOrderByWithRelationInput = {
   schema_xml?: Prisma.SortOrderInput | Prisma.SortOrder
   capturado_em?: Prisma.SortOrderInput | Prisma.SortOrder
   filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  tipo_documento?: Prisma.SortOrder
+  status_conferencia?: Prisma.SortOrder
+  conferido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  conferido_por_nome?: Prisma.SortOrderInput | Prisma.SortOrder
+  conferido_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  motivo_recusa?: Prisma.SortOrderInput | Prisma.SortOrder
+  divergencia_obs?: Prisma.SortOrderInput | Prisma.SortOrder
+  resumo_apenas?: Prisma.SortOrder
+  dest_cnpj?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_tipo?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_status?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_protocolo?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  danfe_arquivo?: Prisma.SortOrderInput | Prisma.SortOrder
+  danfe_sha256?: Prisma.SortOrderInput | Prisma.SortOrder
+  nfse_codigo_verificacao?: Prisma.SortOrderInput | Prisma.SortOrder
+  nfse_municipio_ibge?: Prisma.SortOrderInput | Prisma.SortOrder
+  fornecedor_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  compras_pedido_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  estoque_status?: Prisma.SortOrder
+  estoque_movimentado_em?: Prisma.SortOrderInput | Prisma.SortOrder
   fin_contas_pagar?: Prisma.fin_contas_pagarOrderByRelationAggregateInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensOrderByRelationAggregateInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasOrderByRelationAggregateInput
   fin_filiais?: Prisma.fin_filiaisOrderByWithRelationInput
+  p5_fornecedor?: Prisma.ComprasFornecedorOrderByWithRelationInput
+  p5_compras_pedido?: Prisma.ComprasPedidoOrderByWithRelationInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosOrderByRelationAggregateInput
+  p5_movimentos?: Prisma.est_movimentosOrderByRelationAggregateInput
 }
 
 export type fin_notas_recebidasWhereUniqueInput = Prisma.AtLeast<{
@@ -699,10 +896,35 @@ export type fin_notas_recebidasWhereUniqueInput = Prisma.AtLeast<{
   schema_xml?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
   capturado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
   filial_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas"> | bigint | number | null
+  tipo_documento?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  status_conferencia?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  conferido_por_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  conferido_por_nome?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  conferido_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  motivo_recusa?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  divergencia_obs?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  resumo_apenas?: Prisma.BoolFilter<"fin_notas_recebidas"> | boolean
+  dest_cnpj?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_tipo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_status?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_protocolo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  danfe_arquivo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  danfe_sha256?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nfse_codigo_verificacao?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nfse_municipio_ibge?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  fornecedor_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  compras_pedido_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  estoque_status?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  estoque_movimentado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
   fin_contas_pagar?: Prisma.Fin_contas_pagarListRelationFilter
   fin_notas_recebidas_itens?: Prisma.Fin_notas_recebidas_itensListRelationFilter
   fin_notas_recebidas_parcelas?: Prisma.Fin_notas_recebidas_parcelasListRelationFilter
   fin_filiais?: Prisma.XOR<Prisma.Fin_filiaisNullableScalarRelationFilter, Prisma.fin_filiaisWhereInput> | null
+  p5_fornecedor?: Prisma.XOR<Prisma.ComprasFornecedorNullableScalarRelationFilter, Prisma.ComprasFornecedorWhereInput> | null
+  p5_compras_pedido?: Prisma.XOR<Prisma.ComprasPedidoNullableScalarRelationFilter, Prisma.ComprasPedidoWhereInput> | null
+  p5_eventos?: Prisma.Fin_notas_recebidas_eventosListRelationFilter
+  p5_movimentos?: Prisma.Est_movimentosListRelationFilter
 }, "id" | "legado_id" | "chave">
 
 export type fin_notas_recebidasOrderByWithAggregationInput = {
@@ -751,6 +973,27 @@ export type fin_notas_recebidasOrderByWithAggregationInput = {
   schema_xml?: Prisma.SortOrderInput | Prisma.SortOrder
   capturado_em?: Prisma.SortOrderInput | Prisma.SortOrder
   filial_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  tipo_documento?: Prisma.SortOrder
+  status_conferencia?: Prisma.SortOrder
+  conferido_por_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  conferido_por_nome?: Prisma.SortOrderInput | Prisma.SortOrder
+  conferido_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  motivo_recusa?: Prisma.SortOrderInput | Prisma.SortOrder
+  divergencia_obs?: Prisma.SortOrderInput | Prisma.SortOrder
+  resumo_apenas?: Prisma.SortOrder
+  dest_cnpj?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_tipo?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_status?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_protocolo?: Prisma.SortOrderInput | Prisma.SortOrder
+  manifestacao_em?: Prisma.SortOrderInput | Prisma.SortOrder
+  danfe_arquivo?: Prisma.SortOrderInput | Prisma.SortOrder
+  danfe_sha256?: Prisma.SortOrderInput | Prisma.SortOrder
+  nfse_codigo_verificacao?: Prisma.SortOrderInput | Prisma.SortOrder
+  nfse_municipio_ibge?: Prisma.SortOrderInput | Prisma.SortOrder
+  fornecedor_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  compras_pedido_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  estoque_status?: Prisma.SortOrder
+  estoque_movimentado_em?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.fin_notas_recebidasCountOrderByAggregateInput
   _avg?: Prisma.fin_notas_recebidasAvgOrderByAggregateInput
   _max?: Prisma.fin_notas_recebidasMaxOrderByAggregateInput
@@ -807,6 +1050,27 @@ export type fin_notas_recebidasScalarWhereWithAggregatesInput = {
   schema_xml?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
   capturado_em?: Prisma.DateTimeNullableWithAggregatesFilter<"fin_notas_recebidas"> | Date | string | null
   filial_id?: Prisma.BigIntNullableWithAggregatesFilter<"fin_notas_recebidas"> | bigint | number | null
+  tipo_documento?: Prisma.StringWithAggregatesFilter<"fin_notas_recebidas"> | string
+  status_conferencia?: Prisma.StringWithAggregatesFilter<"fin_notas_recebidas"> | string
+  conferido_por_id?: Prisma.UuidNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  conferido_por_nome?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  conferido_em?: Prisma.DateTimeNullableWithAggregatesFilter<"fin_notas_recebidas"> | Date | string | null
+  motivo_recusa?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  divergencia_obs?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  resumo_apenas?: Prisma.BoolWithAggregatesFilter<"fin_notas_recebidas"> | boolean
+  dest_cnpj?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_tipo?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_status?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_protocolo?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_em?: Prisma.DateTimeNullableWithAggregatesFilter<"fin_notas_recebidas"> | Date | string | null
+  danfe_arquivo?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  danfe_sha256?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  nfse_codigo_verificacao?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  nfse_municipio_ibge?: Prisma.StringNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  fornecedor_id?: Prisma.UuidNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  compras_pedido_id?: Prisma.UuidNullableWithAggregatesFilter<"fin_notas_recebidas"> | string | null
+  estoque_status?: Prisma.StringWithAggregatesFilter<"fin_notas_recebidas"> | string
+  estoque_movimentado_em?: Prisma.DateTimeNullableWithAggregatesFilter<"fin_notas_recebidas"> | Date | string | null
 }
 
 export type fin_notas_recebidasCreateInput = {
@@ -854,10 +1118,33 @@ export type fin_notas_recebidasCreateInput = {
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasUncheckedCreateInput = {
@@ -906,9 +1193,32 @@ export type fin_notas_recebidasUncheckedCreateInput = {
   schema_xml?: string | null
   capturado_em?: Date | string | null
   filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasUpdateInput = {
@@ -956,10 +1266,33 @@ export type fin_notas_recebidasUpdateInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateInput = {
@@ -1008,9 +1341,32 @@ export type fin_notas_recebidasUncheckedUpdateInput = {
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasCreateManyInput = {
@@ -1059,6 +1415,27 @@ export type fin_notas_recebidasCreateManyInput = {
   schema_xml?: string | null
   capturado_em?: Date | string | null
   filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
 }
 
 export type fin_notas_recebidasUpdateManyMutationInput = {
@@ -1106,6 +1483,25 @@ export type fin_notas_recebidasUpdateManyMutationInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type fin_notas_recebidasUncheckedUpdateManyInput = {
@@ -1154,6 +1550,27 @@ export type fin_notas_recebidasUncheckedUpdateManyInput = {
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type Fin_notas_recebidasNullableScalarRelationFilter = {
@@ -1207,6 +1624,27 @@ export type fin_notas_recebidasCountOrderByAggregateInput = {
   schema_xml?: Prisma.SortOrder
   capturado_em?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  tipo_documento?: Prisma.SortOrder
+  status_conferencia?: Prisma.SortOrder
+  conferido_por_id?: Prisma.SortOrder
+  conferido_por_nome?: Prisma.SortOrder
+  conferido_em?: Prisma.SortOrder
+  motivo_recusa?: Prisma.SortOrder
+  divergencia_obs?: Prisma.SortOrder
+  resumo_apenas?: Prisma.SortOrder
+  dest_cnpj?: Prisma.SortOrder
+  manifestacao_tipo?: Prisma.SortOrder
+  manifestacao_status?: Prisma.SortOrder
+  manifestacao_protocolo?: Prisma.SortOrder
+  manifestacao_em?: Prisma.SortOrder
+  danfe_arquivo?: Prisma.SortOrder
+  danfe_sha256?: Prisma.SortOrder
+  nfse_codigo_verificacao?: Prisma.SortOrder
+  nfse_municipio_ibge?: Prisma.SortOrder
+  fornecedor_id?: Prisma.SortOrder
+  compras_pedido_id?: Prisma.SortOrder
+  estoque_status?: Prisma.SortOrder
+  estoque_movimentado_em?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasAvgOrderByAggregateInput = {
@@ -1273,6 +1711,27 @@ export type fin_notas_recebidasMaxOrderByAggregateInput = {
   schema_xml?: Prisma.SortOrder
   capturado_em?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  tipo_documento?: Prisma.SortOrder
+  status_conferencia?: Prisma.SortOrder
+  conferido_por_id?: Prisma.SortOrder
+  conferido_por_nome?: Prisma.SortOrder
+  conferido_em?: Prisma.SortOrder
+  motivo_recusa?: Prisma.SortOrder
+  divergencia_obs?: Prisma.SortOrder
+  resumo_apenas?: Prisma.SortOrder
+  dest_cnpj?: Prisma.SortOrder
+  manifestacao_tipo?: Prisma.SortOrder
+  manifestacao_status?: Prisma.SortOrder
+  manifestacao_protocolo?: Prisma.SortOrder
+  manifestacao_em?: Prisma.SortOrder
+  danfe_arquivo?: Prisma.SortOrder
+  danfe_sha256?: Prisma.SortOrder
+  nfse_codigo_verificacao?: Prisma.SortOrder
+  nfse_municipio_ibge?: Prisma.SortOrder
+  fornecedor_id?: Prisma.SortOrder
+  compras_pedido_id?: Prisma.SortOrder
+  estoque_status?: Prisma.SortOrder
+  estoque_movimentado_em?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasMinOrderByAggregateInput = {
@@ -1321,6 +1780,27 @@ export type fin_notas_recebidasMinOrderByAggregateInput = {
   schema_xml?: Prisma.SortOrder
   capturado_em?: Prisma.SortOrder
   filial_id?: Prisma.SortOrder
+  tipo_documento?: Prisma.SortOrder
+  status_conferencia?: Prisma.SortOrder
+  conferido_por_id?: Prisma.SortOrder
+  conferido_por_nome?: Prisma.SortOrder
+  conferido_em?: Prisma.SortOrder
+  motivo_recusa?: Prisma.SortOrder
+  divergencia_obs?: Prisma.SortOrder
+  resumo_apenas?: Prisma.SortOrder
+  dest_cnpj?: Prisma.SortOrder
+  manifestacao_tipo?: Prisma.SortOrder
+  manifestacao_status?: Prisma.SortOrder
+  manifestacao_protocolo?: Prisma.SortOrder
+  manifestacao_em?: Prisma.SortOrder
+  danfe_arquivo?: Prisma.SortOrder
+  danfe_sha256?: Prisma.SortOrder
+  nfse_codigo_verificacao?: Prisma.SortOrder
+  nfse_municipio_ibge?: Prisma.SortOrder
+  fornecedor_id?: Prisma.SortOrder
+  compras_pedido_id?: Prisma.SortOrder
+  estoque_status?: Prisma.SortOrder
+  estoque_movimentado_em?: Prisma.SortOrder
 }
 
 export type fin_notas_recebidasSumOrderByAggregateInput = {
@@ -1400,6 +1880,90 @@ export type fin_notas_recebidasUpdateOneRequiredWithoutFin_notas_recebidas_parce
   update?: Prisma.XOR<Prisma.XOR<Prisma.fin_notas_recebidasUpdateToOneWithWhereWithoutFin_notas_recebidas_parcelasInput, Prisma.fin_notas_recebidasUpdateWithoutFin_notas_recebidas_parcelasInput>, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_parcelasInput>
 }
 
+export type fin_notas_recebidasCreateNestedManyWithoutP5_fornecedorInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput> | Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_fornecedorInputEnvelope
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+}
+
+export type fin_notas_recebidasUncheckedCreateNestedManyWithoutP5_fornecedorInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput> | Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_fornecedorInputEnvelope
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+}
+
+export type fin_notas_recebidasUpdateManyWithoutP5_fornecedorNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput> | Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput[]
+  upsert?: Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_fornecedorInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_fornecedorInputEnvelope
+  set?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_fornecedorInput[]
+  updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_fornecedorInput[]
+  deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
+export type fin_notas_recebidasUncheckedUpdateManyWithoutP5_fornecedorNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput> | Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput[]
+  upsert?: Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_fornecedorInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_fornecedorInputEnvelope
+  set?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_fornecedorInput[]
+  updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_fornecedorInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_fornecedorInput[]
+  deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
+export type fin_notas_recebidasCreateNestedManyWithoutP5_compras_pedidoInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput> | Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_compras_pedidoInputEnvelope
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+}
+
+export type fin_notas_recebidasUncheckedCreateNestedManyWithoutP5_compras_pedidoInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput> | Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_compras_pedidoInputEnvelope
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+}
+
+export type fin_notas_recebidasUpdateManyWithoutP5_compras_pedidoNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput> | Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput[]
+  upsert?: Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_compras_pedidoInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_compras_pedidoInputEnvelope
+  set?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_compras_pedidoInput[]
+  updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_compras_pedidoInput[]
+  deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
+export type fin_notas_recebidasUncheckedUpdateManyWithoutP5_compras_pedidoNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput> | Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput[]
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput[]
+  upsert?: Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_compras_pedidoInput[]
+  createMany?: Prisma.fin_notas_recebidasCreateManyP5_compras_pedidoInputEnvelope
+  set?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  disconnect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  delete?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput | Prisma.fin_notas_recebidasWhereUniqueInput[]
+  update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_compras_pedidoInput[]
+  updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_compras_pedidoInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutP5_compras_pedidoInput[]
+  deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
 export type fin_notas_recebidasCreateNestedManyWithoutFin_filiaisInput = {
   create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput> | Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput[] | Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput[]
   connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput | Prisma.fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput[]
@@ -1440,6 +2004,36 @@ export type fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisNestedInput 
   update?: Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput[]
   updateMany?: Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput | Prisma.fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput[]
   deleteMany?: Prisma.fin_notas_recebidasScalarWhereInput | Prisma.fin_notas_recebidasScalarWhereInput[]
+}
+
+export type fin_notas_recebidasCreateNestedOneWithoutP5_eventosInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_eventosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_eventosInput>
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_eventosInput
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput
+}
+
+export type fin_notas_recebidasUpdateOneRequiredWithoutP5_eventosNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_eventosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_eventosInput>
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_eventosInput
+  upsert?: Prisma.fin_notas_recebidasUpsertWithoutP5_eventosInput
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.fin_notas_recebidasUpdateToOneWithWhereWithoutP5_eventosInput, Prisma.fin_notas_recebidasUpdateWithoutP5_eventosInput>, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_eventosInput>
+}
+
+export type fin_notas_recebidasCreateNestedOneWithoutP5_movimentosInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_movimentosInput>
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_movimentosInput
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput
+}
+
+export type fin_notas_recebidasUpdateOneWithoutP5_movimentosNestedInput = {
+  create?: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_movimentosInput>
+  connectOrCreate?: Prisma.fin_notas_recebidasCreateOrConnectWithoutP5_movimentosInput
+  upsert?: Prisma.fin_notas_recebidasUpsertWithoutP5_movimentosInput
+  disconnect?: Prisma.fin_notas_recebidasWhereInput | boolean
+  delete?: Prisma.fin_notas_recebidasWhereInput | boolean
+  connect?: Prisma.fin_notas_recebidasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.fin_notas_recebidasUpdateToOneWithWhereWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUpdateWithoutP5_movimentosInput>, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_movimentosInput>
 }
 
 export type fin_notas_recebidasCreateWithoutFin_contas_pagarInput = {
@@ -1487,9 +2081,32 @@ export type fin_notas_recebidasCreateWithoutFin_contas_pagarInput = {
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasUncheckedCreateWithoutFin_contas_pagarInput = {
@@ -1538,8 +2155,31 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_contas_pagarInput = {
   schema_xml?: string | null
   capturado_em?: Date | string | null
   filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasCreateOrConnectWithoutFin_contas_pagarInput = {
@@ -1603,9 +2243,32 @@ export type fin_notas_recebidasUpdateWithoutFin_contas_pagarInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_contas_pagarInput = {
@@ -1654,8 +2317,31 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_contas_pagarInput = {
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasCreateWithoutFin_notas_recebidas_itensInput = {
@@ -1703,9 +2389,32 @@ export type fin_notas_recebidasCreateWithoutFin_notas_recebidas_itensInput = {
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_itensInput = {
@@ -1754,8 +2463,31 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_itensIn
   schema_xml?: string | null
   capturado_em?: Date | string | null
   filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasCreateOrConnectWithoutFin_notas_recebidas_itensInput = {
@@ -1819,9 +2551,32 @@ export type fin_notas_recebidasUpdateWithoutFin_notas_recebidas_itensInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_itensInput = {
@@ -1870,8 +2625,31 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_itensIn
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasCreateWithoutFin_notas_recebidas_parcelasInput = {
@@ -1919,9 +2697,32 @@ export type fin_notas_recebidasCreateWithoutFin_notas_recebidas_parcelasInput = 
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
   fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_parcelasInput = {
@@ -1970,8 +2771,31 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_notas_recebidas_parcela
   schema_xml?: string | null
   capturado_em?: Date | string | null
   filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
 }
 
 export type fin_notas_recebidasCreateOrConnectWithoutFin_notas_recebidas_parcelasInput = {
@@ -2035,9 +2859,32 @@ export type fin_notas_recebidasUpdateWithoutFin_notas_recebidas_parcelasInput = 
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_parcelasInput = {
@@ -2086,11 +2933,34 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_notas_recebidas_parcela
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
 }
 
-export type fin_notas_recebidasCreateWithoutFin_filiaisInput = {
+export type fin_notas_recebidasCreateWithoutP5_fornecedorInput = {
   id?: bigint | number
   legado_id?: number | null
   chave?: string | null
@@ -2135,12 +3005,35 @@ export type fin_notas_recebidasCreateWithoutFin_filiaisInput = {
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
 }
 
-export type fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput = {
+export type fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput = {
   id?: bigint | number
   legado_id?: number | null
   chave?: string | null
@@ -2185,35 +3078,58 @@ export type fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput = {
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
 }
 
-export type fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput = {
+export type fin_notas_recebidasCreateOrConnectWithoutP5_fornecedorInput = {
   where: Prisma.fin_notas_recebidasWhereUniqueInput
-  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput>
 }
 
-export type fin_notas_recebidasCreateManyFin_filiaisInputEnvelope = {
-  data: Prisma.fin_notas_recebidasCreateManyFin_filiaisInput | Prisma.fin_notas_recebidasCreateManyFin_filiaisInput[]
+export type fin_notas_recebidasCreateManyP5_fornecedorInputEnvelope = {
+  data: Prisma.fin_notas_recebidasCreateManyP5_fornecedorInput | Prisma.fin_notas_recebidasCreateManyP5_fornecedorInput[]
   skipDuplicates?: boolean
 }
 
-export type fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput = {
+export type fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_fornecedorInput = {
   where: Prisma.fin_notas_recebidasWhereUniqueInput
-  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput>
-  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput>
+  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_fornecedorInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_fornecedorInput>
 }
 
-export type fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput = {
+export type fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_fornecedorInput = {
   where: Prisma.fin_notas_recebidasWhereUniqueInput
-  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput>
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_fornecedorInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_fornecedorInput>
 }
 
-export type fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput = {
+export type fin_notas_recebidasUpdateManyWithWhereWithoutP5_fornecedorInput = {
   where: Prisma.fin_notas_recebidasScalarWhereInput
-  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateManyMutationInput, Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisInput>
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateManyMutationInput, Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutP5_fornecedorInput>
 }
 
 export type fin_notas_recebidasScalarWhereInput = {
@@ -2265,6 +3181,1551 @@ export type fin_notas_recebidasScalarWhereInput = {
   schema_xml?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
   capturado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
   filial_id?: Prisma.BigIntNullableFilter<"fin_notas_recebidas"> | bigint | number | null
+  tipo_documento?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  status_conferencia?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  conferido_por_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  conferido_por_nome?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  conferido_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  motivo_recusa?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  divergencia_obs?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  resumo_apenas?: Prisma.BoolFilter<"fin_notas_recebidas"> | boolean
+  dest_cnpj?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_tipo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_status?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_protocolo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  manifestacao_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+  danfe_arquivo?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  danfe_sha256?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nfse_codigo_verificacao?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  nfse_municipio_ibge?: Prisma.StringNullableFilter<"fin_notas_recebidas"> | string | null
+  fornecedor_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  compras_pedido_id?: Prisma.UuidNullableFilter<"fin_notas_recebidas"> | string | null
+  estoque_status?: Prisma.StringFilter<"fin_notas_recebidas"> | string
+  estoque_movimentado_em?: Prisma.DateTimeNullableFilter<"fin_notas_recebidas"> | Date | string | null
+}
+
+export type fin_notas_recebidasCreateWithoutP5_compras_pedidoInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasCreateOrConnectWithoutP5_compras_pedidoInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput>
+}
+
+export type fin_notas_recebidasCreateManyP5_compras_pedidoInputEnvelope = {
+  data: Prisma.fin_notas_recebidasCreateManyP5_compras_pedidoInput | Prisma.fin_notas_recebidasCreateManyP5_compras_pedidoInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_notas_recebidasUpsertWithWhereUniqueWithoutP5_compras_pedidoInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_compras_pedidoInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_compras_pedidoInput>
+}
+
+export type fin_notas_recebidasUpdateWithWhereUniqueWithoutP5_compras_pedidoInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_compras_pedidoInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_compras_pedidoInput>
+}
+
+export type fin_notas_recebidasUpdateManyWithWhereWithoutP5_compras_pedidoInput = {
+  where: Prisma.fin_notas_recebidasScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateManyMutationInput, Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutP5_compras_pedidoInput>
+}
+
+export type fin_notas_recebidasCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasCreateOrConnectWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasCreateManyFin_filiaisInputEnvelope = {
+  data: Prisma.fin_notas_recebidasCreateManyFin_filiaisInput | Prisma.fin_notas_recebidasCreateManyFin_filiaisInput[]
+  skipDuplicates?: boolean
+}
+
+export type fin_notas_recebidasUpsertWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasUpdateWithWhereUniqueWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutFin_filiaisInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasUpdateManyWithWhereWithoutFin_filiaisInput = {
+  where: Prisma.fin_notas_recebidasScalarWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateManyMutationInput, Prisma.fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisInput>
+}
+
+export type fin_notas_recebidasCreateWithoutP5_eventosInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_movimentos?: Prisma.est_movimentosCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasUncheckedCreateWithoutP5_eventosInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasCreateOrConnectWithoutP5_eventosInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_eventosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_eventosInput>
+}
+
+export type fin_notas_recebidasUpsertWithoutP5_eventosInput = {
+  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_eventosInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_eventosInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_eventosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_eventosInput>
+  where?: Prisma.fin_notas_recebidasWhereInput
+}
+
+export type fin_notas_recebidasUpdateToOneWithWhereWithoutP5_eventosInput = {
+  where?: Prisma.fin_notas_recebidasWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_eventosInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_eventosInput>
+}
+
+export type fin_notas_recebidasUpdateWithoutP5_eventosInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateWithoutP5_eventosInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasCreateWithoutP5_movimentosInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_filiais?: Prisma.fin_filiaisCreateNestedOneWithoutFin_notas_recebidasInput
+  p5_fornecedor?: Prisma.ComprasFornecedorCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_compras_pedido?: Prisma.ComprasPedidoCreateNestedOneWithoutP5_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasUncheckedCreateWithoutP5_movimentosInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedCreateNestedManyWithoutFin_notas_recebidasInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedCreateNestedManyWithoutNotaInput
+}
+
+export type fin_notas_recebidasCreateOrConnectWithoutP5_movimentosInput = {
+  where: Prisma.fin_notas_recebidasWhereUniqueInput
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_movimentosInput>
+}
+
+export type fin_notas_recebidasUpsertWithoutP5_movimentosInput = {
+  update: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_movimentosInput>
+  create: Prisma.XOR<Prisma.fin_notas_recebidasCreateWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUncheckedCreateWithoutP5_movimentosInput>
+  where?: Prisma.fin_notas_recebidasWhereInput
+}
+
+export type fin_notas_recebidasUpdateToOneWithWhereWithoutP5_movimentosInput = {
+  where?: Prisma.fin_notas_recebidasWhereInput
+  data: Prisma.XOR<Prisma.fin_notas_recebidasUpdateWithoutP5_movimentosInput, Prisma.fin_notas_recebidasUncheckedUpdateWithoutP5_movimentosInput>
+}
+
+export type fin_notas_recebidasUpdateWithoutP5_movimentosInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateWithoutP5_movimentosInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasCreateManyP5_fornecedorInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+}
+
+export type fin_notas_recebidasUpdateWithoutP5_fornecedorInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateWithoutP5_fornecedorInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateManyWithoutP5_fornecedorInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type fin_notas_recebidasCreateManyP5_compras_pedidoInput = {
+  id?: bigint | number
+  legado_id?: number | null
+  chave?: string | null
+  numero?: string | null
+  serie?: string | null
+  modelo?: string | null
+  natureza?: string | null
+  data_emissao?: Date | string | null
+  data_entrada?: Date | string | null
+  emit_cnpj?: string | null
+  emit_nome?: string | null
+  emit_fantasia?: string | null
+  emit_uf?: string | null
+  emit_ie?: string | null
+  valor_produtos?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: string | null
+  projeto_legado_id?: number | null
+  protocolo?: string | null
+  status_sefaz?: string | null
+  origem?: string | null
+  situacao?: string | null
+  forma_pgto?: string | null
+  categoria?: string | null
+  observacoes?: string | null
+  xml_arquivo?: string | null
+  criado_por?: string | null
+  criado_em?: Date | string
+  atualizado_em?: Date | string
+  enviado_pagar?: boolean
+  enviado_pagar_em?: Date | string | null
+  xml_sha256?: string | null
+  nsu?: string | null
+  schema_xml?: string | null
+  capturado_em?: Date | string | null
+  filial_id?: bigint | number | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
+}
+
+export type fin_notas_recebidasUpdateWithoutP5_compras_pedidoInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_filiais?: Prisma.fin_filiaisUpdateOneWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateWithoutP5_compras_pedidoInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
+}
+
+export type fin_notas_recebidasUncheckedUpdateManyWithoutP5_compras_pedidoInput = {
+  id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  chave?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  numero?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  natureza?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  data_emissao?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  data_entrada?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emit_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_fantasia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_uf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emit_ie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  valor_produtos?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_frete?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_seguro?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_desconto?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_outros?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_icms_st?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_ipi?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_pis?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_cofins?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  valor_total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  numero_pedido?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projeto_legado_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status_sefaz?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  origem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  situacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  forma_pgto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoria?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observacoes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  xml_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_por?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  criado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  atualizado_em?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enviado_pagar?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  enviado_pagar_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  xml_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  filial_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type fin_notas_recebidasCreateManyFin_filiaisInput = {
@@ -2312,6 +4773,27 @@ export type fin_notas_recebidasCreateManyFin_filiaisInput = {
   nsu?: string | null
   schema_xml?: string | null
   capturado_em?: Date | string | null
+  tipo_documento?: string
+  status_conferencia?: string
+  conferido_por_id?: string | null
+  conferido_por_nome?: string | null
+  conferido_em?: Date | string | null
+  motivo_recusa?: string | null
+  divergencia_obs?: string | null
+  resumo_apenas?: boolean
+  dest_cnpj?: string | null
+  manifestacao_tipo?: string | null
+  manifestacao_status?: string | null
+  manifestacao_protocolo?: string | null
+  manifestacao_em?: Date | string | null
+  danfe_arquivo?: string | null
+  danfe_sha256?: string | null
+  nfse_codigo_verificacao?: string | null
+  nfse_municipio_ibge?: string | null
+  fornecedor_id?: string | null
+  compras_pedido_id?: string | null
+  estoque_status?: string
+  estoque_movimentado_em?: Date | string | null
 }
 
 export type fin_notas_recebidasUpdateWithoutFin_filiaisInput = {
@@ -2359,9 +4841,32 @@ export type fin_notas_recebidasUpdateWithoutFin_filiaisInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_fornecedor?: Prisma.ComprasFornecedorUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_compras_pedido?: Prisma.ComprasPedidoUpdateOneWithoutP5_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput = {
@@ -2409,9 +4914,32 @@ export type fin_notas_recebidasUncheckedUpdateWithoutFin_filiaisInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   fin_contas_pagar?: Prisma.fin_contas_pagarUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_itens?: Prisma.fin_notas_recebidas_itensUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
   fin_notas_recebidas_parcelas?: Prisma.fin_notas_recebidas_parcelasUncheckedUpdateManyWithoutFin_notas_recebidasNestedInput
+  p5_eventos?: Prisma.fin_notas_recebidas_eventosUncheckedUpdateManyWithoutNotaNestedInput
+  p5_movimentos?: Prisma.est_movimentosUncheckedUpdateManyWithoutNotaNestedInput
 }
 
 export type fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisInput = {
@@ -2459,6 +4987,27 @@ export type fin_notas_recebidasUncheckedUpdateManyWithoutFin_filiaisInput = {
   nsu?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   schema_xml?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   capturado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  tipo_documento?: Prisma.StringFieldUpdateOperationsInput | string
+  status_conferencia?: Prisma.StringFieldUpdateOperationsInput | string
+  conferido_por_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_por_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conferido_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  motivo_recusa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  divergencia_obs?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumo_apenas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  dest_cnpj?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_tipo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_protocolo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manifestacao_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  danfe_arquivo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  danfe_sha256?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_codigo_verificacao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nfse_municipio_ibge?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fornecedor_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  compras_pedido_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estoque_status?: Prisma.StringFieldUpdateOperationsInput | string
+  estoque_movimentado_em?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -2470,12 +5019,16 @@ export type Fin_notas_recebidasCountOutputType = {
   fin_contas_pagar: number
   fin_notas_recebidas_itens: number
   fin_notas_recebidas_parcelas: number
+  p5_eventos: number
+  p5_movimentos: number
 }
 
 export type Fin_notas_recebidasCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_contas_pagar?: boolean | Fin_notas_recebidasCountOutputTypeCountFin_contas_pagarArgs
   fin_notas_recebidas_itens?: boolean | Fin_notas_recebidasCountOutputTypeCountFin_notas_recebidas_itensArgs
   fin_notas_recebidas_parcelas?: boolean | Fin_notas_recebidasCountOutputTypeCountFin_notas_recebidas_parcelasArgs
+  p5_eventos?: boolean | Fin_notas_recebidasCountOutputTypeCountP5_eventosArgs
+  p5_movimentos?: boolean | Fin_notas_recebidasCountOutputTypeCountP5_movimentosArgs
 }
 
 /**
@@ -2507,6 +5060,20 @@ export type Fin_notas_recebidasCountOutputTypeCountFin_notas_recebidas_itensArgs
  */
 export type Fin_notas_recebidasCountOutputTypeCountFin_notas_recebidas_parcelasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.fin_notas_recebidas_parcelasWhereInput
+}
+
+/**
+ * Fin_notas_recebidasCountOutputType without action
+ */
+export type Fin_notas_recebidasCountOutputTypeCountP5_eventosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.fin_notas_recebidas_eventosWhereInput
+}
+
+/**
+ * Fin_notas_recebidasCountOutputType without action
+ */
+export type Fin_notas_recebidasCountOutputTypeCountP5_movimentosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.est_movimentosWhereInput
 }
 
 
@@ -2556,10 +5123,35 @@ export type fin_notas_recebidasSelect<ExtArgs extends runtime.Types.Extensions.I
   schema_xml?: boolean
   capturado_em?: boolean
   filial_id?: boolean
+  tipo_documento?: boolean
+  status_conferencia?: boolean
+  conferido_por_id?: boolean
+  conferido_por_nome?: boolean
+  conferido_em?: boolean
+  motivo_recusa?: boolean
+  divergencia_obs?: boolean
+  resumo_apenas?: boolean
+  dest_cnpj?: boolean
+  manifestacao_tipo?: boolean
+  manifestacao_status?: boolean
+  manifestacao_protocolo?: boolean
+  manifestacao_em?: boolean
+  danfe_arquivo?: boolean
+  danfe_sha256?: boolean
+  nfse_codigo_verificacao?: boolean
+  nfse_municipio_ibge?: boolean
+  fornecedor_id?: boolean
+  compras_pedido_id?: boolean
+  estoque_status?: boolean
+  estoque_movimentado_em?: boolean
   fin_contas_pagar?: boolean | Prisma.fin_notas_recebidas$fin_contas_pagarArgs<ExtArgs>
   fin_notas_recebidas_itens?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs>
   fin_notas_recebidas_parcelas?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+  p5_fornecedor?: boolean | Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>
+  p5_compras_pedido?: boolean | Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>
+  p5_eventos?: boolean | Prisma.fin_notas_recebidas$p5_eventosArgs<ExtArgs>
+  p5_movimentos?: boolean | Prisma.fin_notas_recebidas$p5_movimentosArgs<ExtArgs>
   _count?: boolean | Prisma.Fin_notas_recebidasCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas"]>
 
@@ -2609,7 +5201,30 @@ export type fin_notas_recebidasSelectCreateManyAndReturn<ExtArgs extends runtime
   schema_xml?: boolean
   capturado_em?: boolean
   filial_id?: boolean
+  tipo_documento?: boolean
+  status_conferencia?: boolean
+  conferido_por_id?: boolean
+  conferido_por_nome?: boolean
+  conferido_em?: boolean
+  motivo_recusa?: boolean
+  divergencia_obs?: boolean
+  resumo_apenas?: boolean
+  dest_cnpj?: boolean
+  manifestacao_tipo?: boolean
+  manifestacao_status?: boolean
+  manifestacao_protocolo?: boolean
+  manifestacao_em?: boolean
+  danfe_arquivo?: boolean
+  danfe_sha256?: boolean
+  nfse_codigo_verificacao?: boolean
+  nfse_municipio_ibge?: boolean
+  fornecedor_id?: boolean
+  compras_pedido_id?: boolean
+  estoque_status?: boolean
+  estoque_movimentado_em?: boolean
   fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+  p5_fornecedor?: boolean | Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>
+  p5_compras_pedido?: boolean | Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas"]>
 
 export type fin_notas_recebidasSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -2658,7 +5273,30 @@ export type fin_notas_recebidasSelectUpdateManyAndReturn<ExtArgs extends runtime
   schema_xml?: boolean
   capturado_em?: boolean
   filial_id?: boolean
+  tipo_documento?: boolean
+  status_conferencia?: boolean
+  conferido_por_id?: boolean
+  conferido_por_nome?: boolean
+  conferido_em?: boolean
+  motivo_recusa?: boolean
+  divergencia_obs?: boolean
+  resumo_apenas?: boolean
+  dest_cnpj?: boolean
+  manifestacao_tipo?: boolean
+  manifestacao_status?: boolean
+  manifestacao_protocolo?: boolean
+  manifestacao_em?: boolean
+  danfe_arquivo?: boolean
+  danfe_sha256?: boolean
+  nfse_codigo_verificacao?: boolean
+  nfse_municipio_ibge?: boolean
+  fornecedor_id?: boolean
+  compras_pedido_id?: boolean
+  estoque_status?: boolean
+  estoque_movimentado_em?: boolean
   fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+  p5_fornecedor?: boolean | Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>
+  p5_compras_pedido?: boolean | Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>
 }, ExtArgs["result"]["fin_notas_recebidas"]>
 
 export type fin_notas_recebidasSelectScalar = {
@@ -2707,21 +5345,50 @@ export type fin_notas_recebidasSelectScalar = {
   schema_xml?: boolean
   capturado_em?: boolean
   filial_id?: boolean
+  tipo_documento?: boolean
+  status_conferencia?: boolean
+  conferido_por_id?: boolean
+  conferido_por_nome?: boolean
+  conferido_em?: boolean
+  motivo_recusa?: boolean
+  divergencia_obs?: boolean
+  resumo_apenas?: boolean
+  dest_cnpj?: boolean
+  manifestacao_tipo?: boolean
+  manifestacao_status?: boolean
+  manifestacao_protocolo?: boolean
+  manifestacao_em?: boolean
+  danfe_arquivo?: boolean
+  danfe_sha256?: boolean
+  nfse_codigo_verificacao?: boolean
+  nfse_municipio_ibge?: boolean
+  fornecedor_id?: boolean
+  compras_pedido_id?: boolean
+  estoque_status?: boolean
+  estoque_movimentado_em?: boolean
 }
 
-export type fin_notas_recebidasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "chave" | "numero" | "serie" | "modelo" | "natureza" | "data_emissao" | "data_entrada" | "emit_cnpj" | "emit_nome" | "emit_fantasia" | "emit_uf" | "emit_ie" | "valor_produtos" | "valor_frete" | "valor_seguro" | "valor_desconto" | "valor_outros" | "valor_icms" | "valor_icms_st" | "valor_ipi" | "valor_pis" | "valor_cofins" | "valor_total" | "numero_pedido" | "projeto_legado_id" | "protocolo" | "status_sefaz" | "origem" | "situacao" | "forma_pgto" | "categoria" | "observacoes" | "xml_arquivo" | "criado_por" | "criado_em" | "atualizado_em" | "enviado_pagar" | "enviado_pagar_em" | "xml_sha256" | "nsu" | "schema_xml" | "capturado_em" | "filial_id", ExtArgs["result"]["fin_notas_recebidas"]>
+export type fin_notas_recebidasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "legado_id" | "chave" | "numero" | "serie" | "modelo" | "natureza" | "data_emissao" | "data_entrada" | "emit_cnpj" | "emit_nome" | "emit_fantasia" | "emit_uf" | "emit_ie" | "valor_produtos" | "valor_frete" | "valor_seguro" | "valor_desconto" | "valor_outros" | "valor_icms" | "valor_icms_st" | "valor_ipi" | "valor_pis" | "valor_cofins" | "valor_total" | "numero_pedido" | "projeto_legado_id" | "protocolo" | "status_sefaz" | "origem" | "situacao" | "forma_pgto" | "categoria" | "observacoes" | "xml_arquivo" | "criado_por" | "criado_em" | "atualizado_em" | "enviado_pagar" | "enviado_pagar_em" | "xml_sha256" | "nsu" | "schema_xml" | "capturado_em" | "filial_id" | "tipo_documento" | "status_conferencia" | "conferido_por_id" | "conferido_por_nome" | "conferido_em" | "motivo_recusa" | "divergencia_obs" | "resumo_apenas" | "dest_cnpj" | "manifestacao_tipo" | "manifestacao_status" | "manifestacao_protocolo" | "manifestacao_em" | "danfe_arquivo" | "danfe_sha256" | "nfse_codigo_verificacao" | "nfse_municipio_ibge" | "fornecedor_id" | "compras_pedido_id" | "estoque_status" | "estoque_movimentado_em", ExtArgs["result"]["fin_notas_recebidas"]>
 export type fin_notas_recebidasInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_contas_pagar?: boolean | Prisma.fin_notas_recebidas$fin_contas_pagarArgs<ExtArgs>
   fin_notas_recebidas_itens?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs>
   fin_notas_recebidas_parcelas?: boolean | Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs>
   fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+  p5_fornecedor?: boolean | Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>
+  p5_compras_pedido?: boolean | Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>
+  p5_eventos?: boolean | Prisma.fin_notas_recebidas$p5_eventosArgs<ExtArgs>
+  p5_movimentos?: boolean | Prisma.fin_notas_recebidas$p5_movimentosArgs<ExtArgs>
   _count?: boolean | Prisma.Fin_notas_recebidasCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type fin_notas_recebidasIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+  p5_fornecedor?: boolean | Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>
+  p5_compras_pedido?: boolean | Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>
 }
 export type fin_notas_recebidasIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fin_filiais?: boolean | Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>
+  p5_fornecedor?: boolean | Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>
+  p5_compras_pedido?: boolean | Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>
 }
 
 export type $fin_notas_recebidasPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2731,6 +5398,10 @@ export type $fin_notas_recebidasPayload<ExtArgs extends runtime.Types.Extensions
     fin_notas_recebidas_itens: Prisma.$fin_notas_recebidas_itensPayload<ExtArgs>[]
     fin_notas_recebidas_parcelas: Prisma.$fin_notas_recebidas_parcelasPayload<ExtArgs>[]
     fin_filiais: Prisma.$fin_filiaisPayload<ExtArgs> | null
+    p5_fornecedor: Prisma.$ComprasFornecedorPayload<ExtArgs> | null
+    p5_compras_pedido: Prisma.$ComprasPedidoPayload<ExtArgs> | null
+    p5_eventos: Prisma.$fin_notas_recebidas_eventosPayload<ExtArgs>[]
+    p5_movimentos: Prisma.$est_movimentosPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -2778,6 +5449,27 @@ export type $fin_notas_recebidasPayload<ExtArgs extends runtime.Types.Extensions
     schema_xml: string | null
     capturado_em: Date | null
     filial_id: bigint | null
+    tipo_documento: string
+    status_conferencia: string
+    conferido_por_id: string | null
+    conferido_por_nome: string | null
+    conferido_em: Date | null
+    motivo_recusa: string | null
+    divergencia_obs: string | null
+    resumo_apenas: boolean
+    dest_cnpj: string | null
+    manifestacao_tipo: string | null
+    manifestacao_status: string | null
+    manifestacao_protocolo: string | null
+    manifestacao_em: Date | null
+    danfe_arquivo: string | null
+    danfe_sha256: string | null
+    nfse_codigo_verificacao: string | null
+    nfse_municipio_ibge: string | null
+    fornecedor_id: string | null
+    compras_pedido_id: string | null
+    estoque_status: string
+    estoque_movimentado_em: Date | null
   }, ExtArgs["result"]["fin_notas_recebidas"]>
   composites: {}
 }
@@ -3176,6 +5868,10 @@ export interface Prisma__fin_notas_recebidasClient<T, Null = never, ExtArgs exte
   fin_notas_recebidas_itens<T extends Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_notas_recebidas_itensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_itensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fin_notas_recebidas_parcelas<T extends Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_notas_recebidas_parcelasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_parcelasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   fin_filiais<T extends Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$fin_filiaisArgs<ExtArgs>>): Prisma.Prisma__fin_filiaisClient<runtime.Types.Result.GetResult<Prisma.$fin_filiaisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  p5_fornecedor<T extends Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$p5_fornecedorArgs<ExtArgs>>): Prisma.Prisma__ComprasFornecedorClient<runtime.Types.Result.GetResult<Prisma.$ComprasFornecedorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  p5_compras_pedido<T extends Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs>>): Prisma.Prisma__ComprasPedidoClient<runtime.Types.Result.GetResult<Prisma.$ComprasPedidoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  p5_eventos<T extends Prisma.fin_notas_recebidas$p5_eventosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$p5_eventosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$fin_notas_recebidas_eventosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  p5_movimentos<T extends Prisma.fin_notas_recebidas$p5_movimentosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.fin_notas_recebidas$p5_movimentosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$est_movimentosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3250,6 +5946,27 @@ export interface fin_notas_recebidasFieldRefs {
   readonly schema_xml: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
   readonly capturado_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
   readonly filial_id: Prisma.FieldRef<"fin_notas_recebidas", 'BigInt'>
+  readonly tipo_documento: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly status_conferencia: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly conferido_por_id: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly conferido_por_nome: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly conferido_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
+  readonly motivo_recusa: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly divergencia_obs: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly resumo_apenas: Prisma.FieldRef<"fin_notas_recebidas", 'Boolean'>
+  readonly dest_cnpj: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly manifestacao_tipo: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly manifestacao_status: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly manifestacao_protocolo: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly manifestacao_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
+  readonly danfe_arquivo: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly danfe_sha256: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly nfse_codigo_verificacao: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly nfse_municipio_ibge: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly fornecedor_id: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly compras_pedido_id: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly estoque_status: Prisma.FieldRef<"fin_notas_recebidas", 'String'>
+  readonly estoque_movimentado_em: Prisma.FieldRef<"fin_notas_recebidas", 'DateTime'>
 }
     
 
@@ -3739,6 +6456,92 @@ export type fin_notas_recebidas$fin_filiaisArgs<ExtArgs extends runtime.Types.Ex
    */
   include?: Prisma.fin_filiaisInclude<ExtArgs> | null
   where?: Prisma.fin_filiaisWhereInput
+}
+
+/**
+ * fin_notas_recebidas.p5_fornecedor
+ */
+export type fin_notas_recebidas$p5_fornecedorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ComprasFornecedor
+   */
+  select?: Prisma.ComprasFornecedorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ComprasFornecedor
+   */
+  omit?: Prisma.ComprasFornecedorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ComprasFornecedorInclude<ExtArgs> | null
+  where?: Prisma.ComprasFornecedorWhereInput
+}
+
+/**
+ * fin_notas_recebidas.p5_compras_pedido
+ */
+export type fin_notas_recebidas$p5_compras_pedidoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ComprasPedido
+   */
+  select?: Prisma.ComprasPedidoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ComprasPedido
+   */
+  omit?: Prisma.ComprasPedidoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ComprasPedidoInclude<ExtArgs> | null
+  where?: Prisma.ComprasPedidoWhereInput
+}
+
+/**
+ * fin_notas_recebidas.p5_eventos
+ */
+export type fin_notas_recebidas$p5_eventosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the fin_notas_recebidas_eventos
+   */
+  select?: Prisma.fin_notas_recebidas_eventosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the fin_notas_recebidas_eventos
+   */
+  omit?: Prisma.fin_notas_recebidas_eventosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.fin_notas_recebidas_eventosInclude<ExtArgs> | null
+  where?: Prisma.fin_notas_recebidas_eventosWhereInput
+  orderBy?: Prisma.fin_notas_recebidas_eventosOrderByWithRelationInput | Prisma.fin_notas_recebidas_eventosOrderByWithRelationInput[]
+  cursor?: Prisma.fin_notas_recebidas_eventosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Fin_notas_recebidas_eventosScalarFieldEnum | Prisma.Fin_notas_recebidas_eventosScalarFieldEnum[]
+}
+
+/**
+ * fin_notas_recebidas.p5_movimentos
+ */
+export type fin_notas_recebidas$p5_movimentosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the est_movimentos
+   */
+  select?: Prisma.est_movimentosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the est_movimentos
+   */
+  omit?: Prisma.est_movimentosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.est_movimentosInclude<ExtArgs> | null
+  where?: Prisma.est_movimentosWhereInput
+  orderBy?: Prisma.est_movimentosOrderByWithRelationInput | Prisma.est_movimentosOrderByWithRelationInput[]
+  cursor?: Prisma.est_movimentosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Est_movimentosScalarFieldEnum | Prisma.Est_movimentosScalarFieldEnum[]
 }
 
 /**

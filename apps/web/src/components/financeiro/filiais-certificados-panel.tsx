@@ -156,7 +156,7 @@ export function FiliaisCertificadosPanel() {
       setErro(
         cause instanceof Error
           ? cause.message
-          : "Falha ao instalar certificado.",
+          : "Não foi possível instalar o certificado. Confira o arquivo, a senha, a validade e o CNPJ da filial.",
       );
     } finally {
       setOcupado(false);
@@ -189,7 +189,7 @@ export function FiliaisCertificadosPanel() {
       setErro(
         cause instanceof Error
           ? cause.message
-          : "Falha ao remover certificado.",
+          : "Não foi possível remover o certificado. Atualize o status da filial e tente novamente.",
       );
     } finally {
       setOcupado(false);
@@ -322,7 +322,7 @@ export function FiliaisCertificadosPanel() {
             </button>
           )}
           <span className="text-xs text-slate-500">
-            Máximo 5 MB. O arquivo deve conter certificado e chave privada.
+            Máximo 5 MB. Use o arquivo original .pfx ou .p12, com certificado e chave privada. A senha não será exibida novamente.
           </span>
         </div>
       </form>

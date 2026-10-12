@@ -12,6 +12,7 @@ import {
   Input,
 } from "@/components/ui/base";
 import { PageHeader } from "@/components/layout/page-header";
+import { GpGovernancePanel, resolveGovernancePermissions } from "./governanca";
 
 type Finance = {
   contrato: number;
@@ -34,6 +35,9 @@ type Project = {
   numero_contrato?: string;
   numero_pedido?: string;
   gerente?: string;
+  aliq_simples?: number | string | null;
+  aliq_iss?: number | string | null;
+  aliq_outros?: number | string | null;
   aprovacao_status?: "NAO_SUBMETIDO" | "PENDENTE" | "APROVADO" | "REJEITADO";
   versao: number;
   aprovado_em?: string | null;
@@ -884,10 +888,36 @@ export function GpProjects({
     </>
   );
 }
+type ProjectOrder = {
+  id: number;
+  projeto_id?: number;
+  numero_os?: string | null;
+  tipo?: string | null;
+  situacao?: string | null;
+  tecnico?: string | null;
+  descricao?: string | null;
+  valor?: number | string | null;
+  natureza_valor?:
+    | "NAO_CLASSIFICADO"
+    | "VALOR_VENDA"
+    | "CUSTO"
+    | string
+    | null;
+  valor_venda?: number | string | null;
+  custo_apropriavel?: number | string | null;
+  versao: number;
+  excluido_em?: string | null;
+};
+
+type OrderFinanceNature =
+  | "NAO_CLASSIFICADO"
+  | "VALOR_VENDA"
+  | "CUSTO";
+
 type Detail = Project & {
   gp_custo: any[];
   gp_material: any[];
-  gp_os: any[];
+  gp_os: ProjectOrder[];
   gp_marco: any[];
   gp_relatorio: any[];
 };
@@ -898,6 +928,7 @@ type OrderSyncResult = {
   contrato: string | null;
   localizadas: number;
   existentes: number;
+  atualizadas: number;
   incluidas: number;
   ignoradas: number;
   ambiguidades: number;
@@ -911,6 +942,7 @@ export function GpDetail({
   canRestore: _canRestore,
   canManageOs,
   canApprove,
+  permissions,
 }: {
   id: number;
   canManage: boolean;
@@ -918,10 +950,13 @@ export function GpDetail({
   canRestore: boolean;
   canManageOs: boolean;
   canApprove: boolean;
+  permissions: readonly string[];
 }) {
   void _canManage;
   void _canDelete;
   void _canRestore;
+  const governancePermissions =
+    resolveGovernancePermissions(permissions);
 
   const [p, setP] = useState<Detail | null>(null),
     [tab, setTab] = useState("resumo"),
@@ -930,7 +965,12 @@ export function GpDetail({
     [syncWarning, setSyncWarning] = useState(""),
     [syncResult, setSyncResult] = useState<OrderSyncResult | null>(null),
     [approvalAction, setApprovalAction] = useState<"submeter" | "aprovar" | "rejeitar" | "">(""),
-    [rejectionReason, setRejectionReason] = useState("");
+    [rejectionReason, setRejectionReason] = useState(""),
+    [taxEditorOpen, setTaxEditorOpen] = useState(false),
+    [taxSaving, setTaxSaving] = useState(false),
+    [aliqSimples, setAliqSimples] = useState(""),
+    [aliqIss, setAliqIss] = useState(""),
+    [aliqOutros, setAliqOutros] = useState("");
 
   const autoSyncProjectRef = useRef<number | null>(null);
   const syncInFlightRef = useRef(false);
@@ -1003,6 +1043,91 @@ export function GpDetail({
       cancelled = true;
     };
   }, [canManageOs, id, load]);
+  function openTaxEditor() {
+    if (!p) return;
+
+    setAliqSimples(
+      (Number(p.aliq_simples || 0) * 100).toFixed(2),
+    );
+    setAliqIss(
+      (Number(p.aliq_iss || 0) * 100).toFixed(2),
+    );
+    setAliqOutros(
+      (Number(p.aliq_outros || 0) * 100).toFixed(2),
+    );
+
+    setTaxEditorOpen(true);
+    setError("");
+    setMessage("");
+  }
+
+  async function saveTaxes() {
+    if (!p) return;
+
+    const simples = Number(aliqSimples.replace(",", "."));
+    const iss = Number(aliqIss.replace(",", "."));
+    const outros = Number(aliqOutros.replace(",", "."));
+
+    if (
+      !Number.isFinite(simples) ||
+      !Number.isFinite(iss) ||
+      !Number.isFinite(outros)
+    ) {
+      setError("Informe alíquotas válidas.");
+      return;
+    }
+
+    if (
+      simples < 0 ||
+      simples > 100 ||
+      iss < 0 ||
+      iss > 100 ||
+      outros < 0 ||
+      outros > 100
+    ) {
+      setError(
+        "Cada alíquota deve estar entre 0% e 100%.",
+      );
+      return;
+    }
+
+    if (simples + iss + outros > 100) {
+      setError(
+        "A soma das alíquotas não pode ultrapassar 100%.",
+      );
+      return;
+    }
+
+    setTaxSaving(true);
+    setError("");
+    setMessage("");
+
+    try {
+      await api(`${id}/impostos`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          aliqSimples: simples,
+          aliqIss: iss,
+          aliqOutros: outros,
+          versao: p.versao,
+        }),
+      });
+
+      setTaxEditorOpen(false);
+      setMessage("Impostos atualizados com sucesso.");
+      await load();
+    } catch (saveError) {
+      setError(
+        saveError instanceof Error
+          ? saveError.message
+          : "Falha ao atualizar impostos.",
+      );
+      await load();
+    } finally {
+      setTaxSaving(false);
+    }
+  }
+
   async function transitionApproval(action: "submeter" | "aprovar" | "rejeitar") {
     if (action === "rejeitar" && !rejectionReason.trim()) {
       setError("Informe o motivo da rejeição.");
@@ -1045,6 +1170,15 @@ export function GpDetail({
     ["os", `OS (${p.gp_os.length})`],
     ["marcos", `Marcos (${p.gp_marco.length})`],
     ["relatorios", `Relatórios (${p.gp_relatorio.length})`],
+    ...(governancePermissions.canViewVisits
+      ? [["visitas", "Visitas"]]
+      : []),
+    ...(governancePermissions.canViewTeam
+      ? [["equipe", "Equipe"]]
+      : []),
+    ...(governancePermissions.canViewRisks
+      ? [["riscos", "Riscos"]]
+      : []),
   ];
   return (
     <>
@@ -1090,6 +1224,7 @@ export function GpDetail({
           className="mb-4 rounded-xl bg-blue-50 p-3 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300"
         >
           OS sincronizadas: {syncResult.incluidas} novas,{" "}
+          {syncResult.atualizadas} atualizadas,{" "}
           {syncResult.existentes} existentes e{" "}
           {syncResult.ambiguidades} ambiguidades. Atualizado em{" "}
           {new Date(syncResult.sincronizadoEm).toLocaleString("pt-BR")}.
@@ -1124,7 +1259,109 @@ export function GpDetail({
         ))}
       </div>
       {tab === "resumo" && (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <>
+          <div className="mb-4 flex justify-end">
+            {_canManage && (
+              <Button
+                variant="secondary"
+                onClick={openTaxEditor}
+              >
+                Editar impostos
+              </Button>
+            )}
+          </div>
+
+          {taxEditorOpen && (
+            <Card className="mb-5">
+              <CardHeader>
+                <div>
+                  <h2 className="font-bold">
+                    Impostos do projeto
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-500">
+                    Informe as alíquotas em percentual.
+                  </p>
+                </div>
+              </CardHeader>
+
+              <CardBody>
+                <div className="grid gap-4 md:grid-cols-3">
+                  <label className="text-sm font-semibold">
+                    Simples Nacional (%)
+                    <Input
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="0.01"
+                      value={aliqSimples}
+                      onChange={(event) =>
+                        setAliqSimples(event.target.value)
+                      }
+                    />
+                  </label>
+
+                  <label className="text-sm font-semibold">
+                    ISS (%)
+                    <Input
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="0.01"
+                      value={aliqIss}
+                      onChange={(event) =>
+                        setAliqIss(event.target.value)
+                      }
+                    />
+                  </label>
+
+                  <label className="text-sm font-semibold">
+                    Outros impostos (%)
+                    <Input
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="0.01"
+                      value={aliqOutros}
+                      onChange={(event) =>
+                        setAliqOutros(event.target.value)
+                      }
+                    />
+                  </label>
+                </div>
+
+                <p className="mt-4 text-sm text-slate-500">
+                  Total informado:{" "}
+                  {(
+                    Number(aliqSimples.replace(",", ".")) +
+                    Number(aliqIss.replace(",", ".")) +
+                    Number(aliqOutros.replace(",", "."))
+                  ).toFixed(2)}
+                  %
+                </p>
+
+                <div className="mt-5 flex justify-end gap-2">
+                  <Button
+                    variant="secondary"
+                    disabled={taxSaving}
+                    onClick={() => setTaxEditorOpen(false)}
+                  >
+                    Cancelar
+                  </Button>
+
+                  <Button
+                    disabled={taxSaving}
+                    onClick={() => void saveTaxes()}
+                  >
+                    {taxSaving
+                      ? "Salvando..."
+                      : "Salvar impostos"}
+                  </Button>
+                </div>
+              </CardBody>
+            </Card>
+          )}
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {[
             ["Contrato", money(p.financeiro.contrato)],
             ["Orçado", money(p.financeiro.orcado)],
@@ -1145,9 +1382,30 @@ export function GpDetail({
               </CardBody>
             </Card>
           ))}
-        </div>
+          </div>
+        </>
       )}
-      {tab !== "resumo" && (
+      {["visitas", "equipe", "riscos"].includes(tab) && (
+        <GpGovernancePanel
+          projectId={id}
+          permissions={governancePermissions}
+          section={tab as "visitas" | "equipe" | "riscos"}
+        />
+      )}
+      {tab === "os" && (
+        <OrderFinanceCollection
+          projectId={id}
+          rows={p.gp_os}
+          canManage={canManageOs}
+          onReload={load}
+          setPageError={setError}
+          setPageMessage={setMessage}
+        />
+      )}
+
+      {tab !== "resumo" &&
+        tab !== "os" &&
+        !["visitas", "equipe", "riscos"].includes(tab) && (
         <Collection
           title={tabs.find((x) => x[0] === tab)?.[1] || tab}
           rows={
@@ -1160,6 +1418,420 @@ export function GpDetail({
     </>
   );
 }
+function OrderFinanceCollection({
+  projectId,
+  rows,
+  canManage,
+  onReload,
+  setPageError,
+  setPageMessage,
+}: {
+  projectId: number;
+  rows: ProjectOrder[];
+  canManage: boolean;
+  onReload: () => Promise<Detail | null>;
+  setPageError: (message: string) => void;
+  setPageMessage: (message: string) => void;
+}) {
+  const [editingId, setEditingId] =
+    useState<number | null>(null);
+
+  const [naturezaValor, setNaturezaValor] =
+    useState<OrderFinanceNature>("NAO_CLASSIFICADO");
+
+  const [valorVenda, setValorVenda] =
+    useState("");
+
+  const [custoApropriavel, setCustoApropriavel] =
+    useState("");
+
+  const [savingId, setSavingId] =
+    useState<number | null>(null);
+
+  function numberValue(value: string) {
+    return Number(
+      String(value || "0")
+        .trim()
+        .replace(/\./g, "")
+        .replace(",", "."),
+    );
+  }
+
+  function beginEdit(order: ProjectOrder) {
+    const currentNature =
+      order.natureza_valor === "VALOR_VENDA" ||
+      order.natureza_valor === "CUSTO"
+        ? order.natureza_valor
+        : "NAO_CLASSIFICADO";
+
+    setEditingId(order.id);
+    setNaturezaValor(currentNature);
+
+    setValorVenda(
+      Number(order.valor_venda || 0).toFixed(2),
+    );
+
+    setCustoApropriavel(
+      Number(order.custo_apropriavel || 0).toFixed(2),
+    );
+
+    setPageError("");
+    setPageMessage("");
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setNaturezaValor("NAO_CLASSIFICADO");
+    setValorVenda("");
+    setCustoApropriavel("");
+  }
+
+  async function saveOrderFinance(
+    order: ProjectOrder,
+  ) {
+    const sale =
+      naturezaValor === "VALOR_VENDA"
+        ? numberValue(valorVenda)
+        : 0;
+
+    const cost =
+      naturezaValor === "CUSTO"
+        ? numberValue(custoApropriavel)
+        : 0;
+
+    if (
+      !Number.isFinite(sale) ||
+      sale < 0 ||
+      !Number.isFinite(cost) ||
+      cost < 0
+    ) {
+      setPageError(
+        "Informe valores financeiros válidos e não negativos.",
+      );
+      return;
+    }
+
+    if (
+      naturezaValor === "VALOR_VENDA" &&
+      sale <= 0
+    ) {
+      setPageError(
+        "Informe um valor de venda maior que zero.",
+      );
+      return;
+    }
+
+    if (
+      naturezaValor === "CUSTO" &&
+      cost <= 0
+    ) {
+      setPageError(
+        "Informe um custo apropriável maior que zero.",
+      );
+      return;
+    }
+
+    if (
+      naturezaValor === "CUSTO" &&
+      !window.confirm(
+        "Confirma a apropriação deste valor como custo realizado da OS?",
+      )
+    ) {
+      return;
+    }
+
+    setSavingId(order.id);
+    setPageError("");
+    setPageMessage("");
+
+    try {
+      await api(
+        `${projectId}/os/${order.id}/financeiro`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({
+            naturezaValor,
+            valorVenda: sale,
+            custoApropriavel: cost,
+            versao: order.versao,
+          }),
+        },
+      );
+
+      setEditingId(null);
+
+      setPageMessage(
+        naturezaValor === "CUSTO"
+          ? "Classificação financeira e custo da OS atualizados."
+          : naturezaValor === "VALOR_VENDA"
+            ? "OS classificada como valor de venda."
+            : "Classificação financeira da OS removida.",
+      );
+
+      await onReload();
+    } catch (saveError) {
+      setPageError(
+        saveError instanceof Error
+          ? saveError.message
+          : "Falha ao atualizar a classificação financeira da OS.",
+      );
+
+      await onReload();
+    } finally {
+      setSavingId(null);
+    }
+  }
+
+  if (!rows.length) {
+    return (
+      <Card>
+        <EmptyState title="Nenhuma OS localizada" />
+      </Card>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <div
+        role="status"
+        className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200"
+      >
+        <p className="font-semibold">
+          Classificação financeira controlada
+        </p>
+
+        <p className="mt-1">
+          O valor original da OS não é apropriado
+          automaticamente como custo. A classificação como
+          custo exige um valor apropriável explícito.
+        </p>
+
+        <p className="mt-1">
+          Se houver custo agregado legado de OS no projeto,
+          o backend bloqueará a apropriação individual para
+          impedir contabilização duplicada.
+        </p>
+      </div>
+
+      {rows.map((order) => {
+        const editing = editingId === order.id;
+
+        const nature =
+          order.natureza_valor ||
+          "NAO_CLASSIFICADO";
+
+        return (
+          <Card key={order.id}>
+            <CardHeader>
+              <div>
+                <h2 className="font-bold">
+                  OS {order.numero_os || order.id}
+                </h2>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  {order.descricao ||
+                    "Sem descrição informada"}
+                </p>
+              </div>
+
+              <Badge
+                tone={
+                  nature === "CUSTO"
+                    ? "warning"
+                    : nature === "VALOR_VENDA"
+                      ? "info"
+                      : "neutral"
+                }
+              >
+                {nature === "CUSTO"
+                  ? "Custo"
+                  : nature === "VALOR_VENDA"
+                    ? "Valor de venda"
+                    : "Não classificado"}
+              </Badge>
+            </CardHeader>
+
+            <CardBody>
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+                {[
+                  [
+                    "Valor importado",
+                    money(Number(order.valor || 0)),
+                  ],
+                  [
+                    "Valor de venda",
+                    money(Number(order.valor_venda || 0)),
+                  ],
+                  [
+                    "Custo apropriável",
+                    money(
+                      Number(
+                        order.custo_apropriavel || 0,
+                      ),
+                    ),
+                  ],
+                  [
+                    "Situação",
+                    order.situacao || "Não informada",
+                  ],
+                  [
+                    "Versão",
+                    String(order.versao || 1),
+                  ],
+                ].map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="rounded-xl border border-slate-200 p-3 dark:border-slate-800"
+                  >
+                    <p className="text-xs font-semibold uppercase text-slate-500">
+                      {label}
+                    </p>
+
+                    <p className="mt-1 font-semibold">
+                      {value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {!editing && canManage && (
+                <div className="mt-4 flex justify-end">
+                  <Button
+                    variant="secondary"
+                    onClick={() => beginEdit(order)}
+                  >
+                    Editar classificação financeira
+                  </Button>
+                </div>
+              )}
+
+              {editing && (
+                <div className="mt-5 rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <label className="text-sm font-semibold">
+                      Natureza financeira
+                      <select
+                        value={naturezaValor}
+                        disabled={savingId === order.id}
+                        onChange={(event) => {
+                          const next =
+                            event.target
+                              .value as OrderFinanceNature;
+
+                          setNaturezaValor(next);
+
+                          if (
+                            next !== "VALOR_VENDA"
+                          ) {
+                            setValorVenda("");
+                          }
+
+                          if (next !== "CUSTO") {
+                            setCustoApropriavel("");
+                          }
+                        }}
+                        className="mt-2 w-full rounded-xl border border-slate-300 bg-transparent px-3 py-2 dark:border-slate-700"
+                      >
+                        <option value="NAO_CLASSIFICADO">
+                          Não classificado
+                        </option>
+
+                        <option value="VALOR_VENDA">
+                          Valor de venda
+                        </option>
+
+                        <option value="CUSTO">
+                          Custo
+                        </option>
+                      </select>
+                    </label>
+
+                    <label className="text-sm font-semibold">
+                      Valor de venda
+                      <Input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        disabled={
+                          savingId === order.id ||
+                          naturezaValor !==
+                            "VALOR_VENDA"
+                        }
+                        value={valorVenda}
+                        onChange={(event) =>
+                          setValorVenda(
+                            event.target.value,
+                          )
+                        }
+                      />
+                    </label>
+
+                    <label className="text-sm font-semibold">
+                      Custo apropriável
+                      <Input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        disabled={
+                          savingId === order.id ||
+                          naturezaValor !== "CUSTO"
+                        }
+                        value={custoApropriavel}
+                        onChange={(event) =>
+                          setCustoApropriavel(
+                            event.target.value,
+                          )
+                        }
+                      />
+                    </label>
+                  </div>
+
+                  {naturezaValor === "CUSTO" && (
+                    <p className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
+                      O custo será contabilizado no realizado
+                      do projeto. A operação será bloqueada
+                      se existir custo agregado legado de OS.
+                    </p>
+                  )}
+
+                  {naturezaValor ===
+                    "VALOR_VENDA" && (
+                    <p className="mt-4 rounded-xl bg-blue-50 p-3 text-sm text-blue-900 dark:bg-blue-950/30 dark:text-blue-200">
+                      O valor de venda não será tratado como
+                      custo realizado.
+                    </p>
+                  )}
+
+                  <div className="mt-5 flex justify-end gap-2">
+                    <Button
+                      variant="secondary"
+                      disabled={savingId === order.id}
+                      onClick={cancelEdit}
+                    >
+                      Cancelar
+                    </Button>
+
+                    <Button
+                      disabled={savingId === order.id}
+                      onClick={() =>
+                        void saveOrderFinance(order)
+                      }
+                    >
+                      {savingId === order.id
+                        ? "Salvando..."
+                        : "Salvar classificação financeira"}
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </CardBody>
+          </Card>
+        );
+      })}
+    </div>
+  );
+}
+
 function Collection({ title, rows }: { title: string; rows: any[] }) {
   return (
     <Card>

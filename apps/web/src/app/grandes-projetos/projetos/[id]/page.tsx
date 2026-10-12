@@ -29,6 +29,7 @@ export default async function Page({
         canApprove={
           u.permissoes?.includes("GRANDES_PROJETOS.PROJETOS.APROVAR") ?? false
         }
+      permissions={u.permissoes ?? []}
       />
     </AppShell>
   );

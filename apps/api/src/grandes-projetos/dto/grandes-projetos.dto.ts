@@ -73,6 +73,57 @@ export class ProjectDto {
   aliqOutros?: number;
   @IsOptional() @IsString() observacoes?: string;
 }
+export class ProjectOrderFinanceDto {
+  @IsIn([
+    'NAO_CLASSIFICADO',
+    'VALOR_VENDA',
+    'CUSTO',
+  ])
+  naturezaValor!: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  valorVenda?: number;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  custoApropriavel?: number;
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  versao!: number;
+}
+
+export class ProjectTaxesDto {
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(100)
+  aliqSimples!: number;
+
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(100)
+  aliqIss!: number;
+
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(100)
+  aliqOutros!: number;
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  versao!: number;
+}
+
 export class ApprovalTransitionDto {
   @Type(() => Number)
   @IsInt()

@@ -3,7 +3,7 @@ name: engeradios2
 services:
 
   api:
-    image: engeradios2-api:danfe-nfe-d13b-r2-20261011_221336
+    image: engeradios2-api:nfe-distdfe-d15c-20261012_123654
     container_name: engeradios2-api
 
     restart: unless-stopped
@@ -29,6 +29,9 @@ services:
       - type: bind
         source: /var/lib/engeradios2/fiscal/certificados
         target: /etc/engeradios2/fiscal/nfe/certificados
+      - type: bind
+        source: /var/lib/engeradios2/fiscal/nfe/xml/recebidos
+        target: /etc/engeradios2/fiscal/nfe/xml/recebidos
       - type: bind
         source: /var/lib/engeradios2/fiscal/secrets
         target: /etc/engeradios2/fiscal/secrets
